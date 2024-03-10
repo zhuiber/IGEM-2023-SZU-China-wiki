@@ -1,0 +1,1177 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(6 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(7 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/protocol-2.jpeg")
+      no-repeat bottom center/cover;
+  }
+
+  ul:not(#refer) {
+    padding-left: 2em;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Protocol</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">RNAi</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor1.1" class="scroll-link d-block w-100"
+                      >Experiment on microbiology</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor1.2" class="scroll-link d-block w-100"
+                      >In vivo expression and extraction of RNAi</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.3" class="scroll-link d-block w-100"
+                      >Product validation experiment</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Plant Immunity</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >Plasmid construction and expression validation</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >Protein expression validation</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.3" class="scroll-link d-block w-100"
+                      >Protein function verification</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>RNAi</h2>
+            <section id="anchor1.1">
+              <h3>Experiment on microbiology</h3>
+              <br />
+              <h5>1.Medium formulation</h5>
+              <ul>
+                <h5>LB medium (for <i>E. coli</i> )</h5>
+                <ul class="ps-4">
+                  <li>Yeast extract 5 g/L</li>
+                  <li>Sodium chloride 10 g/L</li>
+                  <li>Tryptone 10 g/L</li>
+                  <li>Agar 20g/L (solid）</li>
+                </ul>
+                <br />
+                <h5>PDA medium(for <i>B. cinerea</i> )</h5>
+                <ul class="ps-4">
+                  <li>PDA medium (potato glucose water AGAR medium, PDA) :</li>
+                  <li>
+                    ddH<sub>2</sub>O was added to 46 g PDA medium powder until
+                    the total volume was 1 L.
+                  </li>
+                </ul>
+              </ul>
+
+              <br />
+
+              <h4>2.Strain culture</h4>
+              <ul>
+                <li>Inoculation of <i>B. cinerea</i>:</li>
+                <li>
+                  Using a 200μl yellow pipette tip, punch at the edge of the
+                  Botrytis cinerea plate, and then inoculate the mycelium plug
+                  into the center of the new PDA medium. Incubate in a 21℃
+                  incubator.
+                </li>
+              </ul>
+              <br />
+            </section>
+            <section id="anchor1.2">
+              <h3>In vivo expression and extraction of RNAi</h3>
+              <br />
+              <h4>1.Transformation of RNAi plasmid</h4>
+              <ul class="ps-4">
+                <li>
+                  (1) Retrieve HT115(DE3) competent cells from -80°C freezer and
+                  quickly place them on ice. After 5 minutes, when the cell
+                  pellet has thawed, add the desired plasmid and gently mix by
+                  tapping the bottom of the Eppendorf tube (avoid using a
+                  pipette for mixing). Allow the mixture to stand on ice for 25
+                  minutes.
+                </li>
+                <li>
+                  (2) Heat shock the mixture in a 42°C water bath for 45
+                  seconds, then quickly return it to ice and let it stand for 2
+                  minutes. Avoid shaking, as it can reduce transformation
+                  efficiency.
+                </li>
+                <li>
+                  (3) Add 700μL of antibiotic-free LB sterile culture medium to
+                  the centrifuge tube and incubate at 37°C with shaking at
+                  200rpm for 60 minutes to allow for recovery.
+                </li>
+                <li>
+                  (4) Centrifuge at 5000rpm for 1 minute to collect the cells.
+                  Carefully aspirate approximately 50μL of the supernatant,
+                  resuspend the cell pellet by gently pipetting, and spread it
+                  onto LB solid medium supplemented with kanamycin (50mg/mL).
+                </li>
+                <li>
+                  (5) Invert the plates and incubate overnight at 37°C in an
+                  incubator.
+                </li>
+              </ul>
+              <br />
+              <h4>2.Validation and screening</h4>
+              <h5>2.1Plasmid extraction</h5>
+              <p>
+                Pick single colonies from the transformed plate and inoculate
+                them into 20mL of LB liquid medium containing kanamycin
+                (50μg/mL, diluted at a ratio of 1:1000 from a stock
+                concentration of 50mg/mL). Incubate the cultures overnight at
+                37°C on a shaking incubator. Small extraction: See TIANGEN
+                plasmid small extraction kit.
+              </p>
+              <br />
+              <h5>2.2Polymerase chain reaction</h5>
+              <p>Reaction system：</p>
+              <br />
+              <table class="table table-striped my-2 text-center">
+                <tr>
+                  <th scope="row">Plasmid</th>
+                  <td>1μL（about 10ng/μL）<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Primer 1（10μM）</th>
+                  <td>0.8μL<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Primer 2（10μM）</th>
+                  <td>0.8μL<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">2×Taq Mix</th>
+                  <td>10μL<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">ddH<sub>2</sub>O</th>
+                  <td>Up to 20μL<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">system</th>
+                  <td>20μL<br /></td>
+                </tr>
+              </table>
+              <br />
+              <p>Reaction process：</p>
+              <br />
+              <table class="table table-striped my-2 text-center">
+                <tr>
+                  <th scope="row" style="width: 200px">step 1</th>
+                  <td>95℃<br /></td>
+                  <td>3min<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">step 2（30 cycles）</th>
+                  <td>95℃<br /></td>
+                  <td>15s<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">step 3（30 cycles）</th>
+                  <td>
+                    55℃（Adjust according to the Tm value, typically set to be
+                    3-5°C lower than the primer Tm value.）<br />
+                  </td>
+                  <td>15s<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">step 4（30 cycles）</th>
+                  <td>72℃<br /></td>
+                  <td>1min05s<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">step 5</th>
+                  <td>72℃<br /></td>
+                  <td>5min<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">step 6</th>
+                  <td>16℃<br /></td>
+                  <td>∞<br /></td>
+                </tr>
+              </table>
+              <br />
+              <h5>2.3Agarose gel electrophoresis</h5>
+              <ul class="ps-4">
+                <li>
+                  1. Dissolve 0.3 g of agarose in 30 mL of 1X TAE solution, heat
+                  it until the bubbles stop, and the solution becomes
+                  transparent, cool slightly and add 3 μL Goldview (10000x)
+                </li>
+                <li>
+                  2. Pour the gel into the gel membrane tool inserted with the
+                  comb, and wait for it to set.
+                </li>
+                <li>
+                  3.Put the gel into the electrophoresis tank and add 1X TAE
+                  buffer to completely cover the gel and squeeze out the bubbles
+                  in the gel hole.
+                </li>
+                <li>
+                  4. Add the mixed sample and marker to the gel hole. Specific
+                  experiments determine the sample loading volume. The marker
+                  loading volume is based on the following standards，11 wells
+                  gel corresponds to 2 μL, 8 wells correspond to 5 μL, and 6
+                  wells corresponds to 10 μL.
+                </li>
+                <li>
+                  5. Run electrophoresis under 180V voltage until the colour
+                  band of loading buffer is electrophoresed to the middle or
+                  two-thirds of the gel, stop electrophoresis.
+                </li>
+                <li>
+                  6. Use ultraviolet light to image the gel. If necessary, cut
+                  rubber for recycling.
+                </li>
+              </ul>
+              <br />
+              <br />
+              <h4>3.RNA extraction</h4>
+              <h5>3.1IPTG induction</h5>
+              <ul class="ps-4">
+                <li>
+                  (1) Use a 200μL yellow pipette tip to pick a single colony of
+                  HT115 cells harboring the transformed plasmid from the growth
+                  on the plate and inoculate it into 4mL (not exceeding 5mL) of
+                  LB liquid medium containing kanamycin (50μg/mL, diluted at a
+                  ratio of 1:1000 from a stock concentration of 50mg/mL) in a
+                  10mL culture tube (leave the pipette tip in the culture tube).
+                  Shake the culture overnight at 37°C.
+                </li>
+                <li>
+                  (2) Take a small aliquot (as described below) of the above
+                  culture (1% inoculum) and inoculate it into LB liquid medium
+                  containing kanamycin (50μg/mL) in a culture tube. Shake the
+                  culture at 37°C with agitation at 200-300rpm for 3-4 hours (4
+                  hours) until the A600OD reaches approximately 0.6.
+                  <ul class="ps-4">
+                    <li>
+                      Small-scale system (for electrophoresis): Add 40μL of the
+                      bacterial culture to 4mL of antibiotic-containing medium.
+                    </li>
+                    <li>
+                      Large-scale system (for RNA extraction): Add 500μL of the
+                      bacterial culture to 50mL of antibiotic-containing medium.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  (3) Take out 1mL of the sample as the pre-induction sample and
+                  store it at -20°C for subsequent RNA extraction and
+                  electrophoresis validation.
+                </li>
+                <li>
+                  (4) Take out 1mL of the remaining samples (same as the
+                  control) and add IPTG (0.1mol/L) at a ratio of 1:200 (final
+                  concentration of 0.5mmol/L). Shake the samples at 37°C for 4
+                  hours. Store the remaining samples in a 4°C refrigerator. If
+                  the sample volume is 1mL, add 5μL of IPTG.
+                </li>
+                <li>
+                  (5) Transfer the bacterial culture from the culture tubes to
+                  centrifuge tubes. Centrifuge the induced bacterial culture at
+                  4000rpm for 10 minutes, discard the supernatant, and collect
+                  the bacterial pellet for RNA extraction.
+                </li>
+              </ul>
+              <br />
+              <h5>3.2RNA Extraction</h5>
+              <p>Perform all steps on ice!</p>
+              <ul class="ps-4">
+                <li>
+                  (1) Add 1-2mL of Tritol to every 10mL of bacterial culture.
+                </li>
+                <li>
+                  (2) Vortex for 15s to pellet the cells, then transfer 1mL of
+                  the pellet into a pre-chilled centrifuge tube.
+                </li>
+                <li>(3) Static 5min.</li>
+                <li>(4) Add 400μL of pre-chilled chloroform to the tube.</li>
+                <li>
+                  (5) Let the tube sit for 3 minutes, allowing the solution to
+                  separate into layers.
+                </li>
+                <li>
+                  (6) Centrifuge the tube at 12000rpm for 15 minutes at 4°C.
+                </li>
+                <li>
+                  (7) Carefully transfer the upper aqueous phase to a new tube
+                  and add an equal volume of pre-chilled isopropanol stored at
+                  -20°C. Mix gently.
+                </li>
+                <li>
+                  (8) Let the tube sit at room temperature for 20-30 minutes to
+                  allow RNA precipitation. Alternatively, precipitate at -80°C
+                  for approximately 20 minutes for faster results.
+                </li>
+                <li>
+                  (9) Centrifuge the tube at 12000rpm for 10 minutes at 4°C.
+                </li>
+                <li>(10) Discard the supernatant.</li>
+                <li>
+                  (11) Add 1mL of 75% ethanol (pre-chilled at 4°C) to wash the
+                  RNA pellet. Mix by pipetting up and down.
+                </li>
+                <li>
+                  (12) Centrifuge the tube at 7500rpm for 5 minutes at 4°C. Use
+                  a pipette to aspirate the remaining supernatant and air-dry
+                  the pellet in a fume hood for approximately 15-30 minutes.
+                </li>
+                <li>
+                  (13) Add 40μL of DEPC water and use a pipette to dissolve the
+                  RNA pellet. (For smaller systems, use 40μL of DEPC water; for
+                  larger systems, use 100μL of DEPC water for enrichment to
+                  avoid exceeding the detection range during concentration
+                  measurement.)
+                </li>
+                <li>(14) Measure the concentration of RNA.</li>
+                <li>
+                  (15) Perform RNA electrophoresis, ensuring that the nucleic
+                  acid concentration is around 100 μg/uL.
+                </li>
+              </ul>
+              <ul style="background-color: #fff; padding: 20px 50px">
+                <li>
+                  1. Dissolve 0.3 g of agarose in 30 mL of 1X TAE solution, heat
+                  it until the bubbles stop, and the solution becomes
+                  transparent, cool slightly and add 3 μL Goldview (10000x)
+                </li>
+                <li>
+                  2. Pour the gel into the gel membrane tool inserted with the
+                  comb, and wait for it to set.
+                </li>
+                <li>
+                  3. Add 1/2/3 μL 6× loading buffer to the 5/10/15μL sample and
+                  mix by pipetting.
+                </li>
+                <li>
+                  4. Put the gel into the electrophoresis tank and add 1X TAE
+                  buffer to completely cover the gel and squeeze out the bubbles
+                  in the gel hole.
+                </li>
+                <li>
+                  5. Add the mixed sample and marker to the gel hole. Specific
+                  experiments determine the sample loading volume. The marker
+                  loading volume is based on the following standards，11 wells
+                  gel corresponds to 2 μL, 8 wells correspond to 5 μL, and 6
+                  wells corresponds to 10 μL.
+                </li>
+                <li>
+                  6. Run electrophoresis under 140V voltage until the colour
+                  band of loading buffer is electrophoresed to the middle or
+                  two-thirds of the gel, stop electrophoresis.
+                </li>
+                <li>7. Use ultraviolet light to image the gel.</li>
+              </ul>
+              <ul class="ps-4">
+                <li>(16)Store RNAi in the refrigerator at -80℃</li>
+                <br />
+              </ul>
+            </section>
+            <section id="anchor1.3">
+              <h3>Product validation experiment</h3>
+              <h4>1.Inoculation Experiment</h4>
+              <p>
+                Clean the surface of tomato fruits with 75% ethanol and let them
+                air dry. Place the fruits in an egg carton lined with moist
+                cotton pads. Use a black marker to draw a dashed circle with a
+                diameter of approximately 3mm in the center of each fruit.
+                Within the dashed circle, make five small holes using a
+                sterilized fine needle.
+              </p>
+              <p>
+                <b>Inoculation with mycelial suspension: </b> Using sterilized
+                forceps, take a suitable amount of mycelium from the
+                <i>B. cinerea</i> agar plate and dissolve it in
+                ddH<sub>2</sub>O. Vortex the solution to obtain a mycelial
+                suspension. Inoculate 8μl of the mycelial suspension within each
+                dashed circle on the tomatoes.
+              </p>
+              <p>
+                <b>Inoculation with mycelial agar discs: </b>Make holes on the
+                edge of the <i>B. cinerea</i> agar plate using a 10μL
+                transparent pipette tip. Place a mycelial agar disc, with the
+                mycelium side facing down, onto the dashed circle area of the
+                tomato.
+              </p>
+              <p>
+                Spray a certain amount of water inside the box and seal it with
+                plastic wrap to maintain a humid environment. Finally, place the
+                inoculated box in a 21°C incubator for further cultivation.
+              </p>
+              <br />
+
+              <h4>2.Naked RNAi Treatment</h4>
+              <p>
+                Using a pipette, apply 10μL of the naked RNAi solution onto the
+                surface of the tomato within and around the dashed circle area
+                (spread the liquid as much as possible without letting it flow
+                off the tomato surface). Let the liquid dry, and then perform
+                the inoculation experiment with <i>B. cinerea</i> as described
+                above (preferably using mycelial agar discs). Each tomato should
+                be treated with 10μL of the RNAi system, which contains 10μg of
+                shRNA and 0.1μL of a 500-fold diluted silwet-77 solution. The
+                total volume of the system should be adjusted with DEPC water.
+              </p>
+              <br />
+              <h4>3.CPP-combined RNAi Treatment</h4>
+              <p>
+                Similar to the naked RNAi treatment, but apply 12μL of the
+                CPP-shRNA system onto each tomato. The 12μL system should
+                contain 10μg of shRNA, 0.1μL of a 500-fold diluted silwet-77
+                solution, and 8.2μL of a 1mg/mL CPP solution. The total volume
+                of the system should be adjusted with DEPC water.
+              </p>
+              <br />
+              <h4>4.RNA Extract tomato sample RNA</h4>
+              <p>
+                For each box of tomatoes, select visibly affected tomatoes from
+                the control group and experimental group. Use forceps and
+                absorbent paper to remove the mycelium on the surface of the
+                tomatoes, which is visible as dark and soft spots. Use a
+                dissecting knife to cut off the affected skin, ensuring that the
+                area removed from each tomato is similar. Place the samples in
+                2mL EP tubes and add two 4mm stainless steel beads to each tube.
+                Collect the EP tubes in a foam box and pour in a sufficient
+                amount of liquid nitrogen to flash freeze the samples. Finally,
+                store the samples in a -80°C freezer. (When sampling, try to
+                avoid including the flesh and tissues with high moisture
+                content)
+              </p>
+              <ul class="ps-4">
+                <li>
+                  (1) Remove the qPCR samples from the -80°C freezer and place
+                  them in liquid nitrogen. Grind the samples in a grinder (42Hz)
+                  for 60s and observe the grinding progress. If the samples are
+                  not completely powdered, use forceps to slightly crush them
+                  before grinding again (42Hz, 60s). Be careful to avoid the EP
+                  tubes from breaking during the grinding process. Repeat the
+                  grinding process three times. Transfer the powdered samples
+                  back into liquid nitrogen.
+                </li>
+                <li>
+                  (2) Add 1 ml of Trizol reagent to the samples and vortex.
+                  Ensure that the total volume of the samples does not exceed
+                  10% of the volume of Trizol. (For 0.1g of plant tissue
+                  samples, add 1 ml of Trizol reagent)
+                </li>
+                <li>
+                  (3) Incubate the EP tubes in an ice bath for 15 minutes, then
+                  add 400 μL of chloroform. Vortex for 1 minute, and incubate in
+                  an ice bath for another 15 minutes.
+                </li>
+                <li>
+                  (4) Centrifuge at 12000 rpm for 15 minutes at 4°C. Carefully
+                  transfer the supernatant to a new RNase-free 1.5 ml EP tube.
+                </li>
+                <li>
+                  (5) Add an equal volume of isopropanol, mix well, and freeze
+                  precipitate on ice for 30 minutes.
+                </li>
+                <li>
+                  (6) After the freeze precipitation, centrifuge at 13000 rpm
+                  for 20 minutes at 4°C. The pellet obtained is the RNA.
+                </li>
+                <li>
+                  (7) After centrifugation, discard the upper liquid without
+                  pouring out the RNA. Add 1 ml of 75% ethanol and wash the
+                  pellet 2-3 times at room temperature, with each wash lasting
+                  5-10 minutes. After each wash, centrifuge at 7500 rpm for 5
+                  minutes at 4°C.
+                </li>
+                <li>
+                  (8) After the washes, centrifuge briefly at high speed and use
+                  a pipette tip to remove excess alcohol.
+                </li>
+                <li>
+                  (9) Air dry the pellet to allow alcohol to evaporate. Add 40μL
+                  of DEPC water and store the samples at -80°C, or proceed with
+                  reverse transcription.
+                </li>
+              </ul>
+              <br />
+
+              <h4>5.The synthesis of cDNA</h4>
+              <p>
+                See the kit: TransScript One-step gDNA Removal amd cDNA
+                Synthesis SuperMix（TransGene).
+              </p>
+              <br />
+
+              <h4>6.qRT-PCR</h4>
+              <h5>6.1Reference gene selection</h5>
+              <ul class="ps-4">
+                <li>Bc‐actin‐qRT‐F:5′‐TGCTCCAGAAGCTTTGTTCCAA‐3′</li>
+                <li>Bc‐actin‐qRT‐R:5′‐TCGGAGATACCTGGGTACATAG‐3′</li>
+              </ul>
+              <br />
+
+              <h5>6.2Primer Design</h5>
+              <br />
+
+              <h5>6.3Setup of the qPCR system</h5>
+              <p>(1)Configure qPCR system:</p>
+              <table class="table table-striped my-2 text-center">
+                <tr>
+                  <th scope="row"></th>
+                  <td>Volume/μL<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">2× SYBR mix</th>
+                  <td>10<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">F（10μM）</th>
+                  <td>1<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">R（10μM）</th>
+                  <td>1<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">cDNA</th>
+                  <td>1<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">ddH<sub>2</sub>O</th>
+                  <td>7<br /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Total system</th>
+                  <td>20<br /></td>
+                </tr>
+              </table>
+
+              <p>(2)Paving of a 96-well plate.</p>
+              <table class="table table-striped my-2 text-center">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col" colspan="6">
+                      Primers for the reference gene
+                    </th>
+                    <th scope="col" colspan="6">
+                      Primers pecific for the target gene
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">1</th>
+                    <td>gfp1</td>
+                    <td>gfp1</td>
+                    <td>gfp1</td>
+                    <td>R1</td>
+                    <td>R1</td>
+                    <td>R1</td>
+                    <td>gfp1</td>
+                    <td>gfp1</td>
+                    <td>gfp1</td>
+                    <td>R1</td>
+                    <td>R1</td>
+                    <td>R1</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">2</th>
+                    <td>gfp2</td>
+                    <td>gfp2</td>
+                    <td>gfp2</td>
+                    <td>R2</td>
+                    <td>R2</td>
+                    <td>R2</td>
+                    <td>gfp2</td>
+                    <td>gfp2</td>
+                    <td>gfp2</td>
+                    <td>R2</td>
+                    <td>R2</td>
+                    <td>R2</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">3</th>
+                    <td>gfp3</td>
+                    <td>gfp3</td>
+                    <td>gfp3</td>
+                    <td>R3</td>
+                    <td>R3</td>
+                    <td>R3</td>
+                    <td>gfp3</td>
+                    <td>gfp3</td>
+                    <td>gfp3</td>
+                    <td>R3</td>
+                    <td>R3</td>
+                    <td>R3</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">4</th>
+                    <td>gfp4</td>
+                    <td>gfp4</td>
+                    <td>gfp4</td>
+                    <td>R4</td>
+                    <td>R4</td>
+                    <td>R4</td>
+                    <td>gfp4</td>
+                    <td>gfp4</td>
+                    <td>gfp4</td>
+                    <td>R4</td>
+                    <td>R4</td>
+                    <td>R4</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">5</th>
+                    <td>gfp5</td>
+                    <td>gfp5</td>
+                    <td>gfp5</td>
+                    <td>R5</td>
+                    <td>R5</td>
+                    <td>R5</td>
+                    <td>gfp5</td>
+                    <td>gfp5</td>
+                    <td>gfp5</td>
+                    <td>R5</td>
+                    <td>R5</td>
+                    <td>R5</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">6</th>
+                    <td>gfp6</td>
+                    <td>gfp6</td>
+                    <td>gfp6</td>
+                    <td>R6</td>
+                    <td>R6</td>
+                    <td>R6</td>
+                    <td>gfp6</td>
+                    <td>gfp6</td>
+                    <td>gfp6</td>
+                    <td>R6</td>
+                    <td>R6</td>
+                    <td>R6</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">7</th>
+                    <td>gfp7</td>
+                    <td>gfp7</td>
+                    <td>gfp7</td>
+                    <td>R7</td>
+                    <td>R7</td>
+                    <td>R7</td>
+                    <td>gfp7</td>
+                    <td>gfp7</td>
+                    <td>gfp7</td>
+                    <td>R7</td>
+                    <td>R7</td>
+                    <td>R7</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">8</th>
+                    <td>gfp8</td>
+                    <td>gfp8</td>
+                    <td>gfp8</td>
+                    <td>R8</td>
+                    <td>R8</td>
+                    <td>R8</td>
+                    <td>gfp8</td>
+                    <td>gfp8</td>
+                    <td>gfp8</td>
+                    <td>R8</td>
+                    <td>R8</td>
+                    <td>R8</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+
+              <p>(3)Running the qPCR program.</p>
+
+              <br />
+              <h4>7.Phenotypic data processing</h4>
+              <p>
+                Lesions were photographed to accurately determine size with the
+                help of ImageJ software. All measurements were referred to the
+                value 1.0 obtained for the shRNA(gfp) treatment. Error bars
+                indicate standard deviations (SD) obtained of at least three
+                biological replicates. All datasets were statistically analyzed
+                via one-tailed un-paired t test (*P < 0.05; **P < 0.01;
+                ***P < 0.001; ****P < 0.0001).
+              </p>
+              <br />
+            </section>
+          </section>
+          <section id="anchor2">
+            <h2>Plant Immunity</h2>
+            <section id="anchor2.1">
+              <h3>Plasmid construction and expression validation</h3>
+              <br />
+              <h4>Plasmid Transformation</h4>
+              <ul>
+                <li>
+                  1.Thawing competent cells: Retrieve 100 μL of competent BL21
+                  (DE3) cells from the -80°C freezer, quickly place them on ice,
+                  and let them sit for 5 minutes before thawing.
+                </li>
+                <li>
+                  2.Plasmid dilution: After thawing the 4 μg plasmid, dilute it
+                  with 400 μL of DEPC water to obtain a 100 ng/μL plasmid
+                  solution. Then, take 1 μL of this solution and dilute it
+                  10-fold to obtain a 10 ng/μL plasmid solution.
+                </li>
+                <li>
+                  3.After the bacterial pellet has thawed, add the PehA plasmid
+                  to it. Gently flick the bottom of the tube to mix it, avoiding
+                  pipetting up and down. Let it sit undisturbed in the ice for
+                  10 minutes.
+                </li>
+                <li>
+                  4.Heat shock at 42°C water bath for 90 seconds, then quickly
+                  transfer the tubes to an ice bath for 2 minutes to cool down.
+                  Avoid shaking or disturbing the tubes as it can reduce
+                  transformation efficiency.
+                </li>
+                <li>
+                  5.Add 700 μL of sterile LB medium without antibiotics to the
+                  centrifuge tube. Mix well and incubate at 37°C, 200 rpm for 60
+                  minutes to allow for recovery.
+                </li>
+                <li>
+                  6.Centrifuge at 5000 rpm for 1 minute to pellet the cells.
+                  Carefully remove and discard the supernatant, leaving
+                  approximately 100 μL. Gently resuspend the bacterial pellet by
+                  pipetting up and down, then spread it onto an LB agar plate
+                  containing the appropriate concentration of antibiotic.
+                </li>
+                <li>
+                  7.Invert the agar plate and place it in a 37°C incubator for
+                  overnight incubation.
+                </li>
+              </ul>
+              <br />
+              <h4>Plasmid PCR</h4>
+              <br />
+              <h5>PCR Reaction Setup</h5>
+              <table class="table table-striped my-2 text-center">
+                <tr>
+                  <th>Group name</th>
+                  <th>Volume</th>
+                </tr>
+                <tr>
+                  <td>Plasmid</td>
+                  <td>Dilution,1μl</td>
+                </tr>
+                <tr>
+                  <td>Primer 1(10μM)</td>
+                  <td>0.8μL</td>
+                </tr>
+                <tr>
+                  <td>Primer 2(10μM)</td>
+                  <td>0.8μL</td>
+                </tr>
+                <tr>
+                  <td>2x Taq Mix</td>
+                  <td>10μL</td>
+                </tr>
+                <tr>
+                  <td>ddH<sub>2</sub>O</td>
+                  <td>7.4μL</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>20μL</td>
+                </tr>
+              </table>
+              <br />
+              <h5>PCR Program Setting</h5>
+              <table class="table table-striped my-2 text-center">
+                <tr>
+                  <th>step</th>
+                  <th>temperature</th>
+                  <th>time</th>
+                </tr>
+                <tr>
+                  <td>step 1</td>
+                  <td>95℃</td>
+                  <td>3min</td>
+                </tr>
+                <tr>
+                  <td>step 2(30circle)</td>
+                  <td>95℃</td>
+                  <td>15s</td>
+                </tr>
+                <tr>
+                  <td>step 3(30circle)</td>
+                  <td>55℃</td>
+                  <td>15s</td>
+                </tr>
+                <tr>
+                  <td>step 4(30circle)</td>
+                  <td>72℃</td>
+                  <td>1min35s</td>
+                </tr>
+                <tr>
+                  <td>step 5</td>
+                  <td>72℃</td>
+                  <td>5min</td>
+                </tr>
+                <tr>
+                  <td>step 6</td>
+                  <td>16℃</td>
+                  <td>∞</td>
+                </tr>
+              </table>
+              <p>
+                <br />
+                To determine PCR products by agarose gel electrophoresis,
+                prepare a 1.5% agarose gel with a total volume of 30 mL.
+                Additionally, use the Takara DL2000 DNA marker and a 10,000x
+                nucleic acid staining solution.
+              </p>
+              <br />
+            </section>
+            <section id="anchor2.2">
+              <h3>Protein expression validation</h3>
+              <div>
+                <br />
+                <h4>IPTG Induction</h4>
+                <ul>
+                  <li>
+                    1.Add 1 mL of bacterial culture medium to 100 mL of LB
+                    liquid medium containing antibiotic and shake at
+                    37°C,200rpm. Stop the cultivation when the OD value is
+                    between 0.6-0.8.
+                  </li>
+                  <li>
+                    2.Add 1000 μL of 0.1 m Mol IPTG (Isopropyl
+                    β-D-1-thiogalactopyranoside) to 100 mL of LB medium.
+                    Incubate the culture at 20°C, 100 rpm for 16 hours to induce
+                    protein expression.
+                  </li>
+                  <li>
+                    3.Centrifuge at 12,000 rpm for 2.5 minutes at 4°C, then
+                    collect the bacterial pellet and the supernatant separately.
+                    If there is any remaining, it can be stored in a 4°C
+                    refrigerator to stop the induction.
+                  </li>
+                </ul>
+                <br />
+                <h4>BCA Assay for Protein Concentration Determination</h4>
+                <ul>
+                  <li>
+                    1.To prepare the BCA working solution, mix Reagent A and
+                    Reagent B in a ratio of 50:1.
+                  </li>
+                  <li>
+                    2、Dilute the protein standard solution:
+                    <br />
+                    Start with a stock solution of 5 mg/mL BSA (Bovine Serum
+                    Albumin) stored at -20°C. Dilute it to a final concentration
+                    of 0.5 mg/mL.
+                  </li>
+                  <li>
+                    3.Addition of Samples:
+                    <br />
+                    Prepare protein samples by diluting them 20 times. The
+                    concentration of the standard samples should be as follows:
+                    0, 0.025, 0.05, 0.1, 0.2, 0.3, 0.4, and 0.5 mg/mL.
+                  </li>
+                  <li>
+                    4.Add 200 μL of the BCA working solution to both the wells
+                    containing the test samples and the wells containing the
+                    protein standard. Mix thoroughly.
+                  </li>
+                  <li>
+                    5.Incubate the plate at 37°C for 30 minutes in a water bath.
+                    After incubation, allow the plate to cool to room
+                    temperature. Measure the absorbance at a wavelength of 562
+                    nm using a spectrophotometer. Prepare a standard curve using
+                    the absorbance values obtained from the protein standards.
+                    Determine the concentration of the samples using the
+                    standard curve.
+                  </li>
+                </ul>
+                <br />
+                <h4>Western Blot</h4>
+                <ul>
+                  <b>1.Gel Preparation</b
+                  ><br />
+                  <li>
+                    <b>2.Sample preparation</b><br />
+                    Take 40 μL of each sample and add 10 μL of 5x SDS-PAGE
+                    loading buffer. Boil the protein samples using a PCR machine
+                    at 95-100°C for 5-10 minutes. Immediately cool the samples
+                    on ice for 5 minutes.
+                  </li>
+                  <li>
+                    <b>3.Addition of samples</b><br />
+                    Add 20 μL of each prepared sample to the wells of the gel.
+                    Additionally, add a pre-stained molecular weight marker to
+                    one of the wells.
+                  </li>
+                  <li>
+                    <b>4、Electrophoresis</b><br />
+                    150V,60min.
+                  </li>
+                  <li>
+                    <b>5.Wash the gel</b><br />
+                    Rinse the gel with deionized water 3-5 times to remove SDS
+                    and buffer residues. After washing, transfer the gel to a
+                    clean tray containing Tris-buffered (TB) solution for 3
+                    minutes.
+                  </li>
+                  <li>
+                    <b>6.Activation of PVDF membrane</b><br />
+                    Prepare filter paper and cut the PVDF membrane to the
+                    desired size. Place the PVDF membrane in methanol for 1
+                    minute to activate it. After activation, transfer the
+                    membrane to a clean tray containing Tris-buffered (TB)
+                    solution for 3 minutes.
+                  </li>
+                  <li>
+                    <b
+                      >7.Soak the sponge and filter paper in the recovered TB
+                      solution.</b
+                    ><br />
+                  </li>
+                  <li>
+                    <b>8.Sandwich Model</b><br />
+                    On the transfer apparatus, place the components in the
+                    following order from the negative electrode (black side) to
+                    the positive electrode: sponge, filter paper, gel, membrane,
+                    filter paper, sponge (from bottom to top). Make sure to
+                    eliminate any air bubbles while placing the components.
+                    Continuously add TB solution to keep the gel moist. Insert
+                    the assembly into the slot and pour fresh TB solution into
+                    the apparatus.
+                  </li>
+                  <li>
+                    <b>9.Transferring and Blocking</b><br />
+                    Set the electrophoresis apparatus to a constant current of
+                    90mA and transfer the proteins for 60 minutes. After
+                    transferring, block the membrane with BSA at room
+                    temperature for 2 hours.
+                  </li>
+                  <li>
+                    <b>10.First Antibody Incubation</b><br />
+                    Prepare the incubation buffer according to the recommended
+                    dilution ratio provided in the antibody datasheet. Dilute
+                    the primary antibody with the blocking solution. If the
+                    datasheet does not provide a recommended dilution ratio,
+                    refer to the general recommended dilution range (e.g.,
+                    1:1000-1:2000). Using a high concentration of the primary
+                    antibody may result in the generation of non-specific bands.
+                    Once the blocking solution is removed, immediately add the
+                    diluted primary antibody. Incubate the membrane at room
+                    temperature or 4°C on a shaker for 15 hours (from 7:30 PM to
+                    10:30 AM). It is preferable to incubate at a lower
+                    temperature. If incubating the primary antibody overnight in
+                    the blocking solution, ensure it is done at 4°C to prevent
+                    contamination and protein degradation (especially
+                    phosphorylated groups).
+                  </li>
+                  <li>
+                    <b>11.Washing the First Antibody</b><br />
+                    After incubation with the primary antibody is complete,
+                    carefully remove the primary antibody solution. Place the
+                    membrane in a square container (e.g., a plastic container)
+                    and add TBST (Tris-buffered saline with Tween) to completely
+                    cover the PVDF membrane. Shake the container on a low-speed
+                    shaker for 10 minutes. Repeat this washing step three times,
+                    each time replacing the TBST solution.
+                  </li>
+                  <li>
+                    <b>12.Secondary Antibody Incubation and Washing</b><br />
+                    Dilute the secondary antibody with the blocking solution to
+                    the concentration specified in the antibody datasheet.
+                    Submerge the PVDF membrane containing the transferred
+                    proteins into a square container filled with the diluted
+                    secondary antibody. Incubate the membrane while shaking
+                    gently for 2 hours.After the incubation is complete,
+                    carefully remove the secondary antibody solution. Place the
+                    membrane in a square container and add TBST to completely
+                    cover the PVDF membrane. Shake the container on a low-speed
+                    shaker for 10 minutes. Repeat this washing step three times,
+                    each time replacing the TBST solution.
+                  </li>
+                  <li>
+                    <b>13.Staining</b><br />
+                    Prepare the DAB (3,3'-Diaminobenzidine) working solution by
+                    mixing equal volumes of the DAB solution A and B (Note:
+                    handle the solution in a light-protected manner). Using a
+                    pipette, carefully apply an appropriate amount of the DAB
+                    working solution to cover the PVDF membrane. Allow the
+                    reaction to proceed for a suitable duration as per the
+                    staining requirements. After the desired staining intensity
+                    is achieved, remove the excess DAB solution and rinse the
+                    membrane with deionized water. Place the membrane in an ECL
+                    (Enhanced Chemiluminescence) imaging system and perform
+                    image acquisition according to the instrument's
+                    instructions.
+                  </li>
+                </ul>
+              </div>
+              <br />
+            </section>
+            <section id="anchor2.3">
+              <h3>Protein function verification</h3>
+              <br />
+              <h4>DAB Staining</h4>
+              <br />
+              The H<sub>2</sub>O<sub>2</sub> generated by the immune reaction
+              was visually detected using 3,3-diaminobenzidine (DAB) in plant
+              leaves. We used two different methods to apply BvEP.
+              <br />
+              <h5>Soaking method<sup>[1]</sup></h5>
+              <p>
+                In a 4ml system, the leaves were infiltrated with protein at
+                concentrations of 10μg/ml, 25μg/ml<sup>[2]</sup>, and 50μg/ml
+                for 24 hours, followed by dark treatment in a 1mg/ml DAB
+                solution (pH 3.8) for 24 hours. The leaves were then decolorized
+                in 90% ethanol by boiling for 10 minutes. The leaves were
+                infiltrated with 60% glycerol and photographed. <br />
+              </p>
+              <br />
+              <h5>Dropping method</h5>
+              <p>
+                Protein was dropped onto the same position of the leaves, with
+                final masses of 40μg, 100μg, and 200μg. 10 μl was added at a
+                time, with an interval of 5 minutes between each drop.
+              </p>
+              <br />
+              <p>
+                The leaves treated by both methods were subjected to grayscale
+                analysis t-test using ImageJ to quantify the intensity of the
+                immune reaction. Each treatment had 9 samples.
+              </p>
+              <br />
+            </section>
+          </section>
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1]. Liu S, Yuan X, Wang Y, Wang H, Wang J, Shen Z, Gao Y, Cai
+                  J, Li D, Song F. Tomato Stress-Associated Protein 4
+                  Contributes Positively to Immunity Against Necrotrophic Fungus
+                  Botrytis cinerea. Mol Plant Microbe Interact. 2019
+                  May;32(5):566-582. doi: 10.1094/MPMI-04-18-0097-R. Epub 2019
+                  Mar 22. PMID: 30589365.
+                  https://pubmed.ncbi.nlm.nih.gov/30589365/
+                  <br />
+                  [2]. Kong X, Li D. Hydrogen peroxide is not involved in HrpN
+                  from Erwinia amylovora-induced hypersensitive cell death in
+                  maize leaves. Plant Cell Rep. 2011 Jul;30(7):1273-9. doi:
+                  10.1007/s00299-011-1038-6. Epub 2011 Feb 23. PMID: 21344189.
+                  https://pubmed.ncbi.nlm.nih.gov/21344189/
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

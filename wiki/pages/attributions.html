@@ -1,0 +1,42 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/head-picture/szu-attributions-headpic.jpg")
+      no-repeat center/cover;
+  }
+</style>
+<section class="showcase description attributions">
+  <header class="description attributions">
+    <h2 class="bigTitle">Attributions</h2>
+  </header>
+</section>
+
+<!--
+  ======================================================================
+  == VERY IMPORTANT                                                   ==
+  ======================================================================
+  LEAVE THE IFRAME CODE BELOW AS IT IS, THE ATTRIBUTION FORM OF YOUR TEAM
+  WILL BE DISPLAYED ON THIS PAGE. DO NOT REMOVE IT, OTHERWISE YOU RISK OF
+  NOT MEETING BRONZE MEDAL CRITERION #2
+ -->
+<div class="row mt-4">
+  <script type="text/javascript">
+    // Listen to size change and update form height
+    window.addEventListener("message", function (e) {
+      const { type, data } = JSON.parse(e.data);
+      if (type === "igem-attribution-form") {
+        const element = document.getElementById("igem-attribution-form");
+        element.style.height = data + 50 + "px";
+      }
+    });
+  </script>
+  <iframe
+    style="width: 100%"
+    id="igem-attribution-form"
+    src="https://attributions.igem.org?team=SZU-China&year=2023"
+  >
+  </iframe>
+  <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+</div>
+
+{% endblock %}

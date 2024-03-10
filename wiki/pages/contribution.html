@@ -1,0 +1,558 @@
+{% extends "layout.html" %} {% block title %}Contribution{% endblock %} {% block
+lead %}Make a useful contribution for future iGEM teams. Use this page to
+document that contribution.{% endblock %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(2 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item4:checked ~ .menu-content {
+    height: calc(3 * 40px);
+  }
+  .menu-item > input#menu-item5:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/contribution-1.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Contribution</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Abstract</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Parts</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >Improve in RNAi</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >Plant immunity</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Hardware</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link"
+                  >In Agriculture Village</a
+                >
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor4.1" class="scroll-link d-block w-100"
+                      >China industrial standard</a
+                    >
+                  </small></span
+                >
+                <span>
+                  <small>
+                    <a href="#anchor4.2" class="scroll-link d-block w-100"
+                      >T.O.M.A.T.O.</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item5" />
+              <label for="menu-item5">
+                <a href="#anchor5" class="scroll-link">Troubleshooting</a>
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+
+            
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Abstract</h2>
+            <p>
+              During this year, our team designed and characterized multiple new
+              parts, including RNAi and plant immunity. In order to reduce the
+              production cost of shRNA, we have designed a large-scale in vitro
+              transcription device for shRNA as our hardware. Due to our desire
+              to make bold innovations in the village of Agriculture and promote
+              the development of this field, we have developed the China
+              Industrial Standard for RNA Pesticide and established the
+              Enterprise Alliance T.O.M.A.T.O. to provide ideas for the iGEM
+              teams in the village of Agriculture. Finally, by documenting the
+              difficulties we encountered during the wet experiment, we hope to
+              assist other teams who want to do projects related to plant
+              diseases.
+            </p>
+          </section>
+          <section id="anchor2">
+            <h2>Parts</h2>
+            <section id="anchor2.1">
+              <h3>1.Improve in RNAi</h3>
+              <p>
+                Based on the 6 target genes of <i>Botrytis cinerea</i> selected
+                in the
+                <a href="{{ url_for('pages', page='design') }}">Design</a>, we
+                designed 12 shRNAs for RNAi experiments and characterized their
+                effects after IPTG induced expression in <i>E. coli</i> HT115
+                (DE3). We initially screened out
+                shRNA(CHSIIIa)-2 (<a
+                  href="http://parts.igem.org/Part:BBa_K4653002"
+                  >BBa_K4653002</a
+                >), shRNA(cyp51)-2 (<a
+                  href="http://parts.igem.org/Part:BBa_K4653004"
+                  >BBa_K4653004</a
+                >), shRNA(OAH)-1 (<a
+                  href="http://parts.igem.org/Part:BBa_K4653005"
+                  >BBa_K4653005</a
+                >), shRNA(Pme1)-2 (<a
+                  href="http://parts.igem.org/Part:BBa_K4653008"
+                  >BBa_K4653008</a
+                >) with better effect. In order to improve the molecular
+                delivery efficiency of RNAi, we bundled BP100-(KH)<sub>9</sub>
+                (<a href="http://parts.igem.org/Part:BBa_K3224003"
+                  >BBa_K3224003</a
+                >) with screened shRNAs and adding new data to this existing
+                part. Then, we also wanted to strengthen the effect of a single
+                RNAi molecule to reduce the production costs, so the shRNA
+                sequence was connected in series to obtain a new bi-shRNA,
+                shRNA(Box-survival) (<a
+                  href="http://parts.igem.org/Part:BBa_K4653015"
+                  >BBa_K4653015</a
+                >), and bundled with KH9-BP100 for spraying, so as to verify the
+                ideal effect.
+              </p>
+              <br />
+              <br />
+              <table class="table table-striped my-2">
+                <thead>
+                  <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Part name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col" style="width: 45%">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K3324003"
+                        >BBa_K3324003</a
+                      >
+                    </th>
+                    <td>BP100-(KH)<sub>9</sub></td>
+
+                    <td>
+                      Protein coding sequences
+                      <br />
+                      (Adding new data)
+                    </td>
+                    <td>
+                      The short peptides that can penetrate the cell membrane
+                      and deliver a wide range of cargoes into the cell.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653002"
+                        >BBa_K4653002</a
+                      >
+                    </th>
+                    <td>shRNA(CHSIIIa)-2</td>
+
+                    <td>
+                      shRNA<br />
+                      (New basic part)
+                    </td>
+                    <td>
+                      The shRNA silencing chitin (CHS) of <i>B. cinerea</i>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653004"
+                        >BBa_K4653004</a
+                      >
+                    </th>
+                    <td>shRNA(cyp51)-2</td>
+
+                    <td>
+                      shRNA<br />
+                      (New basic part)
+                    </td>
+                    <td>
+                      The shRNA silencing ergosterol (ERG) of <i>B. cinerea</i>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653005"
+                        >BBa_K4653005</a
+                      >
+                    </th>
+                    <td>shRNA(OAH)-1</td>
+
+                    <td>
+                      shRNA<br />
+                      (New basic part)
+                    </td>
+                    <td>
+                      The shRNA silencing oxaloacetate hydrolase (OAH) of
+                      <i>B. cinerea</i>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653008"
+                        >BBa_K4653008</a
+                      >
+                    </th>
+                    <td>shRNA(Pme1)-2</td>
+
+                    <td>
+                      shRNA<br />
+                      (New basic part)
+                    </td>
+                    <td>
+                      The shRNA silencing pectin methylesterase (PME) of
+                      <i>B. cinerea</i>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653015"
+                        >BBa_K4653015</a
+                      >
+                    </th>
+                    <td>shRNA(Box-survival)</td>
+
+                    <td>
+                      shRNA<br />
+                      (New basic part)
+                    </td>
+                    <td>
+                      The bi-shRNA silencing the genes that maintain the
+                      survival of <i>B. cinerea</i>.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+            </section>
+            <section id="anchor2.2">
+              <h3>2.Plant immunity</h3>
+              <p>
+                At the beginning of our experiments on plant immunity, we found
+                that there was very little literature and data available. In
+                this project, we have characterized two immune inducing factors,
+                and we hope that the recording of these factors will provide a
+                reference for future teams planning to do plant immune-related
+                content.
+              </p>
+              <br />
+              <table class="table table-striped my-2">
+                <thead>
+                  <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Part name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col" style="width: 45%">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653102"
+                        >BBa_K4653102</a
+                      >
+                    </th>
+                    <td>Flg22: From <i>P. aeruginosa</i></td>
+
+                    <td>
+                      Protein coding sequences<br />
+                      (New basic part)
+                    </td>
+                    <td>
+                      A 22-amino acid sequence from the N-terminal of flagellin
+                      from
+                      <i>P. aeruginosa</i>, a pathogen associated molecular
+                      pattern (PAMP).
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653105"
+                        >BBa_K4653105</a
+                      >
+                    </th>
+                    <td>BvEP</td>
+
+                    <td>
+                      Protein coding sequences<br />
+                      (New basic part)
+                    </td>
+                    <td>
+                      Protein phosphomutase from
+                      <i>Bacillus velezensis</i> LJ02, an plant immune inducing
+                      factor.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+            </section>
+          </section>
+          <section id="anchor3">
+            <h2>Hardware</h2>
+            <p>
+              We have designed and constructed an automated equipment for
+              large-scale production of shRNA molecules. This effort seeks to
+              make shRNA production more convenient while simultaneously
+              lowering the related expenses. The equipment primarily comprises
+              three peristaltic pumps, a reaction container, and a temperature
+              control module. Our equipment has demonstrated the successful
+              synthesis of shRNA molecules on a significantly larger scale when
+              compared to traditional PCR instruments. This automated equipment
+              presents a cost-effective, user-friendly, and scalable solution
+              for shRNA molecule synthesis, thereby enhancing the accessibility
+              and efficiency of RNA interference technology across diverse
+              applications.
+            </p>
+            <br />
+            <div class="row mt-5">
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig4.jpg"
+                  alt=""
+                  width="90%"
+                />
+                <br />
+                <small><b>Figure 1.The sketch map of the hardware.</b></small>
+              </div>
+              <br />
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig10.png"
+                  alt=""
+                  width="90%"
+                />
+                <br />
+                <small
+                  ><b>Figure 2.The physical picture of the hardware.</b></small
+                >
+              </div>
+            </div>
+            <br />
+            <p>
+              Learn more in
+              <a href="{{ url_for('pages', page='hardware') }}">Hardware</a>.
+            </p>
+            <br />
+          </section>
+          <section id="anchor4">
+            <h2>In Agriculture Village</h2>
+            <section id="anchor4.1">
+              <br />
+              <h3>1.The Proposal of Chinese RNA Pesticide Industry Standard</h3>
+              <p>
+                In the process of our HP circles, we realize that there is a
+                lack of regulations and laws for RNAi pesticides and a great
+                imbalance between the policies of chemical pesticides and that
+                of new biopesticides. So, we SZU-China write a review of the
+                analysis of current regulations and laws for RNAi pesticides in
+                China and draft a proposal for the better development of RNAi
+                pesticides in China. Moreover, we do a overall and specific
+                research about laws proposed by UN, EU, the United States and
+                China and produce this review.
+              </p>
+              <br />
+              <p>
+                Our proposal: Through the research of laws, we find that there
+                is no clear definition and classification standard for
+                biopesticides. So, before the eruption of new products, we in
+                haste need to launch related laws and regulations to ensure the
+                safety and sustainability of this new field. Hence, our team
+                propose China industrial standard for RNA pesticide (draft)
+                better promote the development of RNA pesticides in China.
+              </p>
+              <br />
+              <p>
+                Learn more in
+                <a href="{{ url_for('pages', page='human-practices') }}"
+                  >integrated human practices</a
+                >.
+              </p>
+              <br />
+            </section>
+            <section id="anchor4.2">
+              <br />
+              <h3>
+                2.From Unit to Union -- T.O.M.A.T.O
+              </h3>
+              <p>
+                Moreover, to better lead the development, we actively 
+                cooperate with government, Chinese traditional pesticide 
+                companies, biotech companies and manage to unit them to 
+                found China biopesticide union——"T.O.M.A.T.O".
+              </p>
+              <br />
+              <p>
+                Regarding T.O.M.A.T.O-Technical Alliance (Technology-Oriented 
+                Modernization of Agriculture-Targeted Organization), we plan 
+                to push the cooperation between traditional pesticide companies 
+                and biotech companies. In this way, they can benefit each other 
+                with the former ones gaining motivation to transform and the 
+                latter ones gaining capital and markets to develop more tech.
+              </p>
+              <br />
+              <p>
+                Regarding T.O.M.A.T.O-Thought Alliance (Thought-Oriented 
+                Modernization of Agriculture-Targeted Organization), we intend 
+                to involve government and consumers in to better guide the 
+                production of companies and stimulate government's intention 
+                to assist the development of field. Also, by forming this union, 
+                consumers' demand can be better met.
+              </p>
+              <br />
+              <p>
+                Learn more in
+                <a href="{{ url_for('pages', page='entrepreneurship') }}"
+                  >Entrepreneurship</a
+                >.
+              </p>
+            </section>
+          </section>
+          <br />
+          <section id="anchor5">
+            <h2>Troubleshooting</h2>
+            <br />
+            <h3>1.Plant immunity experiment</h3>
+            <p>
+              In the protein expression validation part of plant immunity, we
+              induced the expression of BvEP protein under general induction
+              conditions: 37 ℃, 200 rpm, induction for 4-8 hours. However, the
+              BCA results showed very low protein expression. Therefore, we
+              optimized the expression conditions and finally found that the
+              optimal conditions for inducing BvEP expression were 25 ℃, 100
+              rpm, for 16 hours.
+            </p>
+            <br />
+            <p>
+              In the functional validation part of BvEP protein in plant
+              immunity, we used the DAB staining to visualize the immune
+              response triggered by the protein. We employed two methods for
+              applying the protein: immersion and droplet application. The
+              results showed that the immune response induced by immersion
+              method was much higher than that induced by droplet application,
+              even when the final protein quality was consistent.
+            </p>
+            <br />
+            <h3>2.<i>B. cinerea</i> infection experiment</h3>
+            <p>
+              (1) At the beginning, we scraped the mycelium from the
+              <i>B. cinerea</i> plate with sterile forceps and dissolved it in a
+              certain volume of sterile water. After vortexing, the mycelium
+              solution was obtained for the tomato fruit infection experiment.
+              However, during the experiment, it was found that the mycelium
+              solution was difficult to mix, which made it difficult for us to
+              quantify the <i>B. cinerea</i> and act on each tomato, so the
+              tomato would have uneven incidence. Later, we used fungus cake to
+              infect tomato fruits. Compared with mycelium liquid, fungus cake
+              can quantify <i>B. cinerea</i>, and the residual medium on the
+              fungus cake can keep the growth activity of <i>B. cinerea</i> in
+              the early stage of fruit infection.
+            </p>
+            <br />
+            <p>
+              (2) The volume of RNAi solution dropped on tomato fruit should not
+              be too large, as too much liquid is easy to slip on the surface of
+              the fruit. At the same time, we added silwet-77 to the system (the
+              volume ratio of total liquid to silwet-77 is 100), which can
+              facilitate us to spread RNAi liquid on the surface of fruits and
+              help fruits to better absorb RNAi.
+            </p>
+            <br />
+            <p>
+              (3) The tomato fruits after the experimental treatment must be
+              moisturized, and the ambient temperature should not be too high
+              (21-25℃ is more suitable), otherwise it is not conducive to the
+              growth of gray mold and lead to the failure of tomato infection.
+            </p>
+            <br />
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="https://static.igem.wiki/teams/4653/wiki/home/polycobead-logo.ico"
+    />
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
+
+    <!-- swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'swiper-bundle.min.css') }}"
+    />
+    <!-- bootstrap.css -->
+    <link
+      href="{{ url_for('static', filename = 'bootstrap.min.css') }}"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link
+      href="{{ url_for('static', filename = 'style.css') }}"
+      rel="stylesheet"
+    />
+    <!-- gsap.js -->
+    <script src="{{ url_for('static', filename = 'gsap.min.js') }}"></script>
+    <!-- scrolltrigger.js -->
+    <script src="{{ url_for('static', filename = 'ScrollTrigger.min.js') }}"></script>
+
+    <title>{% block title %}{% endblock %} | SZU-China - iGEM 2023</title>
+    <style>
+      progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 10px;
+        border: none;
+        background: transparent;
+      }
+      progress::-webkit-progress-bar {
+        background: transparent;
+      }
+      progress::-webkit-progress-value {
+        background: #de7e6a;
+        background-attachment: fixed;
+      }
+      progress::-moz-progress-bar {
+        background: linear-gradient(
+          to left,
+          #db38b5,
+          #01b3e3,
+          #25ce7b,
+          #fdc741,
+          #ff6b01,
+          #fc4236
+        );
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    {% include 'menu.html' %}
+
+    <!-- Page Content -->
+    <progress max="100" value="0"></progress>
+    {% block page_content %}{% endblock %}
+
+    <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+    {% include 'footer.html' %}
+
+    <!-- swiper js -->
+    <script src="{{ url_for('static', filename = 'swiper-bundle.min.js') }}"></script>
+    <!-- bootstrap.js -->
+    <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+    <!-- menu js -->
+    <script src="{{ url_for('static', filename = 'nav.js') }}"></script>
+
+    <!-- 顶部进度条js -->
+    <script>
+      gsap.to("progress", {
+        value: 100,
+        ease: "none",
+        scrollTrigger: { scrub: 0.3 },
+      });
+    </script>
+    <!-- 底部栏的js -->
+    <script>
+      let thumbnails_Swiper = new Swiper(".thumbnails-Swiper", {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        loop: true,
+        freeMode: true,
+        breakpoints: {
+          590: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          992: {
+            slidesPerView: 5,
+          },
+        },
+      });
+    </script>
+    <script>
+      let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        loop: true,
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+          },
+          992: {
+            slidesPerView: 4,
+          },
+        },
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+      });
+    </script>
+  </body>
+</html>

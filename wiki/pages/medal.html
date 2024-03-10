@@ -1,0 +1,373 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/achievement-1.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Achievement</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Bronze</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Silver</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Gold</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link">Awards</a>
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Bronze medal</h2>
+            <table class="table table-striped my-3">
+              <thead>
+                <tr>
+                  <th scope="col">Criterium</th>
+                  <th scope="col" style="width: 45%">Description</th>
+                  <th scope="col">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Project Attributions</th>
+                  <td>
+                    On the attributions page, we have acknowledged the roles and
+                    tasks fulfilled by each team member in the lab and for the
+                    wiki. Further, we appreciated all those who supported and
+                    assisted us with our project.
+                  </td>
+                  <td>
+                    Find our
+                    <a
+                      class="hyperlink"
+                      href="{{ url_for('pages', page='attributions') }}"
+                      >Attributions</a
+                    >
+                    page.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Project Description</th>
+                  <td>
+                    Our project description page provides a comprehensive
+                    outline of the project and inspiration. We have also
+                    provided visuals to explain our project.
+                  </td>
+                  <td>
+                    Visit our
+                    <a
+                      class="hyperlink"
+                      href="{{ url_for('pages', page='description') }}"
+                      >Description</a
+                    >
+                    page.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Project Contribution</th>
+                  <td>
+                    Our team designed and characterized multiple new parts,
+                    including RNAi and plant immunity. In order to reduce the
+                    production cost of shRNA, we have designed a large-scale in
+                    vitro transcription device for shRNA as our hardware. We
+                    also have developed the China Industrial Standard for RNAi
+                    Pesticide and established the Enterprise Alliance
+                    T.O.M.A.T.O. to make breakthrough in iHP part in the village
+                    of Agriculture and promote the development of industry. With
+                    above contributions, we hope to provide ideas for the iGEM
+                    teams in the village of Agriculture.
+                  </td>
+                  <td>
+                    Read more on the
+                    <a
+                      class="hyperlink"
+                      href="{{ url_for('pages', page='contribution') }}"
+                      >Contribution</a
+                    >
+                    page.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="anchor2">
+            <h2>Silver medal</h2>
+            <table class="table table-striped my-3">
+              <thead>
+                <tr>
+                  <th scope="col">Criterium</th>
+                  <th scope="col" style="width: 45%">Description</th>
+                  <th scope="col">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Engineering success</th>
+                  <td>
+                    We followed the DBTL cycle and completed three cycles of the
+                    RNAi system and two cycles of PolycoBead under its guidance
+                  </td>
+                  <td>
+                    Visit our
+                    <a
+                      class="hyperlink"
+                      href="{{ url_for('pages', page='engineering') }}"
+                      >Engineering</a
+                    >
+                    page for a more detailed overview of our engineering cycles.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Human practices</th>
+                  <td>
+                    In the process of our project, we actively carry out human
+                    practice around stakeholders, and popularize the knowledge
+                    related to synthetic biology and the project in the
+                    education part. At the same time, we also actively attempt
+                    to push our project to implementation through human
+                    practice.
+                  </td>
+                  <td>
+                    Read more about the interviews on our
+                    <a
+                      class="hyperlink"
+                      href="{{ url_for('pages', page='human-practices') }}"
+                      >Human Practices</a
+                    >
+                    page.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="anchor3">
+            <h2>Gold medal</h2>
+            <table class="table table-striped my-3">
+              <thead>
+                <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">Criterium</th>
+                  <th scope="col" style="width: 45%">Description</th>
+                  <th scope="col">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">General Biological Engineering</th>
+                  <td>New Basic Part</td>
+                  <td>
+                    We choose
+                    <a href="http://parts.igem.org/Part:BBa_K4653008"
+                      >BBa_K4653008</a
+                    >
+                    to compete for this special prize.
+                  </td>
+                  <td>
+                    See our
+                    <a
+                      class="hyperlink"
+                      href="{{ url_for('pages', page='parts') }}"
+                      >Part collection</a
+                    >
+                    for detailed interviews.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">General Biological Engineering</th>
+                  <td>Part Collection</td>
+                  <td>
+                    This year, we have designed a series of parts in the section
+                    of RNAi therapy, and selected the effective shRNA by
+                    phenotypic and molecular analysis. Moreover, to improve the
+                    effect, we iterated on the delivery material and molecular
+                    structure of shRNAs, which were proved to play a better role
+                    after improvement.
+                  </td>
+                  <td>
+                    Check our
+                    <a
+                      class="hyperlink"
+                      href="{{ url_for('pages', page='parts') }}"
+                      >Part collection</a
+                    >
+                    for a detailed overview.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Specializations</th>
+                  <td>Integrated Human Practices</td>
+                  <td>
+                    In the process of project development, our integrated Human
+                    Practices fully focuses on stakeholders, understands their
+                    concerns and needs for our products, and promotes the
+                    improvement of our products from the actual needs.
+                  </td>
+                  <td>
+                    Check out our
+                    <a href="{{ url_for('pages', page='human-practices') }}"
+                      >Integrated Human Practices</a
+                    >
+                    page.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="anchor4">
+            <h2>Awards</h2>
+            <p>
+              We are incredibly honored and grateful to have been a part of this
+              year's IGEM competition. As a team of 13 dedicated individuals, we
+              poured our hearts and souls into this project for an entire year.
+              The journey was challenging, but the experience was truly
+              invaluable.
+              <br />
+              <br />
+              Standing on the stage in Paris and being recognized as a top 10
+              team, along with receiving the Best Agriculture Project award, was
+              a moment we will never forget. It validated all the hard work,
+              late nights, and endless dedication we put into our project.
+              <br />
+              <br />
+              This experience has enriched each of us in ways that extend far
+              beyond the competition itself. We've learned the true meaning of
+              teamwork, perseverance, and innovation. It has not only broadened
+              our scientific knowledge but also shaped us as individuals.
+              <br />
+              <br />
+              We would like to express our deepest gratitude to the IGEM
+              organization, our PI & Instructors, advisors, and supporters who
+              believed in us every step of the way.
+            </p>
+            <br />
+            <p>
+              Below you can find the prizes that we were awarded or nominated
+              for in iGEM 2023.
+            </p>
+            <br />
+            <br />
+            <br />
+            <div
+              class="row d-flex flex-row justify-content-center align-items-center mx-auto"
+            >
+              <div class="col-6 text-center">
+                <img
+                  class="w-25 pb-3"
+                  src="https://static.igem.wiki/teams/4259/wiki/twemoji/1f3c5.svg"
+                />
+                <h4>Awarded Gold Medal</h4>
+              </div>
+              <div class="col-6 text-center">
+                <img
+                  class="w-25 pb-3"
+                  src="https://static.igem.org/websites/common/2022/icons/awards/top10-color.svg"
+                />
+                <h4>Top 10 Overgrad</h4>
+              </div>
+            </div>
+            <div class="row pt-5 mx-auto">
+              <div class="text-center">
+                <img
+                  class="w-25 pb-3"
+                  src="https://static.igem.org/websites/competition/2022/icons/tracks/track-agriculture.svg"
+                />
+                <h4>Best Agriculture Project</h4>
+              </div>
+            </div>
+            <div
+              class="row pt-5 d-flex flex-row justify-content-center align-items-center mx-auto"
+            >
+              <div class="col-6 col-md-4 text-center">
+                <img
+                  class="w-25 pb-3"
+                  src="https://static.igem.org/websites/competition/2022/icons/awards/part-collection.svg"
+                />
+                <h4>Best Part Collection</h4>
+              </div>
+              <div class="col-6 col-md-4 text-center">
+                <img
+                  class="w-25 pb-3"
+                  src="https://static.igem.org/websites/competition/2022/icons/awards/new-basic-part.svg"
+                />
+                <h4>Best New Basic Part</h4>
+              </div>
+              <div class="col-6 mt-5 mt-md-0 col-md-4 text-center">
+                <img
+                  class="w-25 pb-3"
+                  src="https://static.igem.org/websites/competition/2022/icons/awards/wiki.svg"
+                />
+                <h4>Best Wiki, Nomination</h4>
+              </div>
+            </div>
+            <br />
+            <br />
+            <div class="text-center">
+              <img
+                class="w-100"
+                src="https://static.igem.wiki/teams/4653/wiki/achievement/winphoto.jpg"
+              />
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

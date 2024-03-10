@@ -1,0 +1,786 @@
+{% extends "layout-home.html" %} {% block page_content %}
+<style>
+  .gs_reveal {
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  [class^="block"] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    border-radius: 50%;
+  }
+
+  .box .number .num {
+    font-size: 35px;
+    font-weight: bold;
+  }
+  .box .number .sub {
+    font-size: 20px;
+  }
+  .box .title {
+    font-size: 15px;
+  }
+  .dots {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: 2s transform, 2s opacity ease;
+  }
+
+  /* polycobead展开和收起 */
+  .polycobead {
+    position: relative;
+  }
+  .polycobead .piece {
+    position: absolute;
+  }
+  .polycobead .polycobead-up {
+    top: 85px;
+    left: 41px;
+    z-index: 1;
+  }
+  .polycobead .polycobead-immu {
+    top: 144px;
+    left: 113px;
+    z-index: 2;
+  }
+  .polycobead .polycobead-rna {
+    top: 172px;
+    left: 118px;
+    z-index: 2;
+  }
+  .polycobead .polycobead-down {
+    top: 210px;
+    left: 3px;
+    z-index: 1;
+  }
+  #home1 {
+    background: url(https://static.igem.wiki/teams/4653/wiki/home/szu-home-heading-1.png)
+      no-repeat center center/cover;
+    height: 100vh;
+  }
+  #home2 > img {
+    width: 100%;
+  }
+  #home3 > div {
+    margin-top: -200px;
+  }
+  #home5 p {
+    font-size: 25px;
+    font-family: Lucida Sans;
+    font-weight: 400;
+    color: #330000;
+  }
+  #home5 #home5_3 {
+    margin-top: 69px;
+  }
+  #home6 {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 197px;
+    line-height: 2;
+  }
+  #home7 p {
+    font-size: 23px;
+    font-family: Lucida Sans;
+    font-weight: 400;
+    color: #330000;
+    margin-top: 41px;
+  }
+  #home8 h1 {
+    font-size: 90px;
+    font-family: Lucida Sans;
+    font-weight: 400;
+    color: #660000;
+    padding-top: 3%;
+  }
+  #home8 p {
+    font-size: 21px;
+    font-family: Lucida Sans;
+    font-weight: 400;
+    color: #660000;
+    margin-top: 30px;
+  }
+  #home8 h3 {
+    font-size: 32px;
+    font-family: Lucida Sans;
+    font-weight: normal;
+    color: #330000;
+  }
+  #home8 p {
+    font-size: 27px;
+    font-family: Lucida Sans;
+    font-weight: 400;
+    color: #660000;
+    margin-top: 30px;
+  }
+  #home9 h3 {
+    font-size: 30px;
+    font-family: Lucida Sans;
+    font-weight: normal;
+    color: #330000;
+    margin-top: 75px;
+  }
+  #home9 p {
+    font-size: 20px;
+    font-family: Lucida Sans;
+    font-weight: 400;
+    color: #660000;
+  }
+  #home10 p {
+    font-size: 20px;
+    font-family: Lucida Sans;
+    font-weight: 400;
+    color: #660000;
+  }
+  #kettle {
+    margin-top: -63px;
+    padding-right: 81px;
+  }
+  #home11_1 {
+    text-align: justify;
+    padding-right: 38px;
+    padding-top: 30px;
+    font-size: 18px;
+  }
+  @media screen and (max-width: 768px) {
+    #home1 {
+      height: 50vh;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    #home1 {
+      height: 60vh;
+    }
+    #home2 > img {
+      height: 50vh;
+    }
+    #home3 {
+      text-align: end;
+    }
+    #home3 > div {
+      margin-top: 0;
+    }
+    #home3 img {
+      width: 40%;
+      margin-top: 0;
+      text-align: end;
+    }
+    #home4 h2 {
+      font-size: 25px;
+    }
+    #home4 p {
+      font-size: 20px;
+    }
+    #home4 img {
+      height: 40vh;
+    }
+    #home5 p {
+      font-size: 18px;
+    }
+    #home5 #home5_3 {
+      margin-top: 0;
+    }
+    #home5 #home5_3 img {
+      width: 75%;
+    }
+    #home6 {
+      margin-top: 100px;
+    }
+    #home7 p {
+      margin-bottom: 30px;
+    }
+    #home8_1 {
+      display: none;
+    }
+    #home8 p {
+      font-size: 14px;
+    }
+    #home8 h3 {
+      font-size: 20px;
+    }
+    #home9 h3 {
+      font-size: 21px;
+    }
+    #home9 p {
+      font-size: 12px;
+    }
+    #home10 > img {
+      height: 40vh;
+    }
+    #home10 p {
+      font-size: 17px;
+    }
+    #kettle {
+      margin-top: 0px;
+      padding-right: 0px;
+    }
+    #home11_1 {
+      padding-right: 0px;
+    }
+  }
+</style>
+<section class="showcase">
+  <section id="home1" class="position-relative">
+    <div
+      class="position-absolute text-center"
+      style="
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 50px;
+        color: white;
+        font-family: 'Montserrat', 'Open Sans', 'Lato', 'Roboto', 'Poppins',
+          'Nunito', 'Playfair Display', 'Oswald', 'Raleway', 'Merriweather',
+          sans-serif;
+      "
+    >
+      <h4>Awards:</h4>
+      <div class="swiper award-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="{{ url_for('pages', page='medal') }}">
+              <img
+                src="https://static.igem.wiki/teams/4259/wiki/twemoji/1f3c5.svg"
+              />
+            </a>
+            <small>Gold medal</small>
+          </div>
+          <div class="swiper-slide">
+            <a href="{{ url_for('pages', page='medal') }}">
+              <img
+                src="https://static.igem.org/websites/common/2022/icons/awards/top10-color.svg"
+              />
+            </a>
+            <small>TOP 10</small>
+          </div>
+          <div class="swiper-slide">
+            <a href="{{ url_for('pages', page='medal') }}">
+              <img
+                src="https://static.igem.org/websites/competition/2022/icons/tracks/track-agriculture.svg"
+            /></a>
+            <small>Best Agriculture Project</small>
+          </div>
+          <div class="swiper-slide">
+            <a href="{{ url_for('pages', page='medal') }}">
+              <img
+                src="https://static.igem.org/websites/competition/2022/icons/awards/part-collection.svg"
+            /></a>
+            <small>Best Part Collection</small>
+          </div>
+          <div class="swiper-slide">
+            <a href="{{ url_for('pages', page='medal') }}">
+              <img
+                src="https://static.igem.org/websites/competition/2022/icons/awards/new-basic-part.svg"
+            /></a>
+            <small>Best New Basic Part</small>
+          </div>
+          <div class="swiper-slide">
+            <a href="{{ url_for('pages', page='medal') }}">
+              <img
+                src="https://static.igem.org/websites/competition/2022/icons/awards/wiki.svg"
+            /></a>
+            <small>Best Wiki, Nomination</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 番茄农田 -->
+  <section id="home2" class="position-relative">
+    <img
+      src="https://static.igem.wiki/teams/4653/wiki/home/tomato-field.png"
+      alt=""
+    />
+    <div class="position-absolute" style="top: 0; bottom: 0; left: 0; right: 0">
+      <p
+        class="gs_reveal text-start ps-5 pt-5"
+        style="font-size: 25px; font-family: Lucida Sans; color: #330000"
+      >
+        Tomato, which can be cooked in various of ways
+        <br />
+        is one of the most common field crops.
+      </p>
+      <p
+        class="gs_reveal text-start position-absolute ms-5"
+        style="
+          font-size: 25px;
+          font-family: Lucida Sans;
+          font-weight: 400;
+          color: #ffffff;
+          bottom: 10%;
+          text-shadow: 4px 4px 5px #462b25;
+        "
+      >
+        However, something unusal is happening in the farmland...
+      </p>
+    </div>
+  </section>
+  <!-- 手握番茄 -->
+  <div class="d-flex" style="background-color: #fdf4d6">
+    <div class="gs_reveal gs_reveal_fromLeft">
+      <img
+        src="https://static.igem.wiki/teams/4653/wiki/home/tomato-in-hand.png"
+        alt=""
+      />
+    </div>
+    <div style="margin: 10% 10%">
+      <h4
+        style="
+          font-size: 26px;
+          font-family: Lucida Sans;
+          font-weight: 400;
+          color: #330000;
+        "
+      >
+        ...happens in tomatoes.
+      </h4>
+    </div>
+  </div>
+  <!-- 番茄哭哭 -->
+  <div
+    id="home3"
+    class="d-flex"
+    style="
+      background-color: #fdf4d6;
+      justify-content: end;
+      height: 100px;
+      position: relative;
+      z-index: 1;
+    "
+  >
+    <div class="gs_reveal gs_reveal_fromRight">
+      <img
+        src="https://static.igem.wiki/teams/4653/wiki/home/tomato-cry.png"
+        alt=""
+      />
+    </div>
+  </div>
+  <!-- 灰霉军攻击番茄 -->
+  <div id="home4" class="position-relative">
+    <img
+      src="https://static.igem.wiki/teams/4653/wiki/home/gray-army.png"
+      alt=""
+      width="100%"
+    />
+    <div
+      class="position-absolute d-flex"
+      style="top: 0; bottom: 0; left: 0; right: 0; justify-content: end"
+    >
+      <div style="margin: 20% 10%">
+        <h2
+          class="heading_large gs_reveal"
+          style="
+            max-width: 455px;
+            font-size: 32px;
+            font-family: Lucida Sans;
+            font-weight: 400;
+            color: #330000;
+          "
+        >
+          Gray mold
+        </h2>
+        <br />
+        <p
+          class="gs_reveal"
+          style="
+            max-width: 455px;
+            font-size: 26px;
+            font-family: Lucida Sans;
+            font-weight: 400;
+            color: #330000;
+          "
+        >
+          a plant fungal disease caused by <i>Botrytis cinerea</i> , can infect
+          a wide range of crops, including tomatoes.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- 世界数据 -->
+  <section id="home5" class="container">
+    <!-- 第一幅图 -->
+    <div class="d-flex w-100" style="justify-content: space-around">
+      <div class="text-center gs_reveal gs_reveal_fromLeft">
+        <img
+          src="https://static.igem.wiki/teams/4653/wiki/home/graphs1.png"
+          alt=""
+        />
+      </div>
+      <div class="d-flex gs_reveal">
+        <div id="target1" class="block1" style="max-width: 465px">
+          <div class="box">
+            <p class="number">
+              <span>The global tomato production in 2021 was about </span>
+              <span class="num">189</span>
+              <span class="sub">million</span>
+              <span>tons.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 第二幅图 -->
+    <div class="d-flex" style="justify-content: space-around">
+      <div class="d-flex gs_reveal" style="align-items: end">
+        <div id="target2" class="block2" style="max-width: 465px">
+          <div class="box">
+            <p class="number">
+              <span>
+                Among them, China's planting annual output ranks first in the
+                world,reaching
+              </span>
+              <span class="num">68</span>
+              <span class="sub">million</span>
+              <span>tons.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center gs_reveal gs_reveal_fromRight">
+        <img
+          src="https://static.igem.wiki/teams/4653/wiki/home/graphs2.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <!-- 第三幅图 -->
+    <div id="home5_3">
+      <div class="text-center gs_reveal">
+        <img
+          src="https://static.igem.wiki/teams/4653/wiki/home/graphs3.png"
+          alt=""
+        />
+      </div>
+      <div
+        class="text-center d-flex gs_reveal"
+        style="justify-content: center; margin-top: 54px"
+      >
+        <div id="target3" class="block3" style="max-width: 450px">
+          <div class="box">
+            <p class="number">
+              <span>Up to </span>
+              <span class="num">60</span>
+              <span class="sub">%</span>
+              <span>reduction in severe cases due to tomato gray mold.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 化学方式消灭灰霉 -->
+  <div id="home6" class="container d-flex">
+    <p
+      style="
+        font-size: 25px;
+        font-family: Lucida Sans;
+        font-weight: 400;
+        color: #330000;
+        text-align: center;
+      "
+    >
+      At present, people tend to use chemical pesticides to solve the problem.
+    </p>
+    <p
+      style="
+        font-size: 25px;
+        font-family: Lucida Sans;
+        font-weight: 400;
+        color: #330000;
+        text-align: center;
+      "
+    >
+      But there are still problems with their use that cannot be ignored:
+    </p>
+  </div>
+  <!-- 利弊3圈 -->
+  <div
+    id="home7"
+    class="d-flex py-5"
+    style="background-color: #fdf4d6; height: auto; margin-top: 200px"
+  >
+    <div
+      class="w-100"
+      style="
+        max-width: 1320px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -150px;
+      "
+    >
+      <div class="gs_reveal">
+        <div class="row d-flex justify-content-around">
+          <div class="col-md-4 text-center">
+            <img
+              width="50%"
+              src="https://static.igem.wiki/teams/4653/wiki/home/bacilli.png"
+              alt=""
+            />
+            <p>make the fungus <br />resistant to drug</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <img
+              width="50%"
+              src="https://static.igem.wiki/teams/4653/wiki/home/soil.png"
+              alt=""
+            />
+            <p
+              style="
+                font-size: 23px;
+                font-family: Lucida Sans;
+                font-weight: 400;
+                color: #330000;
+                margin-top: 41px;
+              "
+            >
+              remain in the soil
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <img
+              width="50%"
+              src="https://static.igem.wiki/teams/4653/wiki/home/money.png"
+              alt=""
+            />
+            <p
+              style="
+                font-size: 23px;
+                font-family: Lucida Sans;
+                font-weight: 400;
+                color: #330000;
+                margin-top: 41px;
+              "
+            >
+              cost extra money
+              <br />
+              to undo the effects
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- polycobead展开 -->
+  <div
+    id="home8"
+    class="w-100 d-flex"
+    style="max-width: 1320px; margin: 0 auto; justify-content: space-around"
+  >
+    <div id="home8_1" class="w-25" style="padding-top: 250px">
+      <h3
+        class="gs_reveal pb-2"
+        style="
+          border-bottom: 5px solid #9da8a4;
+          font-size: 32px;
+          font-family: Lucida Sans;
+          font-weight: 400;
+          color: #660000;
+        "
+      >
+        Our solution
+      </h3>
+      <p
+        class="gs_reveal pt-1"
+        style="
+          font-size: 26px;
+          font-family: Lucida Sans;
+          font-weight: 400;
+          color: #660000;
+          white-space: nowrap;
+        "
+      >
+        This is not a simple bead
+      </p>
+    </div>
+    <section
+      class="polycobead"
+      style="background: #e6e1b0; border-radius: 50%; height: 488px"
+    >
+      <h1 class="gs_reveal">PolycoBead</h1>
+      <img
+        src="https://static.igem.wiki/teams/4653/wiki/home/polycobead-rna.png"
+        class="polycobead-rna piece"
+        alt="polycobead-rna"
+      />
+      <img
+        src="https://static.igem.wiki/teams/4653/wiki/home/polycobead-immu.png"
+        class="polycobead-immu piece"
+        alt="polycobead-immu"
+      />
+      <img
+        src="https://static.igem.wiki/teams/4653/wiki/home/polycobead-up.png"
+        class="polycobead-up piece"
+        alt="polycobead-up"
+      />
+      <img
+        src="https://static.igem.wiki/teams/4653/wiki/home/polycobead-down.png"
+        class="polycobead-down piece"
+        alt="polycobead-down"
+      />
+    </section>
+  </div>
+
+  <section id="home9" class="w-100" style="margin-top: 650px; height: 500px">
+    <div class="w-100 h-100 position-relative">
+      <div class="position-absolute w-50 gs_reveal" style="top: 25%; right: 1%">
+        <h3>
+          <img
+            src="https://static.igem.wiki/teams/4653/wiki/home/polycobead-rna.png"
+            alt="polycobead-rna"
+            width="10%"
+          />
+          RNAi biopesticides:
+        </h3>
+        <p>
+          The main component is CPP-shRNA, whose shRNA can trigger the RNAi
+          process, so as to specifically target and silence the growth essential
+          genes or infection key genes of <i>B. cinerea</i>.
+        </p>
+      </div>
+      <div class="position-absolute w-50 gs_reveal" style="top: 60%; right: 1%">
+        <h3>
+          <img
+            src="https://static.igem.wiki/teams/4653/wiki/home/polycobead-immu.png"
+            alt="polycobead-immu"
+            width="10%"
+          />
+          Engineered <i>Bacillus subtilis</i>:
+        </h3>
+        <p>
+          The engineered <i>B. subtilis</i> is able to express the immune
+          inducing factors, thereby stimulating the tomato's natural immune
+          system to improve resistance to gray mold.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 此处是下雨的结构 -->
+  <section
+    id="home10"
+    class="w-100 position-relative"
+    style="margin-top: 350px"
+  >
+    <img
+      src="https://static.igem.wiki/teams/4653/wiki/home/farmland.png"
+      alt=""
+      width="100%"
+    />
+    <div
+      class="position-absolute d-flex"
+      style="top: 0; bottom: 0; left: 0; right: 0"
+    >
+      <div class="container" style="position: relative">
+        <div
+          class="gs_reveal gs_reveal_fromLeft"
+          style="max-width: 600px; position: absolute; bottom: 30%"
+        >
+          <p>
+            After dissolving into water,
+            <br />PolycoBead can be sprayed on the tomatoes to play its role.
+          </p>
+        </div>
+        <div class="text-end gs_reveal gs_reveal_fromRight">
+          <img
+            id="kettle"
+            src="https://static.igem.wiki/teams/4653/wiki/home/kettle-water.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- <div class="bron gs_reveal" style="max-width: 1080px">
+        <div class="cloud"></div>
+      </div> -->
+    </div>
+  </section>
+  <div id="home11" class="container">
+    <h2 class="heading_large gs_reveal" style="margin-top: 30px">
+      PolycoBead-Integrated control strategy for tomato gray mold disease based
+      on RNA-biopesticides and plant immune-induceing factors
+    </h2>
+    <div style="text-align: justify; font-size: 18px">
+      <img
+        src="https://static.igem.wiki/teams/4653/wiki/home/tomato-happy.png"
+        alt=""
+        class="gs_reveal gs_reveal_fromRight"
+        style="float: right; width: 30%; padding: 20px"
+      />
+      Tomato grey mold is a specific fungal disease caused by
+      <i>Botrytis cinerea</i>. SZU-China aims to combat tomato grey mold through
+      synthetic biology.
+      <br />
+      <br />
+      Firstly, utilize RNAi technology to silence crucial survival genes and
+      virulence factors of the <i>B. cinerea</i> , employing innovative
+      approaches including binding cell-penetrating peptides (CPP) with shRNA to
+      significantly treat tomato grey mold. Additionally, we will supplement
+      this with plant immune technology by modifying Bacillus subtilis, enabling
+      it to express immune-inducing factors such as flg22 and BvEP to trigger
+      plant immune responses.Finally, based on the actual needs of agricultural
+      applications, we creatively encapsulate the RNAi-based biopesticides and
+      calcium alginate beads containing engineering B. subtilis that can trigger
+      the immune effect of plants in a water-soluble film, forming a unique
+      application model similar to laundry beads, which we call PolycoBead.
+      <br />
+      <br />
+      We hoped that this novel plant fungal disease control strategy can bring
+      enlightenment for future biopesticide research.
+    </div>
+  </div>
+
+  <section class="w-100 text-center mt-5" style="font-size: 25px">
+    Learn more in ...
+  </section>
+
+  <main class="container content-home">
+    <div class="swiper thumbnails-Swiper">
+      <div class="thumbnails swiper-wrapper">
+        <a
+          href="{{ url_for('pages', page='description') }}"
+          class="item-hugger swiper-slide"
+          >Description</a
+        >
+        <a
+          href="{{ url_for('pages', page='design') }}"
+          class="item-hugger swiper-slide"
+          >Design</a
+        >
+        <a
+          href="{{ url_for('pages', page='model') }}"
+          class="item-hugger swiper-slide"
+          >Model</a
+        >
+        <a
+          href="{{ url_for('pages', page='hardware') }}"
+          class="item-hugger swiper-slide"
+          >Hardware</a
+        >
+        <a
+          href="{{ url_for('pages', page='human-practices') }}"
+          class="item-hugger swiper-slide"
+          ><span>Human</span><span>Practices</span></a
+        >
+      </div>
+    </div>
+  </main>
+</section>
+{% endblock %}

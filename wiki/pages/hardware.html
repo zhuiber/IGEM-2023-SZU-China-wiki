@@ -1,0 +1,458 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(12 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/head-picture/hardware.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Hardware</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Automated hardware</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor1.1" class="scroll-link d-block w-100"
+                      >Introduction</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor1.2" class="scroll-link d-block w-100"
+                      >Principles of in vitro transcription</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.3" class="scroll-link d-block w-100"
+                      >Components and constructions</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.4" class="scroll-link d-block w-100"
+                      >Schematic diagram</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.5" class="scroll-link d-block w-100"
+                      >Working procedure</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.6" class="scroll-link d-block w-100"
+                      >Result</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.7" class="scroll-link d-block w-100"
+                      >Comparison with PCR instrument</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.8" class="scroll-link d-block w-100"
+                      >User product manual</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor1.9" class="scroll-link d-block w-100"
+                      >Presentation video</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Automated hardware system</h2>
+            <h4>
+              An Automated Equipment for Large-Scale Production of shRNA
+              molecules through a Cell-Free Method
+            </h4>
+            <section id="anchor1.1">
+              <h3>Introduction</h3>
+              <p>
+                Short-hairpin RNA (shRNA) molecules are the precursors and
+                effective triggers of RNA interference (RNAi) in most organisms.
+                Until now shRNA molecules are usually produced through
+                fermentation by engineering bacteria. For instance,
+                <i>E. coli</i>
+                strain HT115 (DE3) was chosen to take advantage of an
+                IPTG-inducible T7 RNA polymerase gene to produce shRNA
+                molecules. However, this production method has the disadvantages
+                of low yields and high cost. Therefore, it is rather difficult
+                for RNAi to be widely applied in the field of agricultural due
+                to the high production cost of shRNA molecules. Recently,
+                advances in RNA biology demonstrated efficiently the cell-free
+                method of large-scale synthesis of shRNA molecules. It is
+                impressing that low cost and high-efficient shRNA production
+                method could be established through in vitro transcription.
+                Consequently, we have undertaken the design and construction of
+                an automated hardware system tailored for the large-scale
+                synthesis of shRNA molecules. This endeavor aims to enhance the
+                convenience of shRNA production while concurrently reducing
+                associated costs. Our innovative and cost-effective equipment
+                exhibits several advantages when compared to the traditional,
+                more expensive PCR instruments.
+              </p>
+            </section>
+            <section id="anchor1.2">
+              <h3>
+                Principles of cell-free production of shRNA——in vitro
+                transcription
+              </h3>
+              <p>
+                In vitro transcription is a technique used to synthesize RNA
+                molecules from a DNA template outside of a living cell (Fig 1).
+                In brief, T7 RNA polymerase synthesizes RNA complementary to the
+                DNA strand from downstream of the template DNA T7 promoter (the
+                green box), obtaining a large number of RNA molecules rapidly
+                and cost-effectively.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig1.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <small>Fig 1. The principles of in vitro transcription.</small>
+              </div>
+              <br />
+              <h4>The protocol of cell-free production of shRNA molecules:</h4>
+              <br />
+              <ul class="ps-4">
+                <li>
+                  (1) Mix 1.2mL T7 Enzyme Mix (contains T7 RNA polymerase, NTPs
+                  and Transcription Buffer) with 0.8mL DNA template (prepared by
+                  PCR amplification or chemical synthesis)
+                </li>
+                <li>(2) Incubate at 37 ℃ for 2h.</li>
+                <li>
+                  (3) Add 2mL dual enzyme digestion system (contains DNase I and
+                  RNase T1) to the reaction system.
+                </li>
+                <li>(4) Incubate at 37 ℃ for 30min.</li>
+              </ul>
+              <br />
+            </section>
+            <section id="anchor1.3">
+              <h3>Components and constructions of our hardware</h3>
+              <p>
+                Generally, the hardware is composed of 9 different elements.
+                Their specific types and functions are presented in detail in
+                the following table (Fig 2). Specifically, 3 peristaltic pumps
+                coupled with their corresponding drives facilitate the precise
+                transport of a specified volume of reagents. The speed of the
+                peristaltic pumps could be accurately controlled through
+                enabling the microcontroller pins to emit pulse width modulation
+                (PWN) waves with specific duty cycles, thus regulating the rates
+                of flow of the reagents within the hose. It could be inferred
+                from the table that the total cost of the equipment amounts to
+                approximately $191, significantly lower than that of a
+                traditional PCR instrument. Thus, it is promising to reduce the
+                production costs associated with shRNA molecules by utilizing
+                our equipment.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig2.png"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Fig 2. The summarization of the components used in the
+                  hardware.</small
+                >
+              </div>
+              <br />
+              <p>
+                Furthermore, to establish large-scale production of shRNA
+                molecules, we designed and 3D-printed a high-capacity disposable
+                reaction container (Fig3). This innovative reaction container
+                was designed by 3DsMAX software and 3D-printed with
+                heat-resistant resin material. Prior to use, the reaction
+                container underwent thorough sterilization. Our designed
+                reaction container is capable of a total volume of 4mL reaction
+                reagents, which is 20 times larger than that of a single
+                centrifuge tube (0.2mL) commonly employed in traditional PCR
+                instruments. Hence, our built hardware demonstrates the
+                capability to scale up the production of shRNA molecules
+                substantially.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig3.png"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Fig 3. The 3D modeling drawing of the reaction container(A)
+                  and the physical picture of the 3D-printed reaction
+                  container(B).</small
+                >
+              </div>
+              <br />
+              <p>
+                Additionally, the construction of the equipment is detailed as
+                follows (Fig 4, Fig 5). The essential reagents for the in vitro
+                transcription reaction were prepared in three separate
+                centrifuge tubes. Each pump was connected to an interface on the
+                reaction container and its corresponding centrifuge tube through
+                silicone hose, facilitating the precise transfer of a specified
+                volume of reagents from the centrifuge tube into the reaction
+                container. The positive temperature coefficient (PTC)
+                thermostatic heater was sticked to the bottom of the reaction
+                container, while the temperature probe was inserted into the
+                reaction container through the hole on its top. Within this
+                reaction container, the in vitro transcription reaction takes
+                place.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig4.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <small>Fig 4. The sketch map of the hardware.</small>
+              </div>
+              <br />
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig10.png"
+                  alt=""
+                  width="80%"
+                />
+                <small>Fig 5. The physical picture of the hardware.</small>
+              </div>
+              <br />
+            </section>
+            <section id="anchor1.4">
+              <h3>Schematic diagram</h3>
+              <p>
+                The schematic diagram of the hardware was designed and drew by
+                Altium Designer, which consists of the circuit schematic design
+                of microcontroller, temperature sensor, drive of peristaltic
+                pump and drive of PTC heater. Both the drive of peristaltic pump
+                and the drive of PTC heater are made up of superpower MOS
+                transistor control circuit.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig6.png"
+                  alt=""
+                  width="80%"
+                />
+                <small>Fig 6. The schematic diagram of the hardware.</small>
+              </div>
+              <br />
+            </section>
+            <section id="anchor1.5">
+              <h3>Working procedure of the equipment</h3>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig7.png"
+                  alt=""
+                  width="80%"
+                />
+                <small>Fig 7. Working procedure of the equipment.</small>
+              </div>
+              <br />
+              <p>
+                This working procedure is achieved by the C program uploaded
+                into the microcontroller according to the protocol of cell-free
+                production of shRNA molecules. The source code of the program is
+                provided below. It is noticeable that the equipment establishes
+                automatic production of shRNA molecules through microcontroller
+                programming, enabling it to manufacture shRNA molecules
+                conveniently in the absence of human manual effort.
+                Consequently, the equipment can be operated by non-scientific
+                research personnel or utilized in a non-laboratory setting.
+              </p>
+              <br />
+              <a
+                href="https://static.igem.wiki/teams/4653/wiki/hardware/program.pdf"
+                >The source code of the program.pdf</a
+              >
+              <br />
+              <br />
+            </section>
+            <section id="anchor1.6">
+              <h3>Production result of the equipment</h3>
+              <br />
+              <p>
+                The shRNA molecules produced by the equipment were examined
+                using nucleic acid electrophoresis. To compare the shRNA
+                synthesis, DNA templates (approximately 100 bp in size) used for
+                shRNA synthesis were loaded onto the same gel. It could be
+                inferred from the results that the content of synthesized shRNA
+                is higher than that of the DNA templates. In conclusion, the
+                automated hardware system offers a cost-effective,
+                user-friendly, and scalable solution for shRNA molecule
+                synthesis, making RNA interference technology more accessible
+                and efficient across various applications.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig8.png"
+                  alt=""
+                  width="50%"
+                />
+                <small
+                  >Fig 8. Agarose gel depicting the synthesized shRNA and
+                  comparing it with the DNA templates used for shRNA
+                  reaction.</small
+                >
+              </div>
+              <br />
+            </section>
+            <section id="anchor1.7">
+              <h3>
+                Comparison of our equipment with traditional PCR instrument
+              </h3>
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/hardware/fig9.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Fig 9. Comparison of our equipment with traditional PCR
+                  instrument.</small
+                >
+              </div>
+              <br />
+            </section>
+            <section id="anchor1.8">
+              <h3>User product manual</h3>
+              <p>
+                In order to let users understand the operation process of the
+                hardware, we have written very detailed user product manuals.
+              </p>
+              <br />
+              <a
+                href="https://static.igem.wiki/teams/4653/wiki/hardware/product-user-mannual-for-the-automated-equipment.pdf"
+                >product-user-mannual-for-the-automated-equipment.pdf</a
+              >
+            </section>
+            <section id="anchor1.9">
+              <h3>Presentation video of the hardware:</h3>
+              <br />
+              <div class="text-center">
+                <iframe
+                  style="width: 70%; height: 50vh"
+                  width="560"
+                  height="315"
+                  poster="https://static.igem.wiki/teams/4653/wiki/hardware/poster-of-the-video.jpg"
+                  src="https://video.igem.org/videos/embed/ff60ee32-c199-4096-8dbd-d1f379e5309c"
+                  frameborder="0"
+                  allowfullscreen=""
+                  sandbox="allow-same-origin allow-scripts allow-popups"
+                ></iframe>
+              </div>
+              <br />
+              <br />
+            </section>
+          </section>
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1] Sundaresha S, Bairwa A, Tomar M, Kumar R, Venkatasalam EP,
+                  Sagar V, Bhardwaj V, Sharma S. In Vitro Method for Synthesis
+                  of Large-Scale dsRNA Molecule as a Novel Plant Protection
+                  Strategy. Methods Mol Biol. 2022;2408:211-226. doi:
+                  10.1007/978-1-0716-1875-2_14. PMID: 35325425.<br />
+                  [2] Huang L, Lieberman J. Production of highly potent
+                  recombinant siRNAs in Escherichia coli. Nat Protoc. 2013
+                  Dec;8(12):2325-36. doi: 10.1038/nprot.2013.149. Epub 2013 Oct
+                  31. PMID: 24177290.<br />
+                  [3] Kamakaka RT, Kraus WL. In vitro transcription. Curr Protoc
+                  Cell Biol. 2001 May;Chapter 11:Unit 11.6. doi:
+                  10.1002/0471143030.cb1106s02. PMID: 18228311.<br />
+                  [4] Beckert B, Masquida B. Synthesis of RNA by in vitro
+                  transcription. Methods Mol Biol. 2011;703:29-41. doi:
+                  10.1007/978-1-59745-248-9_3. PMID: 21125481<br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

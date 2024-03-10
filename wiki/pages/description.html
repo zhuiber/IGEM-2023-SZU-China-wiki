@@ -1,0 +1,475 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+  .menu-item > input#menu-item4:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/descrition-1.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Description</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Introduction</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Problems</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link"
+                  >Our solution: PolycoBead</a
+                >
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link">Practical Application</a>
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Introduction</h2>
+            <p>
+              According to the State of Food Security and Nutrition in the World
+              (SOFI) report, about 735 million people faced hunger in
+              2022<sup>[1]</sup>. To solve these series of problems,
+              agricultural development is one of the most powerful tools to end
+              extreme poverty, boost shared prosperity, and feed a projected 9.7
+              billion people by 2050. Agriculture is also crucial to economic
+              growth: accounting for 4% of global gross domestic product (GDP)
+              and in some least developing countries, it can account for more
+              than 25% of GDP<sup>[2]</sup>.
+            </p>
+            <br />
+            <p>
+              Tomato is a particularly important crop in agriculture worldwide.
+              FAO data shows that the global tomato harvest area and total
+              tomato production in 2021 were about 5.17 million hectares and 189
+              million tons respectively. Among them, China's tomato planting are
+              reaches 1.14 million hectares, and its annual output ranks first
+              in the world, reaching 68 million tons, accounting for 11.2% of
+              the national vegetable output. The gross production value of
+              tomatoes in the world is $100 million, of which the value in China
+              is $35.5 million<sup>[3]</sup>.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-1.png"
+                alt=""
+                width="80%"
+              />
+              <small>Figure 1. Data on tomato production.</small>
+            </div>
+            <br />
+            <p>
+              Furthermore, tomato is one of the most common foods in our daily
+              life, with the nature of fruits and vegetables. It can appear in a
+              variety of forms on the recipe, such as tomato scrambled eggs,
+              tomato hot pot, tomato sauce, tomato salad, etc., has become an
+              indispensable food on the table of people all over the world.
+            </p>
+            <br />
+            <br />
+          </section>
+          <section id="anchor2">
+            <h2>Problems</h2>
+            <p>
+              Plant fungal diseases are one of the main culprits affecting the
+              quality and yield of crops. Their existence has greatly impacted
+              food health and agricultural development, and may even further
+              increase the degree of hunger. These diseases are caused by fungi,
+              which secrete a variety of pathogenic factors to attack the host
+              when they infect crops, and can spread widely before effective
+              measures are taken.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-5.png"
+                alt=""
+                width="60%"
+              />
+              <small>Figure 2. Problems caused by plant fungal diseases</small>
+            </div>
+            <br />
+            <p>
+              <i>Botrytis cinerea</i> is a kind of worldwide pathogen of gray
+              mold. It can infect the roots, leaves, flowers and fruits of
+              plants, causing diseases on more than 500 plant species, including
+              more than 200 crop species<sup>[4]</sup>.
+              <i>B. cinerea</i>
+              is a plant pathogen suitable for growing in low temperature and
+              high humidity. In agricultural production, the temperature in the
+              greenhouse is usually maintained at 15-20°C, with high relative
+              humidity, which is easy to cause a large range of gray mold.
+              <i>B. cinerea</i> is one of the most damaging post-harvest
+              pathogens in many agricultural products<sup>[5]</sup>. In the
+              process of storage and transportation after harvest,
+              <i>B. cinerea</i> will accelerate the deterioration of crops,
+              resulting in serious logistics losses.
+            </p>
+            <br />
+            <p>
+              In nature, <i>B. cinerea</i> resist stress through overwinter
+              sclerotium and conidium in soil and host plant tissues. Sclerotium
+              is mainly formed in hosts that are about to die and lack
+              nutrients. The blackened outer skin and β-glucan protect the
+              internal mycelium, which enhances the resistance of sclerotium to
+              adversity. It protects sclerotium from dryness, ultraviolet
+              radiation, and long-term bacterial attack. Sclerotium is the main
+              form of <i>B. cinerea</i> to overwinter and survive adversity. It
+              can survive for about 11 months in the soil. In suitable
+              conditions for germination, sclerotium, and conidium will
+              germinate and infect the host. Conidia spread with air flow, rain
+              or dew drops, tools and clothing in farming operations, and often
+              invade from the host's weakened organs, tissues or wounds, causing
+              disease. There is a latent period from attachment to infection.
+              The mycelium propagates on the disease residue, the disease spot
+              expands, kills the host, and after the host nutrients are
+              absorbed, <i>B. cinerea</i> will produce a large number of
+              conidium in the infected site through a space conidium pedoides
+              under signal transduction and regulation. After the conidia mature
+              and fall off, they spread and infect through rain, irrigation in
+              fields or protected areas, and wind, forming an infection
+              cycle.<sup>[6]</sup>.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-2.png"
+                alt=""
+                width="80%"
+              />
+              <small>Figure 3. The infection cycle of <i>B. cinerea</i>.</small>
+            </div>
+            <br />
+            <p>
+              At present, chemical fungicides are the main means to control
+              <i>B. cinerea</i>. AAlthough it can inhibit diseases efficiently,
+              it is also easy to endow <i>B. cinerea</i> with resistance, which
+              weakens the control effect in the long run. Chemical control is
+              mainly divided into two types. One is protective fungicides with
+              preventive effects, such as mancozeb and chlorothalonil, used
+              before the onset of the disease<sup>[7]</sup>. The other is
+              therapeutic fungicides such as pyrimethanil and procymidone that
+              are used after the onset of the disease<sup>[8]</sup>. The two
+              fungicides have their own advantages, but the common problem
+              between them is that the control effect becomes worse after a
+              period of use, that is, <i>B. cinerea</i> has resistance.
+              Moreover, chemical fungicides are not conducive to environmental
+              protection, and the pesticide residues brought by it will harm the
+              health of humans and animals.
+            </p>
+          </section>
+          <section id="anchor3">
+            <h2>Our solution: PolycoBead</h2>
+            <p>
+              We designed the product <b>PolycoBead</b>, which is a bead that is
+              packaged into a fixed volume. The bead contain two main
+              components: RNAi preparations and engineered bacteria that can
+              produce agents that induce plant immunity.
+            </p>
+            <br />
+            <ul>
+              <li class="ps-4">
+                <b>RNAi biopesticides</b>: The main component is CPP-shRNA,
+                whose shRNA can trigger the RNAi process, so as to specifically
+                target and silence the key genes and survival genes of
+                <i>B. cinerea</i> to inhibit its infection to tomato. CPP is the
+                cell membrane penetrating peptide that binds to shRNAs to help
+                shRNAs more stably exist in the natural environment and be more
+                easily absorbed by cells.
+              </li>
+              <br />
+              <li class="ps-4">
+                <b>Engineering <i>Bacillus subtilis</i></b
+                >: As a common biocontrol bacterium in agriculture,
+                <i>B. subtilis</i> is able to competitively attach to plant
+                roots and protect plants from infection by other pathogens. We
+                engineered <i>B. subtilis</i> WB600 to express the 22-amino acid
+                sequence of the N-terminal of <i>P. aeruginosa</i>
+                flagellin protein (Flg22), which is a pattern signaling
+                molecule, can be bound by pattern recognition receptors on the
+                surface of tomato cells, thereby inducing the plant's natural
+                immune system to improve resistance to gray mold.
+              </li>
+            </ul>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-3.png"
+                alt=""
+                width="80%"
+              />
+              <small>Figure 4. PolycoBead.</small>
+            </div>
+            <br />
+            <p>
+              <b>The beads are designed to solve the following problems:</b>
+            </p>
+            <br />
+            <ul>
+              <li class="ps-4">
+                - RNA pesticides are easy to degrade and not easy to preserve:
+                Due to the presence of nucleases and other factors in the
+                environment, our shRNA products are extremely easy to degrade,
+                and may degrade during our production and transportation,
+                resulting in weakened effects. The presence of a bead membrane
+                helps insulate RNA from the environment and prevent RNA
+                degradation.
+              </li>
+              <br />
+              <li class="ps-4">
+                - Due to the phenomenon of pesticide abusion, many farmers do
+                not know how much pesticide is appropriate to use. The net
+                weight of each coagulated bead is about 1.5g, containing 10mg of
+                RNA, and every 2 coagulated beads are mixed with 10L of water,
+                which can treat about 100 square meters of tomato fields ( a
+                density of about 100-120 plants with 50-60 fruits) to avoid the
+                abuse of pesticides.
+              </li>
+            </ul>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-4.png"
+                alt=""
+                width="80%"
+              />
+              <small>Figure 5. The use of PolycoBead.</small>
+              <br />
+              <p>
+                More details can be viewed in
+                <a href="{{ url_for('pages', page='design') }}"> Design</a>
+                and
+                <a href="{{ url_for('pages', page='Proof-of-concept') }}">
+                  Proof of concept</a
+                >
+              </p>
+            </div>
+            <br />
+          </section>
+          <section id="anchor4">
+            <h2>Practical Application</h2>
+            <p>
+              RNAi biopesticide is a new type of pesticide based on RNAi
+              technology, known as "another technological revolution in the
+              history of pesticides", is currently one of the most promising
+              crop protection products. RNAi pesticides have significant
+              advantages over traditional pesticides:
+            </p>
+            <br />
+            <ul>
+              <li class="ps-4">
+                --They are highly specific and do not affect non-target
+                organisms.
+              </li>
+              <br />
+              <li class="ps-4">
+                --No environmental toxicity, can be degraded in natural ways.
+              </li>
+              <br />
+              <li class="ps-4">
+                --Can be developed for all pest species, short development
+                cycle, flexible target change.
+              </li>
+              <br />
+              <li class="ps-4">
+                --The amount used is very low, with 2-10g per hectare of crop
+                control.
+              </li>
+            </ul>
+            <br />
+            <p>
+              By specifically targeting the fungal mRNA sequence, the process of
+              RNAi can eventually trigger the degradation of mRNA, resulting in
+              a silencing effect on the interested gene. In the nascent field of
+              RNAi pesticides, several giant companies have made great strides.
+              Bayer has applied for the first exogenous application of dsRNA
+              biocide, which is expected to be available in 2024; GreenLight
+              Biosciences (has been acquired) has reduced the price of dsRNA to
+              $0.50 per gram, which is very promising in terms of product
+              commercialization.
+            </p>
+            <br />
+            <p>
+              Plant immune-inducing agents, also known as plant vaccines, are a
+              new type of biopesticides, which combine the theories of plants,
+              pests and diseases and biopesticides, and are currently a hot
+              research direction in the field of biopesticides in the world.
+              Plant vaccines do not directly kill pathogens, including
+              pathogenic bacteria and pests, but stimulate the immune system in
+              the plant through induction preparations to improve the
+              antibacterial and insect-resistant ability of plants, which is
+              different from traditional pesticides. At the same time, plant
+              vaccines can also stimulate a series of metabolic regulation
+              systems in plants, promote plant tissue growth, and ultimately
+              achieve the purpose of increasing production and preserving
+              quality. Since the end of the 20th century, countries around the
+              world have officially registered a variety of plant
+              immune-inducing drugs, and some pesticide giant companies and
+              research institutes have carried out the industrial production of
+              plant immune-inducing drugs. At present, plant vaccines available
+              on the market include oligosaccharide inducing factors, protein
+              elicitors, and probiotics.
+            </p>
+            <br />
+            <p>
+              As of March 2019, the number of registered products of biochemical
+              pesticides, microbial pesticides and botanical pesticides approved
+              and registered in China is about 1,200, accounting for only 4% of
+              the total number of registered pesticides in China, which is much
+              lower than that of chemical pesticides<sup>[9]</sup>. As of
+              September 2023, only 44 plant immune-inducing agents have been
+              registered, and the total number of registered pesticides is
+              45,733, accounting for only 0.962%, and their use and acceptance
+              are also low<sup>[10]</sup>.
+            </p>
+            <br />
+            <p>
+              Policy is the prerequisite for technology commercialization. If we
+              want to promote our products to further expand the test scale and
+              enter the market, we must clearly clarify the legal norms that our
+              products need to comply with. During the investigation, we found
+              that there are no relevant laws and regulations on RNA pesticides
+              in China. Therefore, we combined our own experimental basis and
+              the existing standards of various countries to write a proposal
+              for China's RNA industry standards, and submitted it to the
+              relevant departments, hoping to promote the early implementation
+              of China's RNA pesticide regulations. In addition, we hope to form
+              an RNA enterprise alliance (Though-Oriented Modernization of
+              Agriculture-Targeted Organization, TOMATO) to drive the
+              transformation of traditional chemical pesticide companies to
+              adapt to future trends in biopesticides.
+            </p>
+            <br />
+            <p>
+              More details can be viewed in
+              <a href="{{ url_for('pages', page='human-practices') }}"
+                >integrated human practices</a
+              >
+              and
+              <a href="{{ url_for('pages', page='entrepreneurship') }}"
+                >entrepreneurship</a
+              >.
+            </p>
+            <br />
+            <br />
+          </section>
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1] FAO, IFAD, UNICEF, WFP and WHO. 2023. The State of Food
+                  Security and Nutrition in the World 2023. Urbanization,
+                  agrifood systems transformation and healthy diets across the
+                  rural–urban continuum. Rome, FAO.<br />
+                  [2] The World Bank. Agriculture and food .[cited 2023-09-15].
+                  https://www.worldbank.org/en/topic/agriculture/overview#1<br />
+                  [3] FAO. Crops and livestock products.[cited 2023-09-15].
+                  https://www.fao.org/faostat/en/#data/QCL/visualize<br />
+                  [4] Williamson B, Tudzynski B, Tudzynski P, van Kan JA.
+                  Botrytis cinerea: the cause of grey mould disease. Mol Plant
+                  Pathol. 2007 Sep;8(5):561-80. <br />
+                  [5] FAO. Prevention of post-harvest food losses fruits,
+                  vegetables and root crops a training manual. Rome, 1989.
+                  https://www.fao.org/3/T0073E/T0073E02.htm<br />
+                  [6]Rupp S, Plesken C, Rumsey S, Dowling M, Schnabel G, Weber
+                  RWS, Hahn M. Botrytis fragariae, a New Species Causing Gray
+                  Mold on Strawberries, Shows High Frequencies of Specific and
+                  Efflux-Based Fungicide Resistance. Appl Environ Microbiol.
+                  2017 Apr 17;83(9) :e00269-17. <br />
+                  [7]
+                  叶艳英,熊春晖,袁经相等.植物源杀菌剂防治灰霉病研究进展[J].生物灾害科学,2016,39(01):27-31.<br />
+                  [8]
+                  杜颖,付丹妮,邹益泽等.2017年辽宁省番茄灰霉病菌对腐霉利的抗药性现状及机制研究[J].中国蔬菜,2018(01):58-65.<br />
+                  [9] Agroinfo. The latest survey of biological pesticide
+                  registration in China. G Sun, 2019.<br />
+                  [10] Chinapesticide. China pesticide registration data.
+                  http://www.chinapesticide.org.cn/zwb/dataCenter<br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+        <div id="back-top">
+          <div class="back-top-img"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

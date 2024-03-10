@@ -1,0 +1,139 @@
+<!-- 顶部导航栏 -->
+<div class="nav">
+  <nav class="container">
+    <!---- HOME ---->
+    <a href="{{ url_for('home') }}" class="logo"
+      ><img
+        src="https://static.igem.wiki/teams/4653/wiki/home/polycobead-logo.png"
+        alt=""
+        style="padding: 11px 0 7px 0"
+    /></a>
+    <!---- TEAM ---->
+    <div class="toggle" id="clickable1">Team<span></span></div>
+    <!---- Team ---->
+    <div class="toggle" id="clickable2">Project<span></span></div>
+    <!-- WET LAB -->
+    <div class="toggle" id="clickable3">Wet Lab<span></span></div>
+    <!-- DAY LAB -->
+    <div class="toggle" id="clickable4">Dry Lab<span></span></div>
+    <!---- HUMAN PRACTICES ---->
+    <div class="toggle" id="clickable5" style="flex: 1.7">
+      Human Practices<span></span>
+    </div>
+
+    <!-- 响应式顶部导航栏 -->
+    <div class="toggle_btn"><span></span></div>
+    <div class="dropdown_menu">
+      <!---- TEAM ---->
+      <div class="toggle" id="clickable1">Team<span></span></div>
+      <!---- PROJECT ---->
+      <div class="toggle" id="clickable2">Project<span></span></div>
+      <!-- WET LAB -->
+      <div class="toggle" id="clickable3">Wet Lab<span></span></div>
+      <!-- DAY LAB -->
+      <div class="toggle" id="clickable4">Dry Lab<span></span></div>
+      <!---- HUMAN PRACTICES ---->
+      <div class="toggle" id="clickable5">Human Practices<span></span></div>
+      <!---- AWARDS ---->
+      <!-- <div class="toggle" id="clickable6">Medal<span></span></div> -->
+    </div>
+  </nav>
+</div>
+
+<!-- 顶部导航栏结束 -->
+
+<div class="menu">
+  <!---- TEAM ---->
+  <ul class="toggle_item" id="corresponding1">
+    <li style="--i: 0; --i-z: 4">
+      <a href="{{ url_for('pages', page='team') }}">Team Members</a>
+    </li>
+    <li style="--i: 1; --i-z: 3">
+      <a href="{{ url_for('pages', page='attributions') }}">Attributions</a>
+    </li>
+    <li style="--i: 2; --i-z: 2">
+      <a href="{{ url_for('pages', page='collaboration') }}">Collaboration</a>
+    </li>
+    <li style="--i: 3; --i-z: 1">
+      <a href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+    </li>
+    <li style="--i: 4; --i-z: 0">
+      <a href="{{ url_for('pages', page='medal') }}">Achievement</a>
+    </li>
+  </ul>
+  <!---- PROJECT ---->
+  <ul class="toggle_item" id="corresponding2">
+    <li style="--i: 0; --i-z: 5">
+      <a href="{{ url_for('pages', page='description') }}">Description</a>
+    </li>
+    <li style="--i: 1; --i-z: 4">
+      <a href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+    </li>
+    <li style="--i: 2; --i-z: 3">
+      <a href="{{ url_for('pages', page='engineering') }}">Engineering</a>
+    </li>
+    <li style="--i: 3; --i-z: 2">
+      <a href="{{ url_for('pages', page='implementation') }}">Implementation</a>
+    </li>
+    <li style="--i: 4; --i-z: 1">
+      <a href="{{ url_for('pages', page='safety') }}">Safety</a>
+    </li>
+  </ul>
+  <!-- WET LAB -->
+  <ul class="toggle_item" id="corresponding3">
+    <li style="--i: 0; --i-z: 5">
+      <a href="{{ url_for('pages', page='design') }}">Design</a>
+    </li>
+    <li style="--i: 1; --i-z: 4">
+      <a href="{{ url_for('pages', page='results') }}">Results</a>
+    </li>
+    <li style="--i: 2; --i-z: 3">
+      <a href="{{ url_for('pages', page='proof-of-concept') }}"
+        >Proof of Concept</a
+      >
+    </li>
+    <li style="--i: 3; --i-z: 2">
+      <a href="{{ url_for('pages', page='parts') }}">Part Collection</a>
+    </li>
+    <li style="--i: 4; --i-z: 1">
+      <a href="{{ url_for('pages', page='protocol') }}">Protocol</a>
+    </li>
+  </ul>
+  <!-- DAY LAB -->
+  <ul class="toggle_item" id="corresponding4">
+    <li style="--i: 0; --i-z: 2">
+      <a href="{{ url_for('pages', page='model') }}">Modeling</a>
+    </li>
+    <li style="--i: 1; --i-z: 1">
+      <a href="{{ url_for('pages', page='hardware') }}">Hardware</a>
+    </li>
+  </ul>
+  <!---- HUMAN PRACTICES ---->
+  <ul class="toggle_item" id="corresponding5">
+    <li style="--i: 0; --i-z: 5">
+      <a href="{{ url_for('pages', page='hp-overview') }}">Overview</a>
+    </li>
+    <li style="--i: 1; --i-z: 4">
+      <a href="{{ url_for('pages', page='human-practices') }}"
+        >Integrated Human Practices</a
+      >
+    </li>
+    <li style="--i: 2; --i-z: 3">
+      <a href="{{ url_for('pages', page='education') }}"
+        >Education and Engagement</a
+      >
+    </li>
+    <li style="--i: 3; --i-z: 2">
+      <a
+        href="{{ url_for('pages', page='cooperation') }}"
+        style="line-height: 2"
+        >Communication and Cooperation</a
+      >
+    </li>
+    <li style="--i: 4; --i-z: 1">
+      <a href="{{ url_for('pages', page='entrepreneurship') }}"
+        >Entrepreneurship</a
+      >
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,184 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/members/team-bg.jpg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Special Prize</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><i class="iconfont icon-yemianfanhui"></i
+          ></label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+              <div class="menu-content">
+                <span>option1</span>
+                <span>option2</span>
+                <span>option3</span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Timelog</a>
+              </label>
+              <div class="menu-content">
+                <span>option1</span>
+                <span>option2</span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <span>navigation3</span>
+              </label>
+              <div class="menu-content">
+                <span>option1</span>
+                <span>option2</span>
+                <span>option3</span>
+              </div>
+            </div>
+
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span>setting</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section>
+            <section id="anchor1">
+              <h2 class="main-title">Introduction</h2>
+              <p>
+                While working on our project, we paid special attention to
+                several areas outside of our regular research. Next to focussing
+                on the safety and sustainability of our project, it was
+                important to us to communicate science in every imaginable way.
+                In order to do so we tried to make our project accessible for as
+                many people as possible. This is the reason why we also
+                concentrated on inclusivity and education. In the figure below
+                you can see an overview of all the award areas that we have been
+                working on:
+              </p>
+            </section>
+            <section id="anchor2" class="besr-project">
+              <h2>Best Agriculture Project</h2>
+              <table class="table table-striped my-3">
+                <thead>
+                  <tr>
+                    <th scope="col">Criterium</th>
+                    <th scope="col" style="width: 45%">Description</th>
+                    <th scope="col">Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Competition Deliverables</th>
+                    <td>
+                      We have delivered a project promotion video, a team
+                      presentation, the judging form and our project wiki!
+                    </td>
+                    <td>
+                      The project promotion video can be found
+                      <a class="hyperlink" target="_blank" href="#">here</a>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Project Attributions</th>
+                    <td>
+                      On the attributions page, we have acknowledged the roles
+                      and tasks fulfilled by each team member in the lab and for
+                      the wiki. Further, we appreciated all those who supported
+                      and assisted us with our project.
+                    </td>
+                    <td>
+                      Find our
+                      <a
+                        class="hyperlink"
+                        href="{{ url_for('pages', page='attributions') }}"
+                        >Attributions page</a
+                      >.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Project Description</th>
+                    <td>
+                      Our project description page provides a comprehensive
+                      outline of the project and inspiration. We have also
+                      provided visuals to explain our project.
+                    </td>
+                    <td>
+                      Visit our
+                      <a
+                        class="hyperlink"
+                        href="{{ url_for('pages', page='description') }}"
+                        >Project Description page</a
+                      >.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Project Contribution</th>
+                    <td>
+                      As a contribution to future iGEM teams, Binanox has
+                      provided a step-by-step process on the biological
+                      production of nanoparticles, and a detailed modeling guide
+                      for the Box-Behnken model. Furthermore, we designed three
+                      new parts that can be used by future iGEM teams.
+                    </td>
+                    <td>
+                      Read more on the
+                      <a
+                        class="hyperlink"
+                        href="{{ url_for('pages', page='contribution') }}"
+                        >Contribution page</a
+                      >.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section id="anchor3">anchor3</section>
+            <section id="anchor4">anchor4</section>
+            <section id="anchor5">anchor5</section>
+            <section id="anchor6">anchor6</section>
+            <section id="anchor7">anchor7</section>
+            <section id="anchor8">anchor8</section>
+            <section id="anchor9">anchor9</section>
+            <section id="anchor10">anchor10</section>
+            <section id="anchor11">anchor11</section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

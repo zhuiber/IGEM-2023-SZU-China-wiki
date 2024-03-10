@@ -1,0 +1,939 @@
+/* 初始化代码 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #333;
+  font-family: "Montserrat-Reg", sans-serif;
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #333;
+}
+
+a.active {
+  color: tomato;
+}
+
+h1,
+h2,
+h3 {
+  margin: 15px 0px;
+  color: tomato;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+main section p,
+main section li {
+  text-align: justify;
+}
+
+small {
+  display: block;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* 初始化代码结束 */
+
+/* 顶部导航栏 */
+.nav {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  margin: 0 auto;
+  z-index: 1000;
+  transition: all 1s;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav>.logo {
+  display: flex;
+  flex: 5;
+  position: relative;
+}
+
+nav>.logo img {
+  height: 60.2px;
+}
+
+nav>.toggle,
+nav>.toggle_btn {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  height: 13px;
+  font-size: 16px;
+  font-family: Gadugi;
+  font-weight: bold;
+  color: #ff9966;
+  white-space: nowrap;
+}
+
+nav>.toggle:hover,
+nav>.toggle_btn:hover,
+nav>.dropdown_menu>.toggle:hover {
+  color: #663333;
+  cursor: pointer;
+}
+
+/* 响应式顶部导航栏 */
+nav>.toggle_btn {
+  display: none;
+}
+
+nav>.toggle_btn::before {
+  content: "Menu";
+}
+
+nav>.dropdown_menu {
+  position: fixed;
+  top: 85px;
+  left: -700px;
+  display: none;
+  flex-direction: column;
+  width: 150px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
+
+nav>.dropdown_menu.active {
+  left: 2px;
+}
+
+nav>.dropdown_menu>.toggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 0px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff9966;
+  font-family: Gadugi;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: row-reverse;
+    padding: 20px 40px;
+  }
+
+  nav>.logo {
+    justify-content: right;
+  }
+
+  nav>.toggle {
+    display: none;
+  }
+
+  nav>.toggle_btn {
+    justify-content: flex-start;
+  }
+
+  nav>.toggle_btn,
+  nav>.dropdown_menu {
+    display: flex;
+  }
+
+  nav>.toggle_btn {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  nav {
+    padding: 5px 5px;
+  }
+}
+
+/* 响应式顶部导航栏结束 */
+
+nav>.toggle span,
+nav>.toggle_btn span,
+nav>.dropdown_menu>.toggle span {
+  position: relative;
+  display: block;
+  margin-left: 10px;
+  width: 12px;
+  height: 50px;
+}
+
+nav>.toggle span::before,
+nav>.toggle span::after,
+nav>.toggle_btn span::before,
+nav>.toggle_btn span::after,
+nav>.dropdown_menu>.toggle span::before,
+nav>.dropdown_menu>.toggle span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ed9172;
+  transition: 0.5s;
+}
+
+nav>.toggle span::before,
+nav>.toggle_btn span::before,
+nav>.dropdown_menu>.toggle span::before {
+  top: 20px;
+}
+
+nav>.toggle span::after,
+nav>.toggle_btn span::after,
+nav>.dropdown_menu>.toggle span::after {
+  bottom: 20px;
+}
+
+nav>.toggle.active span::before,
+nav>.toggle_btn.active span::before,
+nav>.dropdown_menu>.toggle.active span::before {
+  transform: rotate(225deg);
+  top: 24px;
+}
+
+nav>.toggle.active span::after,
+nav>.toggle_btn.active span::after,
+nav>.dropdown_menu>.toggle.active span::after {
+  transform: rotate(135deg);
+  bottom: 24px;
+}
+
+/* 顶部导航栏结束 */
+
+/* 中间主体部分 */
+/* 主面板区域 */
+.showcase {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 0;
+  width: 100%;
+  background: #f5f5f5;
+  transition: all 0.5s;
+}
+
+.showcase.active {
+  left: -266.7px;
+}
+
+.showcase section[id^="anchor"] a {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.showcase section[id^="anchor"] a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0;
+  left: 1px;
+  right: 1px;
+  bottom: 4px;
+  background-color: #f89938;
+  box-shadow: 0 0 1px 2px #f89938;
+  -o-transition: height 0.3s ease, box-shadow 0.3s ease;
+  -moz-transition: height 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: height 0.3s ease, box-shadow 0.3s ease;
+  transition: height 0.3s ease, box-shadow 0.3s ease;
+  z-index: -1;
+}
+
+.showcase section[id^="anchor"] a:hover::before {
+  height: 65%;
+  box-shadow: 0 0 2px 2px #f89938;
+}
+
+/* 一般页面 */
+main>.container>.row>.col-md-9.big {
+  width: 93%;
+}
+
+main>.container>.row>.col-md-9 {
+  margin-left: auto;
+  padding-bottom: 100px;
+}
+
+/* home页面布局开始 */
+.parallax {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gs_reveal {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* 按钮样式 */
+
+/* 凝珠的展开和收起开始 */
+
+/* 凝珠的展开和收起结束 */
+/* 底部增加栏开始 */
+.thumbnails {
+  padding: 50px 0px 20px 0;
+}
+
+.thumbnails .item-hugger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 20%;
+  transition: all 0.3s;
+  margin: 0px 20px;
+}
+
+.thumbnails .item-hugger:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 底部增加栏结束 */
+/* home页面布局结束 */
+
+/* 中间主体部分结束 */
+
+/* 侧边响应导航栏 */
+
+.menu .toggle_item {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 266.7px;
+  height: 100%;
+  padding-left: 0;
+  transform: translateX(-500px);
+}
+
+.toggle_item li {
+  transform: translateX(-500px) scale(0);
+  position: relative;
+  transition: 0.5s;
+}
+
+.toggle_item.active li {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0px) scale(1);
+  transition: all 0.5s calc(var(--i) * 0.1s);
+  z-index: var(--i-z);
+}
+
+.toggle_item.active li a:hover {
+  background: #f4f4f4;
+  color: #663333;
+}
+
+.menu .toggle_item.active {
+  transform: translateX(0px);
+}
+
+.toggle_item li a {
+  display: block;
+  width: 266.7px;
+  height: 66.7px;
+  line-height: 66.7px;
+  padding-left: 33px;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Gadugi;
+  font-weight: 400;
+  color: #666633;
+}
+
+/* 侧边响应导航栏 */
+/* 底部栏 */
+
+footer {
+  position: relative;
+  left: 0;
+  min-width: 100%;
+  padding-bottom: 100px;
+  background: #ffffff;
+  transition: all 0.5s;
+}
+
+footer.active {
+  left: -266.7px;
+}
+
+.fish-container {
+  width: 100%;
+  height: 200px;
+  transform: translateY(450px);
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+footer .up {
+  padding: 20px 0px;
+  border-bottom: 2px solid #606366;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer .up .left {
+  height: 128px;
+  font-size: 12px;
+  text-align: center;
+}
+
+footer .down .left div,
+footer .down .left a {
+  font-size: 14px;
+  font-weight: 550;
+}
+
+footer .down .left a {
+  text-decoration: underline;
+}
+
+footer .down .left a:hover {
+  color: tomato;
+  cursor: pointer;
+}
+
+footer .down .social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+footer .down .social a {
+  margin: 10px;
+}
+
+.wechat1 {
+  fill: #e6e6e6;
+}
+
+.wechat2 {
+  fill: #16d46b;
+}
+
+.bilibili {
+  width: 35px;
+}
+
+.twitter {
+  fill: #4b9dea;
+}
+
+.instagram {
+  fill: lightcoral;
+}
+
+/* 底部栏——轮播图 */
+
+footer section {
+  float: right;
+  overflow: hidden;
+  width: 730px;
+  height: 128px;
+  position: relative;
+}
+
+footer .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+footer .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+footer .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 底部栏结束 */
+
+/* 引用文献手风琴部分 */
+.accordion {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.accordion li {
+  padding-left: 0;
+}
+
+.accordion>li input {
+  display: none;
+}
+
+.accordion>li label {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 20px 50px;
+  background-color: #fff;
+  cursor: pointer;
+  background-color: #fefadd;
+  transition: all 0.3s ease;
+}
+
+.accordion>li label:hover {
+  background-color: #ffd3a4;
+}
+
+.accordion>li ol {
+  width: 100%;
+}
+
+.accordion>li ol li {
+  position: relative;
+  width: 100%;
+  height: 0;
+  transition: all 0.3s ease;
+}
+
+.accordion>li input:checked~ol li {
+  height: auto;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* 引用文献手风琴部分结束 */
+
+/* 主体内容 */
+
+/* team 团队部分的css内容开始 */
+/* description的头部 */
+header.team,
+header.description {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10%;
+}
+
+/* header.description .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70vh;
+  background-color: #fabe99;
+  mix-blend-mode: overlay;
+} */
+
+header.team>.bigTitle,
+header.description>.bigTitle {
+  font-size: 80px;
+  font-weight: 900;
+}
+
+@media screen and (max-width: 768px) {
+
+  header.team>.bigTitle,
+  header.description>.bigTitle {
+    font-size: 40px;
+  }
+}
+
+section.team .title {
+  color: tomato;
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 900;
+  margin-top: 50px;
+  text-align: center;
+}
+
+section.team .member,
+section.team .instructor,
+section.team .advisor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+section.team .cardRole {
+  position: relative;
+  width: 335px;
+  height: 250px;
+  margin: 50px 0px;
+}
+
+section.team .cardRole .rolebg {
+  height: 250px;
+  background: url("https://static.igem.wiki/teams/4653/wiki/members/szu-teammembers.jpg") no-repeat center center/cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  transform-origin: bottom;
+  transition: all 1s;
+}
+
+section.team .cardRole:hover .rolebg {
+  transform: perspective(1000px) rotateX(30deg) skewX(-20deg);
+}
+
+section.team .cardRole img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 75%;
+  object-fit: cover;
+  transform-origin: bottom;
+  transition: 1s;
+}
+
+section.team .cardRole:hover img {
+  transform: scale(1.3) translateX(-50%);
+}
+
+section.team .cardRole .content1 {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 1s;
+}
+
+section.team .cardRole:hover .content1 {
+  opacity: 1;
+  top: 250px;
+}
+
+section.team .cardRole .content1 h3 {
+  font-size: 20px;
+  margin: 0px;
+}
+
+section.team .cardRole .content1 p {
+  font-size: 14px;
+}
+
+section.team .cardRole .content2 {
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 1s;
+}
+
+section.team .cardRole .content2 p {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+
+section.team .cardRole:hover .content2 {
+  font-weight: 700;
+  font-size: 20px;
+  color: tomato;
+  opacity: 1;
+  transform: translateX(48px);
+}
+
+/* team 团队部分的css内容结束 */
+
+/* attributions css开始 */
+.attributions .main-title {
+  color: tomato;
+}
+
+.attributions span {
+  font-weight: 700;
+}
+
+/* 侧边栏开始 */
+/* 白色主题 */
+:root {
+  --color-menu-bg: #fff;
+  --font-color-mi: #000;
+  --font-color-mi-hover: #1890ff;
+  --color-bg-mi-hover: #ececec;
+  --border-radius-mi: 2px;
+  --transition-menu-time: 0.2s;
+  --color-line-bg: #d3d3d3;
+}
+
+.menu-box {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  position: relative;
+  width: fit-content;
+  min-height: 100vh;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  background-color: var(--color-menu-bg);
+  position: fixed;
+}
+
+.menu-box input[type="checkbox"] {
+  display: none;
+}
+
+.menu-box>label {
+  position: absolute;
+  top: 48%;
+  right: 0;
+  transform: translateX(50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 4px 0px #000;
+  background-color: var(--color-menu-bg);
+  color: var(--font-color-mi);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.menu-box>label>i {
+  font-weight: 900;
+  text-indent: -3px;
+  font-size: 20px;
+  transition: transform var(--transition-menu-time);
+  transform: rotate(0deg);
+}
+
+.menu-box>label:hover {
+  box-shadow: 0px 0px 2px 0px #000;
+  color: var(--font-color-mi-hover);
+}
+
+.menu-box>input#menu-btn:checked+label>svg {
+  transform: rotate(180deg);
+}
+
+.menu {
+  font-size: 18px;
+  width: 220px;
+  min-height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  transition: width var(--transition-menu-time);
+  color: var(--font-color-mi);
+}
+
+.menu-box>input#menu-btn:checked~.menu {
+  width: 0;
+}
+
+.menu-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.menu-item>label {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-radius: var(--border-radius-mi);
+  display: flex;
+  align-items: center;
+}
+
+.menu-item>label:hover {
+  color: var(--font-color-mi-hover);
+}
+
+.menu-item>label>i:first-child {
+  flex: none;
+  margin-right: 6px;
+  font-size: 24px;
+}
+
+.menu-item>label>span {
+  flex: 1;
+}
+
+.menu-item>label>i:last-child {
+  flex: none;
+  font-size: 20px;
+  font-weight: 900;
+  transform: rotate(0deg);
+  transition: transform var(--transition-menu-time);
+}
+
+.menu-item>input:checked+label>i:last-child {
+  transform: rotate(180deg);
+}
+
+.menu-content {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--transition-menu-time);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--color-menu-bg);
+}
+
+.menu-content>span {
+  width: 100%;
+  padding-left: 16px;
+  line-height: 40px;
+  border-radius: var(--border-radius-mi);
+}
+
+.menu-content>span:hover {
+  background-color: var(--color-bg-mi-hover);
+  color: var(--font-color-mi-hover);
+}
+
+.set-line {
+  margin: 20px 0 10px 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-line-bg);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: -266.7px;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.sidebar .links {
+  width: 100%;
+  height: 100vh;
+  margin-top: 20px;
+  overflow-y: auto;
+}
+
+.sidebar .links::-webkit-scrollbar {
+  display: none;
+}
+
+.links li {
+  width: 100%;
+}
+
+.links li .scroll-link {
+  font-size: 23px;
+  line-height: 30px;
+  display: block;
+  padding: 7px 0;
+  border-radius: 4px;
+}
+
+.links li .scroll-link:hover {
+  color: tomato;
+  background: #fff;
+}
+
+.links li .scroll-link.active {
+  color: tomato;
+}
+
+/* 侧边栏结束 */
+
+/* description描述开始 */
+
+main {
+  margin-top: 25px;
+}
+
+main h2 {
+  position: relative;
+  color: tomato;
+  font-family: "Titan";
+  font-size: 40px;
+  -webkit-text-stroke: 5px transparent;
+  -webkit-background-clip: text;
+  background-color: #fff9e9;
+}
+
+/* medal 页面 */
+.table-striped>tbody>tr:nth-child(2n + 1)>td,
+.table-striped>tbody>tr:nth-child(2n + 1)>th {
+  background-color: #f2dec9;
+  box-shadow: none;
+}
+
+/*  */
+.showcase>main>.container>.row {
+  justify-content: space-between;
+}

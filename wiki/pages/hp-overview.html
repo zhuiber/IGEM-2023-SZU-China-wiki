@@ -1,0 +1,524 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  .timeline {
+    position: relative;
+    margin: 50px auto;
+    box-sizing: border-box;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #e8d79b;
+  }
+  .timeline ul li {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+  }
+  .timeline ul li:nth-child(odd) {
+    float: left;
+    text-align: right;
+    clear: both;
+  }
+  .timeline ul li:nth-child(even) {
+    float: right;
+    text-align: left;
+    clear: both;
+  }
+  .timeline ul li:nth-child(odd)::before {
+    content: " ";
+    position: absolute;
+    top: 24px;
+    right: -6px;
+    width: 10px;
+    height: 10px;
+    background: #ecd89c;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(236, 216, 156, 0.5);
+  }
+  .timeline ul li:nth-child(even)::before {
+    content: " ";
+    position: absolute;
+    top: 24px;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    background: #ecd89c;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(236, 216, 156, 0.5);
+  }
+  .timeline ul li h3 {
+    font-size: 18px;
+    font-family: Gadugi;
+    font-weight: bold;
+    color: #660000;
+  }
+  .timeline ul li p {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Gadugi;
+    font-weight: 400;
+    color: #333333;
+    border: 4px solid #c7c8b6;
+  }
+  .timeline ul li .time h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: Gadugi;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  .timeline ul li:nth-child(odd) .time {
+    position: absolute;
+    top: 12px;
+    right: -165px;
+    margin: 0;
+    padding: 8px 16px;
+    background-color: #cc6666;
+    color: #fff;
+  }
+  .timeline ul li:nth-child(even) .time {
+    position: absolute;
+    top: 12px;
+    left: -165px;
+    margin: 0;
+    padding: 8px 16px;
+    background-color: #cc6666;
+    color: #fff;
+  }
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/achievement-1.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Overview</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Purpose</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Timeline</a>
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>What We Want to Achieve:</h2>
+            <br />
+            <p>
+              What we insist on doing human practice is engaging deeply and
+              thoughtfully with the world.
+              <br /><b>
+                Reflecting on and adjusting our project during the whole process
+                when interacting with the world.</b
+              >
+              <b
+                >Conveying our value and considering the impact of our project.
+                Seeking</b
+              >
+              <b
+                >feedback and doing ongoing iterations to improve our
+                approach.</b
+              ><br /><br />
+            </p>
+
+            <div>
+              <h2>What We Have Done :</h2>
+              <br />
+              <p>
+                <b>Integrated Human Practice</b>
+                <br />
+                We put forward and engage around the "<b>5I cycle</b>", actively
+                communicate with relevant stakeholders, and make improvements to
+                the project based on their needs to make the product as
+                responsive as possible to actual requirements.
+                <br />
+                <br />
+                <b>Education and Public Engagement</b>
+                <br />
+                We will adjust the content and format of different activities
+                according to the backgrounds of different groups, helping the
+                public better understand and learn about synthetic biology.
+                <br /><br />
+                <b>Cooperation and Collaboration</b>
+                <br />Through extensive interaction and close collaborative
+                communication between teams, we share resources and experiences
+                to achieve collective progress. <br /><br />
+                <b>Entrepreneurship</b> <br />We unite various units to form the
+                TOMATO Alliance, promoting the successful market entry of
+                products from both technological sharing and cognitive
+                advancement perspectives, unlocking product value, and conveying
+                our values. <br /><br />
+                <br />
+              </p>
+            </div>
+
+            <div>
+              <h2>What we put forward:</h2>
+              <br />
+              <h3>5I cycle</h3>
+              <br />
+              <p>
+                When conducting integrated human practice work,
+                <b
+                  >we creatively propose the 5I principle and use this guiding
+                  ideology throughout the entire process,</b
+                >
+                successfully and perfectly propelled the development of our
+                project and values. The 5I Principle contains Inspiration,
+                Ideation and project forming, Information collecting,
+                Improvement and interaction, Implementation and imagination,
+                running through the whole process from the project proposed,
+                conceived, improved, implemented and vision throughout the whole
+                process of our human practitioners..<b>
+                  This principle closes the loop of hp's work well, and has
+                  important reference significance for other human.</b
+                >
+                
+              </p>
+              <br>
+              <div class="col-md-12 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/5i2-2-1-fin-1-1.jpg"
+                  alt=""
+                  width="80%"
+                  height="80%"
+                />
+              </div>
+              <img />
+            </div>
+
+            <div>
+              <h3>Laws Analysis and Standard proposal for PolycoBead</h3>
+              <br />
+              <p>
+                During the course of the project, we have observed a
+                misalignment between new technologies and existing laws.<b
+                  >In order to bridge the gap between new products, existing
+                  laws, and the current market, </b
+                >we have conducted a legal analysis and proposed industry
+                standards.<br /><br />
+                <b
+                  >"Legal Analysis - Investigation of PolycoBead Application
+                  under Existing Laws"</b
+                ><br />
+                We have extensively studied legal literature related to products
+                and technologies, examining the applicability of existing laws
+                to emerging products. Simultaneously, we have organized the
+                acquired knowledge into a comprehensive reference, wrote the
+                "Legal Analysis - Investigation of PolycoBead Application under
+                Existing Laws". This work will serve as a robust legal guide for
+                other research teams and companies.
+                <br /><br />
+                <b>"The Proposal of Chinese RNA Pesticide Industry Standard "</b
+                ><br />
+                After discovering the mismatch between new products and existing
+                laws, we proposed industry standards relying on our previous
+                experience and social observations during our human practice
+                work, aiming at bridge the gap between the new product and
+                existing market. Additionally, we sought to prepare in advance
+                for the influx of emerging products and foster a market order
+                that is standardized and orderly. This proposal has received
+                positive recognition from the Shenzhen municipal government.
+              </p>
+            </div>
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/legal111.png"
+                  alt=""
+                  width="80%"
+                  height="90%"
+                  style="
+                    border-radius: 10px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  "
+                />
+              </div>
+              <br>
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/rna.png"
+                  alt=""
+                  width="80%"
+                  height="90%"
+                  style="
+                    border-radius: 10px;
+                    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+                  "
+                />
+              </div>
+            </div>
+
+            <div>
+              <h3>From Unit to Union – T.O.M.A.T.O Alliance</h3>
+              <br />
+              <p>
+                By conducting comprehensive investigations into all every unit
+                involved in pesticide usage, including famers (pesticides
+                users), traditional pesticide productors, biotech companies who
+                provides technical support and governments, we have proposed the
+                concept----<b>From Unit TO Union</b>. Starting from relevant
+                units, we aim to connect each group and form a unified
+                union----<b>T.O.M.A.T.O Alliance</b>, which includes
+                TOMATO-Technical Alliance(Technology-Oriented Modernization of
+                Agriculture-Targeted Organization) and TOMATO-Thought
+                Alliance(Thought-Oriented Modernization of Agriculture-Targeted
+                Organization). Through the collaboration of various units in the
+                market and society, the TOMATO Alliance aims to<b>
+                  pave the way for market adoption and societal awareness of
+                  RNAi biopesticides with powers of the whole union.</b
+                >
+              </p>
+              <br>
+              <div class="col-md-12 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union.png"
+                  alt=""
+                  width="40%"
+                  height="40%"
+                />
+              </div>
+              <img />
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union1.png"
+                  alt=""
+                  style="width: 80%; height: auto"
+                />
+              </div>
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union2.png"
+                  alt=""
+                  style="width: 80%; height: auto"
+                />
+              </div>
+            </div>
+          </section>
+          <section id="anchor2">
+            <h2>Timeline</h2>
+            <div class="timeline clearfix">
+              <ul>
+                <!-- 第一个 -->
+                <li>
+                  <div class="content">
+                    <h3>Build a team</h3>
+                    <p>
+                      Literature reading <br />Interpretation of IGEM projects
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>February</h4>
+                  </div>
+                </li>
+                <!-- 第二个 -->
+                <li>
+                  <div class="content">
+                    <h3>Inspiration</h3>
+                    <p>
+                      The communication with Mr.Chen in higreen
+                      <br />
+                      Discussing with Professor Mo
+                      <br />
+                      Brainstorm
+                      <br />
+                      Visit the tomato planting base
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>March</h4>
+                  </div>
+                </li>
+                <!-- 第三个 -->
+                <li>
+                  <div class="content">
+                    <h3>Initial project forming</h3>
+                    <p>
+                      charity sale
+                      <br />Innovation and Entrepreneurship Carnival
+                      <br />Develop a preliminary experimental plan
+                      <br />Popular science lectures for college students
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>April</h4>
+                  </div>
+                </li>
+                <!-- 第四个 -->
+                <li>
+                  <div class="content">
+                    <h3>Information collecting</h3>
+                    <p>
+                      The Southen China Regional Meeting
+                      <br />Communicate with stakeholders <br />Interview with
+                      Professor Li
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>May</h4>
+                  </div>
+                </li>
+
+                <li>
+                  <div class="content">
+                    <h3>Examine the feasibility</h3>
+                    <p>
+                      Conduct preliminary experiments
+                      <br />
+                      Discussing with Dr.Liu
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>June</h4>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <h3>Information collecting</h3>
+                    <p>
+                      Interview with the agricultural expert<br />
+                      Farm field surveys
+                      <br />
+                      Conference of China iGEMer Community
+                      <br />
+                      Project improvements
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>July</h4>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <h3>Further progress of the project</h3>
+                    <p>
+                      Interview with the agricultural sector
+                      <br />Communicate with fammers
+                      <br />
+                      Radio station
+                      <br />
+                      Legal analysis
+                      <br />
+                      1st iGBA
+                      <br />
+                      Popular science summer camp
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>August</h4>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <h3>Implementation</h3>
+                    <p>
+                      Interview with the agricultural sector
+                      <br />iGEM Intercollegiate Conference on Synthetic Biology
+                      <br />
+                      Revisit tomato planting base
+                      <br />
+                      Complete the business plan
+                      <br />
+                      Propose “polycobead”
+                      <br />
+                      Discuss with Ms.Li
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>September</h4>
+                  </div>
+                </li>
+                <li>
+                  <div class="content">
+                    <h3>Practice</h3>
+                    <p>
+                      Consult stakeholders' opinions on the product
+                      <br />iGEM Intercollegiate Conference on Synthetic Biology
+                      <br />
+                      Discuss with companies
+                      <br />
+                      T.O.M.A.T.O Alliance
+                    </p>
+                  </div>
+                  <div class="time">
+                    <h4>October</h4>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <br />
+            <br />
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

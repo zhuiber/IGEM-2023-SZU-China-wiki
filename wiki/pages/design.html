@@ -1,0 +1,1304 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  p.col-md-6 {
+    padding-left: 20px;
+  }
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(3 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(4 * 40px);
+  }
+
+  .menu-item > input#menu-item4:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/design.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Design</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">RNAi therapy</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >RNA interference</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >Design of RNAi molecules</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.3" class="scroll-link d-block w-100"
+                      >Improvement</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Plant immunity</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor3.1" class="scroll-link d-block w-100"
+                      >Plant immune pathway</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.2" class="scroll-link d-block w-100"
+                      >Inducible factors</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.3" class="scroll-link d-block w-100"
+                      >Engineered <i>B. subtilis</i></a
+                    ></small
+                  ></span
+                >
+                <span>
+                  <small>
+                    <a href="#anchor3.4" class="scroll-link d-block w-100"
+                      >Suicide switch</a
+                    ></small
+                  ></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link">PolycoBead</a>
+              </label>
+              <div class="menu-content"></div>
+            </div>
+
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <br />
+            <h2>Overview</h2>
+            <br />
+            <p>
+              Plant fungal disease is one of the main culprits of crop damage,
+              it usually first infects a small part of the crop, and then
+              quietly infects the surrounding crop without being detected, and
+              eventually leads to a large reduction of crop production. In order
+              to prevent the onset and transmission of plant fungal diseases,
+              people have tried variety of means. Such as crop rotation, spacing
+              planting, chemical fungicides, seedling cultivation, the adoption
+              of biological control bacteria and so on. However, these measures
+              are not effective enough to stop diseases, and its worldwide
+              impact can't be ignored. Tomato gray mold is a kind of plant
+              fungal disease caused by <i>Botrytis cinerea</i>, by taking tomato
+              gray mold as a starting point, we hope to find a solution for the
+              control of all plant fungal diseases.
+            </p>
+            <br />
+            <p>
+              In recent years, RNAi biopesticides have attracted much attention.
+              By silencing the target genes of pathogenic bacteria by RNAi
+              technology, chemical fungicides can be replaced by an effective,
+              non-toxic and environmentally friendly way. At the same time,
+              during the process of
+              <a href="{{ url_for('pages', page='human-practices') }}"
+                >integrated human practices</a
+              >
+              , we have paid attention to the concept of "prevention is more
+              than cure" and the development of plant immune preparations.
+              Therefore, we decided to integrate the two aspects of RNAi
+              pesticides and plant immunity into our experimental design.
+            </p>
+            <br />
+            <p>
+              During <i>B. cinerea</i> infects tomatoes, it will secrete
+              virulence factors to help the attack on tomatoes, and tomatoes
+              will secrete immune substances to defend under stress. At this
+              point, RNAi pesticides and plant immune agents can play a role in
+              the interaction between <i>B. cinerea</i> and the tomato.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                id="diag-pic"
+                src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-1.gif"
+                alt=""
+                width="100%"
+              />
+              <small
+                >Figure 1. The interaction between <i>B. cinerea</i> and
+                Tomato</small
+              >
+            </div>
+            <br />
+            <ul>
+              <li class="ps-4">
+                - Blocking <i>B. cinerea</i> infection: if the tomato has been
+                infected by <i>B. cinerea</i>, the RNAi molecules can silence
+                the virulence factor genes helping to infect and the key genes
+                relating to fungus's own growth
+              </li>
+              <br />
+              <li class="ps-4">
+                - Enhancing tomato immunity: if the tomato has not been
+                infected, applying a signal to the tomato to stimulate its
+                immunity can improve its anti-fungal ability.
+              </li>
+            </ul>
+            <br />
+            <div class="text-center">
+              <img
+                id="diag-pic"
+                src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-2.png"
+                alt=""
+                width="40%"
+              />
+              <small
+                >Figure 2. Tomato beats gray mold with the help of
+                SZU-China</small
+              >
+            </div>
+            <br />
+            <p>
+              Finally, by combining the two parts and wrapping them into a bead,
+              the final product "<b>PolycoBead</b>" is formed.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                id="diag-pic"
+                src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-3.png"
+                alt=""
+                width="100%"
+              />
+              <small>Figure 3. Composition of PolycoBead</small>
+            </div>
+            <br />
+          </section>
+          <section id="anchor2">
+            <h2>RNAi therapy</h2>
+            <br />
+            <section id="anchor2.1">
+              <h3>RNA interference and SIGS</h3>
+              <p>
+                RNA interference (RNAi) is a natural reaction process, which is
+                relatively conserved in evolution. It can silence the expression
+                of target genes by specifically targeting the mRNA of cells,
+                belonging to post transcriptional regulation of genes (PTGS).
+                RNAi usually realizes this regulation process through small RNA
+                (sRNA). RNAi is started by microRNA or siRNA, and then formed by
+                Dicer or Dicer like (DCL) protein and combined to Ago protein to
+                form RNAi silencing complex (RISC), which specifically silences
+                the expression of target genes. RNAi has broad application
+                prospects in crop disease control due to its specificity,
+                efficiency and stability. In addition to autogenesis in
+                organisms, there is also cross-border RNAi, that is, sRNAs
+                transfer between different species and trigger RNAi process.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-4.jpg"
+                  alt=""
+                  width="50%"
+                />
+                <small
+                  >Figure 4. Schematic diagram of RNAi mechanism process</small
+                >
+              </div>
+              <br />
+              <p>
+                At present, RNAi is mainly used in crop protection through two
+                ways: host induced gene silencing (HIGS) and spray induced gene
+                silencing (SIGS). To adopt HIGS means to transform crops through
+                transgenic means, however, people's acceptance of Genetically
+                Modified products is still not high in China, so this method can
+                not be well applied in real life. We soon noticed SIGS, which is
+                an emerging, non transgenic RNAi strategy.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-5.png"
+                  alt=""
+                  width="100%"
+                />
+                <small
+                  >Figure 5. SIGS process diagram of naked shRNA and
+                  CPP-shRNA</small
+                >
+              </div>
+              <br />
+              <p>Choosing RNAi technology has the following advantages:</p>
+              <br />
+              <ul>
+                <li class="ps-4">
+                  <b>- Specific targeting </b><br />Only the essential genes of
+                  <i>B. cinerea</i> are targeted and silenced without causing
+                  harm to other organisms.
+                </li>
+                <br />
+                <li class="ps-4">
+                  <b>- Environmental friendliness </b><br />RNAi molecules
+                  degrade easily, so they are environmentally friendly.
+                </li>
+                <br />
+                <li class="ps-4">
+                  <b>- Controllability </b><br />RNAi biopesticides do not cause
+                  permanent changes in plant gene expression and are
+                  controllable.
+                </li>
+              </ul>
+              <br />
+            </section>
+            <section id="anchor2.2">
+              <h3>Design of RNAi molecules</h3>
+              <p>
+                Short hairpin RNA (shRNA) consists of two short reverse
+                complementary sequences and a loop sequence to form the hairpin
+                structure. shRNA can be actively absorbed by <i>B. cinerea</i>,
+                then enter into its cells to be processed into siRNA, and
+                further specifically target mRNA to achieve degradation. Or,
+                entering plant cells, the related proteins in the cell will
+                process and deliver shRNAs to <i>B. cinerea</i>, which can also
+                achieve the effect of silencing mRNA, reducing the level of its
+                specific protein, and finally forming the inhibition of the
+                pathogen. According to the key genes and self-survival genes of
+                <i>B. cinerea</i>, we selected 6 targets and designed
+                corresponding shRNAs according to these targets.
+              </p>
+              <br />
+              <h4>Inhibiting infectivity:</h4>
+              <div class="row">
+                <div class="text-center col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-6-1.png"
+                    alt=""
+                    width="100%"
+                  />
+                  <small
+                    >Figure 6(a). The PME expressed by the
+                    <i>Bcpme1</i> hydrolyzes tomato cell walls</small
+                  >
+                </div>
+                <p class="col-md-6">
+                  - The cell wall is the main interface for plant and microbial
+                  interaction, limiting the invasion of pathogens and the spread
+                  of infections. When <i>B. cinerea</i>
+                  invades the plant host, it synthesizes exogenous enzymes that
+                  degrade pectin, a major component of the plant cell wall.
+                  Pectin methylesterase (PME) is a hydrolase that catalyzes the
+                  hydrolysis of α ester bonds on pectin molecules in plant cell
+                  walls. By silencing
+                  <i><b>Bcpme1</b></i
+                  >, an important gene for the expression of PME by
+                  <i>B. cinerea</i>, it is capable to prevent
+                  <i>B. cinerea</i> from harming the plant cell wall and
+                  blocking its invasion from the early stage of infection.
+                </p>
+              </div>
+              <br />
+              <div class="row">
+                <div class="text-center col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-6-2.png"
+                    alt=""
+                    width="100%"
+                  />
+                  <small
+                    >Figure 6(b). The <i>BcOAH1</i> helps produce oxalic acid
+                    and infects the tomato</small
+                  >
+                </div>
+                <p class="col-md-6">
+                  - During infection, <i>B. cinerea</i> will express
+                  oxaloacetate hydrolase, which catalyzes the hydrolysis of
+                  oxaloacetate in <i>B. cinerea</i> to oxalic acid. After oxalic
+                  acid enters the host plant, the free calcium ions in the host
+                  body can form calcium oxalate crystals, which is easy to cause
+                  the symptoms of plant blockage and. The release of oxalic acid
+                  can also inhibit the outbreak of reactive oxygen species (ROS)
+                  in plants, which is not conducive to the plant to defense the
+                  infection of <i>B. cinerea</i>. Silencing the gene
+                  <i><b>BcOAH</b></i> of <i>B. cinerea</i> can reduce the
+                  production of oxalic acid and prevent further infection and
+                  spread of pathogens after invasion.
+                </p>
+              </div>
+              <br />
+              <div class="row">
+                <div class="text-center col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-6-3.png"
+                    alt=""
+                    width="100%"
+                  />
+                  <small
+                    >Figure 6(c). The <i>DCL1/2</i> interferes with the tomato's
+                    immune system</small
+                  >
+                </div>
+                <p class="col-md-6">
+                  - Dicer-like proteins DCL1 and DCL2 of
+                  <i>B. cinerea</i> participate in the synthesis of siRNA. Then
+                  siRNAs will be delivered to host plant cells to participate in
+                  the formation of RISC complexes in the host RNAi mechanism,
+                  and subsequently silence and inhibit host immune-related
+                  genes, making plant cells more susceptible to infection. The
+                  shRNA was designed to silence <i>B. cinerea</i> genes
+                  <i><b>BcDCL1</b></i> and <i><b>BcDCL2</b></i
+                  >, preventing them from synthesizing siRNA that interferes
+                  with the plant cell's immune system, thus allowing the plant
+                  to effectively defend itself against <i>B. cinerea</i>.
+                </p>
+              </div>
+              <br />
+              <h4>Killing pathogen:</h4>
+              <ul>
+                <li class="ps-4">
+                  - Ergosterol (ERG) is a C28 sterol that is particularly
+                  present in fungal cell membranes and plays a crucial role in
+                  the structure and function of fungal cell membranes.
+                  Ergosterol is responsible for maintaining membrane fluidity,
+                  regulating membrane permeability, affecting membrane-related
+                  enzyme activity, and influencing fungal cell growth. Silencing
+                  <b><i>Bccyp51</i></b
+                  >, a key gene in the ergosterol biosynthesis pathway, can
+                  destroy the cell membrane of <i>B. cinerea</i> and produce
+                  killing effect on it.
+                </li>
+                <br />
+                <li class="ps-4">
+                  - Chitin is the main structural component of the fungal cell
+                  wall, and chitin synthase (CHS) catalyzes the synthesis of
+                  chitin. By silencing the important chitin synthase gene
+                  <i><b>BcCHSIIIa</b></i
+                  >, the formation of the cell wall of <i>B. cinerea</i> could
+                  be affected, thus killing pathogenic fungi.
+                </li>
+              </ul>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-7.png"
+                  alt=""
+                  width="30%"
+                />
+                <small
+                  >Figure 7. Ergosterol (ERG) is the helmet, and chitin synthase
+                  (CHS) helps make the armor</small
+                >
+              </div>
+              <br />
+              <p>
+                After confirming the selection of the above six targets
+                <i><b>Bcpme1</b></i
+                >, <i><b>BcOAH1</b></i
+                >, <i><b>BcDCL1</b></i
+                >, <i><b>BcDCL2</b></i
+                >, <i><b>Bccyp51</b></i
+                >, and <i><b>BcCHSIIIa</b></i
+                >, we searched the cDNA library of <i>B. cinerea</i> according
+                to the sequences or primes provided in the literature, and found
+                the homologous cDNA sequence of <i>B. cinerea</i>. Then, the
+                sequence was input into the National Center for Biotechnology
+                Information (NCBI) website for analysis and prediction, and the
+                CDS sequence of the target gene was input into the total nucleic
+                acid database BLAST to query the homologous similarity of
+                neighboring species. siRNA sequences were designed in
+                non-conserved regions to ensure species-specific and biosafety
+                of our shRNAs.
+              </p>
+              <br />
+              <p>
+                Next, we used a professional siRNA design website to predict the
+                siRNA sequences that would effectively target the mRNA, and then
+                screened out siRNA fragments with high potential activity in a
+                series of predictions based on shRNA design principles. For
+                biosafety reasons, we BLAST the candidate siRNA fragments into
+                the total mRNA database to ensure that it does not target any
+                genes of common species (such as human, tomato, dog, rice,
+                wheat, etc.), ensuring sequence specificity.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-8.png"
+                  alt=""
+                  width="80%"
+                />
+                <small>Figure 8. shRNA Molecular Design Process</small>
+              </div>
+              <br />
+              <p>
+                Finally, we assembled the selected siRNA sequence into our shRNA
+                expression fragment in the sequence of
+                <b
+                  >siRNA sense strand - loop - reversed siRNA antisense
+                  strand</b
+                >
+                and attached the sequence to the pET-28a(+) vector. The
+                recombinant vector was transferred into RNase-deficient
+                <i>E. coli</i> HT115 (DE3), and the large-scale fermentation
+                production of shRNA in <i>E. coli</i> could be achieved by
+                induction of IPTG. In our experiment, the results of treatment
+                of different shRNAs at both phenotypic and molecular levels were
+                analyzed to screen out the effective shRNAs.
+              </p>
+              <br />
+              <p>
+                Click
+                <a href="{{ url_for('pages', page='proof-of-concept') }}"
+                  >Proof of concept</a
+                >
+                for more details.
+              </p>
+              <br />
+            </section>
+            <section id="anchor2.3">
+              <h3>Improvement</h3>
+              <p>
+                However, even though many targets have been proven feasible,
+                RNAi biopesticides have not been effectively promoted in the
+                agricultural field so far. The main problems are as follows:
+              </p>
+              <br />
+              <ul>
+                <li class="ps-4">
+                  - RNAi molecules are unable to efficiently enter the target
+                  cell and play their roles.
+                </li>
+                <br />
+                <li class="ps-4">
+                  - RNAi may be less effective because of the target.
+                </li>
+                <br />
+                <li class="ps-4">
+                  - The production of RNAi molecules relies more on cell
+                  fermentation, making it difficult to reduce costs.
+                </li>
+              </ul>
+              <br />
+              <p>
+                <b>Delivery of shRNA molecules</b>
+              </p>
+              <br />
+              <p>
+                Cell-penetrating peptides (CPPs) is a short chain amino acid
+                composed of about 30 amino acids, including basic amino acids
+                and R groups, which can be used to deliver biological molecules
+                such as siRNA, pDNA, plasmid and protein, and has been
+                relatively mature in the medical field. Engineered CPP and shRNA
+                molecules interact via positively charged amino acid residues
+                such as arginine and lysine with the phosphate skeleton of
+                negatively charged nucleic acids to form submicron
+                peptide-nucleic acid complexes. This non-covalent binding method
+                has stability and reversibility, thus realizing the transfer and
+                function of biomolecules.
+              </p>
+              <br />
+              <p>
+                BP100-(KH)<sub>9</sub> is a CPP that fuses the highly potent
+                cell-penetrating peptide BP100 with the biomolecular binding
+                domain KH<sub>9</sub> to improve the delivery efficiency of
+                biomolecules into plant cells. BP100-(KH)<sub>9</sub> shows a
+                spherical shape under the Atomic force microscope (AFM) and can
+                wrap shRNA molecules to form spherical complexes. The
+                combination of BP100-(KH)<sub>9</sub> and shRNA is simple, just
+                mix the two substances in a certain proportion, and let them
+                stand at room temperature for a period of time to obtain the
+                complex of CPP-shRNA. By spraying CPP-shRNAs on tomatoes
+                infected by <i>B. cinerea</i>, shRNAs can enter plant cells more
+                efficiently under the effect of CPP. Then, siRNAs are formed
+                after processing of Dicer / Dicer-like proteins in cells, which
+                will be next delivered to <i>B. cinerea</i>, to achieve the
+                effect of silencing the key genes of <i>B. cinerea</i> infection
+                and its own survival genes.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-10.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <small>Figure 9. CPP-shRNAs spray and action diagram</small>
+              </div>
+              <br />
+              <p>
+                <b>Concatenated shRNA molecules</b>
+              </p>
+              <br />
+              <p>
+                In the case of only spraying shRNA molecules against one target
+                gene, the shRNA may not play the best effect due to the problem
+                of target sequence, siRNA sequence and so on. However, after
+                concatenating shRNAs targeting different mRNAs using specific
+                sequences, the resulting shRNAs molecules can be simultaneously
+                processed into different siRNAs to function. The bifunctive
+                shRNA (bi-shRNA) was thus used, resulting in a lower effective
+                dose than the siRNA/shRNA with the same effect to minimize the
+                possibility of non-target side effects and to provide a more
+                sustained effect.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-11.png"
+                  alt=""
+                  width="80%"
+                />
+                <small>Figure 10. bi-shRNA schematic</small>
+              </div>
+              <br />
+              <p>
+                <b>Production of RNAi molecules</b>
+              </p>
+              <br />
+              <p>
+                The current production of RNAi molecules is dominated by
+                fermentation. The production of RNA molecules under this method
+                is prone to the following problems:
+              </p>
+              <br />
+              <ul>
+                <li class="ps-4">
+                  - The fermentation system is easily polluted, and the
+                  environment needs to be strictly controlled.
+                </li>
+                <br />
+                <li class="ps-4">
+                  - The living bacteria in the fermentation system face the
+                  problem of easy aging.
+                </li>
+                <br />
+                <li class="ps-4">
+                  - shRNAs extracted by fermentation are difficult to purify and
+                  are usually accompanied by small amounts of other RNA.
+                </li>
+              </ul>
+              <br />
+              <p>
+                The above problems are the challenges that need to be addressed
+                in the process of fermentation production of RNAi molecules, and
+                people usually need to take other measures to eliminate these
+                problems, which leads to an increase in the cost of production,
+                making RNAi biopesticides difficult to apply. Therefore, we
+                designed a cell-free RNAi molecules production system, hoping
+                that the successful operation of this system can provide ideas
+                for low-cost and high-efficiency application of RNAi molecules.
+              </p>
+              <br />
+              <p>
+                More details can be viewed in
+                <a href="{{ url_for('pages', page='hardware') }}">Hardware</a>
+                .
+              </p>
+            </section>
+          </section>
+          <section id="anchor3">
+            <br />
+            <h2>Plant immunity</h2>
+            <br />
+            <section id="anchor3.1">
+              <h3>Plant immune pathway</h3>
+              <p>
+                Plants grow in a complex environment full of harmful pathogenic
+                microorganisms, including
+                <i>Botrytis cinerea</i>. In the process of co-evolution with
+                pathogens, plants have evolved a variety of mechanisms to resist
+                the infection of pathogens, and gradually formed the plant
+                immune system. In response to pathogen attacks, plants have
+                developed two typical defense systems: Pathogen-associated
+                molecular patterns Triggered Immunity (PTI), and Effector
+                Triggered Immunity (ETI).
+              </p>
+              <br />
+              <p>
+                In the process of PTI, the pattern recognition receptors (PRRs)
+                on the plant cell membrane recognize the pathogen-associated
+                molecular patterns (PAMPs) to activate the plant's initial
+                defense system, resulting in cell rapid defence responses, such
+                as cell necrosis, reactive oxygen species (ROS) outbreak, cell
+                wall enhancement, regulation of plant hormone pathways, and
+                expression of defense-related genes and proteins. PAMPs include
+                protein-inducing factors derived from pathogenic bacteria, such
+                as harpin protein isolated from <i>Erwinia amylovory</i> and
+                <i>Pseudomonas syringae</i>, glucan-1,4-α-glycosidase
+                <i>BcGS1</i> of Botris griseus, and flagellin of
+                <i>Pseudomonas aeruginosa</i> etc.
+              </p>
+              <br />
+              <p>
+                After successful infection, the pathogen interferes with the
+                plant's initial PTI response by secreting effector factors, and
+                the plant evolves a resistance protein (R protein) that directly
+                or indirectly recognizes the specific effectors AVR possessed by
+                the pathogen and triggers a more intense and sustained immune
+                response, also known as the ETI. Plant immune mechanism has
+                signal transduction, including salictlic acid (SA) and ethylene
+                (ET) mediated signal transmission pathway, and on this basis the
+                whole plant defense network is formed, and finally the whole
+                defense response against pathogens is generated.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-12.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <small>Figure 11. Plants immunity pathways</small>
+              </div>
+              <br />
+            </section>
+            <section id="anchor3.2">
+              <h3>Inducible factors of plant immunity</h3>
+              <p>
+                According to the characteristics of plant immune process, more
+                and more plant immune-inducing factors have been developed and
+                used, which have become a new way of plant disease control.
+                These include biological and abiotic inducible factors, such as
+                the fungus
+                <i>Metarhizium</i>, <i>Trichoderma</i>, <i>Paecilomyces</i>,
+                etc, the bacteria <i>Bacillus subtilis</i>, <i>Pseudomonas</i>,
+                etc. And some microbial metabolites such as β-1,3-glucan,
+                oligo-chitine and other oligosaccharide inducers from fungus,
+                and protein inducer such as protein phosphomutase BvEP from
+                <i>Bacillus velezensis</i> LJ02. Among them, protein phosphatase
+                BvEP from <i>Bacillus velezensis</i> LJ02 has been shown being
+                able to induce the PTI and ETI immune pathways in tomato fruits,
+                stimulate ROS outbreak and related enzyme expression, and have
+                no significant effect on the weight and nutrient content of
+                tomato fruits.
+              </p>
+              <br />
+              <p>
+                <i>Bacillus subtilis</i> is one of the most widely accepted
+                plant probiotics and has a high homology with
+                <i>Bacillus velezensis</i>. It has been reported that
+                <i>B. subtilis</i> strains have a control effect on different
+                fungal diseases of different plants, such as Rice sheath blight
+                in cereal crops, wheat holoses, and tomato gray mold in
+                vegetable and fruit crops, and have a good control effect on a
+                variety of crops and fungal diseases. <i>B. subtilis</i> has the
+                advantages of strong protein expression system, strong stress
+                resistance, fast growth rate, easy colonization in plant
+                rhizosphere, etc. It can exert antibacterial and antifungal
+                effect through spatial and nutritional competition or produce
+                anti-pathogenic substances, and can produce more than 70 kinds
+                of anti-pathogenic lipids and proteins, as well as various
+                volatile anti-pathogenic substances such as dimethylamine,
+                formic acid, propionic acid, dimethyldisulfide and propylamine.
+                <i>B. subtilis</i> is an ideal plant probiotic. Due to the
+                unstable effect of biocontrol microorganisms, the main
+                application methods used are combining with chemical pesticides
+                or coordinating with other antagonistic microorganisms for
+                controling plant fungal diseases.
+              </p>
+              <br />
+            </section>
+            <section id="anchor3.3">
+              <h3>Engineered <i>B. subtilis</i></h3>
+              <p>
+                After BLAST, we found that the nucleic acid sequence of BvEP has
+                a high homology with <i>B. subtilis</i>, and
+                <i>B. subtilis</i> has a simple genetic background and a strong
+                protein expression system. Therefore, we combined
+                <i>B. subtilis</i> and protein immune inducing factor BvEP and
+                Flg22 to modify <i>B. subtilis</i> to express the Flg22 and BvEP
+                to achieve the function of 1+1>2. The engineered bacteria can be
+                used in farmland during the peak period of
+                <i>B. cinerea</i> outbreak, so that Tomato gray mold can be
+                controlled.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-13.png"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Figure 12. Engineered bacteria release immune inducing
+                  factors to stimulate tomato immunity</small
+                >
+              </div>
+              <br />
+              <p>
+                In our design, we use a strong promoter P<sub>veg</sub> to
+                express our immune-inducing factor BvEP. P<sub>veg</sub> is the
+                promoter of the constiutive expression target gene in
+                <i>B. subtilis</i>, which contains two binding sites of the main
+                σ factor a1 of <i>B. subtilis</i>, which can be simultaneously
+                bound to make the gene efficient expression. At the same time,
+                we select the 2x Fd Terminator to have a strong termination
+                effect on the expression pathway. Finally, the pathway is
+                assembled into pMA5, a commonly used protein expression vector
+                of <i>B. subtilis</i> by seamless cloning, and transfer into
+                <i>B. subtilis</i> WB800. During the experimental validation, we
+                first verify the normal operation of this gene pathway in
+                <i>E. coli</i> and ensure the effectiveness of the BvEP
+                expressed by it in plants. We select pET-28a(+) as the vector of
+                BvEP expression in <i>E. coli</i>, and transfer it to the
+                proteinase-deficient
+                <i>E. coli</i>
+                BL21(DE3) for experimental verification.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/results/pathway-1.png"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Figure 13. The expression pathways of different immune
+                  inducing factors</small
+                >
+              </div>
+              <br />
+              <p>
+                In order to verify the effectiveness of protein-inducing factor
+                BvEP, we extracted BvEP expressed by <i>E. coli</i>
+                BL21 (DE3) after induction by IPTG and treated tomato leaves
+                with it. The outbreak of ROS is one of the characteristics of
+                successfully induced plant immune response. Therefore, the
+                brown-red compound generated by the reaction of
+                3,3'-Diaminobenzidine tetrahydrochloride (DAB) with hydrogen
+                peroxide (a type of ROS in plant cells) is used as an indicator,
+                so as to locate the explosion intensity of hydrogen peroxide in
+                tissues as a representation of the strength of plant immune
+                pathways.
+              </p>
+              <br />
+              <p>
+                Leran more information in
+                <a href="{{ url_for('pages', page='results') }}">results</a>.
+              </p>
+              <br />
+            </section>
+            <section id="anchor3.4">
+              <h3>Suicide switch</h3>
+              <p>
+                To prevent our engineered bacteria from flooding the field, we
+                designed a <b>sucrose-induced</b> toxin-based/antitoxin system
+                as a suicide switch, which includes the <i><b>mazE</b></i> and
+                <i><b>mazF</b></i> genes. The <i>mazF</i> gene encodes the
+                stable toxin protein MazF, which is capable of recognizing and
+                cutting all ACA sequences of single-stranded mRNA, independent
+                of ribosome mRNA endonuclease. Due to the high probability of
+                occurrence of these three base sequences, the expression of
+                <i>mazF</i> can break down almost all mRNA, thus inhibiting the
+                release of ribosomes and protein synthesis on the cleaved mRNA,
+                and finally leading to cells death.
+              </p>
+              <br />
+              <p>
+                The MazE antitoxin protein encoded by <i>mazE</i> is unstable.
+                In the presence of sucrose, MazE is induced to be expressed and
+                then degraded by the ClpPA complex (an ATP-dependent serine
+                catalytic enzyme) to form a specific conformation. This
+                particular conformation can recognize and bind to MazF toxin
+                proteins, forming <b>hexamers</b> (FF-EE-FF) that inactivate
+                them. In other words, after adding sucrose, MazE and MazF
+                reached a stable state stopping cell death. But when the sucrose
+                runs out, MazF regains its dominance and the cells die.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  id="diag-pic"
+                  src="https://static.igem.wiki/teams/4653/wiki/safety/szu-safety-suicide-switch.png"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Figure 14. The suicide switch in <i>B. substilis</i></small
+                >
+              </div>
+            </section>
+          </section>
+          <section id="anchor4">
+            <br />
+            <h2>PolycoBead</h2>
+            <br />
+            <p>
+              According to the feedback of
+              <a href="{{ url_for('pages', page='human-practices') }}"
+                >integrated human practices</a
+              >, pesticide abuse is a widespread problem in agriculture today
+              when farmers apply pesticides. The pesticide preparations that
+              farmers can buy on the market are usually in large capacity, and
+              even if the optimal application amount of pesticides has been
+              marked on the package or in the instruction manual, farmers will
+              subjectively add excessive amounts, resulting in increased
+              pesticide residues in crops, and even spread to the environment.
+              In addition, due to the instability of RNAi biopesticides, RNA
+              molecules are easily degraded by nucleases in the environment, so
+              it is very necessary to separate RNAi biopesticides from the
+              environment, so as to reduce and avoid RNA degradation.
+            </p>
+            <br />
+            <p>
+              In view of the above problems, we hope to design a specific form
+              to package our products and regulate the application standards of
+              our biopesticide to avoid the phenomenon of pesticide abuse. In
+              addition, we also try to simplify the form of products as much as
+              possible, so that farmers can use them more simply and
+              conveniently. Inspired by the laundry detergent capsules, we
+              envision incorporating our product in a bead based on this fixed
+              volume packaging and guiding farmers to use a certain amount of
+              beads in tomato fields at a specific planting density to treat and
+              prevent tomato gray mold. Thus, we design our product
+              <b>PolycoBead</b>.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                id="diag-pic"
+                src="https://static.igem.wiki/teams/4653/wiki/polycobead/polycobead-1.jpg"
+                alt=""
+                width="40%"
+                height="45%"
+              />
+              <small>Figure 15. Polycobead</small>
+            </div>
+            <br />
+            <div class="text-center">
+              <img
+                id="diag-pic"
+                src="https://static.igem.wiki/teams/4653/wiki/polycobead/polycobead-0.jpg"
+                alt=""
+                width="40%"
+                height="45%"
+              />
+              <small>Figure 16. Polycobead</small>
+            </div>
+            <p>
+              Polycobead uses a high alcoholysis degree water-soluble polyvinyl
+              alcohol (<b>PVA</b>) as the outer film to wrap our
+              <b>CPP-shRNAs preparation</b> and the
+              <b>engineered chassis-bacteria <i>B. subtilis</i></b> together to
+              form a bead. Since PVA film is a water-soluble material, when
+              farmers use our Polycobead, they only need to put it into a
+              certain volume of water, and can be sprayed directly into the
+              field after rapid dissolution.
+            </p>
+            <br />
+            <p><b>Using PVA film has the following advantages:</b></p>
+            <br />
+            <ul>
+              <li class="ps-4">
+                - The high alcoholysis degree water-soluble PVA film has a large
+                number of hydroxyl groups, so it has a strong hydrophilicity.
+                Every 100 cm<sup>2</sup>, 75 μm thick PVA film can be completely
+                dissolved by stirring in sufficient water at room temperature
+                for about 1 minute.
+              </li>
+              <br />
+              <li class="ps-4">
+                - PVA film has been proved to have excellent biocompatibility
+                and biodegradability, and it is the only vinyl polymer that can
+                be used by bacteria as a carbon source. It can be decomposed by
+                microorganisms and enzymes in nature, and it can be degraded by
+                75% in 46 days, and finally it can be degraded into CO<sub
+                  >2</sub
+                >
+                and H<sub>2</sub>O, and it is proved to be non-toxic to life by
+                biological tests.
+              </li>
+              <br />
+              <li class="ps-4">
+                - Based on its water-soluble and biodegradable properties, the
+                liquid formed after the PVA film is dissolved in water can
+                penetrate into the soil to increase the soil agglomeration, air
+                permeability and water retention, which is conducive to the
+                survival of plants.
+              </li>
+              <br />
+              <li class="ps-4">
+                - PVA film has high mechanical strength, good toughness and high
+                tensile strength. Its tensile strength can reach 44.1 ~ 63.7MPa
+                and its elongation can reach 400%.
+              </li>
+              <br />
+              <li class="ps-4">
+                - The barrier and anti-static properties of PVA film can help
+                the contents to isolate the environment and prevent
+                electrostatic dust from contaminating the product, so it can
+                well avoid the degradation of RNA in contact with the nuclease
+                from the environment.
+              </li>
+              <br />
+              <li class="ps-4">
+                - PVA film is very easy to process, low production cost and easy
+                to obtain.
+              </li>
+            </ul>
+            <br />
+            <p>
+              The CPP-shRNA complex we produce exists in an aqueous solution
+              form. Although CPP can effectively slow down the degradation of
+              RNA, it still cannot guarantee the stability of RNA molecules in
+              long-term storage, so we use <b>glycerin</b> to provide a liquid
+              environment in the bead. Glycerin, a polar solvent commonly used
+              to preserve biological samples, can form hydrogen bonds with
+              H<sub>2</sub>O molecules to reduce their activity, and can also
+              form hydrogen bonds and van der Waals forces with proteins and
+              nucleic acids to protect biological molecules from degradation and
+              deformation. Glycerin is miscible with water in any proportion,
+              which ensures the fastest release of the CPP-shRNAs complex once
+              the Polycobead enters the water system. In addition, although a
+              small amount of the glycerin-water mixture enters the natural
+              enironment, it can be degraded by the microbial community in the
+              soil.
+            </p>
+            <br />
+            <p>
+              Engineered <i>B. subtilis</i> exists in the form of concentrated
+              bacterial liquid inside the PolycoBead. In order to reduce the
+              interference of engineered bacteria on the CPP-shRNAs complex and
+              ensure that <i>B. subtilis</i> can maintain its activity, alginate
+              embedding method is used to mix engineered bacteria, calcium
+              alginate embedding is one of the most widely used cell fixation
+              methods, which has the advantages of high cell density, low
+              toxicity to microorganisms, simple production process and high
+              cell product release rate. The engineered bacteria is mixed with
+              1% sodium alginate solution and then dropped into Ca<sup>2+</sup>
+              solution. The sodium alginate then reacts with Ca<sup>2+</sup> to
+              form a water-insoluble <b>calcium alginate shell</b> on the outer
+              layer, while the engineered bacterial solution is encased in
+              calcium alginate to form smaller beads. When the calcium alginate
+              - engineered bacteria complex is released into the environment,
+              with the loss of calcium ions, the engineered bacteria in it will
+              also be released into the soil environment at a slow rate, so as
+              to colonization to the tomato roots to compete for the ecological
+              niche and express the immune-inducing factor BvEP, eventually
+              stimulating the tomato immune mechanism and resisting the
+              infection of gray mold.
+            </p>
+            <br />
+            <p>
+              More details can be viewed in
+              <a href="{{ url_for('pages', page='proof-of-concept') }}"
+                >Proof of concept</a
+              >.
+            </p>
+          </section>
+          <br />
+          <br />
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1] Fletcher SJ, Reeves PT, Hoang BT, Mitter N. A Perspective
+                  on RNAi-Based Biopesticides. Front Plant Sci. 2020 Feb
+                  12;11:51. doi: 10.3389/fpls.2020.00051. <br />
+                  [2] Niu D, Hamby R, Sanchez JN, Cai Q, Yan Q, Jin H. RNAs - a
+                  new frontier in crop protection. Curr Opin Biotechnol. 2021
+                  Aug;70:204-212. doi: 10.1016/j.copbio.2021.06.005. Epub 2021
+                  Jul 1. <br />
+                  [3] Abdellatef E, Kamal NM, Tsujimoto H. Tuning Beforehand: A
+                  Foresight on RNA Interference (RNAi) and In Vitro-Derived
+                  dsRNAs to Enhance Crop Resilience to Biotic and Abiotic
+                  Stresses. Int J Mol Sci. 2021 Jul 19;22(14):7687. doi:
+                  10.3390/ijms22147687. <br />
+                  [4] Saurabh S, Vidyarthi AS, Prasad D. RNA interference:
+                  concept to reality in crop improvement. Planta. 2014
+                  Mar;239(3):543-64. doi: 10.1007/s00425-013-2019-5. Epub 2014
+                  Jan 9. <br />
+                  [5] Bharathi JK, Anandan R, Benjamin LK, Muneer S, Prakash
+                  MAS. Recent trends and advances of RNA interference (RNAi) to
+                  improve agricultural crops and enhance their resilience to
+                  biotic and abiotic stresses. Plant Physiol Biochem. 2023
+                  Jan;194:600-618. doi: 10.1016/j.plaphy.2022. 11.035. Epub 2022
+                  Dec 10. <br />
+                  [6] Islam MT, Sherif SM. RNAi-Based Biofungicides as a
+                  Promising Next-Generation Strategy for Controlling Devastating
+                  Gray Mold Diseases. Int J Mol Sci. 2020 Mar 18;21(6):2072.
+                  doi: 10.3390/ijms21062072. <br />
+                  [7] Hoang BTL, Fletcher SJ, Brosnan CA, Ghodke AB, Manzie N,
+                  Mitter N. RNAi as a Foliar Spray: Efficiency and Challenges to
+                  Field Applications. Int J Mol Sci. 2022 Jun 14;23(12):6639.
+                  doi: 10.3390/ijms23126639. <br />
+                  [8] Sarkar A, Roy-Barman S. Spray-Induced Silencing of
+                  Pathogenicity Gene MoDES1 via Exogenous Double-Stranded RNA
+                  Can Confer Partial Resistance Against Fungal Blast in Rice.
+                  Front Plant Sci. 2021 Nov 26;12:733129. doi: 10.3389/
+                  fpls.2021.733129. <br />
+                  [9] Qiao L, Lan C, Capriotti L, Ah-Fong A, Nino Sanchez J,
+                  Hamby R, Heller J, Zhao H, Glass NL, Judelson HS, Mezzetti B,
+                  Niu D, Jin H. Spray-induced gene silencing for disease control
+                  is dependent on the efficiency of pathogen RNA uptake. Plant
+                  Biotechnol J. 2021 Sep;19(9):1756-1768. doi:
+                  10.1111/pbi.13589. Epub 2021 May 4. <br />
+                  [10] Bofill-De Ros X, Gu S. Guidelines for the optimal design
+                  of miRNA-based shRNAs. Methods. 2016 Jul 1;103:157-66. doi:
+                  10.1016/j.ymeth.2016.04.003. Epub 2016 Apr 12.<br />
+                  [11] Han Y, Joosten HJ, Niu W, Zhao Z, Mariano PS, McCalman M,
+                  van Kan J, Schaap PJ, Dunaway-Mariano D. Oxaloacetate
+                  hydrolase, the C-C bond lyase of oxalate secreting fungi. J
+                  Biol Chem. 2007 Mar 30;282(13):9581-9590. doi:
+                  10.1074/jbc.M608961200. Epub 2007 Jan 23. <br />
+                  [12] Wang M, Weiberg A, Lin FM, Thomma BP, Huang HD, Jin H.
+                  Bidirectional cross-kingdom RNAi and fungal uptake of external
+                  RNAs confer plant protection. Nat Plants. 2016 Sep 19;2:16151.
+                  doi: 10.1038/nplants.2016.151. <br />
+                  [13] Weiberg A, Wang M, Lin FM, Zhao H, Zhang Z, Kaloshian I,
+                  Huang HD, Jin H. Fungal small RNAs suppress plant immunity by
+                  hijacking host RNA interference pathways. Science. 2013 Oct
+                  4;342(6154):118-23. doi: 10.1126/science.1239705. <br />
+                  [14] Soulié MC, Perino C, Piffeteau A, Choquer M, Malfatti P,
+                  Cimerman A, Kunz C, Boccara M, Vidal-Cros A. Botrytis cinerea
+                  virulence is drastically reduced after disruption of chitin
+                  synthase class III gene (Bcchs3a). Cell Microbiol. 2006
+                  Aug;8(8):1310-21. doi: 10.1111/j.1462-5822.2006.00711.x.
+                  <br />
+                  [15] Soulié MC, Piffeteau A, Choquer M, Boccara M, Vidal-Cros
+                  A. Disruption of Botrytis cinerea class I chitin synthase gene
+                  Bcchs1 results in cell wall weakening and reduced virulence.
+                  Fungal Genet Biol. 2003 Oct;40(1): 38-46. doi:
+                  10.1016/s1087-1845(03)00065-3. <br />
+                  [16] Morcx S, Kunz C, Choquer M, Assie S, Blondet E,
+                  Simond-Côte E, Gajek K, Chapeland-Leclerc F, Expert D, Soulie
+                  MC. Disruption of Bcchs4, Bcchs6 or Bcchs7 chitin synthase
+                  genes in Botrytis cinerea and the essential role of class VI
+                  chitin synthase (Bcchs6). Fungal Genet Biol. 2013 Mar;52:1-8.
+                  doi: 10.1016/j.fgb.2012.11.011. Epub 2012 Dec 22. <br />
+                  [17] Duanis-Assaf D, Galsurker O, Davydov O, Maurer D,
+                  Feygenberg O, Sagi M, Poverenov E, Fluhr R, Alkan N.
+                  Double-stranded RNA targeting fungal ergosterol biosynthesis
+                  pathway controls Botrytis cinerea and postharvest grey mould.
+                  Plant Biotechnol J. 2022 Jan;20(1):226-237. doi:
+                  10.1111/pbi.13708. Epub 2021 Nov 18. <br />
+                  [18] Thagun C, Horii Y, Mori M, Fujita S, Ohtani M, Tsuchiya
+                  K, Kodama Y, Odahara M, Numata K. Non-transgenic Gene
+                  Modulation via Spray Delivery of Nucleic Acid/Peptide
+                  Complexes into Plant Nuclei and Chloroplasts. ACS Nano. 2022
+                  Mar 22;16(3):3506-3521. doi: 10.1021/acsnano.1c07723. Epub
+                  2022 Feb 23. <br />
+                  [19] Rao DD, Senzer N, Wang Z, Kumar P, Jay CM, Nemunaitis J.
+                  Bifunctional short hairpin RNA (bi-shRNA): design and pathway
+                  to clinical application. Methods Mol Biol. 2013;942:259-78.
+                  doi: 10.1007/978-1-62703-119-6_14. <br />
+                  [20] Pruitt RN, Gust AA, Nürnberger T. Plant immunity unified.
+                  Nat Plants. 2021 Apr;7(4):382-383. doi:
+                  10.1038/s41477-021-00903-3. <br />
+                  [21] Hu J, Chang R, Yuan Y, Li Z, Wang Y. Identification of
+                  Key Residues Essential for the Activation of Plant Immunity by
+                  Subtilisin From Bacillus velezensis LJ02. Front Microbiol.
+                  2022 Aug 15;13:869596. doi: 10.3389/fmicb. 2022.869596.<br />
+                  [22] Yuan M, Ngou BPM, Ding P, Xin XF. PTI-ETI crosstalk: an
+                  integrative view of plant immunity. Curr Opin Plant Biol. 2021
+                  Aug;62:102030. doi: 10.1016/j.pbi. 2021.102030. Epub 2021 Mar
+                  5. <br />
+                  [23] Abdul Malik NA, Kumar IS, Nadarajah K. Elicitor and
+                  Receptor Molecules: Orchestrators of Plant Defense and
+                  Immunity. Int J Mol Sci. 2020 Jan 31;21(3):963. doi:
+                  10.3390/ijms21030963. <br />
+                  [24] Zipfel C, Rathjen JP. Plant immunity: AvrPto targets the
+                  frontline. Curr Biol. 2008 Mar 11;18(5):R218-20. doi:
+                  10.1016/j.cub.2008.01.016. <br />
+                  [25] Yuan M, Jiang Z, Bi G, Nomura K, Liu M, Wang Y, Cai B,
+                  Zhou JM, He SY, Xin XF. Pattern-recognition receptors are
+                  required for NLR-mediated plant immunity. Nature. 2021
+                  Apr;592(7852):105-109. doi: 10.1038/s41586-021-03316-6. Epub
+                  2021 Mar 10. <br />
+                  [26] Oh CS, Martin GB. Effector-triggered immunity mediated by
+                  the Pto kinase. Trends Plant Sci. 2011 Mar;16(3):132-40. doi:
+                  10.1016/j.tplants.2010.11.001.<br />
+                  [27] Chinchilla D, Zipfel C, Robatzek S, Kemmerling B,
+                  Nürnberger T, Jones JD, Felix G, Boller T. A flagellin-induced
+                  complex of the receptor FLS2 and BAK1 initiates plant defence.
+                  Nature. 2007 Jul 26;448(7152):497-500. doi:
+                  10.1038/nature05999. Epub 2007 Jul 11. <br />
+                  [28] Chen S, Cui L, Wang X. A plant cell wall-associated
+                  kinase encoding gene is dramatically downregulated during
+                  nematode infection of potato. Plant Signal Behav. 2022 Dec
+                  31;17(1):2004026. doi: 10.1080/15592324.2021.2004026. Epub
+                  2021 Dec 29.<br />
+                  [29] Shah P, Powell AL, Orlando R, Bergmann C,
+                  Gutierrez-Sanchez G. Proteomic analysis of ripening tomato
+                  fruit infected by Botrytis cinerea. J Proteome Res. 2012 Apr
+                  6;11(4): 2178-92. doi: 10.1021/pr200965c. Epub 2012 Mar 20.
+                  <br />
+                  [30] Aziz A, Heyraud A, Lambert B. Oligogalacturonide signal
+                  transduction, induction of defense-related responses and
+                  protection of grapevine against Botrytis cinerea. Planta. 2004
+                  Mar;218(5):767-74. doi: 10.1007/s00425-003-1153-x. Epub 2003
+                  Nov 14. <br />
+                  [31] Palomäki T, Saarilahti HT. The extreme C-terminus is
+                  required for secretion of both the native polygalacturonase
+                  (PehA) and PehA-Bla hybrid proteins in Erwinia carotovora
+                  subsp. carotovora. Mol Microbiol. 1995 Aug;17(3):449-59. doi:
+                  10.1111/j. 1365-2958.1995.mmi_17030449.x. <br />
+                  [32] Xiang T, Zong N, Zou Y, Wu Y, Zhang J, Xing W, Li Y, Tang
+                  X, Zhu L, Chai J, Zhou JM. Pseudomonas syringae effector
+                  AvrPto blocks innate immunity by targeting receptor kinases.
+                  Curr Biol. 2008 Jan 8;18(1):74-80. doi: 10.1016/j.cub.2007.12.
+                  020. Epub 2007 Dec 27. <br />
+                  [33] Ferrari S, Vairo D, Ausubel FM, Cervone F, De Lorenzo G.
+                  Tandemly duplicated Arabidopsis genes that encode
+                  polygalacturonase-inhibiting proteins are regulated
+                  coordinately by different signal transduction pathways in
+                  response to fungal infection. Plant Cell. 2003
+                  Jan;15(1):93-106. doi: 10.1105/tpc.005165. <br />
+                  [34] Sarangi S, Swain H, Adak T, Bhattacharyya P, Mukherjee
+                  AK, Kumar G, Mehetre ST. Trichoderma-mediated rice straw
+                  compost promotes plant growth and imparts stress tolerance.
+                  Environ Sci Pollut Res Int. 2021 Aug;28(32):44014-44027. doi:
+                  10. 1007/s11356-021-13701-3. Epub 2021 Apr 12. <br />
+                  [35] Peng D, Li S, Wang J, Chen C, Zhou M. Integrated
+                  biological and chemical control of rice sheath blight by
+                  Bacillus subtilis NJ-18 and jinggangmycin. Pest Manag Sci.
+                  2014 Feb;70(2):258-63. doi: 10.1002/ps.3551. Epub 2013 Jun 18.
+                  <br />
+                  [36] Ben Khedher S, Kilani-Feki O, Dammak M,
+                  Jabnoun-Khiareddine H, Daami-Remadi M, Tounsi S. Efficacy of
+                  Bacillus subtilis V26 as a biological control agent against
+                  Rhizoctonia solani on potato. C R Biol. 2015
+                  Dec;338(12):784-92. doi: 10.1016/j. crvi.2015.09.005. Epub
+                  2015 Nov 10. <br />
+                  [37] Kourelis J, van der Hoorn RAL. Defended to the Nines: 25
+                  Years of Resistance Gene Cloning Identifies Nine Mechanisms
+                  for R Protein Function. Plant Cell. 2018 Feb;30(2):285-299.
+                  doi: 10.1105/tpc.17.00579. Epub 2018 Jan 30. <br />
+                  [38] Li Z, Hu J, Sun Q, Zhang X, Chang R, Wang Y. A novel
+                  elicitor protein phosphopentomutase from Bacillus velezensis
+                  LJ02 enhances tomato resistance to Botrytis cinerea. Front
+                  Plant Sci. 2022 Nov 29;13:1064589. doi:
+                  10.3389/fpls.2022.1064589. <br />
+                  [39] Frías M, Brito N, González C. The Botrytis cinerea
+                  cerato-platanin BcSpl1 is a potent inducer of systemic
+                  acquired resistance (SAR) in tobacco and generates a wave of
+                  salicylic acid expanding from the site of application. Mol
+                  Plant Pathol. 2013 Feb;14(2):191-6. doi:
+                  10.1111/j.1364-3703.2012.00842.x. Epub 2012 Oct 16. <br />
+                  [40] Engelberg-Kulka H, Hazan R, Amitai S. mazEF: a
+                  chromosomal toxin-antitoxin module that triggers programmed
+                  cell death in bacteria. J Cell Sci. 2005 Oct 1;118 (Pt
+                  19):4327-32. doi: 10.1242/jcs.02619. <br />
+                  [41] Jinbin Wang, Tong Yue, Chuan He, Yifan Zhou, Yinshuang
+                  Bai, Qingwei Li, Wei Jiang, Yanna Huang, Xiaofeng Liu,
+                  Biocontrol of tomato bacterial wilt by a combination of
+                  Bacillus subtilis GSJB-1210 and ningnanmycin, Scientia
+                  Horticulturae, Volume 321, 2023, 112296, ISSN 0304-4238,
+                  doi:/10.1016/j.scienta.2023.112296. <br />
+                  [42] Coelho RV, de Avila E Silva S, Echeverrigaray S, Delamare
+                  APL. Bacillus subtilis promoter sequences data set for
+                  promoter prediction in Gram-positive bacteria. Data Brief.
+                  2018 May 13;19:264-270. doi: 10.1016/j.dib.2018.05.025. <br />
+                  [43] Zhang XZ, Yan X, Cui ZL, Hong Q, Li SP. mazF, a novel
+                  counter-selectable marker for unmarked chromosomal
+                  manipulation in Bacillus subtilis. Nucleic Acids Res. 2006 May
+                  19;34(9):e71. doi: 10.1093/nar/gkl358. <br />
+                  [44] Samaras A, Roumeliotis E, Ntasiou P, Karaoglanidis G.
+                  Bacillus subtilis MBI600 Promotes Growth of Tomato Plants and
+                  Induces Systemic Resistance Contributing to the Control of
+                  Soilborne Pathogens. Plants (Basel). 2021 May 31;10(6):1113.
+                  doi: 10. 3390/plants10061113. <br />
+                  [45] Daudi A, O'Brien JA. Detection of Hydrogen Peroxide by
+                  DAB Staining in Arabidopsis Leaves. Bio Protoc.
+                  2012;2(18):e263. Epub 2012 Sep 20. <br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

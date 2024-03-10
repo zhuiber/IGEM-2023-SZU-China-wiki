@@ -1,0 +1,1402 @@
+{% extends "layout.html" %} {% block title %}Engineering Success{% endblock %}
+{% block lead %}Demonstrate engineering success in a part of your project by
+going through at least one iteration of the engineering design cycle.{% endblock
+%} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(5 * 40px);
+  }
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(2 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/engineering.png")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Engineering</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">RNAi Silence System</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >RNA V1: shRNA</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >RNA V2: BP100-(KH)<sub>9</sub> + shRNA</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.3" class="scroll-link d-block w-100"
+                      >RNA V3: BP100-(KH)<sub>9</sub> + bi-shRNA</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item2">
+                <a href="#anchor3" class="scroll-link">PolycoBead</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor3.1" class="scroll-link d-block w-100"
+                      >PolycoBead 1.0</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.2" class="scroll-link d-block w-100"
+                      >PolycoBead 2.0</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Overview</h2>
+            <p>
+              In our project, we have developed two systems to comprehensively
+              control tomato gray mold disease caused by
+              <i>Botrytis cinerea</i>. Our plant immune system is used to
+              activate the broad-spectrum immunity of tomatoes to prevent tomato
+              gray mold disease, while our RNAi system is used to kill the
+              <i>B. cinerea</i> or reduce its infectivity. To combine the two
+              systems, we use the polycobead system to encapsulate the plant
+              immune system and the RNAi system, making the biopesticide more
+              storage-friendly and convenient to use.
+            </p>
+            <br />
+
+            <p>
+              In our Project, we followed the DBTL principle, tested the
+              functions of RNAi and PolycoBead during the project cycle, and
+              improved and iterated according to the test results, so that they
+              finally achieved our expected results.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/engineering/cycle.jpg"
+                alt=""
+                width="70%"
+              />
+              <br />
+              <br />
+            </div>
+          </section>
+          <section id="anchor2">
+            <h2>RNAi Silence System</h2>
+            <section id="anchor2.1">
+              <br />
+              <h3>RNA V1: shRNA</h3>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/seed.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Design
+                  </h4>
+                </div>
+                <p>
+                  Due to its high specificity, safety, and sustainability, we
+                  have chosen RNAi technology for the treatment of tomato gray
+                  mold disease. After screening, we selected <i>BcchsIIIa</i>,
+                  <i>Bccyp51</i>, <i>BcOAH1</i>, and <i>Bcpme1</i> as our
+                  targets for RNAi. Since shRNA is known to have higher
+                  stability in natural environments and can be produced on a
+                  large scale at low cost using fermentation engineering in the
+                  laboratory, we have selected the most common strain,
+                  <i>E. coli</i>, for fermentation production. We used
+                  <i>E. coli</i>
+                  HT115(DE3), which lacks nucleases. The designed target
+                  sequences are constructed through the order of sense fragment
+                  loop-antisense fragment, and connected to the plasmid
+                  pET-28a(+) to obtain our shRNA.
+                </p>
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/sprout.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Bulid
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  To verify our successful transformation, we used specific
+                  primers to amplify the plasmids extracted from
+                  <i>E. coli</i> by PCR, and demonstrated that our shRNA
+                  expression vector successfully entered
+                  <i>E. coli</i> HT115(DE3) by agarose gel electrophoresis
+                  (Figure1). Subsequently, RNA was extracted from
+                  <i>E. coli</i> after IPTG induction, and the successful
+                  production of shRNA in <i>E. coli</i> was confirmed by the
+                  size of the bands.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-engineering-plasmid-2.png"
+                    alt=""
+                    width="100%"
+                  />
+                  <small
+                    ><b
+                      >Figure 1. Agarose gel electrophoresis of plasmids after
+                      plasmid PCR 1-5: Plasmids control; 5-10: Plasmids
+                      extracted from <i>E.coli</i></b
+                    ></small
+                  >
+                </div>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/flower.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Test
+                  </h4>
+                </div>
+                <p>
+                  In our experiments, we used shRNA(gfp) as the control
+                  group.The produced shRNA was sprayed on the tomato fruits
+                  infected with <i>B. cinerea</i>, and we explored the
+                  inhibitory effect of shRNA on gray mold infection in tomatoes
+                  by measuring the distribution of disease spots (Figure 2a). We
+                  also detected the inhibitory effect of shRNA on target genes
+                  using qRT-PCR (Figure 2b). The results indicate that on the
+                  third day, the highest silencing rate of the target gene
+                  achieved by spraying shRNA(Pme1)-2 was 59%.
+                </p>
+                <br />
+                <div class="row">
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-outlook1.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 2. (a)Distribution of disease spots of tomato
+                        fruits after naked shRNA application.</b
+                      ></small
+                    >
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-qpcr1.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 2. (b)Silencing rate of target gene after naked
+                        shRNA application.</b
+                      ></small
+                    >
+                  </div>
+                </div>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/fruit.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Learn
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  We found that the inhibitory effect of shRNA on gray mold
+                  disease was not as good as we had expected in actual use,
+                  which may be because shRNA is still not very stable in natural
+                  environments and the probability of cell uptake and processing
+                  of shRNA is not high. Faced with this problem, we must find a
+                  more effective system to deliver our shRNA.
+                </p>
+              </div>
+            </section>
+            <section id="anchor2.2">
+              <br />
+              <h3>RNA V2: BP100-(KH)<sub>9</sub> + shRNA</h3>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/seed.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Design
+                  </h4>
+                </div>
+                <p>
+                  Cell-penetrating peptides (CPPs) have been shown to penetrate
+                  the plasma membrane of various plant species and tissues.
+                  Multiple studies have demonstrated that CPPs can enhance the
+                  stability of shRNA and significantly improve the efficiency of
+                  silencing through CPP-mediated sRNA delivery systems.
+                  Ultimately, we have chosen BP100-(KH)<sub>9</sub> as our CPP
+                  and allowed it to bind to shRNA, hoping that it will confer
+                  greater stability to our shRNA under natural conditions and
+                  enhance the efficiency of gene silencing on the target gene.
+                </p>
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/sprout.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Bulid
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  To obtain the BP100-(KH)<sub>9</sub>+shRNA complex, we
+                  incubated CPP and shRNA in a fixed ratio at room temperature.
+                  For the binding of BP100-(KH)<sub>9</sub> with shRNA, we
+                  observed naked shRNA (Figure 3a), naked BP100-(KH)<sub>9</sub>
+                  (Figure 3b), and BP100-(KH)<sub>9</sub>+shRNA complex (Figure
+                  3c)under scanning electron microscopy (SEM), and significant
+                  morphological differences were observed among the three. The
+                  presence of spherical aggregates in Figure 3c suggests the
+                  successful binding of BP100-(KH)<sub>9</sub> with shRNA.
+                  <br />
+                  To learn more detailed information about shRNA,
+                  BP100-(KH)<sub>9</sub>, and shRNA+CPP under SEM, please click
+                  on
+                  <a href="https://2023.igem.wiki/szu-china/proof-of-concept"
+                    >Proof of Concept</a
+                  >
+                </p>
+                <br />
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-wng-semcpp.png"
+                        alt=""
+                        width="100%"
+                      />
+                      <small
+                        ><b
+                          >Figure 3. (a)Morphological structure of naked shRNA
+                          under scanning electron microscope at 20,000x
+                          magnification (the arrow points to shRNA
+                          aggregates).</b
+                        ></small
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-semrna-2.png"
+                        alt=""
+                        width="100%"
+                      />
+                      <small
+                        ><b
+                          >Figure 3. (b)Morphological structure of Naked CPP
+                          under scanning electron microscope at 50,000x
+                          magnification (the arrow points to CPP aggregates).</b
+                        ></small
+                      >
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-semrna-cpp.png"
+                    alt=""
+                    width="70%"
+                  />
+                  <small
+                    ><b
+                      >Figure 3. (c)Morphology of shRNA+CPP under scanning
+                      electron microscope at 40,000x magnification.</b
+                    ></small
+                  >
+                </div>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/flower.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Test
+                  </h4>
+                </div>
+                <p>
+                  We sprayed shRNA complexed with BP100-(KH)<sub>9</sub> onto
+                  tomato fruits infected with <i>B. cinerea</i> and explored the
+                  inhibitory effect of BP100-(KH)<sub>9</sub>+shRNA on gray mold
+                  disease by measuring the distribution of disease spots (Figure
+                  4a). We also detected the inhibitory effect of
+                  BP100-(KH)<sub>9</sub>+shRNA on the target gene using qRT-PCR
+                  (Figure 4b). From the results, it can be observed that
+                  BP100-(KH)<sub>9</sub>+shRNA significantly enhanced the
+                  efficiency of shRNA-mediated gene silencing on the target
+                  gene. Among them, BP100-(KH)<sub>9</sub> showed the highest
+                  increase in silencing rate against <i>Bccyp51</i>. The
+                  silencing rate of
+                  <i>Bccyp51</i>
+                  increased from 51% to 66%.
+                </p>
+                <br />
+                <div class="row">
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-outlook2.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 4. (a)Distribution of disease spots of tomato
+                        fruits after BP100-(KH)<sub>9</sub> + shRNA
+                        application.</b
+                      ></small
+                    >
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-qpcr2.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 4. (b)Silencing rate of target gene after
+                        BP100-(KH)<sub>9</sub> + shRNA application.</b
+                      ></small
+                    >
+                  </div>
+                </div>
+                <br />
+                <p>
+                  Furthermore, through continuous qRT-PCR analysis, we found
+                  that the highest silencing rate of the target gene by
+                  BP100-(KH)<sub>9</sub>+shRNA was achieved at the 60th hour
+                  (Figure 5).
+                </p>
+                <br />
+                <p>
+                  For more information on continuous qRT-PCR, please refer to
+                  <a href="https://2023.igem.wiki/szu-china/proof-of-concept"
+                    >Proof of Concept</a
+                  >.
+                </p>
+                <br />
+                <p>
+                  Additionally, the time-dependent efficiency of
+                  BP100-(KH)<sub>9</sub>+shRNA-mediated gene silencing observed
+                  in the experiment is consistent with our RNAi model.
+                  <br />For more information on the model, please see the
+                  <a href="https://2023.igem.wiki/szu-china/model">Model</a>
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-q.png"
+                    alt=""
+                    width="80%"
+                  />
+                  <small
+                    ><b
+                      >Figure 5. Variation in silencing efficiency of target
+                      gene by BP100-(KH)<sub>9</sub>+shRNA over 12-96 hours.</b
+                    ></small
+                  >
+                </div>
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/fruit.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Learn
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  Although it has been demonstrated that
+                  BP100-(KH)<sub>9</sub>+shRNA-mediated gene silencing of
+                  individual target genes has shown promising efficacy in the
+                  treatment of tomato gray mold disease, we are still not
+                  entirely satisfied with the inhibitory effect of a single
+                  shRNA on the infection of
+                  <i>B. cinerea</i>, especially the unsatisfactory silencing
+                  effect on the <i>BcchsIIIa</i> gene. We believe that this
+                  situation may be attributed to instability of a single shRNA,
+                  among other factors, ultimately limiting the optimal
+                  effectiveness of single-target gene silencing by shRNA.
+                  <br />
+                  Moreover, in order to achieve better suppression of gray mold,
+                  a large amount of single shRNA is required, which also reminds
+                  us to always consider the cost issue of shRNA.
+                </p>
+              </div>
+            </section>
+            <section id="anchor2.3">
+              <br />
+              <h3>RNA V3: BP100-(KH)<sub>9</sub> + bi-shRNA</h3>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/seed.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Design
+                  </h4>
+                </div>
+                <p>
+                  We have learned that the bi-shRNA design leads to more rapid
+                  onset of gene silencing, higher efficacy, and greater
+                  durability when compared with either siRNA or conventional
+                  shRNA. By concatenating shRNA molecules targeting different
+                  mRNA sequences, the resulting shRNAs can be processed into
+                  different siRNAs that act simultaneously. Moreover, compared
+                  to mixing and spraying different shRNAs, by concatenating
+                  different shRNAs to obtain bi-shRNA, we can save more on the
+                  usage of shRNAs while achieving better silencing effects. As
+                  shown in the Figure 6, we used website prediction again to
+                  optimize shRNAs targeting <i>BcchsIIIa</i> and <i>Bccyp51</i>,
+                  resulting in shRNA(CHSIIIa)* and shRNA(cyp51)*, respectively.
+                  We then concatenated them to construct bi-shRNA named
+                  Box-survival, which collectively silences two important genes
+                  essential for the survival of <i>B. cinerea</i>. During
+                  application, we will also combine it with cell-penetrating
+                  peptide BP100-(KH)<sub>9</sub> to construct
+                  BP100-(KH)<sub>9</sub>+bi-shRNA for optimal inhibitory
+                  effects.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-bs.png"
+                    alt=""
+                    width="80%"
+                  />
+                  <small
+                    ><b
+                      >Figure 6. The design of our Box-survival(bi-shRNA).</b
+                    ></small
+                  >
+                </div>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/sprout.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Bulid
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  To validate the successful production of Box-survival in
+                  <i>E. coli</i>, we constructed a plasmid and transformed it
+                  into <i>E. coli</i> for large-scale cultivation. After
+                  induction with IPTG, we extracted RNA from <i>E. coli</i> and
+                  confirmed the successful generation of shRNA based on the band
+                  size observed on the gel. In the gel image, there is a bright
+                  band between lanes 100 and 150, which corresponds to the size
+                  of 124bp. This is because Box-survival is a concatenation of
+                  two shRNAs, resulting in a larger size compared to the
+                  designed single-target shRNA (69bp), showing a significant
+                  molecular weight difference.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-iptg.png"
+                    alt=""
+                    width="100%"
+                  />
+                  <small
+                    ><b
+                      >Figure 7. Gel electrophoresis of RNA extracted from
+                      <i>E. coli</i>HT115(DE3). <br />
+                      shRNA(Box-survival) exhibits a significantly larger
+                      molecular weight.</b
+                    ></small
+                  >
+                </div>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/flower.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Test
+                  </h4>
+                </div>
+                <p>
+                  Similarly, we sprayed BP100-(KH)<sub>9</sub> + bi-shRNA on
+                  tomato fruits infected with <i>B. cinerea</i> and compared the
+                  inhibitory effects of BP100-(KH)<sub>9</sub> + bi-shRNA with
+                  our selected four single-target BP100-(KH)<sub>9</sub> +
+                  bi-shRNA by measuring the distribution of disease spots
+                  (Figure 8a). We also examined the inhibitory effect of
+                  BP100-(KH)<sub>9</sub> + bi-shRNA on the target genes of
+                  <i>B. cinerea</i> using qRT-PCR, comparing it with
+                  BP100-(KH)<sub>9</sub> + shRNA (Figure 8b). From the results,
+                  it can be observed that the optimized sequences of
+                  shRNA(CHSIIIa)* and shRNA(cyp51)* exhibit lower off-target
+                  probabilities compared to the original sequences. Furthermore,
+                  compared to BP100-(KH)<sub>9</sub> + shRNA, BP100-(KH)<sub
+                    >9</sub
+                  >
+                  + bi-shRNA demonstrate a stronger inhibitory effect on gray
+                  mold disease. From the Figure 8b, we can see that among all
+                  shRNAs, bi-shRNA(Box-survival) showed the highest silencing
+                  efficiency against the target gene, reaching 70%.
+                </p>
+                <br />
+                <div class="row">
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-outlook3.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 8. (a)Distribution of disease spots of tomato
+                        fruits after BP100-(KH)<sub>9</sub> + bi-shRNA and
+                        BP100-(KH)<sub>9</sub> + shRNA application.</b
+                      ></small
+                    >
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-eng-qpcr3.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 8. (b)Silencing rate of target gene after
+                        BP100-(KH)<sub>9</sub> + bi-shRNA and BP100-(KH)<sub
+                          >9</sub
+                        >
+                        + shRNA application.</b
+                      ></small
+                    >
+                  </div>
+                </div>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/fruit.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Learn
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  According to the results mentioned above, our BP100-(KH)<sub
+                    >9</sub
+                  >
+                  + bi-shRNA has shown excellent inhibitory effects on the
+                  target gene with lower off-target effects. Therefore, we can
+                  ensure that BP100-(KH)<sub>9</sub> + bi-shRNA can be used as
+                  our RNAi product for field spraying, achieving precise,
+                  efficient, and powerful attack on pathogenic fungi. The
+                  engineering cycle of our RNAi silencing system also concludes
+                  after this validation step.
+                </p>
+              </div>
+            </section>
+          </section>
+          <br />
+          <section id="anchor3">
+            <h2>PolycoBead</h2>
+            <section id="anchor3.1">
+              <br />
+              <h3>PolycoBead 1.0</h3>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/seed.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Design
+                  </h4>
+                </div>
+                <p>
+                  In order to address the instability of RNAi biopesticides and
+                  regulate the amount of pesticide used, we hope to package our
+                  product in a specific form to avoid misuse. We drew
+                  inspiration from the design of laundry pods and learned that
+                  they are made up of individual beads wrapped in PVA film.
+                  Through investigation, we found that PVA film has good water
+                  solubility, biocompatibility, degradability, high mechanical
+                  strength, ease of processing, low production cost, and easy
+                  availability. It also has barrier and anti-static properties,
+                  which can effectively prevent RNA from coming into contact
+                  with nucleases in the environment and being degraded.
+                  Therefore, we decided to use PVA film to wrap our CPP-shRNA
+                  formulations and the engineered bacterial host
+                  <i>B. subtilis</i>.
+                </p>
+                <br />
+                <p>
+                  As the produced CPP-shRNA complexes exist in the form of an
+                  aqueous solution, we need to overcome the water solubility of
+                  PVA. To achieve this, we plan to use a powder formulation with
+                  strong water-absorbing capability, which does not affect the
+                  stability of the CPP-RNA complex, to encapsulate CPP-shRNAs
+                  within the beads. Our initial consideration is agarose, a
+                  commonly used inert material for nucleic acid electrophoresis
+                  in laboratories. Agarose is able to absorb water without
+                  introducing large charged groups, thus maintaining the
+                  stability of nucleic acids and meeting our basic requirements.
+                  Our engineered bacteria are in the form of bacterial powder,
+                  and users are required to add sucrose for reconstitution.
+                </p>
+                <br />
+                <p>
+                  In our design of Polycobead 1.0, we mix the CPP-shRNA aqueous
+                  solution with agarose commonly used in laboratories, and then
+                  combine it with the engineered bacterial powder before
+                  packaging them in water-soluble PVA film. The resulting pods
+                  enhance the stability of the CPP-shRNA complexes and can
+                  dissolve rapidly in water for direct application.
+                </p>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/sprout.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Bulid
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  We drop a certain concentration of CPP-shRNA aqueous solution
+                  onto agarose powder, and then mix the engineered bacterial
+                  powder of <i>B. subtilius</i> with the agarose powder.
+                  Finally, we package these mixed powders into a certain size of
+                  PVA film, and seal them using a heat sealing machine,
+                  resulting in our Polycobead 1.0 (Figure 9).
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/polycobead/bead.png"
+                    alt=""
+                    width="60%"
+                  /><br />
+                  <small><b>Figure 9. PolycoBead 1.0</b></small>
+                </div>
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/flower.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Test
+                  </h4>
+                </div>
+                <p>
+                  To understand the structure of our CPP-shRNAs in aqueous
+                  solution, we observed the bare shRNAs, bare CPPs and
+                  CPP-shRNAs by scanning electron microscopy (SEM). From the
+                  scanning electron microscope (SEM) results, it can be seen
+                  that the naked shRNAs samples showed white spots of different
+                  sizes under the scanning electron microscope, which may be
+                  caused by the aggregation of shRNAs and the concentration of
+                  aggregation is different. And at higher magnification, the
+                  white spots will disappear more as the magnification
+                  increases, probably because the electron energy of the
+                  electron beam is too strong.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/polycobead/szu-eng-semshrna.png"
+                    alt=""
+                    width="50%"
+                  /><br />
+                  <small><b>Figure 10. naked shRNAs under SEM</b></small>
+                </div>
+                <br />
+                <p>
+                  Samples of bare CPPs were examined under a scanning electron
+                  microscope and appeared as dotted white spots in the field of
+                  view. We speculate that these white spots are aggregates of
+                  our cell-penetrating peptides.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/polycobead/szu-eng-semcpp-2.png"
+                    alt=""
+                    width="50%"
+                  /><br />
+                  <small><b>Figure 11. CPP under SEM</b></small>
+                </div>
+                <br />
+                <p>
+                  Finally, our CPP-shRNAs samples were observed by scanning
+                  electron microscopy (SEM). Many spherical polymers of
+                  different sizes were observed in the experiment, and smaller
+                  clumps of spherical polymers were observed after magnifying
+                  individual polymers.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/polycobead/sem-cpp-rna2.png"
+                    alt=""
+                    width="50%"
+                  /><br />
+                  <small><b>Figure 12. CPP-shRNA under SEM</b></small>
+                </div>
+                <br />
+                <p>
+                  At the same time, in order to test that our PVA film can
+                  dissolve smoothly in water and release our RNAi pesticide, we
+                  put our prepared coagulation beads into water, and the results
+                  proved that the beads dissolved in water after about 1min. The
+                  solution in the beads is released.
+                </p>
+                <br />
+                <div class="row">
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/polycobead/bead-in-water.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 13. (a)The PolycoBead 1.0 were put into the
+                        water.</b
+                      ></small
+                    >
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/polycobead/bead-in-water2.png"
+                      alt=""
+                      width="90%"
+                    />
+                    <small
+                      ><b
+                        >Figure 13. (b)The PolycoBead 1.0 dissolved in water and
+                        released contents.</b
+                      ></small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/fruit.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Learn
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  It is necessary to improve the release efficiency of
+                  bio-pesticides and simplify the use of pesticides. From the
+                  design and testing results of our PolycoBead1.0, we identified
+                  the following limitations:
+                </p>
+                <br />
+                <ul>
+                  <li class="ps-4">
+                    1. As a water-absorbing material, agarose cannot be
+                    completely dissolved in water at room temperature. The water
+                    insolubility of agarose leads to the formation of colloid
+                    that can cross-link CPP-shRNAs, resulting in the deposition
+                    of agarose at the bottom or the formation of insoluble
+                    precipitates after spraying on farmland, resulting in the
+                    inability to completely release the active ingredients of
+                    pesticides.
+                  </li>
+                  <br />
+                  <li class="ps-4">
+                    2. Because we added a suicide switch in the engineered
+                    bacteria and the strain needed to be resuscitating, the
+                    farmers needed to add additional sucrose to survive and
+                    function, which caused a certain amount of inconvenience.
+                  </li>
+                  <br />
+                  <li class="ps-4">
+                    3. The price of agarose is expensive. If it is used as an
+                    auxiliary material in the coagulation beads, the cost of a
+                    single bead will be increased, which makes it difficult to
+                    promote in the market.
+                  </li>
+                </ul>
+                <br />
+                <p>
+                  In order to solve the above problems, we decided to iterate on
+                  the auxiliary components of coagulation beads to give users a
+                  more effective, convenient and affordable experience.
+                </p>
+              </div>
+            </section>
+            <section id="anchor3.2">
+              <br />
+              <h3>PolycoBead 2.0</h3>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/seed.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Design
+                  </h4>
+                </div>
+              </div>
+              <p>
+                Due to the disadvantages of agarose in PolycoBead1.0, we wanted
+                to find a liquid material that could maintain the stability of
+                CPP-shRNA, at the same time be soluble in water, and also would
+                not dissolve the PVA film. Glycerol is a polar solvent commonly
+                used to preserve biological samples, which can reduce the
+                activity of water molecules and protect biomolecules from
+                degradation and deformation. Glycerol can be dissolved in any
+                proportion with water, which ensures that the beads can release
+                the CPP-shRNAs complex at the fastest rate after entering the
+                water. In addition, although a small amount of the
+                glycerol-water mixture is introduced into the soil, it can also
+                be degraded by the microbial community. All of the above
+                advantages of glycerol make it the preferred choice for
+                providing a liquid environment in coagulation beads.
+              </p>
+              <br />
+              <p>
+                In addition, calcium alginate embedding was used to guarantee
+                the biological activity of <i>Bacillus subtiliis</i>
+                for improving the resuscitation of engineering bacteria in
+                PolycoBead1.0. This is one of the most widely used cell fixation
+                methods, which has the advantages of high density of fixed
+                cells, low toxicity to microorganisms, simple fabrication
+                process and high product release rate. By using calcium alginate
+                embedding method, engineered bacterial solution and sucrose can
+                be encapsulated in a bead at the same time. In the presence of
+                sucrose, the toxin-antitoxin mechanism in the engineered
+                bacteria is balanced to survive.
+              </p>
+              <br />
+              <p>
+                Combining the above two points, we packaged the CPP-shRNA
+                dispersed in glycerol system and the engineered
+                <i>B. subtilis</i> embedded in calcium alginate with PVA film to
+                form our product PolycoBead 2.0.
+              </p>
+              <br />
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/sprout.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Bulid
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  The engineering bacteria, sucrose and 1% sodium alginate
+                  solution were mixed and dropped into Ca<sup>2+</sup>
+                  solution. The sodium alginate reacted with calcium ions to
+                  form a water-insoluble calcium alginate shell in the outer
+                  layer, while the engineering bacteria and sucrose were wrapped
+                  in calcium alginate to form smaller beads. These beads were
+                  added to glycerol containing CPP-shRNAs, encapsulated in PVA
+                  films of certain size, and finally sealed using a heat sealer
+                  to obtain our Polycobead 2.0.
+                </p>
+                <br />
+                <div class="text-center">
+                  <iframe
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/ihp/ztk.pdf"
+                    style="height: 700px; width: 60%"
+                  ></iframe>
+                </div>
+                <small class="text-center"
+                  ><b>The production process of PolycoBead 2.0.</b></small
+                >
+                <br />
+                <br />
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(-50%, -50%);
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/flower.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <h4
+                    class="ps-5 fw-bolder w-25 pb-2"
+                    style="border-bottom: 3px solid tomato"
+                  >
+                    Test
+                  </h4>
+                </div>
+                <p>
+                  To ensure that the activity of CPP-shRNA could be maintained
+                  in the glycerol system, we used the glycerol system containing
+                  CPP-shRNA to verify by agarose gel electrophoresis. As shown
+                  in the figure, the lanes from left to right are Marker, naked
+                  shRNA aqueous solution, naked shRNA glycerol-aqueous solution
+                  (glycerol: water = 9:1), CPP-shRNA complex aqueous solution,
+                  CPP-shRNA complex glycerol-aqueous solution (glycerol: water =
+                  9:1), and Marker repectively. It can be seen from the second
+                  and third lanes that glycerol has a certain blocking effect on
+                  naked shRNA, but it does not completely affect its movement in
+                  electrophoresis. Showing in the fourth and fifth lanes, after
+                  combining with CPP, shRNA would form a certain complex
+                  structure with CPP and could not move in electrophoresis,
+                  while mixing with glycerol did not affect the binding between
+                  the two. Meanwhile, we also verified by SEM that the structure
+                  of CPP-shRNA in glycerol system does not change.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/engineering/szu-engineering-polycobead-1.jpg"
+                    alt=""
+                    width="75%"
+                  /><br />
+                  <small
+                    ><b
+                      >Figure 15. Agarose gel electrophoresis and SEM verified
+                      that glycerol had no effect on CPP-shRNA.</b
+                    ></small
+                  >
+                </div>
+                <br />
+                <p>
+                  To demonstrate that when the calcium alginate-engineered
+                  bacteria complex is released into the environment, the
+                  engineered bacteria in the complex will release into the soil
+                  at a slow rate along with the loss of Ca<sup>2+</sup>, and we
+                  have verified that the calcium alginate-engineered bacteria
+                  could release the liquid in the soil within 40h. We hope that
+                  PolycoBead2.0 can be applied by simply stirring it in water,
+                  and the effective constituent will be released to work. The
+                  release time of PolycoBead 2.0 was tested and it could be
+                  released in 5L water within 2min.
+                </p>
+                <br />
+                <p>
+                  Click
+                  <a href="{{ url_for('pages', page='proof-of-concept') }}"
+                    >Proof of concept</a
+                  >
+                  for more details.
+                </p>
+                <br />
+                <p>
+                  Finally, we also tested that the effective constituent in
+                  PolycoBead 2.0 could play a good role, so we sprayed the
+                  solution with PolycoBead 2.0 on tomatoes infected with
+                  <i>B. cinerea</i>, and it could be obviously observed that the
+                  solution could play a good inhibitory effect on
+                  <i>B. cinerea</i>.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/poc/tomato-fruit-d1-d8.jpg"
+                    alt=""
+                    width="100%"
+                  /><br />
+                  <small
+                    ><b
+                      >Figure 16. The effect of PolycoBead 2.0 was tested on
+                      infected tomatoes.</b
+                    ></small
+                  >
+                </div>
+              </div>
+              <div class="position-relative mt-5">
+                <div class="d-flex">
+                  <div
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      transform: translate(50%, -50%);
+                      right: 0;
+                      background: url(https://static.igem.wiki/teams/4653/wiki/engineering/fruit.png)
+                        no-repeat center center/cover;
+                    "
+                    class="border rounded-circle position-absolute"
+                  ></div>
+                  <div class="w-100 d-flex justify-content-end">
+                    <h4
+                      class="pe-5 fw-bolder w-25 pb-2"
+                      style="border-bottom: 3px solid tomato"
+                    >
+                      Learn
+                    </h4>
+                  </div>
+                </div>
+                <p>
+                  It can be concluded from the above results that our PolycoBead
+                  can stably encase CPP-shRNA and engineered <i>B. subtilis</i>,
+                  then release it stably after dissolving in water, and play a
+                  good role in tomato infected with <i>B. cinerea</i>.
+                  Therefore, we can prove that PolycoBead 2.0 as our final
+                  product can maintain the activity of the effective constituent
+                  during storage, show good results in application, and bring
+                  more benefits and convenience to farmers when used.
+                </p>
+              </div>
+            </section>
+          </section>
+          <br />
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1] FAO, IFAD, UNICEF, WFP and WHO. 2023. The State of Food
+                  Security and Nutrition in the World 2023. Urbanization,
+                  agrifood systems transformation and healthy diets across the
+                  rural-urban continuum. Rome, FAO.<br />
+                  [2] The World Bank. Agriculture and food .[cited 2023-09-15].
+                  https://www.worldbank.org/en/topic/agriculture/overview#1<br />
+                  [3] FAO. Crops and livestock products.[cited 2023-09-15].
+                  https://www.fao.org/faostat/en/#data/QCL/visualize<br />
+                  [4] Williamson B, Tudzynski B, Tudzynski P, van Kan JA.
+                  Botrytis cinerea: the cause of grey mould disease. Mol Plant
+                  Pathol. 2007 Sep;8(5):561-80. <br />
+                  [5] FAO. Prevention of post-harvest food losses fruits,
+                  vegetables and root crops a training manual. Rome, 1989.
+                  https://www.fao.org/3/T0073E/T0073E02.htm<br />
+                  [6]Rupp S, Plesken C, Rumsey S, Dowling M, Schnabel G, Weber
+                  RWS, Hahn M. Botrytis fragariae, a New Species Causing Gray
+                  Mold on Strawberries, Shows High Frequencies of Specific and
+                  Efflux-Based Fungicide Resistance. Appl Environ Microbiol.
+                  2017 Apr 17;83(9) :e00269-17. <br />
+                  [7]
+                  叶艳英,熊春晖,袁经相等.植物源杀菌剂防治灰霉病研究进展[J].生物灾害科学,2016,39(01):27-31.<br />
+                  [8]
+                  杜颖,付丹妮,邹益泽等.2017年辽宁省番茄灰霉病菌对腐霉利的抗药性现状及机制研究[J].中国蔬菜,2018(01):58-65.<br />
+                  [9] Agroinfo. The latest survey of biological pesticide
+                  registration in China. G Sun, 2019.<br />
+                  [10] Chinapesticide. China pesticide registration data.
+                  http://www.chinapesticide.org.cn/zwb/dataCenter<br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

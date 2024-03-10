@@ -1,0 +1,705 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  .shell {
+    width: 100%;
+    position: relative;
+    padding: 80px 0;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .shell:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+  }
+
+  .timeline {
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .content-desc {
+    padding-top: 20px;
+    margin: 0;
+    font-size: 15px;
+    box-sizing: border-box;
+    line-height: 25px;
+  }
+
+  .timeline:before {
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    margin-left: -1px;
+    content: "";
+    background: #b2d7b0;
+  }
+
+  .item {
+    padding: 40px 0;
+    transition: 0.5s;
+    box-sizing: border-box;
+    width: calc(50% - 40px);
+    display: flex;
+    position: relative;
+    transform: translateY(-80px);
+  }
+
+  .item:before {
+    /* 设置在伪元素before中的内容  */
+    content: attr(data-text);
+    letter-spacing: 3px;
+    width: 100%;
+    position: absolute;
+    font-size: 13px;
+    border-left: 2px solid #e2a385;
+    top: 70%;
+    margin-top: -5px;
+    padding-left: 15px;
+    right: calc(-100% - 56px);
+    font: 900 20px "";
+    letter-spacing: 5px;
+  }
+
+  .item::after {
+    /* 设置在伪元素before中的内容  */
+    content: attr(data-title);
+    letter-spacing: 3px;
+    width: 100%;
+    position: absolute;
+    font-size: 13px;
+    border-left: 2px solid #e2a385;
+    top: 50%;
+    margin-top: -5px;
+    padding-left: 15px;
+    right: calc(-100% - 56px);
+    font: 900 20px "";
+    letter-spacing: 5px;
+    font-weight: normal;
+    font-size: 50px;
+    padding: 0 10px;
+    color: #e5e1b5;
+  }
+
+  .item:nth-child(even) {
+    align-self: flex-end;
+  }
+
+  .item:nth-child(even):before {
+    right: auto;
+    text-align: right;
+    left: calc(-100% - 56px);
+    padding-left: 0;
+    border-left: none;
+    border-right: 2px solid #e2a385;
+    padding-right: 15px;
+  }
+
+  .item:nth-child(even):after {
+    right: auto;
+    text-align: right;
+    left: calc(-100% - 56px);
+    padding-left: 0;
+    border-left: none;
+    border-right: 2px solid #e2a385;
+    padding-right: 15px;
+  }
+
+  .item--active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+
+  .item--active:before {
+    top: 50%;
+    transition: 0.3s all 0.2s;
+    opacity: 1;
+  }
+
+  .item--active .content-title {
+    margin: -50px 0 20px 0;
+  }
+
+  .img {
+    max-width: 100%;
+    box-shadow: 0 10px 15px #f2cea7;
+  }
+
+  .subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .item {
+      align-self: baseline !important;
+      width: 100%;
+      padding: 0 30px 150px 80px;
+    }
+
+    .item:before {
+      left: 10px !important;
+      padding: 0 !important;
+      top: 50px;
+      text-align: center !important;
+      width: 60px;
+      border: none !important;
+    }
+    .item::after {
+      left: 10px !important;
+      padding: 0 !important;
+      top: 50px;
+      text-align: center !important;
+      width: 60px;
+      border: none !important;
+    }
+
+    .item:last-child {
+      padding-bottom: 40px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .timeline:before {
+      left: 40px;
+    }
+  }
+
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/hp-collopration.png")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Communication And Cooperation</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Communication</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Cooperation</a>
+              </label>
+            </div>
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section>
+            <p>
+              <b>
+                "Communication and cooperation between teams are key to
+                achieving common goals and driving the advancement of synthetic
+                biology."</b
+              >
+            </p>
+            <div class="d-flex">
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/mapall111.png"
+                  alt=""
+                  width="60%"
+                />
+              </div>
+            </div>
+            <ul>
+              <li class="ps-4">
+                -By sharing resources and strengths,
+                we can mutually support and progress together.
+                <br /><br />
+                -By exchanging ideas and
+                collaborating with different teams, we can merge diverse
+                perspectives and thought processes, thus generating more ideas and
+                innovations.
+                <br /><br />
+                -Therefore, in competitions, we highly
+                value interacting and communicating with other teams.
+              </li>
+            </ul>
+              
+          </section>
+          <section id="anchor1">
+            <h2>Communication</h2>
+            <p>
+              <b
+                >"Various forums provide excellent platforms for project
+                exhibitions and collaborative exchanges among teams."</b
+              >
+            </p>
+            <br />
+            <p>
+              Through these forums, we have collectively fostered a conducive
+              environment for exploring synthetic biology and have reaped
+              significant benefits from them.
+            </p>
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/communication/map1.png"
+                alt=""
+                width="65%"
+              />
+            </div>
+            <br />
+            <p>
+              <i
+                >Based in Shenzhen city, we gradually expanding our influence to
+                <b>the Greater Bay Area, the South China Region</b>, and
+                eventually covering the <b>whole China</b>. We have hosted,
+                co-organized, and participated in
+                <b><srtong>more than seven</srtong></b> organizations or conferences.</i
+              >
+            </p>
+            <div class="shell" id="shell">
+              <div class="timeline">
+                <div
+                  class="item"
+                  data-text="the Deep Blue Charity Bazaar"
+                  data-title="04.22"
+                >
+                  <div class="content">
+                    <img
+                      class="img"
+                      src="https://static.igem.wiki/teams/4653/wiki/communication/deepblue.jpg"
+                    />
+                    <p class="content-desc">
+                      <br />
+                      The Deep Blue Charity Bazaar is organized by the Southern
+                      University of Science and Technology and Shenzhen
+                      University. The event aims to raise funds for the
+                      "Sunshine Book Corner·Childhood Growth" project.
+                      <br /><br />During this charity bazaar, a large team named
+                      "Deep Blue iGEM" was formed, consisting members from
+                      SUSTech_OCE, SZU-China, and BASIS China. We actively
+                      promote the concepts related to synthetic biology, explore
+                      the value and potential of synthetic biology in everyday
+                      life, and also raise public awareness of the iGEM project.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="item"
+                  data-text=" the 7th Sourthern China Regional Meeting"
+                  data-title="05.21"
+                >
+                  <div class="content">
+                    <img
+                      class="img"
+                      src="https://static.igem.wiki/teams/4653/wiki/communication/huanan1.png"
+                    />
+                    <p class="content-desc">
+                      <br />
+                      The Southern China Regional Meeting is a traditional
+                      events organized by us(SZU-China).
+                      <br /><br />The theme of the 7th Southern China Regional
+                      Meeting this year is “Villagarnival” (villages-carnival).
+                      This meeting gathered a total of 16 teams from high
+                      schools and universities in the southern region of China,
+                      built a bridge for interaction, exhibition and
+                      communication among teams.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="item"
+                  data-text="the 10th Conference of China iGEMer Community"
+                  data-title="06.05"
+                >
+                  <div class="content">
+                    <img
+                      class="img"
+                      src="https://static.igem.wiki/teams/4653/wiki/communication/ccic.jpg"
+                    />
+
+                    <p class="content-desc">
+                      <br />
+                      CCiC is an important platform for communication and
+                      collaboration among iGEM participants in China.
+                      <br /><br />The four-day conference included an opening
+                      ceremony, academic lectures, team report presentations,
+                      workshops, team discussions, and a closing ceremony. The
+                      conference has invited heavyweight guests from academia,
+                      industry, and iGEM committee members to participate,
+                      bringing about a feast of synthetic biology.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="item"
+                  data-text="the 1st iGEM Greater Bay Area Synthetic Biology Industry-Academia-Research Forum"
+                  data-title="08.20"
+                >
+                  <div class="content">
+                    <img
+                      class="img"
+                      src="https://static.igem.wiki/teams/4653/wiki/communication/igba.png"
+                    />
+                    <p class="content-desc">
+                      <br />
+                      The 1st iGEM Greater Bay Area Synthetic Biology
+                      Industry-Academia-Research Forum is a regional event
+                      initiated by the iGEM teams from Beijing Normal University
+                      (Zhuhai Campus), University of Macau, Hong Kong University
+                      of Science and Technology, and Shenzhen University.
+                      <br /><br />It aims to facilitate communication and
+                      collaboration among related enterprises and teams in the
+                      region.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="item"
+                  data-text="the 2023 iGEM Intercollegiate Synthetic Biology Science Popularization Conference"
+                  data-title="09.03"
+                >
+                  <div class="content">
+                    <img
+                      class="img"
+                      src="https://static.igem.wiki/teams/4653/wiki/communication/synbioxiaoji.jpg"
+                    />
+
+                    <p class="content-desc">
+                      <br />
+                      The 2023 iGEM Intercollegiate Synthetic Biology Science
+                      Popularization Conference is initiated by the BNUZH-China,
+                      in collaboration with the SZU-China and other 7 teams.<br />
+                      <br />This is a conference with a focus on synthetic
+                      biology, in a hybrid format, combining both online and
+                      offline elements, breaking through spatial barriers and
+                      allowing more students to participate. It aims to further
+                      enhance the understanding of the charm of synthetic
+                      biology and ignite everyone's passion for science and
+                      desire for exploration.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="item"
+                  data-text="iGEM Groups of 20+"
+                  data-title="September"
+                >
+                  <div class="content">
+                    <img
+                      class="img"
+                      src="https://static.igem.wiki/teams/4653/wiki/communication/ig20.png"
+                    />
+                    <p class="content-desc">
+                      <br />
+                      iG 20+(iGEM Groups of 20+)is an organization initiated by
+                      Lanzhou University. Taking inspiration from the
+                      influential organization iG20, we hope to combine the
+                      power ofcollaboration to carry out more engaging
+                      educational activities.<br /><br />Through iG20+, iGEM
+                      teams from different regions are united. We utilized
+                      online video recording and editing to popularize synthetic
+                      biology and team project to the public.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="item"
+                  data-text="Synbio-rainbow"
+                  data-title="July-September"
+                >
+                  <div class="content">
+                    <img
+                      class="img"
+                      src="https://static.igem.wiki/teams/4653/wiki/communication/rainbow1.png"
+                    />
+                    <p class="content-desc">
+                      <br />
+                      During our educational activities, we also took into
+                      consideration special groups, especially children with
+                      autism. We aim to ensure that these children have equal
+                      access to educational resources.
+                      <br /><br />Therefore, we collaborated with several
+                      universities to create a picture book about synthetic
+                      biology called "Synbio-rainbow." We have submitted this
+                      picture book to institutions and centers for autistic
+                      children, to provide more educational opportunities and
+                      support for special-needs groups.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+         <p>
+          More details can be viewed in
+          <a href="{{ url_for('pages', page='collaboration') }}">
+            Collaboration</a
+          >.
+         </p>
+         <br />
+          <section id="anchor2">
+            <h2>Cooperation</h2>
+            <p>
+              <b
+                >"Competitions provide a competitive environment, but they also
+                offer opportunities for mutual learning and growth."
+              </b>
+            </p>
+            <br />
+            <p>
+              Through conferences, we not only gain extensive knowledge about
+              different teams, but also find like-minded teams to engage in
+              deeper exchanges. By establishing deep connections with other
+              teams, we can foster friendships, build cooperative relationships,
+              and collectively face challenges and solve problems, thereby
+              progressing together in the competition.
+            </p>
+            <div class="d-flex">
+              <div class="text-center w-50">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/map2.png"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+              <p class="w-50">
+                <br />Firstly,
+                collaborating and exchanging ideas with other teams enables us
+                <b>to gain a broader perspective and new ways of thinking</b>.
+                Each team possesses unique skills, knowledge, and experiences,
+                and by sharing resources, we can <b>expand our horizons and tap 
+                into creative thinking from different fields.</b>
+                <br />
+                <br />
+                Secondly, collaboration
+                <b>facilitates resource sharing and complementarity</b>.
+                Different teams may have distinct technologies, equipment,
+                expertise, and human resources. By working together, we can
+                <b
+                  >leverage each other's strengths and collectively solve
+                  challenges.</b
+                >
+                Collaborating among teams also reduces individual burdens,
+                enhances work efficiency, and ensures a smoother and more
+                successful competition process.<br /><br />
+                <br />
+                Furthermore, collaborating with other teams <b></b>fosters
+                innovation and teamwork. Cooperation necessitates trust, shared
+                responsibility, and mutual support, values that are<b
+                  >beneficial not only in competitions but also in future
+                  careers.</b
+                >
+                Through teamwork, we can develop essential skills in
+                problem-solving, decision-making, and
+                <b>work towards shared goals of synthetic biology.</b>
+              </p>
+            </div>
+            <p>
+              <br />
+              <i
+                >In addition to forums, we have also established
+                <b>close connections with six teams</b>, exchanging insights,
+                sharing experiences, and helping each other throughout the
+                project development process.</i
+              >
+            </p>
+            <br />
+            <h4><b>With CAU-China</b></h4>
+            <div class="d-flex">
+              <div class="text-center w-50">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/cau.jpg"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+              <p class="w-50">
+                <br /><br /><br /><br /><br />
+                During the early stages of the project, we conducted
+                <b>online brainstorming sessions</b> with China Agricultural
+                University. We shared our projects, asked questions, explored
+                the possibilities, and provided suggestions of our projects to
+                each other. This was meaningful for the smooth implementation of
+                our projects.
+              </p>
+            </div>
+            <br />
+            <br />
+            <h4><b>With BNUZH-China</b></h4>
+            <div class="d-flex">
+              <div class="text-center w-50">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/bnu.jpg"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+              <p class="w-50">
+                <br /><br />
+                As the host of the 1st iGEM Greater Bay Area Synthetic Biology
+                Industry-Academia-Research Forum, impressed by our successful
+                experience and positive outcomes from hosting the South China
+                exchange meeting, they invited us to
+                <b>collaborate on organizing the 1st iGEM Greater Bay Forum</b>.
+                By communication, we recognized the potential for breakthroughs
+                and practical applications in synthetic biology.
+              </p>
+            </div>
+            <br />
+            <br />
+            <h4><b>With UM-Macau</b></h4>
+            <div class="d-flex">
+              <div class="text-center w-50">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/um.jpg"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+              <p class="w-50">
+                <br />Macau University and mainland Chinese schools have slight
+                differences in education and management. Shenzhen University and
+                Macau University face each other across the strait and are both
+                located in the Greater Bay Area. So our two teams have
+                established contact and
+                <b>exchanged experiences in team management</b> and other
+                aspects.
+              </p>
+            </div>
+            <br />
+            <br />
+            <h4><b>With ZJU-China</b></h4>
+            <div class="d-flex">
+              <div class="text-center w-50">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/zju.jpg"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+              <p class="w-50">
+                <br />During several conferences such as the Southern China
+                Regional Meeting, CCiC, and the 1st iGEM Greater Bay Area
+                Synthetic Biology-Industry-Academia-Research Forum, we had
+                several communications with ZJU-China, who also works on plant
+                diseases. We
+                <b>exchanged inspiration and shared experiences</b> in plant
+                immunity, disease prevention and control, and treatment. After
+                the conferences, we also established frequent communication to
+                discuss team affairs and competition-related matters.
+              </p>
+            </div>
+            <br />
+            <br />
+            <h4><b>With SCAU-China</b></h4>
+            <div class="d-flex">
+              <div class="text-center w-50">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/scau.jpg"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+              <p class="w-50">
+                South China Agricultural University's project focuses on red
+                fire ant control. Learned that our team has established close
+                connections with the Shenzhen Agricultural Science and
+                Technology Promotion Center, which has considerable experience
+                in red fire ant control, they sent us several questions and we
+                helped inquire about these questions to the experts at the
+                center during the interview. Through
+                <b>resource sharing and collaboration</b>, we have not only
+                helped them solve problems but also gained insights into
+                different agricultural issues and solutions.
+              </p>
+            </div>
+            <br />
+            <br />
+            <h4><b>With ZJUT-China</b></h4>
+            <div class="d-flex">
+              <div class="text-center w-50">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/communication/zjut.jpg"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+              <p class="w-50">
+                <br /><br />When we couldn't find a suitable vector for our
+                project, Zhejiang University of Technology
+                <b>offered a helping hand and sent us plasmids</b> that were
+                suitable for our project. Throughout the process of project
+                construction and implementation, we encountered various
+                difficulties. However, the cooperation and collaboration among
+                team members, beyond the competition, often lead to preasure
+                story.
+              </p>
+            </div>
+            <br />
+            <br />
+            <br />
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

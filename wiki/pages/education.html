@@ -1,0 +1,957 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  [class^="scroll-content"] {
+    display: flex;
+    animation: scroll 20s linear infinite alternate-reverse;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-300%);
+    }
+  }
+
+  .row {
+    --bs-gutter-x: 0rem;
+  }
+
+  .col-md-6 {
+    padding: 10px;
+  }
+  .menu-item > input[id^="menu-item"]:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/edu.jpeg")
+      no-repeat bottom center/cover;
+  }
+
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Education and Public Engagement</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Radio Station</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Carnival</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link">Charity Sale</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item5" />
+              <label for="menu-item5">
+                <a href="#anchor5" class="scroll-link" style="line-height: 1"
+                  >Biology Summer Camp</a
+                >
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item6" />
+              <label for="menu-item6">
+                <a href="#anchor6" class="scroll-link" style="line-height: 1"
+                  >Popular Science Activities</a
+                >
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item7" />
+              <label for="menu-item7">
+                <a href="#anchor7" class="scroll-link" style="line-height: 1"
+                  >College Student Lectures</a
+                >
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item8" />
+              <label for="menu-item8">
+                <a href="#anchor8" class="scroll-link">Synbio-rainbow</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item9" />
+              <label for="menu-item9">
+                <a href="#anchor9" class="scroll-link" style="line-height: 1"
+                  >Synthetic Biology Merchandise</a
+                >
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item10" />
+              <label for="menu-item10">
+                <a href="#anchor10" class="scroll-link">Media</a>
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section class="row text-center mb-3" style="white-space: nowrap">
+            <div class="col-md-2 col-sm-6">
+              <span class="fw-bolder" style="font-size: 50px; color: #f4a38c"
+                >14</span
+              >
+              <h4>Events</h4>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <span class="fw-bolder" style="font-size: 50px; color: #f4a38c"
+                >5</span
+              >
+              <h4>target groups</h4>
+            </div>
+            <div class="col-md-5 col-sm-6">
+              <span class="fw-bolder" style="font-size: 50px; color: #f4a38c"
+                >>5100</span
+              >
+              <h4>People Participated</h4>
+            </div>
+            <div class="col-md-2 col-sm-6">
+              <span class="fw-bolder" style="font-size: 50px; color: #f4a38c"
+                >6~55
+              </span>
+              <h4>Age Range</h4>
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor1"
+            style="background: #fff8dc; padding: 30px; border-radius: 30px"
+          >
+            <h2>Overview</h2>
+            <p>
+              <br />
+              In our human practice, we conducted numerous surveys and
+              communication activities related to our project and products.
+              Through these interactions, we gained a comprehensive
+              understanding of the needs of stakeholders associated with our
+              products and provided practical recommendations for product
+              implementation.
+              <br /><br />
+              Simultaneously, we placed significant emphasis on public science
+              education. We seized every opportunity to promote and popularize
+              the emerging field of synthetic biology to the general public. Our
+              goals were as follows:
+              <br />
+
+              <b>· Improving Scientific Literacy :</b>By disseminating synthetic
+              biology, we aimed to enhance people's understanding of modern
+              biotechnology, thereby boosting their scientific literacy.
+              <br />
+              <b>· Arousing Public Interest: </b> We aimed to engage the public
+              in the field of synthetic biology through various activities and
+              increase their awareness of it.
+              <br />
+
+              <b>· Alleviating Public Concerns:</b>New technologies often raise
+              public anxieties. Our science outreach efforts aimed to reduce
+              misunderstandings about synthetic biology, thus lessening
+              unnecessary panic and concerns. <br /><br />
+              <b>
+                We organized 10 science education events, with over 5,100
+                participants spanning 5 different groups: children, middle and
+                high school students, university students, adults, and special
+                groups. For each event, we tailored the content and format to
+                meet different participants' needs, considering their
+                backgrounds, interests, and levels of understanding. This
+                personalized education approach enhanced effectiveness, ensuring
+                that participants could engage efficiently.
+              </b>
+            </p>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor2"
+            style="background: #fbebe7; padding: 30px; border-radius: 30px"
+          >
+            <h2>Radio Station</h2>
+            <h3>"Spreading the Voice of Synthetic Biology"</h3>
+            <div class="row">
+              <div class="col-md-6 p-3">
+                <p>
+                  Radio is a highly influential media format capable of
+                  disseminating knowledge to the public. We are honored to have
+                  accepted the invitation from Huizhou City Radio to share
+                  information about biology, synthetic biology, and
+                  biopesticides.
+                  <br /><br />
+                  The radio show mainly targets teenagers and middle-aged
+                  listeners. We explain the basic principles and research
+                  methods of synthetic biology in an easy-to-understand way,
+                  helping the public grasp this new technology, its
+                  applications, and its effects on our world. We also discuss
+                  biopesticides and their importance for sustainable agriculture
+                  and the environment.
+                </p>
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/radio2.png"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+              <div class="col-md-6 p-3">
+                <p>
+                  <b>
+                    Listening data indicates that over 1,900 people have watched
+                    our program online. The radio host commended our
+                    explanations as engaging, interesting, and relatable,
+                    allowing listeners to clearly grasp the concepts of
+                    synthetic biology. This has been a meaningful experience for
+                    the audience. Furthermore, our radio content has been
+                    uploaded to Himalayan Radio, China's largest radio platform,
+                    where many listeners have left messages expressing their
+                    newfound knowledge. We are greatly motivated and encouraged
+                    by this positive feedback.</b
+                  >
+                  <br /><br /><br />
+                </p>
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/radio-1.png"
+                  alt=""
+                  width="96.5%"
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor3"
+            style="background: #f1f3d9; padding: 30px; border-radius: 30px"
+          >
+            <h2>Innovation and Entrepreneurship Carnival</h2>
+            <h3>"Share our innovative ideas"</h3>
+            <p>
+              <br />
+              The Innovation and Entrepreneurship Carnival was held by Shenzhen
+              University.The 2023-SZU-China team jointly participated with
+              members of the 2022 and 2021 SZU-China teams to jointly showcase
+              their projects and products. This event is a platform to showcase
+              the achievements of innovation and entrepreneurship, attracting
+              the participation of many innovation and entrepreneurship teams
+              and related innovative enterprises. Everyone displayed their
+              projects, products and innovative ideas through booths. It
+              provides entrepreneurs and innovators with an opportunity to
+              communicate, learn and cooperate with each other.
+              <br /><br />
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/innovation-2.jpg"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+              <div class="col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/innovation3.jpg"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+            </div>
+            <p>
+              <br /><br />
+              Considering that this event is aimed at college students and
+              entrepreneurs, our booth has prepared different display formats:
+              <br />
+              <b
+                >· College students: We have prepared games related to synthetic
+                biology, specially designed peripherals related to synthetic
+                biology and igem-related peripherals, and popularized knowledge
+                about synthetic biology.</b
+              >
+              <br />
+              <b
+                >· Entrepreneurs: Presented our project design and product
+                concepts, as well as future business plans</b
+              >
+              <br /><br />
+              Our booth attracted many participants at the event. We actively
+              showcased our achievements and solutions, interacted with
+              visitors, and explained relevant issues. Our project design caught
+              the interest of entrepreneurs who recognized our future business
+              plans and prospects. They believe that environmentally friendly
+              and green biopesticides are a widespread trend with significant
+              growth potential. Additionally, these entrepreneurs shared their
+              own entrepreneurial stories and experiences with us, offering
+              valuable suggestions for our future business plans.
+              <br /><br />
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/innovation4.jpg"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+              <div class="col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/innovation-5.jpg"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor4"
+            style="background: #fff8de; padding: 30px; border-radius: 30px"
+          >
+            <h2>Charity Sale</h2>
+            <h3>"Spread knowledge and spread love"<br /></h3>
+            <div class="row">
+              <div class="col-md-6 p-3">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/charity1.jpg"
+                  alt=""
+                  width="100%"
+                />
+                <p>
+                  The Deep Blue Charity Fair, organized by Southern University
+                  of Science and Technology and Shenzhen University, is a large
+                  charity event. Its main goal is to raise funds for children's
+                  growth and education through students' stalls selling goods.
+                  SZU-China, SUStech_OCE, and BASIS China jointly ran a
+                  synthetic biology stall at the event, offering engaging
+                  activities.
+                  <br /><br />
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/charity-3.jpg"
+                    alt=""
+                    width="100%"
+                  />
+                </p>
+              </div>
+
+              <div class="col-md-6 p-3">
+                <p>
+                  <b>· Synthetic biology drift bottle:</b>Participants select
+                  synthetic biology elements to personalize their own vases. We
+                  explain the applications and significance of these elements,
+                  guiding participants into the world of synthetic biology.<br />
+                  <b>· Synthetic biology knowledge contest: </b>We set up a set
+                  of synthetic biology knowledge questionnaires to popularize
+                  science among participating college students.<br />
+
+                  <b>· Peripheral delivery: </b>We designed small peripherals
+                  and postcards with synthetic biology elements to arouse the
+                  interest of participants<br />
+
+                  <br />
+                  In this way, the iGEM team not only raised funds to support
+                  public welfare projects, but also contributed to the
+                  dissemination and promotion of knowledge in the field of
+                  synthetic biology. This cross-school, cross-team collaboration
+                  and knowledge sharing helps promote innovation and education,
+                  while also promoting a public spirit.
+                  <br />
+                </p>
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/charity-4.jpg"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor5"
+            style="background: #fbebe7; padding: 30px; border-radius: 30px"
+          >
+            <h2>Parent-child biology summer camp</h2>
+            <h3>“Both children and parents can involve fully”</h3>
+            <p>
+              <br />
+              On an afternoon in August, we collaborated with the Shenzhen
+              University Town community to hold a special parent-child summer
+              camp. This event was mainly aimed at children aged 6 to 10 and
+              their parents. Our goal is to design differentiated activity
+              content so that participants of different ages can fully
+              participate and benefit. For these two different age groups, we
+              have adopted a series of carefully planned activities to ensure
+              that they spend a meaningful time in the summer camp:
+              <br /><br />
+              <b
+                >Children (6~10 years old): We've created engaging,
+                age-appropriate activities, including comics, to spark
+                curiosity, nurture their interest in science, and enhance their
+                understanding of scientific concepts in a fun and educational
+                manner.</b
+              >
+              <br />
+
+              <br />
+              <b>· Introduction to microorganisms:</b>Introduce children to
+              common microorganisms in life, stimulate their interest in the
+              world of microorganisms, and help them understand the importance
+              of microorganisms in nature and in our lives.<br />
+
+              <b>· hand washing importance awareness:</b> we conducted a simple
+              experiment. Each child received two agarose culture media plates.
+              One was inoculated before handwashing, and the other after. We
+              sealed them with film to prevent contamination. After a few days,
+              children compared the colony counts in the two plates.<br />
+              <b>· Tomato gray mold cartoon:</b>We drew a vivid cartoon to tell
+              children how tomatoes are infected with the disease and how our
+              team prevents gray mold. We prepared a comic for each child, and
+              the children liked it very much.<br /><br />
+              During the event, children enthusiastically participated by
+              eagerly raising their hands to answer questions. They learned
+              about various microorganisms and their functions, as well as the
+              importance of handwashing through a simple bacterial culture
+              experiment. This experience helped cultivate their awareness of
+              health and hygiene. After the event, many children engaged in
+              positive discussions with us and expressed their happiness in
+              participating.<br />
+            </p>
+            <br />
+            <div class="row" style="overflow: hidden">
+              <div class="scroll-content" style="height: 50vh">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/camp-7-carton.png"
+                  alt=""
+                  width="70%"
+                />
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/camp5.jpg"
+                  alt=""
+                  width="70%"
+                />
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/camp-3.jpg"
+                  alt=""
+                  width="70%"
+                />
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/camp4.jpg"
+                  alt=""
+                  width="70%"
+                />
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/camp6.jpg"
+                  alt=""
+                  width="70%"
+                />
+              </div>
+            </div>
+            <p>
+              <b
+                ><br />Parent group: In response to the needs of parents, we
+                provide more in-depth scientific lectures and parent-child
+                interaction sessions. We introduced specific diseases on
+                tomatoes and current prevention and control measures to parents,
+                and introduced greener and more environmentally friendly
+                biopesticides, as well as the basic principles of RNAi
+                pesticides, and the certification standards and labels of
+                organic vegetables. Corresponding questionnaires were
+                distributed to understand parents' evaluation of the
+                lectures.</b
+              >
+              <br /><br />
+              In the questionnaire, most parents said that they learned more
+              about biopesticides through our popular science lectures, and
+              reported that the explanation of the principles of RNAi
+              effectively eliminated their worries and fears about new
+              technologies.<br /><br />
+            </p>
+            <div class="text-center" class="col-md-6">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/camp-1.jpeg"
+                alt=""
+                width="50%"
+              />
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor6"
+            style="background: #f1f3d9; padding: 30px; border-radius: 30px"
+          >
+            <h2>Popular science activities for teenagers</h2>
+            <h4>“Comprehensive science popularization is more interesting”</h4>
+            <p>
+              <br />
+              In mid-March, 45 students from the Experimental Middle School
+              Affiliated to Shenzhen University came to our laboratory. We
+              designed many interesting activities for young people.<br /><br />
+              <b
+                >· Popular science on synthetic biology and introduction to
+                iGEM: </b
+              >In this session, team members introduced the relevant background
+              of synthetic biology and the International Genetically Engineered
+              Machine Competition (iGEM) to the participants, stimulating
+              students’ curiosity and interest in synthetic biology.
+              <br />
+            </p>
+            <div class="row">
+              <div class="col-md-6 p-3">
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/teenager-1.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+
+                <p>
+                  <br />
+                  <b>· Synthetic Biology Card Game: </b>This session designed a
+                  creatively challenging card game that transforms the concept
+                  of synthetic biology into an interactive experience. Players
+                  must collect cards with various functions and then collaborate
+                  to assemble these cards into a genetic pathway to produce a
+                  target product. Through this game, it provides a deeper
+                  understanding of the fundamental principles of synthetic
+                  biology.
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/teenager-2.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 p-3">
+                <div class="text-center"></div>
+
+                <p>
+                  <br />
+                  <b>· Introduction to experimental instruments: </b>Through a
+                  combination of explanation videos and on-site operations,
+                  students were introduced to common instruments in molecular
+                  biology laboratories, such as PCR machines, micro-volume
+                  spectrophotometers, ultra-clean benches, etc. This vivid
+                  introduction method enables participants to understand the
+                  operating principles and experimental uses of these
+                  instruments, providing a foundation for their more in-depth
+                  scientific exploration in the future.<br />
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/teenager4.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+                <br />
+                <p>
+                  <br />
+                  <b
+                    >Teenagers have some knowledge base and great interest to
+                    explore. We carry out this comprehensive science education
+                    activity in the hope that it will help make complex
+                    scientific concepts easier to understand and allow young
+                    people to better integrate into the field of synthetic
+                    biology.
+                  </b>
+                </p>
+                <br />
+                <div class="text-center"></div>
+                <br />
+              </div>
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor7"
+            style="background: #fff8de; padding: 30px; border-radius: 30px"
+          >
+            <h2>College student lectures</h2>
+            <h3>"Lecture Series, Sharing Knowledge"</h3>
+            <p></p>
+            <div class="p-4">
+              <div>
+                <h4>
+                  2023 iGEM Inter-school Synthetic Biology Science
+                  Popularization Conference
+                </h4>
+                <div class="row">
+                  <div class="col-md-6 p-3">
+                    <p>
+                      The 2023 iGEM inter-school synthetic biology science
+                      popularization conference is organized by BNUZH-China in
+                      collaboration with SZU-China, USTC, SYSU-SLS-CHINA,
+                      SYSU-Software, SUSTech-CHINA, SUSTech-Shenzhen,
+                      SUSTech-MED, SUSTech-OCE, USTC, and SCAU-China. Its aim is
+                      to promote synthetic biology and the iGEM competition. The
+                      event combines online and offline formats, with multiple
+                      schools hosting branch venues. This approach overcomes
+                      distance barriers between schools while allowing for
+                      in-person interaction. By sharing insights from various
+                      iGEM teams, more students can appreciate the broad
+                      applications of synthetic biology in medicine,
+                      agriculture, biomanufacturing, and other fields, fostering
+                      a love for science and a passion for exploration. <br />
+                    </p>
+                  </div>
+                  <div class="col-md-6 p-3">
+                    <p>
+                      <b
+                        >During our engagement with college students, we
+                        provided a comprehensive overview of our project's key
+                        aspects and delved into the specifics of biopesticide
+                        safety. We fostered interactive discussions and shared
+                        knowledge on these topics with our fellow students.
+                        Following our presentations, students showed great
+                        enthusiasm by actively posing questions. They inquired
+                        about the precise operational procedures of our product,
+                        safety assurances, application processes, and storage
+                        requirements. Furthermore, they shared their own
+                        insights and opinions, which we highly value as they
+                        contribute significantly to the advancement of our
+                        project.
+                      </b>
+                    </p>
+                  </div>
+                </div>
+                <div class="row" style="overflow: hidden">
+                  <div class="scroll-content" style="height: 50vh">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/2023igem7.png"
+                      alt=""
+                      width="30%"
+                    />
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/2023igem-2.jpg"
+                      alt=""
+                      width="70%"
+                    />
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/2023-igem-4.jpg"
+                      alt=""
+                      width="70%"
+                    />
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/2023-igem5.jpg"
+                      alt=""
+                      width="70%"
+                    />
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/2023-igem6.jpg"
+                      alt=""
+                      width="70%"
+                    />
+                  </div>
+                </div>
+                <div class="row" style="overflow: auto">
+                  <div
+                    class="scroller"
+                    data-direction="right"
+                    data-speed="fast"
+                  ></div>
+                </div>
+              </div>
+              <div class="mt-5">
+                <h4>Shenzhen University Lecture Series</h4>
+
+                <div class="row">
+                  <div class="col-md-6 p-3">
+                    <p>
+                      We also held a series of lectures on synthetic biology at
+                      Shenzhen University, aiming to gradually guide college
+                      students to gain a deeper understanding of this field.
+                      This series of lectures was divided into two sessions,
+                      each providing further insight and knowledge to the
+                      participating students.<br />
+                      <b
+                        >Session 1: Understanding Synthetic Biology and iGEM
+                        Competition</b
+                      >
+                      <br />
+                      In this lecture, we first provide college students with an
+                      overview of synthetic biology, including its definition,
+                      background, and importance. We discuss the potential of
+                      synthetic biology for scientific research and practical
+                      applications, and how bioengineering approaches can be
+                      used to design and build biological systems. Special
+                      emphasis was placed on the background and goals of the
+                      International Genetically Engineered Machine Competition
+                      (iGEM), as well as the role of iGEM as an academic
+                      competition and scientific community. The goal of this
+                      lecture is to arouse students' interest in synthetic
+                      biology and iGEM.
+                      <br />
+                    </p>
+                    <div class="text-center p-3">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/shenzhen111111.jpg"
+                        alt=""
+                        width="100%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/shenzhen-two-2.jpg"
+                        alt=""
+                        width="100%"
+                      />
+                    </div>
+                    <p>
+                      <b
+                        >Session 2: Introducing the specific architecture and
+                        basic principles of synthetic biology</b
+                      >
+                      <br />
+                      In the second lecture, we further explored the specific
+                      architecture and basic principles of synthetic biology. We
+                      explained the tools, technologies and methods commonly
+                      used in synthetic biology, such as gene synthesis, design
+                      and construction of biological components, genetic
+                      regulation, etc. We also describe how biological pathways
+                      can be designed and optimized in synthetic biology
+                      projects to achieve specific production goals. The goal of
+                      this lecture is to help students gain a deeper
+                      understanding of how synthetic biology actually works so
+                      that they can better participate in and contribute to the
+                      field.
+                      <br /><br />
+                      Through this series of lectures, we aim to provide
+                      Shenzhen University students with a solid foundation of
+                      synthetic biology knowledge, stimulate their scientific
+                      interests, and lay a solid foundation for their future
+                      research and participation in the field of synthetic
+                      biology. Students are encouraged to actively participate
+                      in discussions and ask questions so that they can better
+                      understand this exciting field.<br />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor8"
+            style="background: #f1f3d9; padding: 20px; border-radius: 10px"
+          >
+            <h2>Synbio-rainbow</h2>
+            <h3>"Care for Special Group"</h3>
+            <p>
+              <br />
+              <b
+                >During our educational activities, we also took into
+                consideration special groups, especially children with autism.
+                We aim to ensure that these children have equal access to
+                educational resources.</b
+              >
+              Therefore, we collaborated with several universities to create a
+              picture book about synthetic biology called "Synbio-rainbow." We
+              have submitted this picture book to institutions such as the
+              Nanning Smart Kids Rehabilitation Center, the AusMing Tangxin
+              WanChang, the Macau Down Syndrome Association, and the Macau
+              Special Olympics Association. This initiative is aimed at
+              providing more educational opportunities and support for
+              special-needs groups.
+            </p>
+            <br />
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/.png"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+              <div class="col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/rainbow.png"
+                  alt=""
+                  width="100%"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/edu/tomato.png"
+                alt=""
+                width="60%"
+              />
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor9"
+            style="background: #fbebe7; padding: 30px; border-radius: 30px"
+          >
+            <h2>Synthetic Biology Merchandise</h2>
+            <div>
+              <h3>"Spread it in an interesting way"</h3>
+            </div>
+            <br />
+            <p>
+              We have created exquisite synthetic biology merchandise, including
+              comics, tote bags, keychains, postcards, memes, and more.<b>
+                These products not only provide a more accessible and intuitive
+                way to showcase elements related to synthetic biology and our
+                project but also help disseminate knowledge and concepts of
+                synthetic biology, promoting the popularization and
+                understanding of science.</b
+              >
+              These merchandise items have been warmly embraced and welcomed by
+              the general public and have served as prizes for various events.
+              <br />
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <iframe
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/tomato-carton.pdf"
+                  style="height: 78vh; width: 100%"
+                ></iframe>
+              </div>
+              <div class="col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/wenchuang.jpg"
+                  alt=""
+                  width="105%"
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="mt-5"
+            id="anchor10"
+            style="background: #fff8de; padding: 30px; border-radius: 30px"
+          >
+            <h2>Media</h2>
+            <h3>"Reach a wider audience"</h3>
+            <p>
+              <br />
+              We actively utilize various media platforms to promote and
+              publicize our science outreach activities. This approach helps
+              ensure that our scientific knowledge and educational content can
+              be rapidly disseminated and reach a wider audience.
+              <br /><br /><b>
+                We have published over 30 popular science articles on our WeChat
+                official account, covering topics such as iGEM project
+                introductions, synthetic biology popularization, and
+                retrospectives of the HP series of events, among others. These
+                efforts have garnered over 1,600 followers.</b
+              ><br /><br />
+            </p>
+            <br />
+            <div class="d-flex">
+              <div class="w-50 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/vx-hp.jpg"
+                  alt=""
+                  width="100%"
+                />
+                <small style="font-size: 20px">Human Practice Series</small>
+              </div>
+              <div class="w-50 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/vx-meet.jpg"
+                  alt=""
+                  width="86%"
+                />
+                <small style="font-size: 20px">Project Interpretation</small>
+              </div>
+            </div>
+
+            <div class="text-center mt-3">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/edu/edu-new/vx-pro.jpg"
+                alt=""
+                width="50%"
+              />
+              <small style="font-size: 20px">Science Outreach Activities</small>
+            </div>
+            <br />
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+<script>
+  // 在页面加载完成后执行滚动动画
+  window.addEventListener("load", function () {
+    // 获取滚动内容容器和内容元素
+    var container_1 = document.querySelector(".scroll-container-1");
+    var content_1 = document.querySelector(".scroll-content-1");
+
+    // 获取内容元素的宽度
+    var content_1Width = content_1.offsetWidth;
+
+    // 设置滚动容器的宽度为内容元素的宽度
+    container_1.style.width = content_1Width + "px";
+
+    // 克隆内容元素并追加到内容容器的末尾
+    var clonecontent_1 = content_1.cloneNode(true);
+    content_1.appendChild(clonecontent_1);
+  });
+</script>
+{% endblock %}

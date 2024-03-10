@@ -1,0 +1,499 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  .collaboration-box {
+    display: flex;
+    gap: 5vmin;
+  }
+
+  .collaboration-box .card {
+    width: 100%;
+    aspect-ratio: 2/1;
+    border-radius: 1vmin;
+    box-shadow: rgba(255, 255, 255, 0.2) 0 5vmin 6vmin -8vmin,
+      var(--color) 0 4.5vmin 5vmin -6vmin,
+      rgba(50, 50, 50, 0.5) 0 4vmin 8vmin -2vmin,
+      rgba(0, 0, 0, 0.8) 0 4vmin 5vmin -3vmin;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .collaboration-box .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: all 0.8s;
+  }
+
+  .collaboration-box .card:hover img {
+    transform: scale(1.1);
+  }
+
+  .collaboration-box .card::before,
+  .collaboration-box .card::after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: scaleX(0);
+    transition: all 0.5s;
+    transform-origin: left;
+  }
+
+  .collaboration-box .card::after {
+    top: 50%;
+    transition-delay: 0.15s;
+  }
+
+  .collaboration-box .card:hover::before,
+  .collaboration-box .card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .collaboration-box .card .text-box {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5vmin;
+    letter-spacing: 0.1vmin;
+    inset: 2vmin;
+    position: absolute;
+    top: auto;
+    z-index: 2;
+  }
+
+  .collaboration-box .card .text-box h2,
+  .collaboration-box .card .text-box p {
+    color: var(--color);
+    opacity: 0;
+    transform: translateY(10vmin);
+    transition: all 0.8s, color 3s;
+  }
+
+  .collaboration-box .card .text-box h2 {
+    font-size: 6vmin;
+    font-weight: bold;
+    margin-bottom: 1vmin;
+  }
+
+  .collaboration-box .card .text-box p {
+    transition-delay: 0.15s;
+  }
+
+  .collaboration-box .card:hover .text-box h2,
+  .collaboration-box .card:hover .text-box p {
+    color: inherit;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item4:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-headpic.jpg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Collaboration</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Villagarnival</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">IGBA</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">10th CCIC</a>
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>
+              Villagarnival: The 7th southern China regional meeting for iGEMers
+            </h2>
+            <p>
+              Southern China regional meeting is an annual special event held by
+              us SZU-China. We've successfully held the meetings 7 times since
+              2017.
+            </p>
+            <br />
+            <p>
+              The southern China regional meeting aims to gather iGEM teams in
+              southern part of China and to bridge a stage for teams to present
+              projects and interact with each other. On this stage we built,
+              teams can draw on the experience of each other and cooperate
+              together to solve problems. With all these moves, teams here with
+              us will manage together to form the atmosphere of discovering the
+              secret of Synthetic Biology.
+            </p>
+            <br />
+            <div class="row">
+              <div class="col-md-6">
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-2.jpg"
+                    alt=""
+                    width="90%"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-1.jpg"
+                    alt=""
+                    width="90%"
+                  />
+                </div>
+              </div>
+            </div>
+            <br />
+            <p>
+              This time the meeting's topic is "villagarnival", which represents
+              "village-carnival". We entitle the meeting with this name to
+              correspond with the newly-set concept of "villages" this year and
+              to show our initial heart to promise teams to purely enjoy the
+              world of Synthetic Biology. The 7th southern China region meeting
+              for iGEMers focus on being more interactive and interesting to
+              bulid a delighting platform for iGEMers to have brainstorms.
+            </p>
+            <br />
+            <div class="text-center">
+              <iframe
+                src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-handbook-compressed.pdf"
+                style="height: 500px; width: 80%"
+              ></iframe>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-md-4">
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-14.jpg"
+                    alt=""
+                    width="90%"
+                  />
+                  <small>Viilage-Agriculture</small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-16.jpg"
+                    alt=""
+                    width="90%"
+                  />
+                  <small>Village-Therapeutics</small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-15.jpg"
+                    alt=""
+                    width="90%"
+                  />
+                  <small>Village-Biomanufacturing</small>
+                </div>
+              </div>
+            </div>
+            <br />
+            <p>
+              During the meeting, every team does a wonderful and attractive
+              presentation, taking on their projects clearly. IGEMers are all
+              ebullient to interact with each other and work together to tackle
+              obstacles in projects. For SZU-China, we communicate with
+              SCUT-China and SCAU-China and together help push our projects.
+            </p>
+            <div class="row mt-5">
+              <div class="col-md-6 collaboration-box">
+                <div class="card" style="--color: #0d9545">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-3.jpg"
+                    alt=""
+                  />
+
+                  <div class="text-box">
+                    <h2>SCUT-China</h2>
+                    <p>
+                      We talk about innovations and the stimulus of our ideas in
+                      our projects. By doing this, both of us gain a better
+                      understnding of the concept of "sustainablity" in the
+                      field of Stythetic Biology and learn more about how to
+                      choose a good topic for an iGEM project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 collaboration-box">
+                <div class="card" style="--color: #0d9545">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-4.jpg"
+                    alt=""
+                  />
+
+                  <div class="text-box">
+                    <h2>SCAU-China</h2>
+                    <p>
+                      SCAU-China has a great design of gene pathways which
+                      inspire us a lot to adapt more basic logical parts of
+                      Syhthetic Biology in our design to better guarantee the
+                      touchdown of our project.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="text-center">
+              <iframe
+                style="width: 70%; height: 500px"
+                poster="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-cover-of-video.jpg"
+                src="https://video.igem.org/videos/embed/e9f3c276-0d27-43a3-af6b-e5c03f97bfc5"
+                frameborder="0"
+                allowfullscreen=""
+                sandbox="allow-same-origin allow-scripts allow-popups"
+              ></iframe>
+            </div>
+            <br />
+            <p>
+              The southern China region meeting has always been a stage for
+              iGEMers to better undergo their work. We SZU-China promise to keep
+              polishing this series to become our brand and better benefiting
+              iGEMers to contribute to the development of Synthetic Biology!
+            </p>
+            <br />
+          </section>
+          <section id="anchor2">
+            <h2>
+              IGBA: The 1st iGEM great bay area Synthetic Biology
+              Industry-Academia research forum
+            </h2>
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-5.jpg"
+                alt=""
+                width="100%"
+              />
+            </div>
+            <br />
+            <p>
+              The 1st iGEM great bay area Synthetic Biology Industry-Academia
+              research forum is an industry-academia regional forum jointly hold
+              by the BNZHU-China, UM, HKUST, SZU-China, aims to provide a
+              platform based on face-to-face communication for iGEM teams and
+              related enterprises in the Guangdong-Hong Kong-Macao great bay
+              area. As one of the most densely distributed areas of the iGEM
+              teams and bio-related high-tech industries in the world, we four
+              universities in the Guangdong-Hong Kong-Macao great bay area have
+              joined together to open up a new way of iGEM meetup, and take the
+              industry-academia linkage as the core of the forum, combining the
+              industries and academies in the Guangdong-Hong Kong-Macao great
+              bay area. Innovation poles and growth poles are gathered together
+              to deeply strengthen regional bonds and friendly cooperations.
+              <br />
+              <br />In this forum, we gain the heat point in the field of
+              Synthetic Biology and learn the core techs of many newly-found
+              biotech companies. Also, we improve our project design by
+              comunicating with teams in Hong Kong and Macau.<br />
+              <br />
+            </p>
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-6.jpg"
+                alt=""
+                width="100%"
+              />
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-7.jpg"
+                  alt=""
+                  width="90%"
+                />
+                <small>with HKUST</small>
+              </div>
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-8.jpg"
+                  alt=""
+                  width="90%"
+                />
+                <small>with UM</small>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <p>
+                  As one of the sponsors, we sincerely hope iGEM great bay area
+                  Synthetic Biology Industry-Academia research forum can better
+                  help iGEMers learn contemporary development of Synthetic
+                  Biology and offer a stage for teams in the great bay area.
+                </p>
+              </div>
+              <div class="col-md-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-9.jpg"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+            </div>
+            <br />
+          </section>
+          <section id="anchor3">
+            <h2>10th CCIC: 10th conference of China iGEMer community</h2>
+
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-11.jpg"
+                alt=""
+                width="100%"
+              />
+            </div>
+            <br />
+            <p>
+              Conference of China iGEMer community is the national meeting
+              launched by the iGEM teams in China aimimg to provide a platform
+              for resource sharing for teams and Chinese young synthetic biology
+              enthusiasts to promote mutual learning and communication. Since in
+              2014 it was held for the first time, the CCiC Conference is
+              focusing to maintain the sustainable development of the community
+              and Synthetic Biology in China. The platform plays an important
+              role in all walks of life in industry, university and research,
+              and has received a good response. At present, the CCIC Conference
+              has become one of the largest academic conferences for college
+              students in China.
+              <br />
+              <br />In the conference, we communicate on many modules such as
+              hardware and modeling with many teams. Also, we attend workshops
+              to grasp the potentials of Synthetic Biology.<br />
+            </p>
+            <div class="row mt-5">
+              <div class="col-md-6 collaboration-box">
+                <div class="card" style="--color: #0d9545">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-12.jpg"
+                    alt=""
+                  />
+
+                  <div class="text-box">
+                    <h2>BNUZH-China</h2>
+                    <p>
+                      With BNUZH-China, we focus on how to perform a better
+                      series of HP activities. We mention about how we do campus
+                      activities and learn from BNUZH-China about how to arrange
+                      better education and design related materials.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 collaboration-box">
+                <div class="card" style="--color: #0d9545">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/collaboration/szu-collaboration-13.jpg"
+                    alt=""
+                  />
+                  <div class="text-box">
+                    <h2>ZJU-China</h2>
+                    <p>
+                      Together with ZJU-China, we focus on the discussion of how
+                      to organically combine two types of plant immunity PTI and
+                      ETI to better design our project to realize a more
+                      practical product.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br />
+            <br />
+            <p>
+              <b>
+                As an important power in southern part of China, we SZU-China
+                promise to keep promoting teams' connections and flourishing the
+                development of Synthetic Biology. We hold the faith that with
+                efforts of many more teams, Synthetic Biology will glimpse its
+                new era!
+              </b>
+            </p>
+          </section>
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

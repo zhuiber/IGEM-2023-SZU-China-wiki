@@ -1,0 +1,870 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  #anchor1 .rounded-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+  }
+  .row > .col-md-3.col-6.border {
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5);
+    font-size: 14px !important;
+  }
+
+  .row > .col-md-3.col-6.border img {
+    width: 74px;
+    height: 80px;
+  }
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(3 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(4 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/en-ship.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Entrepreneurship</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">From Unit to Union</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Unit</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >Related bodies</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >Markets analysis</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.3" class="scroll-link d-block w-100"
+                      >Policies and Attitudes</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Union</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor3.1" class="scroll-link d-block w-100"
+                      >T.O.M.A.T.O-Technical Alliance</a
+                    ></small
+                  >
+                </span>
+
+                <span>
+                  <small>
+                    <a href="#anchor3.2" class="scroll-link d-block w-100"
+                      >T.O.M.A.T.O-Thought Alliance</a
+                    >
+                  </small>
+                </span>
+              </div>
+            </div>
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h1>From Unit to Union</h1>
+            <br />
+            <p>
+              After developing the innovative polycobead RNAi-based
+              biopesticide, we began to assess the potential for market entry
+              from both market and societal perspectives. Starting from the
+              stakeholders' interests, we analyzed the needs and market
+              background of various units. We then proposed the strategic plan
+              --<b>"FROM UNIT TO UNION" </b>and formed
+              <b>the T.O.M.A.T.O Alliance</b> by uniting different units.
+            <br />
+            </p>
+            <body>
+              <div id="imgcard" class="row">
+                <div class="col-md-3 col-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/use.png"
+                    alt=""
+                    width="60%"
+                  />
+                </div>
+                <div class="col-md-3 col-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tradiuse.png"
+                    alt=""
+                    width="60%"
+                  />
+                </div>
+                <div class="col-md-3 col-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/biouse.png"
+                    alt=""
+                    width="60%"
+                  />
+                </div>
+                <div class="col-md-3 col-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/governuse.png"
+                    alt=""
+                    width="60%"
+                  />
+                </div>
+              </div>
+              <br />
+
+              <h7>
+                <p style="text-align: center">
+                  The unit refers to
+                  <b
+                    >the closely related group to the agriculture and pesticide
+                    industry</b
+                  >, including growers, producers (both traditional and
+                  biotechnology companies), and government bodies (including
+                  influential social organizations).
+                </p>
+              </h7>
+            </body>
+            <div class="row"></div>
+
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union.png"
+                alt=""
+                width="60%"
+              />
+            </div>
+            <br />
+            <h7
+              ><p style="text-align: center">
+                The Union, known as the T.O.M.A.T.O Alliance, is a collective
+                organization formed by these units. <br />It includes
+                <b
+                  >the TOMATO-Technology Alliance and the TOMATO-Thought
+                  Alliance</b
+                >.
+              </p></h7
+            >
+            <br />
+            <p>
+              We aim to explore more possibilities in biopesticides and
+              contribute to sustainable and green agriculture starting from our
+              project POLYCOBEAD.
+            </p>
+            <br />
+            <p>
+              Our goal is <b>to bridge the gap between each units</b>, eliminate
+              misunderstandings and contradictionsdrive between them, promote
+              the transformation and upgrade of the pesticide industry.
+            </p>
+          </section>
+          <section id="anchor2">
+            <h2>unit</h2>
+            <p>
+              We analysis on various units related to pesticide and
+              agricultural. Starting from units, we examined the acceptance and
+              perceptions of different groups towards RNAi biopesticides. We
+              also analyzed the potential challenges and possibilities that our
+              products may face when entering the market.
+            </p>
+            <br />
+            <section id="anchor2.1">
+              <h3>Related bodies</h3>
+              <br />
+              <div class="row">
+                <div class="col-md-3 col-6 border">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/use.png"
+                      alt=""
+                      width="100%"
+                    />
+                  </div>
+                  <p style="text-align: center">
+                    Farmers, as pesticide users, are the
+                    <b>direct target audience</b> for pesticide production and
+                    directly influence the market for a particular pesticide.
+                  </p>
+                </div>
+                <div class="col-md-3 col-6 border">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tradiuse.png"
+                      alt=""
+                      width="100%"
+                    />
+                  </div>
+                  <p style="text-align: center">
+                    Traditional chemical pesticides are the
+                    <b> main component of the current pesticide market</b>, and
+                    their fluctuations greatly impact the overall landscape of
+                    the pesticide industry.
+                  </p>
+                </div>
+                <div class="col-md-3 col-6 border">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/biouse.png"
+                      alt=""
+                      width="100%"
+                    />
+                  </div>
+                  <p style="text-align: center">
+                    Biotechnology providers offer
+                    <b>advanced technological support</b> and provide
+                    significant impetus for the industrialization of new
+                    products.
+                  </p>
+                </div>
+                <div class="col-md-3 col-6 border">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/governuse.png"
+                      alt=""
+                      width="100%"
+                    />
+                  </div>
+                  <p style="text-align: center">
+                    Governments act as <b>decision-makers</b> for policies and
+                    <b>leaders</b> in guiding ideologies. They regulate the
+                    pesticide industry through <b>macroeconomic control</b>,
+                    thereby influencing the pesticide market.
+                  </p>
+                </div>
+              </div>
+              <br />
+            </section>
+            <section id="anchor2.2">
+              <h3>Markets analysis</h3>
+              <p>
+                <br />
+                <b>Arable land and agriculture are crucial determinants</b> of a
+                country's national strength and stability.<br /><br />
+                <b
+                  >Pesticides, as an indispensable part of the agricultural
+                  market</b
+                >, play a vital role in agricultural cultivation. They also hold
+                a important strategic position in the global agricultural
+                landscape and pesticide market.
+              </p>
+              <br />
+
+              <div class="row">
+                <div class="col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/fao.png"
+                    alt=""
+                    width="80%"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/worldbank.png"
+                    alt=""
+                    width="80%"
+                  />
+                </div>
+              </div>
+              <br />
+              <h4><b>From an international perspective:</b></h4>
+              <br />
+              <h5>About agriculture market:</h5>
+              <p>
+                <br />
+                By collecting and referring to data from FAO and the World Bank,
+                we have learned that <b>from 2000 to present</b>, the percentage
+                of agricultural value added to GDP and the percentage of arable
+                land to total land area <b>have both shown an upward trend</b>.
+                <br /><br />This indicates
+                <b
+                  >an increasing contribution of agriculture to the economy and
+                  a growing importance placed on agriculture</b
+                >
+                by countries worldwide.
+              </p>
+              <br />
+              <div class="row">
+                <div class="col-md-6 text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/nongyegdp.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+                <div class="col-md-6 text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/gengdi.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+              </div>
+              <br />
+
+              <h5>Feasibility for Polycobead:</h5>
+              <br />
+              <p>
+                As early as 1998, the phenomenon of RNA interference (RNAi) was
+                first observed, and in 2001, RNAi technology was recognized as
+                one of the top ten scientific breakthroughs of the year by the
+                journal Science. In 2006, two professors were awarded the Nobel
+                Prize in Physiology or Medicine for their work in this field.
+                Since then, RNAi technology has undergone more than a decade of
+                extensive research and development. Now it's the right time for
+                RNAi technology to gain significant attention and become widely
+                popular.
+              </p>
+              <p>
+                In 2020, GreenLight Biosciences, through its oversubscribed
+                Series D funding round, raised $102 million in financing in the
+                relevant field, becoming the second-largest funding event in the
+                global agricultural technology sector for that year. On August
+                10, 2021, despite having no commercially available products
+                based on RNAi technology, Greenlight Biosciences completed a
+                $1.2 billion merger with SPAC Environmental Impact
+                AcquisitionCrop and went public on Nasdaq.
+              </p>
+              <br />
+
+              <div class="text-center">
+                <div>
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/greenlight.png"
+                    alt=""
+                    width="80%"
+                  />
+                </div>
+              </div>
+              <br />
+              <p>
+                The successful commercialization of RNAi technology by
+                GreenLight has injected confidence into other researchers, and
+                it has also provided us with valuable references and insights.
+              </p>
+
+              <h3><b>Take into account the actual national conditions:</b></h3>
+              <br />
+
+              <h4>About agriculture market:</h4>
+              <p>
+                According to data from the Chinese Ministry of Natural Resources
+                in 2023, the arable land area in China has exceeded 12,760 square meters. 
+                Agriculture, as the cornerstone of
+                production activities, has received increasing attention.
+              </p>
+              <p>
+                According to the statistical data from the Ministry of
+                Agriculture and Rural Affairs of the People's Republic of China,
+                we have found that the total output of the primary sector
+                (agriculture) has been steadily increasing from 2012 to 2022,
+                indicating that the agricultural market still holds significant
+                potential. As an integral part of agriculture, pesticides have
+                made substantial contributions.
+              </p>
+              <br />
+              <br />
+
+              <div class="row">
+                <div class="text-center col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/report.png"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+                <div class="text-center col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/guoneizhexiantu-2.jpg"
+                    alt=""
+                    width="100%"
+                  />
+                </div>
+              </div>
+              <br />
+              <br />
+              <h4>Feasibility for Polycobead:</h4>
+              <br />
+              <p>
+                Although China has yet to produce a leading company in the field
+                of biopesticides, the industry is in its early stages of
+                development. However, the potential and momentum for growth
+                should not be underestimated.
+              </p>
+              <p>
+                According to data from the National Bureau of Statistics, in
+                2017, the sales revenue of China's biopesticide industry reached
+                31.93 billion yuan, with a year-on-year growth rate of 5.7%. In
+                2020, the annual production of domestic biopesticides reached
+                120,000 tons, and the area of pest control reached 26.7 million
+                hectares, accounting for approximately 5% of the pesticide
+                market share. There are approximately 3,000 registered
+                biopesticide products, accounting for about 11%-13% of the total
+                registered pesticides in China. In 2021, there were
+                approximately 200 biopesticide production companies nationwide,
+                with an annual output of around 140,000 tons and an annual
+                output value of approximately 30 billion yuan, showing a
+                year-on-year growth rate of 14.6%.
+              </p>
+              <br />
+
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/chembio.jpg"
+                  alt=""
+                  width="60%"
+                />
+              </div>
+              <br />
+              <p>
+                The vast and promising agricultural market in China provides us
+                with fertile ground, while the dynamic enterprises instill us
+                with great confidence.
+              </p>
+              <br />
+            </section>
+
+            <section id="anchor2.3">
+              <h3>policies and Attitudes</h3>
+              <br />
+              <h4>Laws analysis</h4>
+              <br />
+              <br />
+              <h5>European Union: "From Farm to Fork"</h5>
+              <p>
+                The European Green Deal is the climate policy of the European
+                Union, aiming to make Europe the first continent to achieve
+                climate neutrality. The "Farm to Fork" strategy is an important
+                component of the Green Deal, focusing on food sustainability and
+                supporting farmers and fishermen. Specific actions include
+                reducing the use and risks of chemical pesticides by 50% by 2030
+                and reducing the use of more hazardous pesticides by 50%.
+              </p>
+              <br />
+
+              <h5>The U.S.: encourage the use of biopesticides</h5>
+              <p>
+                The U.S. Environmental Protection Agency (EPA) encourages the
+                development and use of biopesticides through various measures,
+                aiming to promote safer pesticide management and sustainable
+                agricultural practices. In 1994, EPA established the
+                Biopesticides and Pollution Prevention Division to facilitate
+                the registration of biopesticides. They promote the use of safer
+                insecticides, including biopesticides, as part of Integrated
+                Pest Management (IPM) programs. It also coordinates the
+                Pesticide Environmental Stewardship Program (PESP).
+              </p>
+              <br />
+
+              <h5>China: promote the development of biopesticides</h5>
+              <p>
+                The "14th Five-Year National Plan for the Development of the
+                Pesticide Industry" in China promotes the reduction of pesticide
+                use, aiming to achieve the goals of pesticide reduction and
+                Green Agriculture. China has implemented a series of important
+                measures, including the elimination or restriction of highly
+                toxic and low-efficiency chemical pesticides and the promotion
+                of efficient and precise pesticide application, supporting the
+                development of efficient and low-risk new chemical pesticides
+                and promoting the development of biopesticides.
+              </p>
+              <br />
+              <br />
+              <h4>Attitudes of the public</h4>
+              <br />
+              <p>
+                Through social surveys and data collection, we have also
+                verified the public's attitude towards pesticide use in daily
+                life. Based on the graph below, we can observe that the majority
+                of people prioritize product quality over price when purchasing
+                agricultural products. In the second image, the numbers 1-5
+                represent the public's perception of the necessity of organic
+                agricultural products, with an increasing degree from 1 to 5. It
+                is evident that most people consider green and organic food to
+                be highly necessary.
+              </p>
+              <div class="row">
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/2.png"
+                    alt=""
+                    width="60%"
+                  />
+                </div>
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/15.jpg"
+                    alt=""
+                    width="60%"
+                  />
+                </div>
+              </div>
+              <br />
+              <h7>
+                [Image description] <br />&nbsp;&nbsp;&nbsp;&nbsp;- Image 1(up):
+                A graph showing consumers' preferences between price and quality
+                when purchasing agricultural products.
+                <br />&nbsp;&nbsp;&nbsp;&nbsp;- Image 2(down): A graph
+                indicating the public's perception of the necessity of organic
+                agricultural products, rated from 1 to 5.
+              </h7>
+              <br /><br />
+              <p>
+                From this, we can conclude that the public places a great
+                emphasis on the safety of agricultural products and desires to
+                purchase high-quality products. As RNAi is a safe and effective
+                new pesticide, it is expected to gain recognition from consumers
+                and the market.
+              </p>
+            </section>
+          </section>
+          <section id="anchor3">
+            <h2>union</h2>
+            <br />
+            <p>
+              Through our analysis of different units, we have gained a
+              comprehensive understanding of the whole industry and related
+              groups. By bringing them together and forming
+              <b>T.O.M.A.T.O Alliance</b> , we can unite the strengths of all
+              parties to ensure smooth market entry for the product and promote
+              sustainable agricultural development. The TOMATO Alliance will
+              consist of two modules:
+              <b>a Technical Alliance and a Thought Alliance</b> . <br />
+              <br /><br />These modules will work on various levels, including
+              technological transformation, market popularization, and social
+              acceptance, to pave the way for the future of RNAi biopesticides.
+            </p>
+            <br />
+            <section id="anchor3.1">
+              <div class="text-align">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tomato1.png"
+                  alt=""
+                  width="80%"
+                />
+              </div>
+              <br />
+
+              <p>
+                In the 21st century, the field of biology is flourishing, and we
+                have witnessed the emergence of many advanced biotechnology
+                companies. This has provided powerful technological support for
+                the large-scale production and continuous advancement of our new
+                products.<br /><br />But at the same time, we also find that
+                most countries still heavily rely on the use of conventional
+                pesticides, with chemical pesticides dominating the majority of
+                the pesticide market. As the new products successfully penetrate
+                the market, they will inevitably face competition from
+                traditional chemical pesticides. Under the wave of green
+                agriculture and the concept of sustainable development, the
+                gradual replacement of traditional chemical pesticides is a
+                trend. In other words, the emergence of new products will
+                inevitably pose a threat to the traditional chemical pesticide
+                industry. <br /><br />
+              </p>
+              <p>
+                Therefore, in order to avoid conflicts between new and old
+                products as much as possible, we decide to balance this
+                situation by establishing the
+                <b>T.O.M.A.T.O-Technical Alliance</b>, to seek partners and
+                industry support to unite stakeholders in the market and
+                society, in order to help open up the market for biopesticides
+                and gain social acceptance. <br /><br />
+              </p>
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union1.png"
+                  alt=""
+                  width="50%"
+                />
+              </div>
+              <p>
+                <b>For traditional chemical pesticide companies:</b><br /><br />
+              </p>
+              <ul>
+                <li class="ps-4">
+                  1.<b>
+                    Lead the transformation and upgrading of the traditional
+                    pesticide industry.</b
+                  >
+                  RNAi biopesticides, as a new concept and new method of pest
+                  control, pose a challenge to the traditional industry. In the
+                  context of the green agriculture trend, we choose to balance
+                  our own development with the interests of the traditional
+                  industry. We will share our experiences and drive their
+                  transformation together.<br /><br />
+                </li>
+                <li class="ps-4">
+                  2.<b
+                    >Leverage the market foundation of the traditional chemical
+                    pesticide industry.</b
+                  >
+                  They currently dominate the majority of the pesticide market
+                  in the existing agricultural industry. Instead of entering
+                  into limited market competition that might harm their
+                  interests and lead to unhealthy competition, we choose to make
+                  use of their market foundation and leverage their
+                  transformation to strengthen the industry scale of emerging
+                  biopesticides.
+                </li>
+              </ul>
+              <br /><br />
+              <b>For advanced biotechnology companies:</b><br /><br />
+              <ul>
+                <li class="ps-4">
+                  1.<b>Utilize their technical support. </b> They possess strong
+                  biotechnology expertise and mature production experience. The
+                  scaled-up production of new products often requires their
+                  support and assistance to a certain extent.<br /><br />
+                </li>
+                <li class="ps-4">
+                  2.
+                  <b
+                    >Encourage them to join the research and development of the
+                    new composite RNAi biopesticides.</b
+                  >
+                  Although biotechnology companies have reached a certain scale,
+                  only a relatively small portion of them are engaged in the
+                  research of RNAi biopesticides. If more companies join in, the
+                  research process of RNAi biopesticides will be significantly
+                  shortened.
+                </li>
+              </ul>
+
+              <br />
+              <br />
+            </section>
+            <section id="anchor3.2">
+              <div class="text-align">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tomato2.png"
+                  alt=""
+                  width="80%"
+                />
+              </div>
+              <br />
+
+              <p>
+                In addition to solving technical issues, the successful entry of
+                new products and new technologies into the market requires the
+                correct understanding and positive recognition of our products
+                by the entire society. <br /><br />
+              </p>
+
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union2.png"
+                  alt=""
+                  width="50%"
+                />
+              </div>
+              <p>
+                <b>Regarding pesticide users:</b>
+              </p>
+              <br /><br />
+              <ul>
+                <li class="ps-4">
+                  1. <b>We conduct field surveys</b> and closely observe the
+                  practical feasibility of the products in agricultural fields.
+                  Starting from the reality and practical aspects, we take
+                  concrete actions to enhance farmers' confidence in the new
+                  products. <br /><br />
+                </li>
+                <li class="ps-4">
+                  2. <b>We provide instructional guidance</b> on the use of the
+                  products, teaching users about the application methods and the
+                  mechanisms of action. Through educational efforts, we aim to
+                  eliminate any misconceptions and barriers that may hinder the
+                  promotion and widespread adoption of the products.<br /><br />
+                </li>
+                <li class="ps-4">
+                  3.
+                  <b>We create product user manuals to assist farmers</b> in
+                  using the products correctly, thereby maximizing the
+                  effectiveness of the products. These manuals serve as valuable
+                  resources to guide farmers on proper product application,
+                  dosage, timing, and other relevant information. <br /><br />
+                </li>
+                <li class="ps-4">
+                  4. We also communicate with cultivation bases and explain to
+                  them the mechanisms of action and expected effects of the
+                  products. We strive to reach a consensus with them and plan to
+                  conduct extensive promotion after verifying the product's
+                  effectiveness through field trials.<br /><br />
+                </li>
+              </ul>
+
+              <p>
+                <b>Regarding agricultural product consumers:</b><br /><br />
+              </p>
+              <ul>
+                <li class="ps-4">
+                  1. <b>We conduct lectures to educate people</b> of different
+                  age groups about the principles of RNAi-based biological crop
+                  protection. <br /><br />
+                </li>
+                <li class="ps-4">
+                  2.
+                  <b>We organize offline events to explain</b> the safety and
+                  effectiveness of new products through activities such as
+                  parent-child activities and knowledge popularization.
+                  <br /><br />
+                </li>
+                <li class="ps-4">
+                  3. <b>We produce promotional comics and videos</b> to
+                  disseminate our product design concepts and functional
+                  principles through media and online channels. This approach
+                  helps to present the information in a more engaging and
+                  interesting way, reducing uncertainty and reluctance towards
+                  new products and technologies.
+                </li>
+              </ul>
+
+              <br /><br /><b
+                >Regarding the government and relevant organizations:</b
+              ><br /><br />
+              <ul>
+                <li class="ps-4">
+                  1. <b>We seek expert consultations</b> to understand the
+                  market trends and seek advice from experts on the process and
+                  feasibility of introducing new products to the market. We also
+                  engage with experts at the forefront of scientific research to
+                  discuss the safety and efficacy of the new products.
+                </li>
+                <li class="ps-4">
+                  2.
+                  <b
+                    >We organize and participate in relevant roundtable
+                    conferences</b
+                  >, where we can engage with experts and scholars to
+                  collectively explore the future development direction and
+                  progress of biopesticides. Through these discussions, we aim
+                  to raise awareness and drive industry transformation in the
+                  pesticide sector. <br /><br />
+                </li>
+                <li class="ps-4">
+                  3.
+                  <b
+                    >We proactively p ropose suggestions, conduct research on
+                    laws and regulations, and develop industry standards.</b
+                  >
+                  By utilizing our own experience, we bridge the gap between
+                  advanced products and lagging regulations before the emergence
+                  of a large number of new products. We contribute to the
+                  standardization of pesticide management and the improvement of
+                  the biological pesticide management system.
+                </li>
+              </ul>
+              <p>
+                <br /><br />During the process, we continuously accept feedback,
+                adjust our approach, and constantly convey positive and accurate
+                understanding to all parties, bringing our new
+                biopesticide--POLYCOBEAD industry into people's attention.
+              </p>
+              <br />
+            </section>
+          </section>
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1]、A Set of Scientific Issues Being Considered by the
+                  Environmental Protection Agency Regarding: RNAi Technology:
+                  Program Formulation for Human Health and Ecological Risk
+                  Assessment, January 28, 2014, FIFRA Scientific Advisory Panel
+                  Meeting, held at One Potomac Yard, Arlington, Virginia
+                  <br />[2]、A Set of Scientific Issues Being Considered by the
+                  Environmental Protection Agency Regarding: RNAi Technology:
+                  Human Health and Ecological Risk Assessments for SmartStax
+                  PRO, September 27-28, 2016, FIFRA Scientific Advisory Panel
+                  Meeting, held at EPA Conference Center, One Potomac Yard,
+                  Arlington, Virginia. <br />[3]、RNAi Technology as a
+                  Pesticide: Problem Formulation for Human Health and Ecological
+                  Risk Assessment," submitted to the FIFRA Science Advisory
+                  Panel for Review and Comment, October 29, 2013.
+                  <br />[4]、Report of the 28th Session of the Committee on
+                  Agriculture," Forty-third Session, Rome, 1-7 July 2023, Rome,
+                  18-22 July 2022. <br />[5]、International Code of Conduct on
+                  the Distribution and Use of Pesticides: Guidelines on Efficacy
+                  Evaluation for the Registration of Plant Protection Products.
+                  <br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

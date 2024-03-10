@@ -1,0 +1,4068 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  .ihpbox {
+    position: relative;
+    height: 550px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px#00000030, inset 1px 1px 10px #ffffff50,
+      inset -1px -1px 10px #ffffff50;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  .ihpbox::before,
+  .ihpbox::after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: scaleX(0);
+    transition: all 0.5s;
+    transform-origin: left;
+  }
+
+  .ihpbox::after {
+    top: 50%;
+    transition-delay: 0.15s;
+  }
+
+  .ihpbox.active::before,
+  .ihpbox.active::after {
+    transform: scaleX(1);
+  }
+
+  .ihpbox-btn {
+    border-radius: 10px;
+    background-color: #fefadd;
+    width: 150px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 4;
+  }
+
+  .ihpbox .ihpbox-btn span::before {
+    content: "read more";
+  }
+
+  .ihpbox.active .ihpbox-btn span::before {
+    content: "close";
+  }
+
+  .ihpbox .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    opacity: 0;
+    overflow: auto;
+    background-color: #fff;
+    transition: all 0.8s;
+  }
+
+  .ihpbox.active .card {
+    opacity: 1;
+  }
+
+  #car {
+    background: url(https://static.igem.wiki/teams/4653/wiki/ihp/handcart.png)
+      no-repeat bottom center/auto;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+  }
+
+  [id^="box"] {
+    opacity: 0;
+  }
+
+  [id^="box"] h4 {
+    font-size: 16px;
+    font-family: Gadugi;
+    font-weight: bold;
+    color: #330000;
+  }
+
+  [id^="box"] p {
+    font-size: 14px;
+    font-family: Gadugi;
+    font-weight: 400;
+    color: #663333;
+  }
+
+  #bigbox div {
+    margin: 20px 10px;
+  }
+
+  #bigbox img {
+    width: 74px;
+    height: 80px;
+  }
+
+  #bigbox > div {
+    padding: 10px;
+  }
+  .col-md-8 p {
+    padding: 15px;
+  }
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(5 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(5 * 40px);
+  }
+
+  .menu-item > input#menu-item4:checked ~ .menu-content {
+    height: calc(4 * 40px);
+  }
+
+  .menu-item > input#menu-item5:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/ihp.jpeg")
+      no-repeat bottom center/cover;
+  }
+
+  .ihpbox p {
+    font-size: 10px;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Integrated Human Practices</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+
+          <label id="menu-btn-1" for="menu-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Inspiration</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link"
+                  >Ideation and project forming</a
+                >
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >Discussing with the PI</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                    style="line-height: 1.5;"
+                      >Communicatng with Farmers</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.3" class="scroll-link d-block w-100"
+                      >Brainstorming</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.4" class="scroll-link d-block w-100"
+                      >Expert Interviewing</a
+                    >
+                  </small>
+                </span>
+                <!-- <span>
+                                            <small>
+                                                <a href="#anchor2.5" class="scroll-link d-block w-100">Information collecting</a>
+                                            </small>
+                                        </span> -->
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link"
+                  >Information collecting</a
+                >
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor3.1" class="scroll-link d-block w-100"
+                      >Agricultural Producers</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.2" class="scroll-link d-block w-100"
+                      >Tomato Sellers</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.3" class="scroll-link d-block w-100"
+                      >Ministry of Agriculture</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.4" class="scroll-link d-block w-100"
+                      >Consumers</a
+                    >
+                  </small>
+                </span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link"
+                  >Improvement and interaction</a
+                >
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor4.1" class="scroll-link d-block w-100"
+                      >Reflection</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor4.2" class="scroll-link d-block w-100"
+                      >Responsiveness</a
+                    >
+                  </small>
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor4.3" class="scroll-link d-block w-100"
+                      >Responsibility</a
+                    >
+                  </small>
+                </span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item5" />
+              <label for="menu-item5">
+                <a href="#anchor5" class="scroll-link"
+                  >Implementation and imagination</a
+                >
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section>
+            <p style="font-size: 23px">
+              <b>
+                "What we are doing, why we are doing it, how the world might
+                affect our work, and how our work might affect the world."
+              </b>
+            </p>
+            <br />
+            <br />
+            <p>
+              <b>
+                Our core tenet of human practice is to bridge the gap between
+                our projects and the real world and by continuously interacting
+                with the world. During the process, we improve our products
+                through close contact with stakeholders by gaining a deep
+                understanding of their needs and opinions.
+              </b>
+              <br />
+              <br />
+              Our team put forward an innovative approach to execute our
+              integrated human practice --
+              <b>
+                "5I cycle" (Inspiration, Ideation, Information collecting,
+                Improvement and interaction, Implementation and imagination).
+              </b>
+              This cycle helps ensure that we engage respectfullly and
+              responsibility with stakeholders.
+              <br />
+              <br />
+            </p>
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/ihp/5i1-3.jpg"
+                alt=""
+                width="80%"
+                class="border_shadow_img"
+              />
+            </div>
+          </section>
+          <section id="anchor1">
+            <h2>Inspiration</h2>
+            <h3>The experience of HIGREEN</h3>
+            <h4>"Tomato Crisis"</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/banfanqie.png"
+                    alt=""
+                    width="90%"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  Higreen, a major agricultural wholesale market in Shenzhen,
+                  supplies over 90% of the city's fruits and vegetables. One day
+                  when we were buying tomatoes in HIGREEN as usual, we
+                  encountered Mr. Cheng uploading crates of tomatoes covered
+                  with strange white spots. We inquired about the situation, and
+                  Mr. Cheng, told us that the tomatoes was suffering gray mold
+                  disease. As a result, they even affected other tomatoes that
+                  were not infected during the transportation process, and led
+                  to significant financial loss.
+                  <br />
+                  <br />
+                  <b>
+                    Mr. Cheng expressed deep concern and frustration as he
+                    talked about the significant threat posed by gray mold
+                    disease to his tomato planting base -- Dacheng Xin Base. He
+                    highlighted that this disease posed the most severe
+                    challenge. Regrettably, it had even led to devastating
+                    consequences, resulting in yield reductions of up to 50%.
+                    Moreover, he lamented the lack of an effective solution to
+                    combat this persistent and damaging disease.
+                  </b>
+                  <br />
+                </p>
+              </div>
+            </div>
+
+            <p>
+              <br />
+              After listening to Mr. Cheng's concerns, our team were eager to
+              assist him in solving this challenging issue. We conducted further
+              research on gray mold disease in tomatoes :
+              <br />
+              <br />
+              <b>Significant Threat of Gray Mold Disease :</b>
+              Based on 2020 FAO data, global tomato production reached
+              approximately 189 million metric tons, with China contributing a
+              significant 68 million metric tons. However, the devastating
+              impact of tomato gray mold disease led to production losses
+              ranging from 20% to 60%.Based on statistics from 2016, tomato gray
+              mold disease annually caused more than 30 million yuan losses in
+              China worth
+              <br />
+              <br />
+            </p>
+            <div class="text-center">
+              <img
+                class="col-md-10"
+                src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-1.png"
+                alt=""
+                width="100%"
+              />
+            </div>
+            <p>
+              <b>Current Control Measures: physical and chemical control.</b>
+              Physical control methods include proper crop rotation and
+              cultivation management practices. Chemical control is the most
+              widely used method, involving the use of pesticides such as
+              dimethomorph and pyrimethanil to manage the spread of the disease.
+              <br />
+              <br />
+              <br />
+              <b>Shortcomings and Drawbacks:</b>
+              <br />
+            </p>
+            <ul>
+              <li class="ps-4">
+                1. Overusing chemical pesticides tend to make the fungus
+                resistant to drug , reducing drug effectiveness.
+              </li>
+              <br />
+              <li class="ps-4">
+                2. Pesticide residues and emissions threaten the environment,
+                potentially harming soil and water quality.
+              </li>
+              <br />
+              <li class="ps-4">
+                3. The destroyed environment cost extra money to undo the
+                effects.
+              </li>
+            </ul>
+
+            <br />
+
+            <div class="row">
+              <img
+                class="col-md-4"
+                src="https://static.igem.wiki/teams/4653/wiki/ihp/xijun.png"
+                alt=""
+              />
+              <img
+                class="col-md-4"
+                src="https://static.igem.wiki/teams/4653/wiki/ihp/canliu.png"
+                alt=""
+              />
+              <img
+                class="col-md-4"
+                src="https://static.igem.wiki/teams/4653/wiki/ihp/cost.png"
+                alt=""
+              />
+            </div>
+            <br />
+          </section>
+          <section id="anchor2" class="mg-top-50">
+            <h2>Ideation and project forming</h2>
+            <br />
+            <section id="anchor2.1">
+              <h3>Discussing with the PI</h3>
+              <br />
+              <h4>"RNAi, Efficient and Eco-friendly"</h4>
+              <div class="row">
+                <div class="col-md-8">
+                  <p>
+                    After learning about the harmful result caused by gray mold
+                    disease, we wanted to
+                    <b>find an efficient and environmentally friendly way</b>
+                    to cure the disease. So, we consulted our PI, Professor Mo
+                    Beixin, who made great achievements in botanical research.
+                    Upon hearing our needs and ideas, Professor Mo shared us
+                    with valuable insights, suggesting that RNA interference
+                    (RNAi) technology could be a potential solution. Also it has
+                    many advantages:
+                    <br />
+                    <br />
+                    <b>1.Precision:</b>
+                    RNAi technology precisely targets and silences harmful
+                    pathogen genes for highly focused control.
+                    <br />
+                    <b>2.Efficacy:</b>
+                    It effectively reduces disease severity by inhibiting
+                    crucial pathogen genes.
+                    <br />
+                    <b>3.Non-Genetic:</b>
+                    RNAi avoids genetic alterations, relying on natural
+                    mechanisms for temporary gene silencing.
+                    <br />
+                    <b>4.Safety:</b>
+                    It is safe, as it doesn't introduce foreign genes or alter
+                    host genomes, minimizing risks.
+                    <br />
+                    <b>5.Environmentally Friendly:</b>
+                    RNAi naturally degrades, leaving no lasting environmental
+                    residues.
+                    <br />
+                  </p>
+                </div>
+                <div class="col-md-4">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/mo-2.jpg"
+                      alt=""
+                      width="100%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                  <div class="text-center mg-top-10">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/mofinal.jpg"
+                      alt=""
+                      width="100%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="anchor2.2">
+              <h3>Communicatng with Farmers</h3>
+              <br />
+              <h4>"Early Prevention is Crucial"</h4>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/dachenxing111.jpg"
+                      alt=""
+                      width="100%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                  <div class="text-center mg-top-10">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/wang-nainai.jpg"
+                      alt=""
+                      width="100%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <p>
+                    <br />
+                    In March, Mr. Cheng invited us to visit the Dacheng Xin
+                    base. We went on a field trip, learning from tomato grower
+                    Ms Wang that farmers rely heavily on field observation. They
+                    predict potential plant diseases by closely monitoring
+                    weather, environmental conditions and plant growth. This
+                    allows them to take actions to spray pesticide in advance.
+                    <br />
+                    <br />
+                    <b>
+                      For producers, the more yielding, the better. They not
+                      only hope to effectively treat diseases, but also hope to
+                      achieve early prevention. This approach safeguards crop
+                      health, reduces disease impact on yield and quality,
+                      ensuring better economic returns.
+                    </b>
+                    <br />
+                  </p>
+                </div>
+              </div>
+              <br />
+            </section>
+            <section id="anchor2.3">
+              <h3>Brainstorming</h3>
+              <br />
+              <h4>"Establishing Our Initial Project Design"</h4>
+              <div class="row">
+                <div class="col-md-8">
+                  <p>
+                    After in-depth discussions with PI Professor Mo and field
+                    trips to the Dacheng Xin Tomato Base, we did broad
+                    brainstorm to put forward our initial disease control
+                    strategy.
+                    <b>
+                      Our initial strategy combines prevention and treatment
+                      measures to effectively solve the probelm of tomato gray
+                      mold disease, ensuring both yield and quality.
+                    </b>
+                    <br />
+                    <br />
+                    By integrating preventive actions and timely treatment, we
+                    took every stages of gray mold disease into consideration,
+                    minimizing the risk for tomatoes to be infected by the gray
+                    mold disease. This approach ensures the and economic returns
+                    and sustainability of agriculture. We will develop specific
+                    plans based on this strategy to tackle the issue of tomato
+                    gray mold disease.
+                    <br />
+                  </p>
+                </div>
+                <div class="col-md-4">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/brain2.jpg"
+                      alt=""
+                      width="100%"
+                      height="50%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                  <div class="text-center mg-top-10">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/brain1.jpg"
+                      alt=""
+                      width="100%"
+                      height="50%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="anchor2.4">
+              <h3>Expert Interviewing</h3>
+              <br />
+              <h4>"Positive Response Towards Initial Project Design"</h4>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="text-center">
+                    <br />
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/lixiaojie1.jpg"
+                      alt=""
+                      width="100%"
+                      height="40%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                  <div class="text-center mg-top-10">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/lixioajie.jpg"
+                      alt=""
+                      width="100%"
+                      height="50%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <p>
+                    Once we formed our initial disease control strategy, we
+                    sought advice form Professor Xiaojie Li, vice president of
+                    Shenzhen Graduate school Chinese Academy of Agricultural.
+                    Sciences. Professor Li highly commended our project, noting
+                    that:
+                    <b
+                      >'RNA pesticides are the future of the pesticide
+                      industry.'</b
+                    >
+                    He highlighted that RNA pesticides, known for their
+                    efficiency and environmental friendliness, are considered
+                    the 'third revolution in the pesticide field,' receiving
+                    extensive attention and support from national and
+                    agricultural stakeholders.
+                    <br />
+                    <br />
+                    Professor Li also fully endorsed the plant immunity
+                    component of our project. He emphasized the pivotal
+                    principle in plant protection,
+                    <b>
+                      'prevention is better than cure.', underscoring the
+                      importance of proactively prevention to minimize their
+                      impact on crops.
+                    </b>
+                    Professor Li's opinions encouraged us and showed that our
+                    initial strategy is of great significance in the
+                    agricultural field.
+                  </p>
+                </div>
+              </div>
+              <br />
+
+              <br />
+
+              <br />
+            </section>
+            <section id="anchor3">
+              <h3>Information collecting</h3>
+              <p>
+                <br />
+                After developing our initial project, we want to assess the
+                practical feasibility of our disease control strategy in
+                real-world scenarios. Consequently, we conducted interviews with
+                stakeholders in the tomato industry to learn about their needs
+                and worries regarding the gray mold disease control strategy.
+                <br />
+                <br />
+                <br />
+                <b
+                  >We hightlight what each stakeholder most concern with towards
+                  the usage of pesticides below.</b
+                >
+                <br />
+              </p>
+              <div style="position: relative">
+                <div
+                  id="road"
+                  style="
+                    background: url(https://static.igem.wiki/teams/4653/wiki/ihp/road.png)
+                      bottom center/contain;
+                    height: 118px;
+                  "
+                >
+                  <div id="car"></div>
+                </div>
+              </div>
+
+              <div id="bigbox" class="d-flex">
+                <div
+                  style="
+                    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5);
+                    border-radius: 10px;
+                    background: #fff;
+                  "
+                  id="box1"
+                >
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/farmer1.png"
+                      alt=""
+                      width="60%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                  <p>
+                    <b>Agricultural Producers</b>
+                    <br />
+                    <span style="word-break: break-all">
+                      Farmers are responsible for tomato cultivation, pest
+                      control, and harvesting, and they are the users of
+                      pesticides.
+                    </span>
+                    <br />
+                    <br />
+                    <i>what they call for:</i>
+                    <b>Convenient to Use</b>
+                    <br />
+                    <b>Efficiency</b>
+                    <br />
+                    <b>Cheap</b>
+                    <br />
+                  </p>
+                </div>
+                <div
+                  style="
+                    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5);
+                    border-radius: 10px;
+                    background: #fff;
+                  "
+                  id="box2"
+                >
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/sale.png"
+                      alt=""
+                      width="66%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                  <p>
+                    <b>Tomato Sellers</b>
+                    <br />
+                    <span style="word-break: break-all">
+                      They serve as a bridge within the supply chain,
+                      facilitating the transfer of agricultural products from
+                      producers to end consumers.
+                    </span>
+                    <br />
+                    <br />
+                    <i>what they call for:</i>
+                    <br />
+                    <b>Cheap</b>
+                  </p>
+                </div>
+                <div
+                  style="
+                    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5);
+                    border-radius: 10px;
+                    background: #fff;
+                  "
+                  id="box3"
+                >
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/tubiaozhenfu.png"
+                      alt=""
+                      width="70%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                  <p>
+                    <b>Ministry of Agriculture</b>
+                    <br />
+                    <span style="word-break: break-all">
+                      The Ministry of Agriculture are responsible for disease
+                      prevention, food safety oversight, and supporting farmers
+                      with technology .
+                    </span>
+                    <br />
+                    <br />
+                    <i>what they call for:</i>
+                    <br />
+                    <b>Safe</b>
+                    <br />
+                    <b>Effective</b>
+                    <br />
+                    <b>Environmentally Friendly</b>
+                    <br />
+                    <b>Convenient to Use</b>
+                    <br />
+                  </p>
+                </div>
+                <div
+                  style="
+                    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.5);
+                    border-radius: 10px;
+                    background: #fff;
+                  "
+                  id="box4"
+                >
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/consumer.png"
+                      alt=""
+                      width="70%"
+                    />
+                  </div>
+                  <p>
+                    <b>Consumers</b>
+                    <br />
+                    <span style="word-break: break-all"
+                      >Consumers' selective purchasing decisions drive producers
+                      and the supply chain towards meeting consumer
+                      demands.</span
+                    >
+                    <br />
+                    <br />
+                    <i>what they call for:</i>
+                    <br />
+                    <b>No pesticide residues</b>
+                    <br />
+                    <b>Environmentally Friendly</b>
+                    <br />
+                    <b>Safe</b>
+                  </p>
+                </div>
+              </div>
+              <br />
+            </section>
+          </section>
+          <section id="anchor3">
+            <section id="anchor3.1">
+              <h2 style="border-bottom: 5px solid #fef9eb">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/farmer.png"
+                  alt=""
+                  style="width: 100px"
+                />
+                &nbsp;Agricultural Producers
+              </h2>
+              <div class="col-md-12">
+                <p>
+                  <br />
+                  We visited many planting bases and communicated with local
+                  farmers to understand the current commonly used pest control
+                  methods, as well as their attitudes and needs regarding
+                  pesticide use.
+                  <br />
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center" style="height: 30%">
+                      <br />
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/wang-nainai.jpg"
+                        alt=""
+                        width="50%"
+                        height="100%"
+                      />
+                    </div>
+                    <br />
+                    <div class="p-4">
+                      <h6>Ms. Wang</h6>
+                      <p>
+                        <b>a farmer at the Dacheng Xin Tomato Base</b>
+                      </p>
+                      <br />
+                      <p>
+                        Ms. Wang shared valuable insights with us. She explained
+                        how farmers rely on careful observations of weather,
+                        environmental conditions, and especially plant growth to
+                        anticipate the potential onset of plant diseases. They
+                        take measures like applying pesticides in advance to
+                        minimize the chances of plants being affected by
+                        diseases.
+                        <br />
+                        <br />
+                        <b>
+                          Ms. Wang's proactive approach provided a valuable
+                          perspective for our initial project design, leading us
+                          to consider the use of plant immunity for early
+                          prevention.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6>Ms. Wang</h6>
+                      <p>
+                        <b>About Gray Mold Disease:</b>
+                        Ms. Wang mentioned that gray mold disease is a common
+                        issue in the tomato fields she manages. Additionally,
+                        diseases like early blight frequently occur, causing her
+                        significant distress.
+                        <br />
+                        <br />
+                        <b>Prevention and Control:</b>
+                        When facing gray mold disease, Ms. Wang primarily relies
+                        on chemical pesticides for control. She informed us that
+                        she typically relies on her experience for early
+                        prevention. For example, since gray mold disease tends
+                        to occur in low-temperature and high-humidity
+                        conditions, she proactively sprays pesticides under such
+                        weather conditions to prevent it. This proactive
+                        prevention approach is crucial because once gray mold
+                        disease breaks out, it spreads rapidly. At that stage,
+                        pesticide application may not effectively control it,
+                        leading to significant crop reduction and economic
+                        losses. Ms. Wang's emphasis on early prevention provided
+                        us with valuable insights.
+                        <br />
+                        <br />
+                        <b>Concerns About Chemical Pesticides:</b>
+                        Ms. Wang also mentioned that most pesticides develop
+                        resistance after a few applications, and she cannot use
+                        the same pesticide repeatedly. She further explained
+                        that some pesticides require mixing, which is
+                        challenging for her as she is unsure of the correct
+                        blending ratios. Additionally, some pesticides have
+                        strong odors that can cause dizziness if she is exposed
+                        to them for an extended period.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <br />
+                    <div class="text-center" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/liangbobo.jpg"
+                        alt=""
+                        width="50%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Mr. Liang</h6>
+                      <p>
+                        <b>a farmer in Boluo County</b>
+                        <br />
+                        <br />
+
+                        He mentioned that the main diseases in his tomato
+                        orchard are gray mold and powdery mildew. In disease
+                        control, crop rotation and chemical methods are
+                        primarily employed. Chemical pesticides need to be used
+                        alternately to reduce pests' resistance to them
+                        <br />
+                        <br />
+                        <b>
+                          Regarding our treatment plan, Liang emphasized that
+                          farmers are most concerned about its effectiveness,
+                          followed by cost considerations.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Mr. Liang</h6>
+                      <p>
+                        <b>Regarding gray mold disease:</b>
+                        Mr. Liang is a farmer who manages a five-acre tomato
+                        field, which operates as a pick-your-own farm during the
+                        tomato season. He faces common issues with diseases like
+                        gray mold and powdery mildew in his crops. To tackle
+                        these problems, he uses methods like crop rotation and
+                        high-temperature sterilization.
+                        <br />
+                        <br />
+                        <b>Regarding pesticides:</b>
+                        When it comes to pesticides, Mr. Liang and other farmers
+                        prioritize safety. They prefer using low-toxicity
+                        pesticides and follow advice from trusted suppliers.
+                        They also rotate between different types of pesticides
+                        to prevent resistance.Mr. Liang shared that after
+                        pesticide spraying, there's usually a waiting period
+                        before harvesting. This waiting time can lead to
+                        economic losses, so he values effective treatments that
+                        minimize this downtime.
+                        <br />
+                        <br />
+                        <b>Regarding our treatment solution:</b>
+                        Mr. Liang's main concern is its effectiveness in
+                        managing diseases. He's willing to invest a bit more if
+                        a treatment can provide good results, prioritizing
+                        effectiveness over cost. This aligns with our goal of
+                        offering practical and efficient solutions to farmers
+                        like Mr. Liang, ensuring healthy crops and successful
+                        harvests.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/hongchuanjiang.jpg"
+                        alt=""
+                        width="50%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Hong Chuangjiang</h6>
+                      <p>
+                        <b
+                          >Technician at Jiangnong Ecological Agriculture
+                          Company</b
+                        >
+                        <br />
+                        <br />
+                        Hong's innovative disease management concept emphasizes
+                        "treat when there is a disease, prevent when there is
+                        none." He focuses on prevention, using microbial agents
+                        and organic fertilizers early on, and later, biological
+                        agents to adjust soil microbes. Regarding chemical
+                        pesticides, he limits the use of the same pesticide to
+                        three times due to resistance development.
+
+                        <br />
+                        <br />
+                        <b>
+                          He strongly supports the use of biological pesticides
+                          and appreciates our treatment plan, aiming for low or
+                          zero pesticide residues in his agricultural products.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Hong Chuangjiang</h6>
+                      <p>
+                        <b>Preventive Measures:</b>
+                        Greenhouses, insect-proof nets, and smoke control are
+                        physical agricultural measures that help protect crops
+                        from pests and diseases. These methods are widely used
+                        in agricultural production to ensure the healthy growth
+                        of crops.
+                        <br />
+                        <br />
+                        <b>Pest and Disease Management:</b>
+                        Mr. Hong Chuangjiang has his own philosophy, which is
+                        "treat when diseased, prevent when healthy, and combine
+                        Eastern and Western medicine." This philosophy
+                        emphasizes the importance of timely treatment for
+                        infected plants and proactive prevention of diseases.
+                        Preventive measures are considered crucial because they
+                        can determine whether crops will be threatened by
+                        diseases in the later stages.
+                        <br />
+                        <br />
+                        During the early stages of crop growth, microbial agents
+                        and fertilizers are mainly used for prevention, which
+                        helps enhance the plants' immune systems. In the later
+                        stages of crop growth, microbial agents are employed to
+                        adjust the microbial community in the soil, maintaining
+                        soil health.
+                        <br />
+                        <br />
+                        Regarding the use of chemical pesticides, a restrictive
+                        strategy is typically followed, limiting the number of
+                        times a particular pesticide is used. This strategy aims
+                        to reduce the development of pesticide resistance and
+                        enhance the effectiveness of pesticides.
+                        <br />
+                        <br />
+                        For plants already infected with diseases, isolation
+                        methods are employed for management. However, due to the
+                        large-scale cultivation, inspection work becomes
+                        relatively challenging. Developing an effective
+                        identification system could potentially improve the
+                        efficiency of disease detection and management.
+                        <br />
+                        <br />
+                        <b>Smart agriculture</b>
+                        Smart agriculture is also widely adopted in orchards,
+                        utilizing techniques such as greenhouse cultivation,
+                        drip irrigation, and digital smart management.
+                        Data-driven agriculture management has enabled
+                        integrated water and fertilizer management,
+                        significantly reducing labor costs. Integrated water and
+                        fertilizer systems dissolve fertilizers in irrigation
+                        water, enhancing fertilizer efficiency. Despite current
+                        challenges related to data accuracy, this field still
+                        holds tremendous potential for improving agricultural
+                        production efficiency and crop quality.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 27%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/chengbobo.jpg"
+                        alt=""
+                        width="50%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Mr.Cheng</h6>
+                      <p>
+                        <b
+                          >Guide and Grower at Dacheng Xin Tomato Planting
+                          Base</b
+                        >
+                        <br />
+                        <br />
+
+                        Mr. Cheng discussed tomato cultivation and the key issue
+                        of gray mold disease in his fields. They currently rely
+                        on chemical pesticides for control, but it's not very
+                        effective and leads to substantial losses. He
+                        highlighted the need for expert guidance in pesticide
+                        use. Farmers often mix pesticides, reducing their
+                        effectiveness, and the precise dilution is a challenge
+                        for them.
+                        <br />
+                        <br />
+                        <b>
+                          Mr. Cheng emphasized his concern about the importance
+                          of having user-friendly pesticide application methods
+                          that farmers can easily use. Secondly, he is highly
+                          concerned about the effectiveness of pesticides to
+                          controll tomato gray mold disease.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Mr. Cheng</h6>
+                      <p>
+                        The Millennium Tomato Farm at the Dachengxin Company
+                        covers an extensive area of six hundred acres, with two
+                        hundred acres personally managed and cultivated by Mr.
+                        Cheng. Additionally, Mr. Cheng imparts his extensive
+                        cultivation experience to farmers in neighboring
+                        villages, providing them with valuable technical
+                        guidance for growing cherry tomatoes.
+                        <br />
+                        <br />
+                        <b>Regarding the issue of gray mold disease:</b>
+                        Mr. Cheng explained the tomato cultivation process and
+                        the primary diseases affecting his tomato fields. Gray
+                        mold disease is the predominant ailment in his tomato
+                        fields, and they currently employ chemical pesticides
+                        for control. However, the effectiveness of this method
+                        is somewhat limited, resulting in substantial losses.
+                        <br />
+                        <br />
+                        <b>Concerning pesticide application:</b>
+                        Mr. Cheng informed us that pesticide application usually
+                        requires the assistance of knowledgeable technicians. He
+                        often provides technical guidance to local farmers in
+                        nearby villages. He observed that some farmers lack an
+                        understanding of pesticide usage rules. Despite the
+                        recommended application rates on packaging or in
+                        instruction manuals, certain farmers occasionally add
+                        pesticides excessively based on their subjective
+                        preferences. This leads to increased pesticide residue
+                        in crops and, in some cases, contamination of the
+                        farmland environment. Furthermore, for pesticide
+                        mixtures, farmers lack clear guidance on appropriate
+                        proportions for mixing.
+                        <br />
+                        <br />
+                        <b>Regarding Polycobead:</b>
+                        We explained our product design and treatment plan to
+                        Mr. Cheng. He appreciated the user-friendliness of our
+                        product, particularly the convenience of the
+                        quantitative encapsulation method using beads. As for
+                        our treatment plan, he expressed that his primary
+                        concern was its effectiveness. As long as it can provide
+                        effective pest control, he would be very willing to use
+                        our product.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+            </section>
+            <section id="anchor3.2">
+              <h2 style="border-bottom: 5px solid #fef9eb">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/sale.png"
+                  alt=""
+                  style="width: 100px"
+                />
+                &nbsp;Tomato Sellers
+              </h2>
+              <div class="col-md-12">
+                <p>
+                  <br />
+                  We visited many markets and communicated with sellers to learn
+                  about consumer's habits and preferences, as well as their
+                  views on pesticide residues.
+                  <br />
+                </p>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/chenlaoban.jpg"
+                        alt=""
+                        width="40%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Cheng Jiabo</h6>
+                      <p>
+                        <b
+                          >Sales Representative at Dachengxin Agricultural
+                          Company</b
+                        >
+                        <br />
+                        <br />
+                        He discussed the challenges in tomato procurement and
+                        transportation. Tomatoes often develop gray mold disease
+                        before transport, risking the infection of the entire
+                        batch during transit. Additionally, agricultural
+                        products must undergo pesticide residue testing in the
+                        market, exceeding limits can lead to unsellable batches
+                        and economic losses.
+                        <br />
+                        <br />
+                        <b>
+                          He hopes to effectively control gray mold disease in
+                          tomatoes or prevent its spread during transportation.
+                          Regarding pesticides, he seeks low residue levels and
+                          cost-effective solutions
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Cheng Jiabo</h6>
+                      <p>
+                        <b>Regarding gray mold disease:</b>
+                        Mr. Cheng informed us that he not only sells tomatoes
+                        but also has his tomato farm upstream in the industry.
+                        Gray mold disease is a significant issue faced by his
+                        tomato farm. It can manifest both before and after the
+                        fruits set, making detection and treatment extremely
+                        challenging. Currently, there are no effective methods
+                        for detection or treatment. The primary approach is to
+                        prevent its spread by burning infected plants.
+                        <br />
+                        <br />
+                        Once gray mold disease appears after fruit setting, it
+                        spreads rapidly within the crop. While greenhouse
+                        cultivation can reduce the incidence of the disease, it
+                        comes at a high cost and takes two years to recoup the
+                        investment.
+                        <br />
+                        <br />
+                        Although harvested fruits may not initially exhibit
+                        symptoms, there is still a risk of fruit rot during
+                        transportation due to the presence of gray mold spores.
+                        This can lead to significant losses. Furthermore, gray
+                        mold disease is highly contagious, exacerbating the
+                        potential damage to crops.
+                        <br />
+                        <br />
+                        <b>Regarding biopesticides:</b>
+                        We also inquired about Mr. Cheng's views on
+                        biopesticides. He mentioned that his primary concern is
+                        the cost. While biopesticides are environmentally
+                        friendly, their higher prices can lead to an increase in
+                        the overall production cost of tomatoes.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/higreen-1.jpg"
+                        alt=""
+                        width="40%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Mr. Huang</h6>
+                      <p>
+                        <b
+                          >The owner of Shenzhen Jinsui Vegetable Wholesale
+                          Store</b
+                        >
+                        <br />
+                        <br />
+                        Mr. Huang shared that he sells tomatoes from greenhouses
+                        and open fields. Greenhouses provide year-round harvests
+                        and disease prevention. He also mentioned organic
+                        vegetables, grown with organic fertilizers and strict
+                        quality standards, which come at higher costs but appeal
+                        to environmentally conscious consumers in the growing
+                        economy.
+                        <br />
+                        <br />
+
+                        <b>
+                          Regarding our treatment solution,He believes that an
+                          eco-friendly pest control method can promote the
+                          growth of organic vegetable production, making them
+                          more affordable to consumers.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Mr. Huang</h6>
+                      <p>
+                        <b>Regarding tomatoes:</b>
+                        Mr. Huang primarily sells vegetable tomatoes, which he
+                        sources from various locations based on the tomato
+                        season. He informed us that these tomatoes are grown
+                        both in greenhouses and open fields. Greenhouse
+                        cultivation allows for year-round harvesting and is less
+                        susceptible to diseases.
+                        <br />
+                        <br />
+                        <b>About organic vegetables:</b>
+                        Mr. Huang also discussed organic produce with us. He
+                        explained that organic vegetables cannot be sprayed with
+                        pesticides, which can sometimes result in less visually
+                        appealing appearance. Organic farming relies heavily on
+                        organic fertilizers, and the certification standards are
+                        stringent, leading to higher production costs and
+                        selling prices. However, as the economy continues to
+                        develop, organic vegetables are gaining popularity due
+                        to their environmentally friendly nature and superior
+                        taste, and the consumer base for organic produce is
+                        expanding.
+                        <br />
+                        <br />
+                        <b>Opinions on our treatment solution:</b>
+                        An effective green treatment approach can further
+                        promote the development of organic vegetables, making
+                        more people willing to invest in such produce.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="anchor3.3">
+              <h2 style="border-bottom: 5px solid #fef9eb">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/tubiaozhenfu.png"
+                  alt=""
+                  style="width: 100px"
+                />
+                &nbsp;Ministry of Agriculture
+              </h2>
+              <div class="col-md-12">
+                <p>
+                  <br />
+
+                  We visited the agricultural department and communicated with
+                  government officials to learn about the regulations for
+                  pesticide management and the government's views and support
+                  for new technologies.
+                  <br />
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 25%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/liyonghong.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Li Yonghong</h6>
+                      <p>
+                        <b
+                          >Chief Researcher at Shenzhen Agricultural Science and
+                          Technology Promotion Center</b
+                        >
+
+                        <br />
+                        <br />
+                        Ms. Li provided insights on tomato diseases, pesticide
+                        usage, policies, and pesticide residue testing
+                        regulations. She discussed biopesticides and challenges
+                        in agriculture. She also explained technology adoption
+                        and government innovation promotion efforts.
+                        <br />
+                        <br />
+                        <b>
+                          Ms. Li's belief in biopesticides as the future of
+                          agriculture aligns with our project direction. She
+                          also discussed essential procedures for successful
+                          implementation of new agricultural technologies,
+                          offering valuable guidance for our project planning
+                          and execution.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Li Yonghong</h6>
+                      <p>
+                        Shenzhen Agricultural Science and Technology Promotion
+                        Center has primary responsibilities encompassing
+                        agricultural technology advancement, crop quarantine,
+                        seed management, biotechnology safety, new variety
+                        promotion, and pesticide/fertilizer/seed regulations.
+                        <br />
+                        <br />
+                        <b>The Agricultural Development in Shenzhen:</b>
+                        Professor Li Yonghong informed us that agriculture in
+                        Shenzhen and its surrounding areas is diverse, with a
+                        focus on leafy vegetables. Various cultivation models
+                        such as greenhouses and pick-your-own farms are
+                        prevalent. Tomato cultivation exists in the region but
+                        on a smaller scale, with a majority of pick-your-own
+                        farms and small-scale farmers. Pest and disease issues,
+                        including gray mold, sour rot, and powdery mildew, are
+                        common, especially during the fruiting stage of
+                        tomatoes. Typically, meteorological monitoring and
+                        empirical predictions are used, with limited direct
+                        detection methods.
+                        <br />
+                        <br />
+                        <b
+                          >Management of Pesticides by Agricultural
+                          Authorities:</b
+                        >
+                        The sale and usage of pesticides are subject to
+                        government regulations, with specific qualifications
+                        required for pesticide sales. Different categories of
+                        pesticides with varying toxicity levels are subject to
+                        different management measures. The government promotes
+                        the scientific use of pesticides and provides guidance
+                        to farmers on the appropriate timing and methods of
+                        application. Additionally, the government is concerned
+                        about the impact of pesticides on soil and takes
+                        measures to reduce soil pollution. For large-scale
+                        cultivation, the government entrusts specialized
+                        agencies to provide agricultural pest control services
+                        to improve efficiency and effectiveness.
+                        <br />
+                        <br />
+                        <b>Views on Biopesticides:</b>
+                        Professor Li Yonghong mentioned that the advantages of
+                        biopesticides lie in their environmental friendliness
+                        and safety. However, they come with higher costs and
+                        slower effects, requiring advance prediction and
+                        forecasting. The government can establish certification
+                        standards and collaborate with agricultural enterprises
+                        to conduct large-scale cultivation experiments, using
+                        data to prove the safety and effectiveness of
+                        biopesticides, thereby gaining consumer trust.
+                        <br />
+                        <br />
+                        <b>Significance of Promoting Biopesticides:</b>
+                        The significance of promoting biopesticides lies in
+                        meeting modern society's demands for environmental
+                        protection and the quality of agricultural products,
+                        with promising market prospects. Through government
+                        guidance, promotion, the establishment of certification
+                        standards, and collaboration with the market, consumers
+                        are more willing to purchase agricultural products
+                        cultivated using biopesticides.
+                        <br />
+                        <br />
+                        <b>Regarding Genetically Modified Organisms (GMOs):</b>
+                        Professor Li also shared her views on GMOs, stating that
+                        GMO technology is part of technological advancement.
+                        Public concerns about GMOs primarily result from
+                        inadequate public awareness. GMO technology can be
+                        beneficial for improving crop traits but must be used
+                        correctly. In China, strict regulations and labeling
+                        requirements are in place. Agricultural authorities
+                        conduct GMO awareness campaigns. The approval timeline
+                        for GMO crops varies depending on multiple stages, and
+                        policy constraints exist.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 25%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/mahaifeng.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Ma Haifeng</h6>
+                      <p>
+                        <b
+                          >Chief Researcher at Shenzhen Agricultural Science and
+                          Technology Promotion Center</b
+                        >
+                        <br />
+                        <br />
+                        Mr. Ma shared insights into tomato diseases, their
+                        treatments at the demonstration field, and discussed the
+                        timing and weather conditions influencing disease
+                        occurrence. He also offered on-site crop growth
+                        observations, cultivation techniques, and shared his
+                        experiences on plant protection concepts.
+                        <br />
+                        <br />
+                        <b>
+                          Mr. Ma is optimistic about our project, viewing RNA
+                          pesticides as a promising new technology. He believes
+                          our plant immune-based treatment approach aligns with
+                          plant protection principles and stressed the need for
+                          user-friendly products, ensuring farmers' ease of use.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Ma Haifeng</h6>
+                      <p>
+                        <b>Regarding the demonstration field:</b>
+                        The center oversees various agricultural functions such
+                        as strategy development, policy formulation, quality
+                        monitoring, disaster prevention, and crop disease and
+                        pest control. Mr. Wang specializes in crop disease and
+                        pest management, offering farmers technical support
+                        through field observations, and possesses expertise in
+                        prevalent crop diseases, pests, and control measures.
+                        Mr. Ma guided us on a tour of the demonstration field
+                        and explained in detail the process of breeding new
+                        varieties and the implementation of demonstration trials
+                        for new technologies at this location.
+                        <br />
+                        <br />
+                        <b>About plant protection:</b>
+                        Mr. Ma shared with us common tomato diseases and the
+                        medications used for treatment. He also explained the
+                        timing of disease occurrence and the corresponding
+                        weather conditions. He led us to observe the growth of
+                        some crops and planting methods on-site and shared some
+                        principles and experiences related to plant protection.
+                        He emphasized the importance of using a diversified
+                        approach to manage plant diseases and pests, maintaining
+                        ecological balance, prioritizing prevention over
+                        treatment, and using pesticides rationally to achieve
+                        sustainable agricultural production. Additionally, he
+                        mentioned the significance of regulating pesticide use
+                        in accordance with the law, improving farmers' technical
+                        skills, and ensuring food safety and environmental
+                        health.
+
+                        <br />
+                        <br />
+                        <b>Regarding our treatment plan:</b>
+                        After reviewing our treatment plan, Mr. Ma expressed
+                        agreement, stating that it aligns with the principles of
+                        plant protection and represents a comprehensive approach
+                        to pest control.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 25%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/wangrifang11.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Wang Rifang</h6>
+                      <p>
+                        <b
+                          >Senior Horticulturist at Boluo County Agricultural
+                          and Rural Service Center</b
+                        >
+                        <br />
+                        <br />
+                        Mr. Wang emphasized that low temperatures and high
+                        humidity can trigger gray mold concerns, which can be
+                        mitigated through late-season planting. Triazole-based
+                        pesticides are commonly used against fungal diseases,
+                        but addressing resistance requires ongoing research.
+                        Farmers often use experience and weather cues for
+                        prevention, but disease prediction models show
+                        potential.
+                        <br />
+                        <br />
+                        <b>
+                          Regarding our treatment solution, Mr. Wang believes
+                          that there are obstacles to enhancing immunity with
+                          biopesticides due to farmer skepticism. So, proving
+                          the product's effectiveness is crucial.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h4 class="tex">Wang Rifang</h4>
+                      <p>
+                        <b>Tomato Production Challenges:</b>
+                        The main issues in tomato production are bacterial and
+                        fungal diseases, with a focus on bacterial wilt.
+                        Bacterial wilt spreads rapidly in hot and humid
+                        conditions and is transmitted through the soil, leading
+                        to vascular blockage and wilting.Mr. Wang mentioned that
+                        grafted tomatoes are primarily used to prevent
+                        soil-borne diseases such as bacterial wilt and
+                        Phytophthora early blight, while diseases transmitted
+                        through the air, such as late blight and gray mold,
+                        still require timely control through conventional
+                        planting measures.
+                        <br />
+                        <br />
+                        <b>Regarding gray mold:</b>
+                        Gray mold is a common disease in hot and humid
+                        conditions. Tomatoes can be divided into early and late
+                        crops, with late planting helping to reduce the impact
+                        of gray mold. For fungal diseases like gray mold,
+                        triazole-class pesticides are currently the main method
+                        of control, providing effective and economical results.
+                        <br />
+                        <br />
+                        <b>Best Time for Pesticide Application:</b>
+                        Mr. Wang pointed out that pesticides can be applied
+                        after the disease has occurred, but based on the basic
+                        principles of farming, farmers typically observe
+                        seedlings daily. Once a disease is detected, they
+                        immediately perform appropriate pruning and apply
+                        pesticides, which generally yields good results. Leaves
+                        affected by the disease, usually young leaves, need to
+                        be pruned because the disease can affect photosynthesis.
+                        However, it's important to note that pesticides are not
+                        a universal solution, and improper use can lead to
+                        reduced yields. In winter, the likelihood of disease
+                        infection may increase, especially under abnormal
+                        weather conditions.
+                        <br />
+                        <br />
+                        <b>Regarding Disease Prediction and Warning Models:</b>
+                        Currently, disease prevention is primarily based on
+                        experience and meteorological factors, with early
+                        preventive pesticide use being a common practice.
+                        <br />
+                        <br />
+                        <b>About Biopesticides:</b>
+                        Currently, there is a market for immunostimulants like
+                        aminooligosaccharides that enhance immunity. However,
+                        farmers tend to use these products less due to the lack
+                        of visible effects and cost considerations. Farmers are
+                        more inclined to use treatments for diseases that have
+                        already occurred and focus on effectiveness.
+                        Nevertheless, from a scientific development perspective,
+                        there is still a pressing demand for new technologies
+                        like biopesticides. Biopesticides may have some
+                        limitations compared to chemical pesticides, such as the
+                        environmental and storage requirements for Bacillus
+                        thuringiensis. Additionally, they require specific
+                        testing parameters.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 25%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/lili.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Li Li</h6>
+                      <p>
+                        <b>
+                          Department of Agriculture and Seed Promotion Boluo
+                          County Agricultural and Rural Service Center, Huizhou
+                          City
+                        </b>
+                        <br />
+                        <br />
+                        Ms. Li explained the process of promoting new
+                        technologies with government support, involving
+                        technology selection, validation, and demonstration for
+                        effectiveness. Government policies offer financial aid,
+                        research funding, and tax incentives. Authorities
+                        recommend technologies to farmers and provide training
+                        for correct adoption.
+                        <br />
+                        <br />
+                        <b>
+                          Director Li emphasized the importance of both product
+                          effectiveness and product user-friendliness for
+                          successful promotion. She expressed her willingness to
+                          support further promotion efforts if our technology
+                          proves to be mature.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6>Li Li</h6>
+                      <p>
+                        The center's responsibilities encompass various aspects
+                        of agricultural production, including formulating
+                        agricultural development strategies, planning, and
+                        policies, monitoring agricultural product quality and
+                        safety, as well as disaster prevention and crop disease
+                        and pest control.Ms. Li's primary responsibility
+                        involves conducting on-ground trials and promoting new
+                        varieties and technologies.
+                        <br />
+                        <br />
+                        <b>Regarding technology promotion:</b>
+                        Ms. Li emphasized the strong support from the government
+                        for agricultural development and new technologies. He
+                        mentioned that technologies like RNAi need to go through
+                        a series of processes within agricultural departments,
+                        including approvals and field trials, to be implemented.
+                        The government actively supports the development of new
+                        technologies by providing financial aid, research
+                        funding, and tax incentives, among other measures.
+                        During the promotion phase, relevant departments
+                        introduce and provide training to farmers to ensure the
+                        correct use and widespread adoption of these new
+                        technologies.
+                        <br />
+                        <br />
+                        <b>As for our treatment plan:</b>
+                        Ms. Li expressed that the government highly supports the
+                        use of biopesticides, which align with environmental
+                        conservation principles and have substantial growth
+                        potential. He emphasized the importance of the
+                        treatment's efficacy, as farmers are more inclined to
+                        use products that deliver good results. Additionally, he
+                        highlighted the convenience of product usage as a
+                        crucial factor in successful promotion. Ms.Li also
+                        mentioned his willingness to assist us in further
+                        promotion if our technology matures.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/chenchangzhang.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Chen Wenhui</h6>
+                      <p>
+                        <b
+                          >Director of Huizhou Boluo County Agricultural Science
+                          and Technology Demonstration Center</b
+                        >
+                        <br />
+                        <br />
+                        Mr. Chen discussed pesticide sales requirements,
+                        regulatory oversight, penalties, and agricultural
+                        product quality and safety monitoring. He also
+                        emphasized the vital role of technology in rural
+                        revitalization and its significant contribution to
+                        agriculture.
+                        <br />
+                        <br />
+                        <b>
+                          Mr. Chen inquired about the treatment plan's
+                          validation, its long-term plant protection, and
+                          pesticide residues. We explained, and he stressed that
+                          actual effectiveness matters most.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Chen Wenhui</h6>
+                      <p>
+                        The Huizhou Boluo County Agricultural Science and
+                        Technology Demonstration Center's primary functions
+                        include experimenting with new pesticides, introducing
+                        new crop varieties and technologies, and promoting
+                        agricultural research and demonstrations.
+                        <br />
+                        <br />
+                        Technology dissemination plays a crucial role in rural
+                        revitalization. Currently, many rural areas are
+                        promoting the concept of "one village, one product,"
+                        with the core idea being to unite farmers and support
+                        agricultural industries to achieve prosperity in
+                        villages. Continuously exploring new industrial models
+                        is the inevitable choice for rural revitalization.
+                        <b
+                          >Director Chen stated that our products are a vivid
+                          example of technology assisting agriculture.</b
+                        >
+                        <br />
+                        <br />
+                        <b>Regarding pesticide usage:</b>
+                        the current situation is that most pesticides and
+                        fertilizers are inorganic chemical products. Although
+                        there are some organic fertilizer products available in
+                        the market, their effectiveness is not ideal. Therefore,
+                        many farmers prefer to purchase inorganic fertilizers
+                        rather than choosing free organic ones. Consequently, we
+                        may need to focus on improving the effectiveness of our
+                        products, especially if the cost can be relatively high
+                        while ensuring excellent results. Currently, the country
+                        is actively promoting the development of organic and
+                        biological pesticides, as well as organic fertilizers.
+                        <br />
+                        <br />
+                        <b>promotion:</b>
+                        Director Chen mentioned that when our products are ready
+                        for practical experimentation, we can use a
+                        demonstration field approach. This allows farmers to
+                        witness the product's effectiveness firsthand, and they
+                        can spread the word among themselves. This is considered
+                        the most effective way of promotion.
+                        <br />
+                        <br />
+                        <br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/yingzhuren.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Yin Zaobin</h6>
+                      <p>
+                        <b
+                          >Director of Pesticide Residue Detection Center, Boluo
+                          County Agriculture Bureau</b
+                        >
+                        <br />
+                        <br />
+                        Director Yin emphasized the strict requirements and
+                        procedures for pesticide sales. These measures help
+                        ensure the quality of agricultural products and
+                        safeguard consumer health.
+
+                        <br />
+                        <br />
+                        <b>
+                          Director Yin highly appreciates our biopesticide,
+                          seeing great potential in it due to its approximately
+                          30% profit margin in the pesticide industry. Effective
+                          results and farmer trust are essential for success,
+                          and biopesticides offer a safer alternative to
+                          chemical pesticides.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6>Yin Zaobin</h6>
+                      <p>
+                        The main responsibility of Boluo County Agriculture
+                        Bureau's Pesticide Residue Detection Center is to test
+                        pesticide residues to ensure the quality and safety of
+                        agricultural products, thereby ensuring compliance with
+                        regulations and consumer health. We would like to
+                        inquire with Director Yin about the current pesticide
+                        residue detection standards and sampling criteria.
+                        <br />
+                        <br />
+                        <b>Views on biopesticides:</b>
+                        The teacher believes that biopesticides offer greater
+                        safety. For example, while herbicides like Paraquat are
+                        highly effective, they pose significant health risks to
+                        humans. Consequently, liquid formulations have been
+                        adjusted to have an irritating odor to prevent misuse.
+                        However, these measures have not completely eliminated
+                        incidents of self-harm, leading to a gradual phase-out.
+                        In contrast, our biopesticides have promising prospects.
+                        Unlike fertilizers and other products, our pesticides
+                        still hold high value.
+                        <br />
+                        <br />
+                        <b>Requirements for pesticide sales:</b>
+                        Pesticide sales require a license and compliance with
+                        various conditions and training. Purchasing pesticides
+                        involves identity registration through a specialized
+                        platform. Licenses typically need to be renewed every
+                        five years, and past penalties may necessitate
+                        reapplication. Additional requirements may include
+                        maintaining records, township-level inspections, and
+                        regular enforcement checks.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="anchor3.4">
+              <h2 style="border-bottom: 5px solid #fef9eb">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/consumer.png"
+                  alt=""
+                  style="width: 100px"
+                />
+                &nbsp;Consumers
+              </h2>
+              <div class="col-md-12">
+                <p>
+                  <br />
+                  We communicated with consumers at supermarkets to understand
+                  their consumption habits and their views and attitudes towards
+                  pesticide residues. In the process, we also discovered that
+                  consumers have misconceptions about new technologies. This has
+                  prompted us to carry out educational campaigns to eliminate
+                  these misunderstandings.
+                  <br />
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/shendajiejie.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Ms. Guo</h6>
+                      <p>
+                        <b>28 years old</b>
+                        <br />
+                        <br />
+                        Ms. Guo mentioned that younger consumers prioritize
+                        vegetable and fruit prices and convenience, while older
+                        consumers are more concerned about food safety and
+                        quality, especially pesticide residues.
+                        <b>
+                          These differing considerations affect their purchasing
+                          choices, inspirating the importance of surveying
+                          different age groups.
+                        </b>
+                        <br />
+                        <br />
+                        We also introduced our biopesticide to Ms. Guo. She
+                        expressed that she would be very willing to purchase
+                        such products if they didn't significantly raise the
+                        prices of agricultural products and if they improved the
+                        taste of the produce.
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Ms. Guo</h6>
+                      <p>
+                        Ms. Guo was randomly interviewed during our visit to the
+                        Dabanqiao Market in Nanshan District, Shenzhen.
+                        Dabanqiao Market is a daily market where local residents
+                        purchase vegetables and fruits. It is home to more than
+                        100 vendors.
+                        <br />
+                        <br />
+                        <b>Shopping Habits:</b>
+                        The individual usually uses Meituan for grocery shopping
+                        but decided to visit the farmer's market on this
+                        occasion for its convenience and cost-effectiveness.The
+                        shopper evaluates groceries based on factors like value
+                        for money, pricing, and the taste of the products.
+                        <br />
+                        <br />
+                        <b>Priorities:</b>
+                        There is no specific emphasis on organic or
+                        pesticide-free produce during this visit. The primary
+                        concern is to make practical and budget-conscious
+                        purchases.
+                        <br />
+                        <br />
+                        <b>Age Differences:</b>
+                        The shopper acknowledges that different age groups may
+                        have varying priorities. Older individuals may place
+                        more importance on pesticide residues in groceries but
+                        will still consider price when making their purchases.
+                        <br />
+                        <br />
+                        <b>Inspriration:</b>
+                        This also provides us with a valuable insight, which is
+                        to pay special attention to the perspectives and needs
+                        of different age groups when conducting consumer
+                        surveys. In our future consumer surveys, we have been
+                        mindful of asking about their age to observe the focus
+                        areas of various age demographics.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/qioabianshichang.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Ms.Lin</h6>
+                      <p>
+                        <b>40 years old</b>
+                        <br />
+                        <br />
+                        Ms. Lin expressed that pesticide residues and similar
+                        concerns should be addressed by market regulations
+                        rather than consumers. She mainly considers
+                        affordability and freshness when shopping for groceries.
+                        She has concerns about genetically modified crops and
+                        avoids purchasing them. As for organic produce, she is
+                        not very familiar with it since it's only available in a
+                        few expensive supermarkets, and she doesn't actively
+                        seek it out.
+                        <br />
+                        <br />
+                        We introduced the concept of biopesticides to Ms. Lin
+                        and explained that our products don't carry the risk of
+                        genetic modification.
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Ms.Lin</h6>
+                      <p>
+                        We met Ms. Lin during a random interview at the
+                        Dabanqiao Market in Nanshan District, Shenzhen. This
+                        market is where local residents buy groceries and has
+                        over 100 vendors selling fruits and vegetables.
+                        <br />
+                        <br />
+                        <b>Primary Purchase Considerations:</b>
+                        Ms. Lin mentioned that she typically doesn't include
+                        factors related to pesticide residues and similar issues
+                        in her purchasing decisions, as she considers it the
+                        responsibility of market regulation. When selecting food
+                        items, she places greater emphasis on affordability and
+                        the freshness of the ingredients. Regarding genetically
+                        modified crops, she usually opts not to purchase them
+                        due to concerns.
+                        <br />
+                        <br />
+                        <b>View on Organic Food:</b>
+                        Ms. Lin believes that organic food is relatively
+                        expensive. She has limited knowledge about the benefits
+                        of organic food and may perceive no significant
+                        difference in taste and quality compared to regular
+                        food. As a result, she is not very inclined to purchase
+                        organic food.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/consumer-qiu.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Mr.Qiu</h6>
+                      <p>
+                        <b>62 years old</b>
+                        <br />
+                        <br />
+                        Mr.Qiu believes that market regulation is necessary for
+                        pesticide residue issues. He thinks it's difficult for
+                        consumers to know the pesticide usage on the vegetables
+                        they consume. He believes that there are many
+                        genetically modified fruit tomatoes in the market(which
+                        is actually a misconception on his part) and worries
+                        about the presence of genetically modified organisms.
+                        <br />
+                        <br />
+                        After hearing about our product, Uncle Qiu expressed
+                        interest.His misconceptions about genetically modified
+                        products in the market also motivated us to consider
+                        providing education to address consumer misconceptions.
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Mr.Qiu</h6>
+                      <p>
+                        We met Mr.Qiu in Huaren Wanjia, a large chain
+                        supermarket in Shenzhen known for its rigorous
+                        inspection process that ensures the quality and safety
+                        of produce.
+                        <br />
+                        <br />
+                        <b>Attitude towards pesticide residues:</b>
+                        Mr. Qiu believes that the issue of pesticide residues
+                        requires the support of market supervision because
+                        consumers often find it difficult to proactively select
+                        vegetables that meet safety standards. They lack
+                        relevant information and struggle to determine whether
+                        the vegetables they purchase are affected by pesticide
+                        residues. Therefore, he believes that promotion and the
+                        establishment of relevant standards are crucial.
+                        <br />
+                        <br />
+                        <b>Attitude towards GMOs:</b>
+                        Holds a skeptical attitude towards genetically modified
+                        organisms (GMOs) and has misconceptions, believing that
+                        most tomatoes in the market are genetically modified
+                        <br />
+                        <br />
+                        <b>Inspiration:</b>
+                        Mr. Qiu's misconceptions have made us realize the lack
+                        of knowledge and understanding among the public
+                        regarding new technologies. To dispel public doubts and
+                        misunderstandings about new technologies, especially
+                        when it comes to emerging technologies, scientific
+                        outreach becomes crucial. This underscores the need for
+                        broader dissemination of relevant knowledge to ensure
+                        that people have a correct understanding of new
+                        technologies and are better equipped to accept and apply
+                        them.
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 25%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/lianggenainai.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Ms.Fan and Ms. Li</h6>
+                      <p>
+                        <b>73 years old</b>
+                        <br />
+                        <br />
+                        Huaren Wanjia, a prominent Shenzhen supermarket chain,
+                        is renowned for its rigorous inspection of fruits and
+                        vegetables, offering consumers greater confidence in
+                        quality and safety. We interviewed two shoppers.
+                        <br />
+                        <br />
+                        They usually buy groceries at the local market because
+                        it's fresher and more delicious, and they occasionally
+                        come to the supermarket. She believes that pesticide
+                        residue issues are a matter for government regulation
+                        and not something the consumers can control or address.
+                        As for organic vegetables, they currently find it
+                        difficult to buy organic produce as there aren't many
+                        organic options available in the market yet.
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Ms.Fan and Ms. Li</h6>
+                      <p>
+                        Huaren Wanjia, a large chain supermarket in Shenzhen, is
+                        known for its rigorous inspection process for the sale
+                        of fruits and vegetables, providing consumers with more
+                        assurance. This strict inspection process helps ensure
+                        the quality and safety of fruits and vegetables. We
+                        interviewed two madams who are currently shopping for
+                        groceries here.
+                        <br />
+                        <br />
+                        <b>Regarding pesticide residues:</b>
+                        both grandmothers believe that market regulatory
+                        authorities should ensure the safety levels of pesticide
+                        residues in food. They think that consumers often find
+                        it difficult to determine on their own whether
+                        vegetables and fruits are affected by pesticide
+                        residues, and therefore, regulatory oversight and
+                        standards from relevant authorities are needed to
+                        guarantee safety.
+                        <br />
+                        <br />
+                        <b>Shopping habits for groceries:</b>
+                        The grandmothers mentioned that they usually buy
+                        groceries at the local market because they find the
+                        produce to be fresher and more delicious. Occasionally,
+                        they may visit a supermarket for their shopping
+                        needs.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 30%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/chaoshiyuangong.jpg"
+                        alt=""
+                        width="50%"
+                        height="110%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Mr. Xu</h6>
+                      <p>
+                        <b>23 years old</b>
+                        <br />
+                        <br />
+                        Mr. Xu, a supermarket employee, is not highly concerned
+                        about pesticide residues and generally trusts government
+                        regulations. He mentioned that he doesn't typically
+                        purchase organic vegetables due to their higher prices.
+
+                        <br />
+                        <br />
+                        <b>
+                          After listening to our biological pest control
+                          solution, he expressed a positive attitude and said he
+                          is open to new technologies and approaches. However,
+                          he mentioned that older consumers may not be as
+                          receptive.He told us that it's essential to educate
+                          the public more about new technologies to dispel
+                          misunderstandings and concerns.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn">
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Mr. Xu</h6>
+                      <p>
+                        <b>Regarding agricultural products:</b>
+                        Mr. Xu personally doesn't pay much attention to
+                        pesticide residues and has trust in government
+                        regulatory mechanisms. As for organic vegetables, he
+                        doesn't typically purchase them because of their higher
+                        prices.
+                        <br />
+                        <br />
+                        <b
+                          >We explained our treatment plan to Mr. Xu, and he
+                          responded with a positive attitude.</b
+                        >
+                        He expressed his willingness to embrace new technologies
+                        and methods, b elieving that by introducing these
+                        innovations, better results can be achieved, efficiency
+                        can be improved, or existing challenges can be
+                        addressed. This positive attitude is often instrumental
+                        in driving innovation and development, leading to the
+                        success of projects or programs.
+                        <br />
+                        <br />
+                        <b>
+                          reflection:Mr. Xu believes that the younger generation
+                          is more likely to embrace new technologies, but he
+                          also thinks that older consumers may not necessarily
+                          be willing to accept them. This underscores the
+                          importance of proactive communication and addressing
+                          concerns when promoting new technologies. In our
+                          future consumer surveys, we will actively explain the
+                          principles of our technology and considerations
+                          related to safety to consumers.<br /><br /><br /><br />
+                        </b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 p-lg-2">
+                  <div class="ihpbox">
+                    <div class="text-center mg-top-25" style="height: 25%">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/consumer-qi.jpg"
+                        alt=""
+                        width="50%"
+                        height="100%"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h6>Ms. Qin</h6>
+                      <p>
+                        <b>40 years old</b>
+                        <br />
+                        <br />
+                        Ms. Qin expressed her strong concern about pesticide
+                        residues and her preference for purchasing vegetables
+                        from large supermarkets, which she believes offer better
+                        quality control. While she's interested in organic
+                        vegetables, she doesn't buy them regularly due to their
+                        higher prices, and she is not very open to genetically
+                        modified products.
+                        <br />
+                        <br />
+                        <b>
+                          After introducing our biological pest control
+                          solution, Ms. Qin expressed optimism about our
+                          product. She hopes that adopting biological pest
+                          control won't significantly raise vegetable prices and
+                          stressed the importance of effective regulation and
+                          safeguards for new technologies.
+                        </b>
+                      </p>
+                    </div>
+                    <div class="text-center">
+                      <div class="p-2 ihpbox-btn"><span></span></div>
+                    </div>
+                    <div class="card p-2">
+                      <h6 class="tex">Ms. Qin</h6>
+                      <p>
+                        <b>Regarding pesticide residues:</b>
+                        Ms. Qin is very concerned about pesticide residues and
+                        their potential impact on food safety and health,
+                        especially for children and the elderly. Faced with this
+                        concern, she tends to prefer buying organic food or
+                        products labeled as pesticide-free because she believes
+                        these products meet her requirements for food safety
+                        <br />
+                        <br />
+                        In addition, Ms. Qin is more inclined to shop at large
+                        supermarkets because she believes that these
+                        supermarkets typically have stricter quality assurance
+                        measures and can provide more reliable food supplies.
+                        <br />
+                        <br />
+                        <b>Regarding our biological control solution:</b>
+                        Ms. Qin remains optimistic about our product. However,
+                        she expresses a concern that adopting biological control
+                        methods should not significantly increase the prices of
+                        vegetables. She also emphasizes the importance of having
+                        reliable oversight and safeguards in place for new
+                        technologies. This indicates her desire for a balance
+                        between adopting innovative techniques and ensuring
+                        affordability and safety in the agricultural sector.<br /><br /><br /><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+            </section>
+          </section>
+          <section id="anchor4">
+            <h2>Improvement and interaction</h2>
+            <section id="anchor4.1">
+              <h3>Reflection</h3>
+
+              <div>
+                <p>
+                  <br />
+                  After in-depth discussions with various stakeholders related
+                  to tomatoes, we discovered that different stakeholders had
+                  varying concerns regarding the pesticide. These made us
+                  realize that we had not adequately considered these needs
+                  during the early stages of project design!
+                  <br />
+                  <br />
+                </p>
+                <p>
+                  After thoroughly understanding the needs and priorities of the
+                  stakeholders involved in the tomato industry, we carefully
+                  analyzed and evaluated our project. Based on the valuable
+                  feedback received from stakeholders, we realized the
+                  importance of making specific improvements and adjustments to
+                  align with their values and requirements.
+                </p>
+                <p>
+                  <b>
+                    So we improved and adjusted our project to meet with the
+                    values and need they are prioritizing. After understanding
+                    the needs of the stakeholders involved in tomatoes, we made
+                    improvements to our project in five key areas to meet their
+                    requirements.
+                  </b>
+                </p>
+
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/five.jpg"
+                  alt=""
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+            </section>
+            <br />
+            <section id="anchor4.2">
+              <h3>Responsiveness</h3>
+              <h4 style="font-weight: 600">"More effective"</h4>
+              <div
+                style="background: #fbebe7; border-radius: 15px; padding: 10px"
+              >
+                <h5>Overcoming bottlenecks to improve effectiveness</h5>
+                <div></div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>
+                      <br />
+                      <b>Agricultural Producers:</b>
+                      <br />
+                      <b>Mr. Cheng:</b>
+                      <span class="size-14">
+                        "I believe the most important thing about pesticides is
+                        their effectiveness. If pests and diseases disappear
+                        after using pesticides, we are happy."
+                      </span>
+                      <br />
+                      <b>Mr. Liang:</b>
+                      <span class="size-14">
+                        "Chemical pesticides nowadays develop resistance after
+                        just a few applications. I hope we can have effective
+                        pesticides."
+                      </span>
+                      <br />
+                      <b>Mr. Hong Chuangjiang:</b>
+                      <span class="size-14">
+                        "We also use some biopesticides, but they take longer to
+                        show results. I hope biopesticides in the future will
+                        work faster and be more effective."
+                      </span>
+                    </p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/framer1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/zhenfu1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <p>
+                      <br />
+                      <b>Ministry of Agriculture :</b>
+                      <br />
+                      <b>Researcher Ma Haifeng:</b>
+                      <span class="size-14">
+                        "For your product, you must have ample experimental data
+                        to prove that your treatment is better than other
+                        pesticides. Only then will farmers trust your product,
+                        and the agricultural department will promote it."
+                      </span>
+                      <br />
+                      <b>Director Chen Wenhui:</b>
+                      <span class="size-14">
+                        "The most important thing about pesticides is whether
+                        they work well or not. If they don't work well, farmers
+                        won't be willing to use them."
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <br />
+
+                <br />
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>
+                      <b>"Agro-Knowledge Conference"</b>
+                      <br />
+                      "Agro-Knowledge Conference," themed "Future Pesticides
+                      Driven by Cutting-Edge Technology, Leading a New Journey
+                      of Green Innovation," brought together experts,
+                      representatives from the pesticide industry, academia,
+                      research, and capital. Distinguished figures like Lv
+                      Yuping, General Manager of Longping Bio, Professor Yang
+                      Guangfu from Huazhong Normal University, Tang Xueming,
+                      Chairman of Silicon Arrow Technology and so on were
+                      invited to
+                      <b>
+                        collectively explore the commercialization of future
+                        pesticide technologies driven by cutting-edge
+                        advancements.
+                      </b>
+                      <br />
+                      <br />
+                      Our team participated in this conference and learned about
+                      the three main bottlenecks in the commercialization of RNA
+                      pesticides:
+                      <br />
+                      <br />
+                    </p>
+                    <ul>
+                      <li class="ps-4">
+                        <b
+                          >1. RNAi molecules may not efficiently enter target
+                          cells and function.</b
+                        >
+                        <br />
+                        <br />
+                        <b>2. RNAi may have weak target effects.</b>
+                        <br />
+                        <br />
+                        <b>
+                          3. The production of RNAi molecules relies heavily on
+                          cell fermentation, making it difficult to reduce
+                          costs.
+                        </b>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="row">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/zhigen.jpg"
+                        alt=""
+                        width="100%"
+                        class="border_shadow_img"
+                      />
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/rnaiyuanli.jpg"
+                        alt=""
+                        width="100%"
+                        class="border_shadow_img mg-top-10"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/arrow.png"
+                    alt=""
+                    width="8%"
+                  />
+                </div>
+                <br />
+                <p>
+                  To make our treatment solution more effective and meet the
+                  expectations of producers and the agricultural department, we
+                  proposed our own solution to improve the efficient entry of
+                  RNAi molecules into target cells, as well as reducing the
+                  potential for off-target effects and providing a more
+                  sustained effect.
+                  <br />
+                  <br />
+                </p>
+                <br />
+                <div class="text-center">
+                  <img
+                    class="col-md-10 text-center"
+                    class="text-center"
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/cpp.jpg"
+                    alt="The figure explains the principles of CPP (the picture was drawn by YiXi Wang)"
+                    width="80%"
+                  />
+                  <br />
+                  <div class="image-caption">
+                    <p
+                      style="
+                        font-size: 14px;
+                        color: #333;
+                        text-align: center;
+                        margin-top: 10px;
+                      "
+                    >
+                      The figure explains the principles of CPP (the picture was
+                      drawn by YiXi Wang)
+                    </p>
+                  </div>
+                </div>
+
+                <p>
+                  <b
+                    >Using CPP (Cell-Penetrating Peptides) to improve delivery
+                    efficiency:</b
+                  >
+                  We employed KH9-BP100 (a CPP) combined with shRNA. By spraying
+                  CPP-shRNA onto tomatoes infected with <i>B. cinerea</i>,
+                  shRNA, with the assistance of CPP, can enter plant cells more
+                  efficiently. This enhances the delivery efficiency of
+                  biomolecules into plant cells.
+                  <br />
+                  <br />
+                  <b>Bi-ShRNA providing a more sustained effect:</b>
+                  However, by using specific sequences to link shRNAs targeting
+                  different mRNAs, the resulting bi-shRNA molecules can be
+                  processed into various siRNAs, each with a distinct function.
+                  This approach allows for a lower effective dose compared to
+                  traditional siRNA/shRNA, reducing the potential for off-target
+                  effects and providing a more sustained effect.
+                  <br />
+                </p>
+                <div class="text-center"></div>
+
+                <div>
+                  <p>
+                    Please refer to the detailed content in
+                    <a href="https://2023.igem.wiki/szu-china/proof-of-concept"
+                      >Proof of Concept</a
+                    >
+                    and
+                    <a href="https://2023.igem.wiki/szu-china/proof-of-concept"
+                      >Engineering success</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <br />
+              <h4 style="font-weight: 600">"Safer"</h4>
+              <div
+                style="background: #f1f3d9; border-radius: 15px; padding: 10px"
+              >
+                <h5>Multiple Measures to Ensure Safety</h5>
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>
+                      <b>Ministry of Agricultural :</b>
+                      <br />
+                      <b>Researcher Li Yonghong:</b>
+                      <span class="size-14">
+                        "Chemical pesticides nowadays have a significant
+                        environmental impact. Your product must ensure that it
+                        doesn't have any adverse effects on the environment."
+                      </span>
+                      <br />
+                      <b>Minister Yin Zaobin:</b>
+                      <span class="size-14">
+                        "One of the reasons for the discontinuation of paraquat
+                        is the high number of suicides by consuming pesticides.
+                        A good product should consider its safety for human
+                        health."
+                      </span>
+                      <br />
+                      <b>Horticulturist Wang Rifang:</b>
+                      <span class="size-14">
+                        "The government is currently advocating for
+                        environmental protection. Environmental safety, human
+                        health, and the absence of pesticide residues are all
+                        aspects your product needs to excel in."
+                      </span>
+                    </p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/framer1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/consumer1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <p>
+                      <br />
+                      <b>Consumers:</b>
+                      <br />
+                      <b>Ms. Qin:</b>
+                      <span class="size-14">
+                        "I usually buy groceries from large supermarkets for
+                        some added assurance. I'm particularly concerned about
+                        pesticide residues exceeding the limits and also worry
+                        about genetically modified products."
+                      </span>
+                      <br />
+                      <b>Mr. Qiu:</b>
+                      <span class="size-14">
+                        "We don't know how many pesticide residues are in the
+                        vegetables available in the market. It's a big concern.
+                        I also avoid purchasing genetically modified foods."
+                      </span>
+                      <br />
+                      <b>Mr. Xu:</b>
+                      <span class="size-14">
+                        "I'm quite optimistic about biopesticides. They are more
+                        environmentally friendly and harmless to humans."
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <br />
+                <div>
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/arrow.png"
+                      alt=""
+                      width="8%"
+                    />
+                  </div>
+                </div>
+                <br />
+                <div class="p-2">
+                  <p>
+                    Everyone is deeply concerned about environmental safety and
+                    human health. We also considered safety-related issues
+                    during the initial project design. It's for safety reasons
+                    that we chose RNA interference (RNAi) and spray-induced gene
+                    silencing (SIGS) using exogenous dsRNA for treatment, which
+                    have the following safety advantages:
+                    <br />
+                    <br />
+                  </p>
+                  <ul>
+                    <li class="ps-4">
+                      <b>1.Specific Targeting:</b>
+                      It exclusively targets and silences essential genes of
+                      <i>B. cinerea</i>, causing no harm to other organisms.
+                      <br />
+                      <b>2.Environmental Friendliness:</b>
+                      RNAi molecules are easily degraded, making them
+                      environmentally friendly and free from pesticide residues.
+                      <br />
+                      <b>3.Non-GMO:</b>
+                      Unlike genetic modification technologies, RNAi-based
+                      biopesticides do not result in permanent changes in plant
+                      gene expression and are controllable.
+                    </li>
+                  </ul>
+
+                  <div class="row">
+                    <div>
+                      <div class="text-center">
+                        <img
+                          src="https://static.igem.wiki/teams/4653/wiki/ihp/zisha.png"
+                          alt=""
+                          width="70%"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-md-6"></div>
+                  </div>
+                </div>
+                <div>
+                  <p>
+                    <b>
+                      Choosing Environmentally Friendly
+                      <i>Bacillus subtilis</i>
+                      :
+                    </b>
+                    In triggering plant immunity, we selected Bacillus subtilis
+                    as the carrier to express immune-inducing factors. Bacillus
+                    subtilis is one of the most widely accepted plant probiotics
+                    and is environmentally friendly.
+                    <br />
+                    <b>Constructing a Suicide Switch for Safety:</b>
+                    To prevent our engineered bacteria from spreading and
+                    surviving in the fields, we designed a suicide switch to
+                    further ensures the safety of the product in the
+                    environment.
+                  </p>
+                  <p>
+                    Please refer to the detailed content in
+                    <a href="https://2023.igem.wiki/szu-china/design">Design</a>
+                  </p>
+                </div>
+              </div>
+
+              <br />
+              <br />
+              <h4 style="font-weight: 600">"More Affordable"</h4>
+              <div
+                style="background: #fbebe7; border-radius: 15px; padding: 10px"
+              >
+                <h5>Cost Reduction through Automation Hardware</h5>
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>
+                      <br />
+                      <b>Agricultural Producers:</b>
+                      <br />
+                      <b>Mr. Liang:</b>
+                      <span class="size-14">
+                        "We are concerned about pesticide prices. If they are
+                        too expensive, us farmers won't be able to afford them."
+                      </span>
+                      <br />
+                      <b>Mr. Cheng:</b>
+                      <span class="size-14">
+                        "For this over 100-acre land, one pesticide spray costs
+                        me around 4,000 RMB. This price is acceptable, but if
+                        pesticides become too expensive, it won't be
+                        cost-effective."
+                      </span>
+                      <br />
+                      <b>Mr. Wang</b>
+                      <span class="size-14">
+                        "Pesticides are essential, and we use them a lot, so I
+                        usually don't choose expensive ones."
+                      </span>
+                      <br />
+                      <b></b>
+                    </p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/framer1.png"
+                        alt=""
+                        width="65%"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/sale1.png"
+                        alt=""
+                        width="65%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <p>
+                      <br />
+                      <b>Tomato Sellers:</b>
+                      <br />
+                      <b>Mr. Cheng Jiabo:</b>
+                      <span class="size-14">
+                        "As business owners, we are quite price-sensitive. If
+                        your pesticides are too expensive, it raises production
+                        costs, which can impact the overall profitability of our
+                        agricultural operations. Therefore, we prefer pesticides
+                        that strike a balance between effectiveness and
+                        affordability, as long as they meet our needs and are
+                        accepted by consumers."
+                      </span>
+                      <br />
+                      <b>Mr. Wang:</b>
+                      <span class="size-14">
+                        "Pesticides should primarily be practical and
+                        affordable, not too expensive. If they are accepted and
+                        recognized by the general public, we are willing to
+                        accept them. What we sell also depends on what consumers
+                        like."
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/arrow.png"
+                      alt=""
+                      width="8%"
+                    />
+                  </div>
+
+                  <p>
+                    <br />
+                    <b>
+                      Price is a concern for both farmers and sellers. In the
+                      early stages of development of RNA pesticide, our product
+                      cannot be as inexpensive as chemical pesticides. However,
+                      we aim to reduce production costs as much as possible to
+                      make eco-friendly and affordable products accessible to
+                      everyone. Therefore, we have designed hardware to explore
+                      the possibility of large-scale production cost reduction.
+                    </b>
+                    <br />
+                  </p>
+                </div>
+                <div class="p-2">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="text-center">
+                        <img
+                          src="https://static.igem.wiki/teams/4653/wiki/ihp/zidonghua.png"
+                          alt=""
+                          width="100%"
+                          class="border_shadow_img"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-md-6"></div>
+                  </div>
+
+                  <p>
+                    <br />
+                    <b
+                      >An Automated Equipment for Large-Scale Production of
+                      shRNA Molecules through a Cell-Free Method:</b
+                    >
+                    We designed and constructed an automated hardware system
+                    suitable for large-scale synthesis of shRNA molecules. The
+                    automated production process of shRNA molecules is
+                    established by programming the microcontroller. The system
+                    can be operated by non-scientists and can be applied in
+                    non-laboratory environments. It aims to improve the
+                    convenience of shRNA production while reducing associated
+                    costs and opening up possibilities for further expansion of
+                    production.
+                  </p>
+                  <p>
+                    Please refer to the detailed content in
+                    <a href="https://2023.igem.wiki/szu-china/hardware"
+                      >Hardware</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <br />
+              <br />
+              <h4 style="font-weight: 600">"More User-Friendly"</h4>
+              <div
+                style="background: #f1f3d9; border-radius: 15px; padding: 10px"
+              >
+                <h5>
+                  Polycobead - Easy Application for Effective Disease Control
+                </h5>
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>
+                      <b>Ministry of Agricultural :</b>
+                      <br />
+                      <b>Minister Li Li:</b>
+                      <span class="size-14">
+                        "Your product must be suitable for farmers' use, simple,
+                        easy to use, and easy to store. This is crucial for
+                        widespread adoption."
+                      </span>
+                      <br />
+                      <b>Researcher Li Yonghong:</b>
+                      <span class="size-14">
+                        "Some pesticides can be very complicated to use, which
+                        discourages farmers and may lead to misuse. It would be
+                        better if your product is designed to be straightforward
+                        for farmers to accept."
+                      </span>
+                      <br />
+                      <b>Researcher Ma Haifeng:</b>
+                      <span class="size-14">
+                        "User-friendliness is essential. How do you plan to
+                        ensure farmers can use the two formulations in your
+                        project? A simpler design might be better."
+                      </span>
+                    </p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/zhenfu1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/framer1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <p>
+                      <b>Agricultural Producers:</b>
+                      <br />
+                      <b>Mr. Cheng:</b>
+                      <span class="size-14">
+                        "Pesticide application can be really troublesome. Every
+                        time, I have to request technicians to help. Some
+                        pesticides can't be mixed, or they become ineffective
+                        when mixed. It's also a hassle to calculate the right
+                        proportions. Often, I'm not sure how much to add, and
+                        it's a real headache."
+                      </span>
+                      <br />
+                      <b>Mr. Liang:</b>
+                      <span class="size-14">
+                        "Mixing pesticides is indeed a technical task. Every
+                        time, I have to spend a lot of time reading the
+                        instructions, and there are many precautions. It's
+                        really cumbersome."
+                      </span>
+                      <br />
+                      <b>Mr. Hong Chuangjiang:</b>
+                      <span class="size-14">
+                        "Sometimes, I don't even know how to mix pesticides, so
+                        I also hope that pesticide application can be made
+                        simpler and more convenient."
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/arrow.png"
+                    alt=""
+                    width="8%"
+                  />
+                </div>
+                <p>
+                  <b>
+                    <br />
+                    In our communications with farmers, we found widespread
+                    pesticide misuse in the agricultural sector.
+                  </b>
+                  Firstly, some farmers apply pesticides excessively, deviating
+                  from recommended dosage, which leads to overuse and
+                  environmental pollution. Secondly, farmers are often uncertain
+                  about how to correctly mix and use multiple pesticides,
+                  resulting in losing effectiveness.
+                  <b></b>
+                  <br />
+                  <br />
+                  To address these challenges and make pesticide application
+                  more user-friendly, we drew inspiration from laundry detergent
+                  beads. We decided packaging our product in a form with fixed
+                  dosage , encapsulating it within a single bead. We would then
+                  provide guidance to farmers on the number of beads for
+                  treating and preventing tomato gray mold disease.
+                  <b>These lead to the design of our product -- POLYCOBEAD.</b>
+                </p>
+
+                <div class="p-2">
+                  <div
+                    class="row"
+                    style="
+                      display: flex;
+                      flex-wrap: wrap;
+                      justify-content: space-around;
+                    "
+                  >
+                    <div class="col-md-10">
+                      <div class="text-center">
+                        <img
+                          src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-3.png"
+                          alt=""
+                          width="80%"
+                        />
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="text-center">
+                        <img
+                          src="https://static.igem.wiki/teams/4653/wiki/description/szu-description-4.png"
+                          alt=""
+                          width="95%"
+                        />
+                        <div></div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6"></div>
+                    <p>
+                      Polycobead uses polyvinyl alcohol (PVA) to encapsulate our
+                      CPP-shRNA formula and engineered Bacillus subtile by
+                      simply placing the designed small beads in a specific
+                      volume of water. They dissolve quickly, allowing direct
+                      field spraying. It has the following advantages:
+                    </p>
+                    <ul>
+                      <li class="ps-4">
+                        <br />
+                        <b>1.Ease of Use and Precise Application:</b>
+                        The drug preparation process in Polycobead is accurately
+                        mixed in accordance with scientific proportions, without
+                        complex preparation or farmer mixing. Dissolve the beads
+                        in water and use them.
+                        <br />
+                        <b>2.Extended Shelf Life:</b>
+                        the liquid environment inside the bead contains
+                        glycerin, which helps to extend the storage life.
+                        <br />
+                        <b>3.Environmentally Friendly:</b>
+                        The PVA film selected by Polycobead has good
+                        biocompatibility and degradability. No harm to the
+                        environment.
+                      </li>
+                    </ul>
+
+                    <p>
+                      Please refer to the detailed content in
+                      <a href="https://2023.igem.wiki/szu-china/engineering"
+                        >Engineering</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <br />
+              <br />
+              <h4 style="font-weight: 600">"More Precise"</h4>
+              <div
+                style="background: #fbebe7; border-radius: 15px; padding: 10px"
+              >
+                <h5>Accurate Modeling for Targeted Spraying</h5>
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>
+                      <b>Agricultural Producers:</b>
+                      <br />
+                      <b>Mr. Cheng:</b>
+                      <span class="size-14">
+                        "There's a problem that troubles me. You see, I manage
+                        over 100 acres of land. If I find gray mold disease in
+                        one area, how large an area should I spray with
+                        pesticides to prevent its spread? Spraying the entire
+                        100 acres is costly, but spraying too little might not
+                        effectively prevent it."
+                      </span>
+                      <br />
+                      <b>Mr. Hong Chuangjiang:</b>
+                      <span class="size-14">
+                        "Usually, when I discover a disease, I have no choice
+                        but to spray pesticides across the entire field to
+                        ensure prevention, even though it can be quite
+                        expensive."
+                      </span>
+                      <br />
+                    </p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/framer1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/zhenfu1.png"
+                        alt=""
+                        width="70%"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <p>
+                      <b>Ministry of Agriculture:</b>
+                      <br />
+                      <b>Li Yonghong:</b>
+                      <span class="size-14">
+                        "Agriculture is increasingly shifting toward large-scale
+                        farming, but it also poses some challenges. For
+                        instance, on several hundred acres of land, when a
+                        disease occurs in a particular area, how much pesticide
+                        should be sprayed to effectively control it?"
+                      </span>
+                      <br />
+                      <b>Mr. Chen Wenhui:</b>
+                      <span class="size-14">
+                        "Even in my demonstration field, we sometimes encounter
+                        diseases, often limited to a specific region. Without
+                        timely control, the disease can quickly spread to every
+                        region."
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/arrow.png"
+                    alt=""
+                    width="8%"
+                  />
+                </div>
+                <p>
+                  <br />
+                  In response to these issues, we've developed two models to
+                  effectively guide the practical application of Polycobead:
+                  <br />
+                  <b>RNAi Dosage Optimization Model:</b>
+                  <br />
+                  By applying optimal control and optimization theories, we
+                  optimize the cost function, guiding farmers to use RNAi
+                  pesticides optimally for disease control, product quality, and
+                  yield while minimizing costs.
+                  <br />
+                  <br />
+                  <b>Pesticide Application Range Model:</b>
+                  <br />
+                  This model simulates disease development patterns under field
+                  conditions to predict the effective application area and
+                  quantity of pesticides required when diseased plants are
+                  discovered. Its aim is to minimize costs and environmental
+                  impact while effectively controlling disease spread.
+                </p>
+                <p>
+                  Please refer to the detailed content in
+                  <a href="https://2023.igem.wiki/szu-china/model">Model</a>
+                </p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/model111.png"
+                        alt="RNAi Dosage Optimization Model"
+                        width="70%"
+                      />
+                      <small class="image-caption-small"
+                        >RNAi Dosage Optimization Model</small
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/model-2.jpg"
+                        alt="Pesticide Application Range Model"
+                        width="70%"
+                      />
+                      <small class="image-caption-small"
+                        >Pesticide Application Range Model</small
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <br />
+            </section>
+            <section id="anchor4.3">
+              <h3>Responsibility</h3>
+              <br />
+              <p>
+                <b>
+                  Our team attaches great importance to safety and
+                  responsibility, so we have taken a series of measures to
+                  ensure that our POLYCOBEAD product complies with legal and
+                  societal requirements. We have carefully analyzed the legal
+                  framework concerning the use and production of microbeads.
+                  Additionally, we actively engage with communities,
+                  environmental organizations, and consumer groups to address
+                  their concerns and educate them about our solutions. Through
+                  these measures, we ensure that our POLYCOBEAD product not only
+                  meets legal requirements but also aligns with societal
+                  expectations and values. </b
+                ><br /><br />
+              </p>
+              <h4>Legal Analysis</h4>
+              <br />
+              <p>
+                <br />
+                During discussions with Chief Researcher Li Yonghong from the
+                Shenzhen Agricultural Promotion Center in China, we learned that
+                expanding the scale of product testing during the trial phase
+                and bringing a product to market require compliance with
+                relevant laws and policies. This includes ensuring the safety of
+                trials, adherence to testing standards, and consideration of the
+                product's safety and compliance with health and environmental
+                standards. These regulations and policies are crucial for the
+                commercialization of technology and industrial development.
+                <br />
+                <br />
+                <b>
+                  Therefore, we wrote a document titled "Legal Analysis -
+                  Investigation of Polycobead Application under Existing Laws"
+                  to conduct a thorough examination of relevant regulations and
+                  policies. This was done to clarify the legal standards that
+                  our product needs to adhere to, particularly in the context of
+                  emerging technologies like RNAi and novel plant immune agents.
+                  This effort has laid a robust legal compliance foundation for
+                  the future development of our product, Polycobead.
+                </b>
+              </p>
+              <br />
+              <div class="text-center">
+                <iframe
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/law.pdf"
+                  style="height: 70vh; width: 70%"
+                ></iframe>
+              </div>
+              <br />
+              <h4>The Proposal of Chinese RNA Pesticide Industry Standard</h4>
+              <br />
+              <p>
+                Our product is initially planned to ernter the market in China.
+                However, we discovered that China currently lacks clear
+                classification and standardized regulations for RNA pesticides.
+                This highlights significant legal and regulatory challenges in
+                the RNA pesticide sector in China, emphasizing the urgent need
+                for applicable regulations and standards to ensure safety and
+                sustainability in this emerging field.
+                <b>
+                  <br />
+                  <br />
+                  To avoid misuse of RNA pesticide, we develop sufficient
+                  countermeasures to mitigate such risk by putting forward --
+                  "The Proposal of Chinese RNA Pesticide Industry Standard "
+                </b>
+              </p>
+              <br />
+              <div class="row">
+                <div class="col-md-6">
+                  <iframe
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/rnalaw-eng.pdf"
+                    style="height: 70vh; width: 100%"
+                  ></iframe>
+                </div>
+                <div class="col-md-6">
+                  <iframe
+                    src="https://static.igem.wiki/teams/4653/wiki/ihp/ranlaw-final-chinese.pdf"
+                    style="height: 70vh; width: 100%"
+                  ></iframe>
+                </div>
+              </div>
+
+              <br />
+              <h5>Collaboration and Guidance from expert</h5>
+              <br />
+              <div class="p-2">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/nongcuzhongxin.jpg"
+                        alt=""
+                        width="90%"
+                        class="border_shadow_img"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <img
+                        src="https://static.igem.wiki/teams/4653/wiki/ihp/liyonghong.jpg"
+                        alt=""
+                        width="90%"
+                        class="border_shadow_img"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6"></div>
+                </div>
+              </div>
+              <br />
+
+              <p>
+                <b>
+                  After drafting the "Proposal for RNA Industry Standards in
+                  China," we proactively reached out to Ms. Li Yonghong and
+                  Dr.Jin, the researchers at the Shenzhen Agricultural Science
+                  and Technology Promotion Center, seeking further guidance and
+                  advice. Ms. Li Yonghong expressed a positive response to our
+                  initiative and believed that our proposal has the potential to
+                  effectively promote the development of regulations and
+                  standards in the field of RNA pesticides in China.
+                  <br />
+                  <br />
+                </b>
+                Ms. Li Yonghong outlined the steps required to advance our
+                proposal. First, we must submit it to the Market Supervision
+                Administration and the Shenzhen Standards Promotion Association
+                for review and approval. We'll then collaborate with industry
+                experts to gain recognition. Next, we'll initiate the standard
+                declaration process, including expert review and certification.
+                Finally, we'll gather public and business feedback for
+                widespread acceptance.
+                <br />
+                <br />
+                We will continue to work within this framework, driving the
+                development of regulations and standards in the field of RNA
+                pesticides in China .
+              </p>
+              <br />
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h4>T.O.M.A.T.O Alliance</h4>
+                  <br />
+                  <h5>
+                    "how do we balance the interests
+                    <br />
+                    between our project and the communities negtively impacted"
+                  </h5>
+                  <br />
+                  <p>
+                    The emergence of new products and technologies will
+                    inevitably have an impact on the traditional pesticide
+                    industry, affecting the interests of them. We noticed that
+                    chemical pesticides still dominate the majority of the
+                    pesticide market. Considering their interests and for the
+                    stable development of the pesticide industry, we have
+                    established
+                    <b>
+                      the T.O.M.A.T.O-Technical Alliance (the
+                      Technology-Oriented Modernization of Agriculture-Targeted
+                      Organization).
+                    </b>
+                    Through technology sharing and experience exchange, we aim
+                    to
+                    <b>
+                      lead traditional enterprises in transforming and
+                      upgrading, avoiding unnecessary market competition and
+                      minimizing conflicts between new and old products to
+                      achieve mutual progress.
+                    </b>
+                  </p>
+                </div>
+                <div class="p-2">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="text-center">
+                        <img
+                          src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union1.png"
+                          alt=""
+                          width="75%"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="text-center">
+                        <img
+                          src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union2.png"
+                          alt=""
+                          width="75%"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                  </div>
+                </div>
+                <br />
+                <br />
+                <p>
+                  In addition to the product technology alliance, we propose the
+                  concept of
+                  <b
+                    >the T.O.M.A.T.O-Thought Alliance （Thought-Oriented
+                    Modernization of Agriculture-Targeted Organization）</b
+                  >
+                  . Because expect to the market aspect, the successful
+                  implementation and widespread adoption of the products
+                  <b
+                    >also rely on the involvement of various stakeholders such
+                    as farmers, consumers and government.</b
+                  >
+                  Farmers directly determine its sales, consumers' attitudes
+                  impact the market, and governments' policies have a
+                  significant influence on the development path of the products.
+                  Therefore, establish a Thought Alliance is meaningful. We hope
+                  to rally the power of knowledgeable individuals from various
+                  sectors to promote awareness of using biopesticides. Besides
+                  focusing on product and market aspects, we aim to
+                  <b>
+                    raise people's attention towards green agriculture and
+                    ecological protection, forging ahead towards a blueprint for
+                    sustainable agriculture.
+                  </b>
+                </p>
+              </div>
+
+              <br />
+              <p>
+                Please refer to the detailed content in
+                <a href="https://2023.igem.wiki/szu-china/entrepreneurship"
+                  >Entrepreneurship</a
+                >
+              </p>
+              <br />
+              <h3>Popular science summer camp</h3>
+              <p>
+                Through conversations with consumers, we've found that many have
+                concerns and misunderstandings about new technologies due to a
+                lack of understanding.
+                <b>
+                  This led us to realize that for Polycobead to be widely
+                  accepted, we need to explain the principles of the new
+                  technology and educate consumers to dispel their concerns and
+                  misconceptions.
+                </b>
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/edu/camp5.jpg"
+                      alt=""
+                      width="80%"
+                      class="border_shadow_img"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/ihp/ihp/picture.jpg"
+                      alt=""
+                      width="75%"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6"></div>
+              </div>
+              <p>
+                <br />
+                <br />
+                As a response, we organized an educational summer camp where we
+                explained the principles of RNA pesticides and plant immunity to
+                consumers, addressing their misconceptions and helping them
+                understand Polycobead's new technologies and advantages.
+                <b>
+                  In a subsequent survey, the majority of consumers showed
+                  significant interest and a willingness to support our product.
+                  This consumer affirmation positions our product for future
+                  wide use and acceptance.
+                </b>
+              </p>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tubiao1.png"
+                      alt=""
+                      width="80%"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="text-center">
+                    <img
+                      src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tubioa2.png"
+                      alt=""
+                      width="80%"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6"></div>
+              </div>
+            </section>
+          </section>
+          <br />
+          <section id="anchor5">
+            <h2>Implementation and imagination</h2>
+            <br />
+            <h4>Close Our Loop</h4>
+            <br />
+            <h5>"Revisiting Dacheng Xin Tomato Farm"</h5>
+            <div class="row">
+              <div class="col-md-6 p-5">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/shanwei.jpg"
+                  alt=""
+                  width="100%"
+                  class="border_shadow_img"
+                />
+              </div>
+              <div class="col-md-6 p-5">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/shanwei2.jpg"
+                  alt=""
+                  width="100%"
+                  height="87%"
+                  class="border_shadow_img"
+                />
+              </div>
+            </div>
+
+            <p>
+              In late September, as tomato seedling cultivation began at Dacheng
+              Xin Tomato Planting Base, our experiments gained initial success.
+              At this pivotal juncture, we revisited the farm in Shanwei City
+              and engaged in in-depth discussions with Mr. Cheng, Mr. Cheng, who
+              owns over 200 acres of tomato fields, and Mr. Fan, who is
+              responsible for sales.
+              <br />
+              <br />
+              <b>
+                We introduced our Polycobead product's curing strategy and
+                designing concept at the tomato planting base. We emphasized
+                Polycobead's advantages, highlighting its environmentally
+                friendly, residue-free biocontrol measures for effective gray
+                mold control. We also stressed its user-friendliness, enabling
+                precise application with no need for complex preparation or
+                mixing,.
+              </b>
+              <br />
+            </p>
+            <div
+              class="col-md-10 text-center"
+              style="width: 100%; display: flex; justify-content: center"
+            >
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/ihp/happy.png"
+                alt=""
+                width="80%"
+                height="80%"
+              />
+            </div>
+
+            <p>
+              <b>
+                After our explanation, Mr. Cheng expressed strong interest in
+                Polycobead. He considered it was a convenient, precise, and
+                environmentally friendly solution to the grey mold controlling,
+                which is also capable of controlling the situation of ovsrusing
+                pesticide.
+              </b>
+              <br />
+              <br />
+              <b>
+                Mr. Fan emphasized the intense market competition and consumers'
+                high demands for food quality and safety. He believed that
+                Polycobead could enhance tomato quality, reduce pesticide
+                residues, and increase their product's competitiveness.
+              </b>
+              <br />
+              <br />
+              After hearing their feedback, we were greatly encouraged to know
+              that our product has the potential to address the challenges they
+              face and bring benefits to their agricultural production. We will
+              continue to work diligently to bring Polycobead to the market as
+              soon as possible, meeting everyone's needs and our mutual goal for
+              sustainable agriculture.
+            </p>
+            <br />
+            <div class="text-center">
+              <iframe
+                style="width: 70%; height: 50vh"
+                title="SZU-China: Introduction for our online building activity (2022) [English]"
+                width="560"
+                height="315"
+                src="https://video.igem.org/videos/embed/91450661-0c27-4183-935b-4e75a444a007"
+                frameborder="0"
+                allowfullscreen=""
+                sandbox="allow-same-origin allow-scripts allow-popups"
+              ></iframe>
+            </div>
+            <br />
+            <br />
+            <h3>From Unit to Union</h3>
+            <br />
+            <p>
+              After conducting legal research and standard formulation, we have
+              created an orderly market environment for polycobead. Then, we
+              assessed the development potential of POLYCOBEAD in a long run
+              from both market and societal perspectives. We made a business
+              plan and strategic formulation, proposing the "From Unit to Union"
+              development plan. Starting from relevant units, we aim to connect
+              each group and form a unified union—T.O.M.A.T.O Alliance.
+            </p>
+            <div
+              class="col-md-10 text-center"
+              style="width: 100%; display: flex; justify-content: center"
+            >
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union.png"
+                alt=""
+                width="40%"
+                height="40%"
+              />
+            </div>
+            <br />
+
+            <p>
+              <br />
+              Firstly, we analyze the interests, needs, and backgrounds of each
+              unit, examining the acceptance of different groups towards
+              polycobead.
+              <br />
+              <br />
+              After gaining a comprehensive understanding of each unit and the
+              pesticide industry, we unite each group to form the T.O.M.A.T.O
+              Alliance, including Technology-Oriented Modernization of
+              Agriculture-Targeted Organization (Technical Alliance) and
+              Thought-Oriented Modernization of Agriculture-Targeted
+              Organization (Thought Alliance).
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tomato1.png"
+                alt=""
+                width="90%"
+                height="80%"
+              />
+            </div>
+
+            <p>
+              <br />
+              The emergence of new products is likely to pose a threat to the
+              traditional chemical pesticide industry. Therefore, the
+              establishment of the T.O.M.A.T.O Technology Alliance aims to avoid
+              conflicts between new and old products in the market competition.
+              We call for advanced biotechnology companies to join the research
+              and production of biopesticides and to encourage traditional
+              enterprises to undergo transformation and upgrading.
+              <br />
+            </p>
+            <br />
+            <div class="col-md-10 text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tomato2.png"
+                alt=""
+                width="90%"
+                height="80%"
+              />
+            </div>
+            <p>
+              New products and technologies will inevitably face many cognitive
+              challenges in the process of entering the market. Therefore, we
+              have established the T.O.M.A.T.O Thought Alliance, uniting each
+              unit, engaged in science communication and provided proposal
+              suggestions. We aim to improve the awareness of all units
+              involved, clearing obstacles for the promotion of products and the
+              advancement of Green and Sustainable Agriculture.
+            </p>
+            <br />
+            <p>
+              Please refer to the detailed content in
+              <a href="https://2023.igem.wiki/szu-china/entrepreneurship"
+                >Entrepreneurship</a
+              >
+            </p>
+
+            <div>
+              <h3>Summary</h3>
+              <br />
+              <p>
+                <b>Proposed by our team SZU-China, the “5I” cycle</b>
+                is bound to provide the guidance for other teams.
+                <br />
+                <br />
+                Under the guidance of the 5I principle,
+                <b>we completed the closed loop of Human Practice work.</b>
+                We fully improved the feasibility of the project in the process
+                and delivered our own value.
+              </p>
+              <br />
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/5i2-2-1-fin-1-1.jpg"
+                  alt=""
+                  width="90%"
+                  height="80%"
+                />
+              </div>
+
+              <p style="font-size: 20px">
+                <br />
+                <b>
+                  "what we are doing, why we are doing it, how the world might
+                  affect our work, and how our work might affect the world."
+                </b>
+                <br />
+              </p>
+              <p style="font-size: 23px">
+                <b>Now we are sufficient to answer these question!</b>
+              </p>
+              <div class="text-align">
+                <br />
+                <p>
+                  We learned about the harm of gray mold to the agricultural
+                  industry from the field inspection of the Dacheng Xin Planting
+                  Base, and
+                  <b
+                    >continuously investigated the needs and attitudes of
+                    stakeholders during the process of project improvement</b
+                  >
+                  , and made
+                  <b>"5I Principle" to meet the actual needs</b>
+                  . And finally generate our product ——
+                  <b>POLYCOBEAD.</b>
+                </p>
+                <br />
+                <p>
+                  At the same time, we pay attention to
+                  <b
+                    >the connection and impact between products and the world</b
+                  >
+                  , and convey our values and attitudes of safety and
+                  responsibility through
+                  <b>laws and regulations and industry standards.</b>
+                </p>
+                <br />
+                <p>
+                  Then, we visited the tomato base again,
+                  <b
+                    >investigated the feasibility of the product at the actual
+                    production site</b
+                  >
+                  , collected user attitudes, and popularized the product
+                  concept.
+                </p>
+                <br />
+                <p>
+                  Through the detailed investigation of the whole process of the
+                  stakeholders involved in the use of pesticides, we put forward
+                  the concept --
+                  <b>From Unit to Union</b>
+                  . We formed
+                  <b>the TOMATO Technology Alliance</b>
+                  , which
+                  <b>balance the interests</b>
+                  between traditional pesticide companies and advanced biotech
+                  companies. At the same time, we have formed
+                  <b>the TOMATO Thought Alliance</b>
+                  , which unites people from all walks of life to
+                  <b
+                    >improve recognization of the product and raise awareness of
+                    sustainable agriculture</b
+                  >
+                  .
+                </p>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <p style="font-size: 13px">
+              <i
+                >The names and photos of the citied individual are used with
+                their specific permission and informed consent.</i
+              >
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+<script>
+  const ihpbox_btn = document.querySelectorAll(".ihpbox-btn");
+  ihpbox_btn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.parentElement.parentElement.classList.toggle("active");
+    });
+  });
+  const animation = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "#road",
+        start: "top +=300",
+        anticipatePin: 1,
+      },
+      duration: 4,
+      ease: Linear.easeinOut,
+    })
+    .to("#car", { right: 0, duration: 4 }, 0)
+    .to("#box1", { opacity: 1, duration: 1 }, 0)
+    .to("#box2", { opacity: 1, duration: 1 }, 1)
+    .to(
+      "#car",
+      {
+        background:
+          "url(https://static.igem.wiki/teams/4653/wiki/ihp/microbus.png) no-repeat bottom center/auto",
+      },
+      1
+    )
+    .to("#box3", { opacity: 1, duration: 1 }, 2)
+    .to(
+      "#car",
+      {
+        background:
+          "url(https://static.igem.wiki/teams/4653/wiki/ihp/businesscar.png) no-repeat bottom center/auto",
+      },
+      2
+    )
+    .to("#box4", { opacity: 1, duration: 1 }, 3)
+    .to(
+      "#car",
+      {
+        background:
+          "url(https://static.igem.wiki/teams/4653/wiki/ihp/shopcar.png) no-repeat bottom center/auto",
+      },
+      3
+    );
+
+  document.querySelector("#car").addEventListener("click", () => {
+    animation.restart();
+  });
+</script>
+{% endblock %}

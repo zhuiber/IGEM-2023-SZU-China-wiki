@@ -1,0 +1,731 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item4:checked ~ .menu-content {
+    height: calc(5 * 40px);
+  }
+
+  .menu-item > input#menu-item5:checked ~ .menu-content {
+    height: calc(1 * 40px);
+  }
+
+  .menu-item > input#menu-item6:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/poc-1.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Proof of Concept</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link"
+                  >Polycobead anti- <i>B. cinerea</i></a
+                >
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Release of Polycobead</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link">RNA preparation</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor4.1" class="scroll-link d-block w-100"
+                      >Distribution of disease spots</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor4.2" class="scroll-link d-block w-100"
+                      >Detection of inhibition effect by qRT-PCR</a
+                    ></small
+                  ></span
+                >
+                <span>
+                  <small>
+                    <a href="#anchor4.3" class="scroll-link d-block w-100"
+                      >Continuous qRT-PCR</a
+                    ></small
+                  ></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item5" />
+              <label for="menu-item5">
+                <a href="#anchor5" class="scroll-link">Engineered <i>B. subtilis</i></a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor5.1" class="scroll-link d-block w-100"
+                      >The immune-inducing factor BvEP</a
+                    ></small
+                  >
+                </span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item7" />
+              <label for="menu-item6">
+                <a href="#anchor6" class="scroll-link"
+                  >Epidemiological models of plant mycoses
+                </a>
+              </label>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Overview</h2>
+            <p>
+              According to our iHP feedback, pesticide abuse is a common problem
+              in the use of traditional packaged pesticides by farmers. The
+              pesticide preparations available to farmers in the market are
+              usually in large volumes, and farmers often add excessive amounts
+              based on their subjective requirements, which aggravates pesticide
+              residues in crops and even spreads to the farmland environment,
+              which is a serious and non-negligible problem. In addition,
+              combined with the easy degradation of our RNAi biopesticides and
+              the characteristics of immune-inducing engineered bacteria, we
+              designed the product <b>Polycobead</b>. Polycobead uses a high
+              alcoholysis degree water-soluble <b>polyvinyl alcohol</b> (PVA) as
+              the outer film to wrap our <b>CPP-shRNAs preparation</b> and the
+              <b>engineered chassis-bacteria <i>B. subtilis</i></b> together to
+              form a bead. In order to verify our design, in addition to
+              completing basic molecular biology experiments for verification
+              (see
+              <a href="{{ url_for('pages', page='results') }}">Results</a>
+              page), we also conducted a variety of different confirmatory
+              experiments to support our design as below.
+            </p>
+            <br />
+            <div class="text-center">
+              <iframe
+                style="width: 70%; height: 500px"
+                width="560"
+                height="315"
+                poster="https://static.igem.wiki/teams/4653/wiki/polycobead/polycobead-1.jpg"
+                src="https://video.igem.org/videos/embed/061a1a81-cda3-42aa-997d-90516ee0fbd0"
+                frameborder="0"
+                allowfullscreen=""
+                sandbox="allow-same-origin allow-scripts allow-popups"
+              ></iframe>
+            </div>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/polycobead/polycobead-0.jpg"
+                alt="PolycoBead.png"
+                width="80%"
+              />
+              <small
+                >Figure 1. PolycoBead
+                
+              </small>
+            </div>
+          </section>
+          <section id="anchor2">
+            <h2>Polycobead anti-<i>B. cinerea</i></h2>
+            <p>
+              We dissolved the product Polycobead in water, and then sprayed it
+              on tomato fruits inoculated with <i>B. cinerea</i> in advance to
+              verify whether our product can effectively block the further
+              infection of <i>B. cinerea</i> to tomato. The contents released by
+              Polycobead were sprayed only once. We recorded the lesion area on
+              the tomato surface in the first three days. After calculation, the
+              RNA quality received by each tomato does not exceed 10 μg. As
+              shown in the figure (Figure 2-1), compared with the control group,
+              the lesion area of the treatment group is not large, and the
+              spread is not obvious, which proves that Polycobead can
+              effectively inhibit the further infection of tomato by
+              <i>B. cinerea</i>.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/poc/tomato-fruit-d1-d8.jpg"
+                alt="fruit-d1-d8"
+                width="80%"
+              />
+              <small
+                >Figure 2-1. Polycobead treated tomato fruits inoculated with
+                gray mold fungus after dissolution in water</small
+              >
+            </div>
+            <br />
+          </section>
+          <section id="anchor3">
+            <h2>Release of Polycobead</h2>
+            <p>
+              In our project, we hope that the product Polycobead can be
+              directly applied in the fields after simple treatment by users.
+              Farmers only need to calculate the number of Polycobeads used
+              according to the size of farmland and the planting density of
+              tomatoes, and then put our Polycobeads into a certain volume of
+              water for simple stirring, releasing effective ingredients
+              CPP-shRNA preparation and immune-inducible engineering bacteria,
+              so as to apply them to tomato fields to prevent and control tomato
+              gray mold.
+            </p>
+            <br />
+            <div class="row">
+              <div class="col-md-4 col-sm-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/ztk-electrophoresis.jpg"
+                  alt="electrophoresis"
+                  width="80%"
+                />
+                <small>Figure 3-1. Electrophoresis result.</small>
+              </div>
+              <div class="col-md-4 col-sm-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/structure-of-cpp-shrna-complex-solution-in-water-under-sem-1.png"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Figure 3-2. Structure of CPP-shRNA complex solution in water
+                  under SEM.
+                </small>
+              </div>
+              <div class="col-md-4 col-sm-6 text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/structure-of-cpp-shrna-complex-solution-in-glycerol-under-sem-1.png"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Figure 3-3. Structure of CPP-shRNA complex solution in
+                  glycerol under SEM.
+                </small>
+              </div>
+            </div>
+            <br />
+            <p>
+              In order to ensure the activity and stability of Polycobead
+              contents after release, nucleic acid electrophoresis was performed
+              for verification. As shown in Figure 3-1, from left to right are
+              marker, the naked shRNA aqueous solution, the naked shRNA
+              glycerin-aqueous solution (glycerin: water = 9:1), the CPP-shRNA
+              complex aqueous solution, the CPP-shRNA complex glycerin-aqueous
+              solution (glycerin: water = 9:1), and marker. Except lane 0 and
+              lane 5 are markers, lane 1 is a normal RNA electrophoresis band.
+              Lane 2 has a blocking effect on electrophoresis due to the
+              presence of glycerol, which makes the nucleic acid sink in the
+              electric field, but the brightness of the band is the same, so the
+              possibility of RNA molecules being degraded is extremely low. The
+              third lane is the aqueous solution of the CPP-shRNA complex. It
+              can be seen that the CPP-bound RNA does not show any bands during
+              electrophoresis, and the fourth lane does not show bands,
+              indicating that the presence of glycerol will not lead to the
+              separation of CPP and RNA, otherwise, RNA bands will appear.
+            </p>
+            <br />
+            <p>
+              In summary, we can conclude that the dissolution of Polycobead can
+              completely release the complete CPP-shRNAs complex, and does not
+              cause degration. In addition, scanning electron microscopy was
+              used to observe the structural differences between CPP-shRNA in
+              aqueous solution and glycerol solution under microscopic field of
+              view, as shown in FIG. 3-2 and FIG. 3-3. It can be seen that
+              glycerol does not damage the structure of CPP-shRNA complex.
+            </p>
+            <br />
+          </section>
+          <section id="anchor4">
+            <h2>RNA preparation</h2>
+            <section id="anchor4.1">
+              <h3>1.Distribution of disease spots</h3>
+              <p>
+                The shRNA we designed can target and silence genes that
+                essential for the survival of <i>B. cinerea</i> and virulence
+                genes that involved in infecting tomatoes. Therefore, we want to
+                verify from a phenotypic perspective whether spraying shRNA can
+                indeed reduce the damage of <i>B. cinerea</i> to tomato fruits.
+                Before starting the formal experiment, we poked holes in the
+                surface of the tomato.
+              </p>
+              <br />
+              <p>
+                For the naked shRNA treatment, we added 10μL system (containing
+                10μg shRNA) to the surface wounds of each tomato. After the
+                liquid dried, we used a 10μL transparent pipette tip to punch
+                holes at the same radius on a plate full of <i>B. cinerea</i>,
+                and connect the bacterial cake to the center of the shRNA
+                coating area of each tomato. For the control group, we chose
+                non-specific shRNA (gfp). Afterwards, we placed the treated
+                tomato fruits in a moist environment at 21℃. According to
+                relevant literature, we learned that more obvious effects can be
+                observed around the third day. Therefore, on the third day after
+                the inoculation, we used ImageJ software to quantitatively
+                analyze the area of the lesion on the fruit. The area of the
+                lesion is determined by the area covered by the mycelium (Figure
+                4-1, Figure 4-2). You can refer to
+                <a href="{{ url_for('pages',page='Protocol') }}"> Protocol </a>
+                for more data analysis methods.
+              </p>
+              <br />
+              <p>
+                For the shRNA treatment combined with cell-penetrating peptide
+                (CPP), besides changing the system that added to each sample to
+                12μL (containing 10μg shRNA and 8.2μL 1mg/mL CPP), the rest of
+                the treatment is the same as the naked shRNA treatment (Figure
+                4-1, Figure 4-3).
+              </p>
+              <br />
+              <div class="text-center" style="height: 500px; overflow: auto">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/tomato-fruit.jpg"
+                  alt="fruit.jpg"
+                  width="70%"
+                />
+              </div>
+              <small class="text-center"
+                >Figure 4-1. Distribution of disease spots on tomato fruits
+                infected with <i>B. cinerea</i>.</small
+              >
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/n-spot.png"
+                  alt="relative-lesion-area-naked-shrna.png"
+                  width="80%"
+                />
+                <small
+                  >Figure 4-2. Relative lesion area of tomato fruits after
+                  treatment with naked shRNA.</small
+                >
+              </div>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/cpp-spot.png"
+                  alt="relative-lesion-area-shrna-cpp.png"
+                  width="80%"
+                />
+                <small
+                  >Figure 4-3. Relative lesion area of tomato fruits after
+                  treatment with CPP-shRNA.</small
+                >
+              </div>
+              <br />
+              <p>
+                At the phenotypic level, it can be observed from the above
+                figure that most of the shRNA have shown effectiveness. Compared
+                to the control group, the relative lesion area in the
+                experimental group can be reduced by 10% to 30%. Furthermore,
+                when combined with CPP, all shRNA show effectiveness, and the
+                effects of most shRNA are further enhanced, resulting in a
+                reduction of the relative lesion area by 20% to 40% in the
+                experimental group. Particularly, our concatenated shRNA -
+                bi-shRNA(Box-survival) shows a significant effect, reducing the
+                relative lesion area by 42%. Additionally, due to issues such as
+                low extraction yield during the extraction process of
+                shRNA(cyp51)-1, it was not able to undergo the second stage of
+                iteration (combining CPP with naked shRNA) for experimental
+                validation. You can refer to
+                <a href="{{ url_for('pages',page='engineering') }}">
+                  Engineering
+                </a>
+                for more iteration information.
+              </p>
+              <br />
+            </section>
+            <section id="anchor4.2">
+              <h3>2.Detection of inhibition effect by qRT-PCR</h3>
+              <p>
+                In addition, we also verified at the molecular level whether the
+                application of shRNA can indeed reduce the damage of
+                <i>B. cinerea</i>
+                on tomato fruits. On the third day after the inoculation,
+                samples were taken from the infected areas of tomato fruits,
+                followed by RNA extraction and reverse transcription and qRT-PCR
+                to detect the inhibitory effects of shRNA on the target genes of
+                fungal mycelium in infected fruits (Figure 4-4, 4-5).
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/n-q.png"
+                  alt="q-naked-shrna.png"
+                  width="80%"
+                />
+                <small
+                  >Figure 4-4. Inhibitory effects of naked shRNA on the target
+                  genes.
+                </small>
+              </div>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/cpp-q.png"
+                  alt="q-shrna-cpp.png"
+                  width="80%"
+                />
+                <small
+                  >Figure 4-5. Inhibitory effects of CPP-shRNA on the target
+                  genes.
+                </small>
+              </div>
+              <br />
+              <p>
+                From the molecular experimental results, it can be observed that
+                most of the tested shRNA can achieve silencing rates of 30% to
+                60% before combining with CPP. After combining with CPP, the
+                silencing rates of most shRNA can reach 50% to 70%. Consistent
+                with the phenotypic results, our concatenated shRNA -
+                bi-shRNA(Box-survival) exhibits remarkable performance, with a
+                silencing rate of 70% on the target genes after combining with
+                CPP.
+              </p>
+            </section>
+            <section id="anchor4.3">
+              <br />
+              <h3>3.Continuous qRT-PCR</h3>
+              <p>
+                To investigate the duration of action and the optimal timing of
+                our RNAi products, we conducted stability testing on the shRNA.
+                Due to time constraints, we selected only the shRNA(Pme1)-2
+                combined with CPP for validation in this experiment. After
+                adding CPP-shRNA on the surface of tomato fruits, they were
+                infected with <i>B. cinerea</i>. Samples were taken every 12
+                hours for the following 4 days to measure the expression levels
+                of the target genes and evaluate the duration of silencing
+                activity of CPP-shRNA. The results are shown in the figure
+                below.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/szu-poc-rnai-1.jpg"
+                  alt="szu-poc-rnai-1.jpg"
+                  width="80%"
+                />
+                <small
+                  >Figure 4-6. Variation in silencing efficiency of target gene
+                  by CPP-shRNA over 12-96 hours</small
+                >
+              </div>
+              <br />
+              <p>
+                According to the graph, it is evident that the expression levels
+                of the target genes exhibit a decreasing trend before 60 hours.
+                At 60 hours, the relative expression level of the target genes
+                reaches its lowest point, with a gene silencing rate of
+                approximately 0.7. Subsequently, the expression levels of the
+                target genes show an increasing trend.
+              </p>
+              <br />
+              <p>
+                This experiment proves that the combination of CPP with
+                shRNA(Pme1)-2 achieves optimal results at 60 hours. If time
+                permits, we would like to further investigate the stability of
+                other shRNAs and determine the maximum duration of RNAi action.
+                This will guide us in determining the application method and
+                frequency of our final product. Additionally, the time variation
+                of the silencing efficiency of CPP-shRNA in the experiment is
+                the same as that of our RNAi model. You can refer to
+                <a href="{{ url_for('pages',page='model') }}"> Modeling </a>
+                for more information.
+              </p>
+            </section>
+            <br />
+          </section>
+          <section id="anchor5">
+            <h2>Engineered <i>B. subtilis</i></h2>
+            <p>
+              In Polycobead, our engineered immune-inducing bacteria
+              <i>B. subtilis</i> are wrapped in calcium alginate beads. We hope
+              that the presence of engineered bacteria in the product will not
+              affect the CPP-shRNAs preparation, and at the same time, when the
+              bead-engineered bacteria are released into the field, they can be
+              planted to the tomato roots and release BvEP to induce plant
+              immunity. When the concentration of sodium alginate was high, the
+              cross-linking between the molecules was enhanced, and the bead
+              structure formed was relatively dense, resulting in a slow release
+              rate of the engineered bacteria. On the contrary, when the
+              concentration of sodium alginate is low, the gel structure is
+              looser and the release rate of engineering bacteria is faster.
+              Therefore, it is imperative that we conduct meticulous testing and
+              refinement of the sodium alginate concentration introduced during
+              the production process, along with optimizing the bead structure
+              for optimal performance, aimed at preventing premature rupture or
+              hindered release of the engineered bacteria. Therefore, we made
+              the following time-release curve of sodium alginate concentration
+              with engineering <i>E. coli</i>.
+            </p>
+            <br />
+            <div class="row">
+              <div class="text-center col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/overnight.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Figure 5-1. Place A calcium alginate-engineered bacteria<br /> on the plate overnight.</small
+                >
+              </div>
+              <br />
+              <div class="text-center col-md-6">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/poc/release.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <small
+                  >Figure 5-2. Release of engineering bacteria from calcium<br /> alginate bead.</small
+                >
+              </div>
+            </div>
+            <br />
+            <p>
+              As illustrated in the figure, it is observed that when the
+              concentration of sodium alginate is insufficient, the formation of
+              a stable condensation structure becomes unattainable, thereby
+              hindering the effective encapsulation of the engineered bacteria.
+              Conversely, when the concentration is excessively high, the
+              condensation becomes overly stable, leading to the confinement of
+              the engineered bacteria, impeding their release.
+            </p>
+            <br />
+            <p>
+              Ultimately, our chosen approach involved blending a 1% sodium
+              alginate solution with a highly concentrated bacterial solution.
+              This mixture was subsequently introduced into a 2% CaCl<sub
+                >2</sub
+              >
+              solution to fabricate calcium alginate-engineered bacterial
+              condensation beads. Subsequent experimentation revealed that,
+              following a week-long immersion in a glycerol system, these beads
+              exhibited a mere 5% reduction in volume. Remarkably, they
+              exhibited rapid degradation in soil, releasing the bacterial
+              solution into the soil within a mere 10 hours. These calculations
+              were based on the assumption of condensation beads with a 1cm
+              diameter, glycerol purity at 99%, and the utilization of soil
+              sourced from the tomato cultivation area within the Tissue Culture
+              Room of the College of Life and Oceanography Science at Shenzhen
+              University, characterized by a pH level of approximately 6.3.
+            </p>
+            <br />
+            <br />
+            <div class="text-center">
+              <iframe
+                style="width: 70%; height: 500px"
+                width="560"
+                height="315"
+                poster="https://static.igem.wiki/teams/4653/wiki/hardware/poster-of-the-video.jpg"
+                src="https://video.igem.org/videos/embed/c012f22a-0b17-40eb-9c2f-28c59711b5a7"
+                frameborder="0"
+                allowfullscreen=""
+                sandbox="allow-same-origin allow-scripts allow-popups"
+              ></iframe>
+            </div>
+            <br />
+            <section id="anchor5.1">
+              <h3>The immune-inducing factor BvEP</h3>
+              <p>
+                The BvEP protein is a elicitor protein phosphopentomutase from
+                <i>B. velezensis</i> LJ02, which has been isolated and screened.
+                This enzyme enhances tomato resistance to <i>B. cinerea</i> by
+                upregulating the expression of PTI and ETI related genes, ROS
+                content, and related factors in tomato fruits. It is important to
+                note that BvEP treatment does not impact the weight or nutritional
+                composition of tomato fruits. We expressed and purified BvEP using
+                <i>E. coli</i> and applied it to tomato leaves. The activity of
+                reactive oxygen species (ROS) in tomato leaves was assessed by
+                measuring the formation of brown-red compounds generated through
+                the Diaminobenzidine tetrahydrochloride (DAB) and hydrogen
+                peroxide reaction, serving as an indicator of plant immune
+                pathways.
+              </p>
+              <br />
+              <p>
+                We treated the leaves with drip and soak methods and different
+                protein concentrations. Then we analyzed the gray scale of tomato
+                leaves after ethanol decolorization. We counted the relative gray
+                scale values in each group of leaves and compared them. The lower
+                the gray level, the more brown pigment was deposited on the
+                leaves, that is, the more ROS exploded in the leaves. The results
+                shown in FIG. 6-1 and FIG. 6-2 are obtained, which means that the
+                induced effect of BvEP expressed by engineered bacteria on plants
+                is moderate and effective.
+              </p>
+              <br />
+              <p>
+                <b>
+                  To learn more about our experimental results on immune
+                  induction, please click
+                  <a href="{{ url_for('pages', page='results') }}">Results</a>
+                  .
+                </b>
+              </p>
+              <br />
+              <div class="row">
+                <div class="text-center col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/poc/ztk-soaked.png"
+                    alt=""
+                    width="80%"
+                  />
+                  <small
+                    >Figure 5-3. Relative grayscale values of purified BvEP-soaked
+                    tomato leaves after immunization at different
+                    concentrations.</small
+                  >
+                </div>
+                <div class="text-center col-md-6">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/poc/ztk-dripped.png"
+                    alt=""
+                    width="80%"
+                  />
+                  <small
+                    >Figure 5-4. Relative grayscale values of purified
+                    BvEP-dripped tomato leaves after immunization at different
+                    concentrations.</small
+                  >
+                </div>
+              </div>
+                <br />
+                <div class="text-center">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/poc/tomato-fruit-d1-d3.jpg"
+                    alt="11"
+                    width="80%"
+                  />
+                  <small
+                    >Figure 5-5. Third day of <i>B. cinerea</i> infection
+                    experiment on tomato fruits treated with induced BvEP protein
+                    (at a maximum concentration of 0.530 mg/ml) for 16 hours and
+                    water (control).</small
+                  >
+                </div>
+              <br />
+              <br />
+            </section>
+          </section>
+          <section id="anchor6">
+            <h2>Epidemiological models of plant mycoses</h2>
+            <p>
+              In addition, we simulated the natural infection of gray mold on
+              tomatoes in a relatively enclosed tent. We placed 500 small
+              tomatoes on the floor. For the 10 tomatoes in the middle, we
+              conducted a pre-infection experiment with <i>B. cinerea</i>. At
+              the same time, we randomly selected about 50 tomatoes for scratch
+              treatment. Inside the tent, we placed a humidifier to maintain the
+              humidity. On the top of the tent, we hung a ceiling fan to create
+              wind for the dispersion of gray mold spores. The experiment lasted
+              for 10 days, and the video below shows the recordings from day 0
+              to day 5. Finally, we calculated the incidence rate of gray mold
+              disease in tomatoes and constructed an epidemiological model for
+              plant fungal diseases (Figure 7-1). You can refer to
+              <a href="{{ url_for('pages', page='model') }}">modeling</a>
+              for more information.
+            </p>
+            <br />
+
+            <div class="text-center">
+              <iframe
+                style="width: 70%; height: 500px"
+                poster="https://static.igem.wiki/teams/4653/wiki/hardware/poster-of-the-video.jpg"
+                src="https://video.igem.org/videos/embed/4badad1c-2a2e-4f9e-a060-76b82b6092b6"
+                frameborder="0"
+                allowfullscreen=""
+                sandbox="allow-same-origin allow-scripts allow-popups"
+              ></iframe>
+            </div>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/model/liuxing.jpg"
+                alt="liuxing.jpg"
+                width="70%"
+              />
+              <small
+                >Figure 7-1. Model predictions and experimental results.</small
+              >
+            </div>
+            <br />
+            <br />
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

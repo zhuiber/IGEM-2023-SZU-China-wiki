@@ -1,0 +1,749 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  ul:not(#refer) {
+    padding-left: 2em;
+  }
+
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(3 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(5 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/result.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Results</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">RNAi therapy</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >shRNA stage</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >CPP+shRNA stage</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Plant immunity</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor3.1" class="scroll-link d-block w-100"
+                      >Construction and transformation of plasmids</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.2" class="scroll-link d-block w-100"
+                      >Expression of Proteins</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor3.3" class="scroll-link d-block w-100"
+                      >DAB staining experiment</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Overview</h2>
+            <br />
+            <p>
+              In our project, we have combined RNAi and plant immunity to
+              control tomato gray mold disease.
+            </p>
+            <br />
+            <p>
+              <b
+                >In the experiments of RNAi, we obtained the following
+                results:</b
+              >
+            </p>
+            <br />
+            <ul>
+              <li>
+                -We designed shRNA and ligated it into the pET-28a(+) plasmid.
+                The target shRNA was expressed through induction in
+                <i>Escherichia coli</i> HT115(DE3).
+              </li>
+              <br />
+              <li>
+                -We combined cell-penetrating peptide (CPP) BP100-(KH)<sub
+                  >9</sub
+                >
+                with shRNA and observed their morphological structure using
+                scanning electron microscopy (SEM).
+              </li>
+              <br />
+              <li>
+                -We applied naked shRNA, BP100-(KH)<sub>9</sub>+shRNA, and
+                BP100-(KH)<sub>9</sub>+bi-shRNA to tomato fruits, and
+                demonstrated the effectiveness of our RNAi by calculating the
+                distribution of disease spots.
+              </li>
+              <br />
+              <li>
+                -We applied naked shRNA, BP100-(KH)<sub>9</sub>+shRNA, and
+                BP100-(KH)<sub>9</sub>+bi-shRNA to tomato fruits, and
+                demonstrated the good silencing effect of our shRNA on the
+                target genes through qRT-PCR.
+              </li>
+            </ul>
+            <br />
+            <p>
+              <b
+                >In the experiments of plant immunity, we conducted the
+                following three aspects of work:</b
+              >
+            </p>
+            <br />
+            <ul>
+              <li>
+                -We constructed the BvEP plasmid for <i>E. coli</i> BL21(DE3)
+                and <i>B. subtilis</i> WB800. And we verified the successful
+                transformation.
+              </li>
+              <br />
+              <li>
+                -We obtained the optimal induction conditions for BvEP and
+                verified its successful expression in BL21(DE3).
+              </li>
+              <br />
+              <li>
+                -We validated BvEP's role in triggering plant immunity and
+                demonstrated that the intensity of the immune response increased
+                as protein concentration increased.
+              </li>
+            </ul>
+
+            <br />
+          </section>
+          <section id="anchor2">
+            <h2>RNAi therapy</h2>
+            <br />
+            <section id="anchor2.1">
+              <h3>shRNA stage</h3>
+              <br />
+              <p>
+                When deciding to use RNAi technology to kill
+                <i>Botrytis cinerea</i>, we need to consider which small RNA
+                (sRNA) molecules can trigger the RNAi process. We first noticed
+                that siRNA molecules can enter the cells and load on RISC to
+                effect. Knowing the instability of siRNA and considering
+                production costs, we decided to design shRNA to silence the
+                target gene. This way, we can use <i>E. coli</i> in the
+                laboratory for low-cost but mass production of shRNA.
+              </p>
+              <br />
+              <p>
+                shRNA can be recognized and processed into siRNA by Dicer, and
+                then combines with Ago protein to form the RNAi silencing
+                complex (RISC). RISC, consisting of Argonaute-2, Dicer, and TRBP
+                proteins, can then specifically silence the expression of target
+                genes.
+              </p>
+              <br />
+              <p>
+                Our RNAi method is Spray-Induced Gene Silencing (SIGS), which
+                has been widely used in agricultural research since its first
+                application in 2016. It is a new non-transformation strategy
+                that suppresses pathogenic gene expression by spraying RNAi
+                molecules produced exogenously onto plant tissues. The sprayed
+                RNAi molecules are absorbed by cells through stomata or
+                lenticels, and move throughout the body via hyphae or phloem
+                sieve tubes, causing gene silencing and induced mortality
+                without transformation.
+              </p>
+              <br />
+              <h4>Selection of shRNA Molecular Target Genes</h4>
+              <p>
+                We have selected a total of 6 target genes as our RNAi silencing
+                targets. The information of these target genes is shown in the
+                Table 1. <i>BcchsIIIa</i> and <i>Bccyp51</i> are essential genes
+                for the survival of <i>B. cinerea</i>, while <i>BcOAH1</i>,
+                <i>Bcpme1</i>, <i>Bcdcl1</i>, and <i>Bcdcl2</i> are key genes
+                involved in the infection process of <i>B. cinerea</i> on
+                tomatoes. Furthermore, we have concatenated 2 shRNAs targeting
+                the survival genes of <i>B. cinerea</i> with the specific
+                sequence ATGCCT, to build a bi-shRNA named shRNA(Box-survival).
+                We have also stringed 4 shRNAs targeting the key genes involved
+                in <i>B. cinerea</i> infection on tomatoes, and named it
+                shRNA(Box-infect).
+              </p>
+              <br />
+              <div class="text-center">
+                <small
+                  ><b
+                    >Table 1. Target Genes and their Target Sequences of
+                    shRNA</b
+                  ></small
+                >
+              </div>
+              <div class="text-center" style="height: 70vh; overflow: auto">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/results/szu-result-gene.png"
+                  alt=""
+                  width="90%"
+                />
+              </div>
+              <br />
+              <p>
+                After selecting the above target genes, we designed the
+                corresponding shRNA molecule through the CDS sequence of the
+                target gene. After BLAST and confirmation of its specificity in
+                the total nucleic acid library, we assembled it through the
+                sequence of XbaI restriction site - sense RNAi fragment - loop -
+                reverse antisense RNAi fragment - BlpI restriction site, and
+                connected it to the pET-28a (+) plasmid to obtain our shRNA
+                expression vectors.
+              </p>
+              <br />
+              <h4>IPTG induced production</h4>
+              <br />
+              <p>
+                After plasmid extraction, we transformed the constructed shRNA
+                expression vector into <i>E. coli</i> HT115(DE3) and performed
+                PCR. Our specific primers successfully amplified a 260 bp band
+                from the plasmid, confirming the successful transformation of
+                the plasmid (Figure 1). This indicates that the shRNA expression
+                vector has been successfully introduced into <i>E. coli</i> and
+                can be detected and confirmed by PCR. This is an important
+                milestone that lays the foundation for further experiments.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/results/szu-engineering-plasmid-2.png"
+                  alt=""
+                  width="85%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 1. Agarose Gel Electrophoresis of Plasmids after
+                    Plasmid PCR<br />
+                    1-5: Plasmids control; 5-10: Plasmids extracted from
+                    <i>E. coli</i>.</b
+                  ></small
+                >
+              </div>
+              <br />
+              <p>
+                After induction with IPTG, the RNA was extracted using the
+                Trizol method and the results shown in Figure 2 were obtained
+                after electrophoresis. Compared to the non-induced sample, there
+                is a brighter band between 50-100 bp and 100-150 bp in the
+                induced sample lane. Our shRNAs have the size of 69 bp, while
+                the Box-survival, which is a concatenation of two shRNAs, have
+                the size of 124 bp. This confirms the successful extraction of
+                our shRNA, and the generated shRNA is of the expected size.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/results/szu-results-rnai-2.jpg"
+                  alt=""
+                  width="85%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 2. Electrophoresis of RNA extracted from
+                    <i>E. coli</i> HT115 (DE3)</b
+                  ></small
+                >
+              </div>
+              <br />
+              <br />
+            </section>
+            <section id="anchor2.2">
+              <h2>CPP+shRNA Stage</h2>
+              <p>
+                However, the instability of shRNA in the field environment
+                hinders the optimal performance of our product. Understanding
+                our expectations, our PI suggested that we could try using
+                cell-penetrating peptides (CPP) in combination with shRNA for
+                spray application, and provided us with BP100-(KH)<sub>9</sub>
+                as our CPP material. BP100-(KH)<sub>9</sub> is a carrier
+                peptide-based gene delivery system that enhances the endocytic
+                uptake and cytoplasmic transfer of shRNA in plants, allowing for
+                more efficient transfection of plant callus cells with shRNA. To
+                understand the morphology of the shRNA and BP100-(KH)<sub
+                  >9</sub
+                >
+                complex, we used scanning electron microscopy (SEM) to observe
+                the morphology of shRNA, BP100-(KH)<sub>9</sub>, and
+                shRNA+BP100-(KH)<sub>9</sub> separately. As shown in the Figure
+                3, we observed that shRNA and BP100-(KH)<sub>9</sub> form
+                spherical aggregates under electron microscopy. These small
+                spherical aggregates further tend to aggregate with each other.
+                We speculate that this stacking aggregation is due to
+                electrostatic forces.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/results/szu-results-rnai-3.png"
+                  alt=""
+                  width="80%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 3. Morphology of shRNA+CPP under Scanning Electron
+                    Microscope at 40,000x Magnification</b
+                  ></small
+                >
+              </div>
+              <p>
+                <br />
+                <br />
+                <br />
+                <b
+                  >More information on the RNAi process, including phenotype
+                  statistics and molecular validation, can be found in
+                  <a href="https://2023.igem.wiki/szu-china/proof-of-concept"
+                    >Proof of Concept</a
+                  ></b
+                >
+                <br />
+                <br />
+              </p>
+              <br />
+            </section>
+          </section>
+          <section id="anchor3">
+            <h2>Plant Immunity</h2>
+            <br />
+            <p>
+              In the early stage of the plant immune induction project, we
+              selected several potential inducers of plant immune response based
+              on their characteristics for proof-of-concept. One such
+              immune-inducing factor is oligogalturonic acid (OGs), which
+              belongs to the damage-associated molecular patterns of plant
+              cells. It is a kind of oligosaccharide produced after the
+              destruction of plant cell wall component pectin by pathogen
+              infection. It can be recognized and bound by pattern recognition
+              receptors (PRRs), thereby stimulating downstream immune pathways.
+              We used PehA, a polygalacturonate endonuclease, as our
+              immune-inducer to induce plant immunity by targeting the plant
+              cell wall to produce OGs.
+            </p>
+            <br />
+            <p>
+              The other is induced factors which are Pathogen-associated
+              molecular patterns. In this study, we selected Pseudomonas
+              aeruginosa flagellin, which has a 22-amino acid N-terminal peptide
+              that can activate downstream immune pathways by binding to the
+              cell surface receptor FLS2-BAK1. This peptide flg22 was used as an
+              immune-inducing factor, and three flg22 were concatenated to
+              obtain 3x flg22 to verify their immune effects.
+            </p>
+            <br />
+            <p>
+              We also hope to stimulate the ETI response in plants, so that
+              plant cells can produce a stronger and sustained immune effect. We
+              selected BvEP, a protein phosphomutase from
+              <i>Bacillus velezensis</i> LJ02, in the hope that its expression
+              in <i>Bacillus subtilis</i> would activate tomato sustained
+              defense.
+            </p>
+            <br />
+            <section id="anchor3.1">
+              <h3>Construction and transformation of plasmids</h3>
+              <br />
+              <p>
+                To verify whether the selected immune-inducing factors PehA,
+                Flg22, 3xFlg22 and BvEP could activate plant immunity, we
+                constructed their gene expression vectors in <i>E. coli</i> and
+                all of their expression were regulated by IPTG.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/results/pathway-1.png"
+                  alt=""
+                  width="80%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 4. Gene pathways for immune-inducing factor
+                    expression.</b
+                  ></small
+                >
+              </div>
+              <br />
+              <p>
+                After constructing the expression vectors of the immune-inducing
+                factors above, we transferred these recombinant plasmids into
+                <i>E. coli</i> BL21 (DE3), and then screened positive monoclonal
+                colonies in resistant plates for expansion culture and plasmid
+                extraction. The cloned products containing the target fragment
+                were amplified with specific primers and verified by DNA agarose
+                gel electrophoresis. As shown in Figure 5, electrophoresis
+                results showed that the bands of different recombinant plasmids
+                amplified by PCR were all of the expected sizes, indicating that
+                our plasmids were successfully transformed into
+                <i>E. coli</i> BL21(DE3).
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/parts/szu-parts-k4653105-4.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 5. Results of amplification of different recombinant
+                    plasmids by specific primers.</b
+                  ></small
+                >
+                <br />
+                <small
+                  ><b
+                    >(a)PCR of pGS21a-PehA. M: DL2000 DNA marker; 1: PehA.
+                    (b)PCR of 1x Flg22, 3x Flg22, Flagellin full length and BvEP
+                    in vector pET-28a. M: DL2000 DNA marker; 1-4: 1x Flg22, 3x
+                    Flg22, Flagellin full length and BvEP.</b
+                  ></small
+                >
+              </div>
+            </section>
+
+            <section id="anchor3.2">
+              <h3>Expression of Proteins</h3>
+              <br />
+              <p>
+                The expression of immune protein factors is regulated by the lac
+                operon, so IPTG was applied to induce our protein expression.
+                The PehA proteins were extracted using the GST-tag protein
+                purification kit, and the rest of the proteins were extracted
+                using the His-tag protein purification kit. After extraction of
+                the proteins we induced to express, the protein concentration
+                was determined by the BCA assay. BvEP was expressed at very low
+                levels under conventional induction conditions. We then
+                optimized this assay and found that protein expression levels
+                were higher when induced at 100 rpm in a shaker at 20 ° C. The
+                protein concentration of BvEP in 4.5 mL volume of induction
+                culture was measured at 4 h, 8 h, and 16 h of induction, and the
+                expression concentration of BVEP protein was the highest after
+                16h of induction, reaching 0.530 mg/ml.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/parts/szu-parts-k4653105-5.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <br />
+                <small><b>Figure 6. BCA standard curve.</b></small>
+              </div>
+              <br />
+              <p>
+                In addition, we verified the extracted target proteins by
+                SDS-PAGE after 16 h of induction. As shown in the figure, Figure
+                7a shows the BvEP protein electrophoresis after 16h of IPTG
+                induction. By comparing with the total protein of<i> E. coli</i>
+                BL21(DE3) without induction, it can be seen that there is a
+                clear band between 14.4kD and 4kD. The predicted size of BvEP
+                protein was 12.1kD, indicating that this band was our target
+                protein. Similarly, in Figure 7b, an obvious band between 35kD
+                and 25kD appeared after 16 h of IPTG induction compared with the
+                non-induced sample, while the size of our Flagellin full length
+                protein was 30.6kD, showing that it was successfully induced.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/parts/szu-parts-k4653105-6.jpg"
+                  alt=""
+                  width="70%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 7. The induced expression of target proteins
+                    detected by SDS-PAGE.</b
+                  ></small
+                >
+                <br />
+                <small
+                  ><b
+                    >(a)Induced expression of BvEP. (b)Induced expression of
+                    Flagellin full length.</b
+                  ></small
+                >
+              </div>
+              <br />
+              <p>
+                In addition, our target proteins were also verified in Western
+                Blot experiments. As can be seen from Figure 8, there is a
+                specific band between 15kD and 10kD, and the protein size of
+                BvEP is 12.1kD, indicating that the protein extracted from the
+                induced <i>E. coli</i> is indeed our target protein.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/parts/szu-parts-k4653105-7.jpg"
+                  alt=""
+                  width="60%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 8 Western Blot validation of BvEP induced
+                    expression</b
+                  ></small
+                >
+              </div>
+              <br />
+              <p>
+                However, when we tried to express PehA, 1x flg22, and 3x flg22,
+                the amount of the proposed protein was found to be too low for
+                subsequent DAB experiments and was therefore abandoned in later
+                experiments.
+              </p>
+              <br />
+            </section>
+            <section id="anchor3.3">
+              <h3>DAB staining experiment</h3>
+              <br />
+              <p>
+                The burst of ROS is a typical response to the activation of
+                plant immunity, so we performed DAB staining experiments to
+                examine the degree of ROS burst in tomato leaves after treatment
+                with different concentrations of BvEP. The darker the DAB
+                staining results, the more ROS burst in the leaves. In that
+                experiment, our control group 1 was treated with clean water and
+                control group 2 was treated with total protein extracted in
+                <i>E. coli</i> BL21(DE3) without induction (Figure. 9).
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/parts/szu-parts-k4653105-8.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 9. DAB staining to detect the intensity of immunity
+                    triggered by different concentrations of BvEP.</b
+                  ></small
+                >
+                <br />
+                <small
+                  ><b
+                    >(a)Soaking method to apply BvEP. Low: 10ug/ul, Mid:
+                    25ug/ml, High: 50ug/ml. (b)Dropping method to apply BvEP.
+                    Low: 40ug, Mid: 100ug, High: 200ug.</b
+                  ></small
+                >
+              </div>
+              <br />
+              <p>
+                After staining, ImageJ software was used to perform gray scale
+                analysis of the leaves treated with the two different BvEP
+                methods to quantify the immune intensity, followed by t-test to
+                determine the significant difference between the different BvEP
+                concentrations. Lower gray levels, that is, more brown
+                precipitates in leaves, indicate a stronger burst of ROS. Each
+                treatment contains a sample number of 9, and the resulting data
+                are shown in Figure 10.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/parts/szu-parts-k4653105-9.jpg"
+                  alt=""
+                  width="80%"
+                />
+                <br />
+                <small
+                  ><b
+                    >Figure 10. Gray levels in different leaves measured by
+                    ImageJ software.</b
+                  ></small
+                >
+                <br />
+                <small
+                  ><b
+                    >(a)The gray value of leaves treated protein after soaking.
+                    (b)The gray value of leaves after dropping. (ns P > 0.05; *
+                    P < 0.05; ** P < 0.01; *** P < 0.001; **** P < 0.0001).</b
+                  >
+                </small>
+              </div>
+              <br />
+              <p>
+                As can be seen from the figure above, the degree of ROS burst in
+                leaves increases with the concentration of applied BvEP, whether
+                using the soaking or dropping method. Through the comparison of
+                the two methods, we can obviously observe that the ROS burst in
+                the leaves treated by soaking method is more than that by
+                dropping method.
+              </p>
+              <br />
+              <p>
+                More details can be viewed in
+                <a href="{{ url_for('pages', page='proof-of-concept') }}"
+                  >Proof of concept</a
+                >.
+              </p>
+            </section>
+          </section>
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1]. Lung Cancer Statistics | How Common is Lung Cancer?
+                  (n.d.). Retrieved October 5, 2022, from
+                  https://www.cancer.org/cancer/lung-cancer/about/key-statistics.html<br />
+                  [2]. Poulet, G., Massias, J., & Taly, V. (2019). Liquid
+                  Biopsy: General Concepts. Acta Cytologica, 63(6), 449–455.
+                  https://doi.org/10.1159/000499337<br />
+                  [3]. Strimbu, K., & Tavel, J. A. (2010, November). What are
+                  biomarkers? Current Opinion in HIV and AIDS, 5(6), 463–466.
+                  https://doi.org/10.1097/coh.0b013e32833ed177<br />
+                  [4]. Kristensen, L. S., Andersen, M. S., Stagsted, L. V. W.,
+                  Ebbesen, K. K., Hansen, T. B., & Kjems, J. (2019, August 8).
+                  The biogenesis, biology and characterization of circular RNAs.
+                  Nature Reviews Genetics, 20(11), 675–691.
+                  https://doi.org/10.1038/s41576-019-0158-7<br />
+                  [5]. Chen, L., & Shan, G. (2021, May). CircRNA in cancer:
+                  Fundamental mechanism and clinical potential. Cancer Letters,
+                  505, 49–57. https://doi.org/10.1016/j.canlet.2021.02.004<br />
+                  [6]. Di, X., Jin, X., Li, R., Zhao, M., & Wang, K. (2019,
+                  March). CircRNAs and lung cancer: Biomarkers and master
+                  regulators. Life Sciences, 220, 177–185.
+                  https://doi.org/10.1016/j.lfs.2019.01.055<br />
+                  [7]. Wang, C., Tan, S., Li, J., Liu, W. R., Peng, Y., & Li, W.
+                  (2020, November). CircRNAs in lung cancer - Biogenesis,
+                  function and clinical implication. Cancer Letters, 492,
+                  106–115. https://doi.org/10.1016/j.canlet.2020.08.013<br />
+                  [8]. Wang, S., Zhang, K., Tan, S., Xin, J., Yuan, Q., Xu, H.,
+                  Xu, X., Liang, Q., Christiani, D. C., Wang, M., Liu, L., & Du,
+                  M. (2021, January 11). Circular RNAs in body fluids as cancer
+                  biomarkers: the new frontier of liquid biopsies. Molecular
+                  Cancer, 20(1). https://doi.org/10.1186/s12943-020-01298-z<br />
+                  [9]. DNA Nanotechnology Tools: From Design to Applications.
+                  (2022, April 22). Wyss Institute. Retrieved October 5, 2022,
+                  from
+                  https://wyss.harvard.edu/technology/dna-nanotechnology-tools-from-design-to-applications/<br />
+                  [10]. Jiao, J., Xiang, Y., Duan, C., Liu, Y., Li, C., & Li, G.
+                  (2020, August 24). Lighting Up CircRNA Using a Linear DNA
+                  Nanostructure. Analytical Chemistry, 92(18), 12394–12399.
+                  https://doi.org/10.1021/acs.analchem.0c02146<br />
+                  [11]. Liu S, Yuan X, Wang Y, Wang H, Wang J, Shen Z, Gao Y,
+                  Cai J, Li D, Song F. Tomato Stress-Associated Protein 4
+                  Contributes Positively to Immunity Against Necrotrophic Fungus
+                  Botrytis cinerea. Mol Plant Microbe Interact. 2019
+                  May;32(5):566-582. doi: 10.1094/MPMI-04-18-0097-R. Epub 2019
+                  Mar 22. PMID: 30589365.
+                  https://pubmed.ncbi.nlm.nih.gov/30589365/<br />
+                  [12]. Kong X, Li D. Hydrogen peroxide is not involved in HrpN
+                  from Erwinia amylovora-induced hypersensitive cell death in
+                  maize leaves. Plant Cell Rep. 2011 Jul;30(7):1273-9. doi:
+                  10.1007/s00299-011-1038-6. Epub 2011 Feb 23. PMID: 21344189.
+                  https://pubmed.ncbi.nlm.nih.gov/21344189/<br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

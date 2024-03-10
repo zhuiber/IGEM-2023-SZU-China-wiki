@@ -1,0 +1,544 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(2 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(5 * 40px);
+  }
+
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/implementation.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Implementation</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link"
+                  >Products and application</a
+                >
+              </label>
+              <br />
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >Polycobead</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >Cell-free Production</a
+                    >
+                  </small>
+                </span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Promotion</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor3.1" class="scroll-link d-block w-100"
+                      >Legal analysis</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.2" class="scroll-link d-block w-100"
+                      >Proposal</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.3" class="scroll-link d-block w-100"
+                      >T.O.M.A.T.O.</a
+                    ></small
+                  >
+                </span>
+              </div>
+            </div>
+
+            <div class="set-line"></div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Overview</h2>
+            <p>
+              Plant fungal diseases are one of the main culprits affecting the
+              quality and yield of crops. Their existence has greatly impacted
+              food health and agricultural development, and may even further
+              increase the degree of hunger. These diseases are caused by fungi,
+              which secrete a variety of pathogenic factors to attack the host
+              when they infect crops, and can spread widely before effective
+              measures are taken.
+            </p>
+            <br />
+            <p>
+              <i>Botrytis cinerea</i> is a kind of worldwide pathogen of gray
+              mold. It can infect the roots, leaves, flowers and fruits of
+              plants, causing diseases on more than 500 plant species, including
+              more than 200 crop species. <i>B. cinerea</i> is a plant pathogen
+              suitable for growing in low temperature and high humidity. In
+              agricultural production, the temperature in the greenhouse is
+              usually maintained at 15-20°C, with high relative humidity, which
+              is easy to cause a large range of gray mold. <i>B. cinerea</i>a is
+              one of the most damaging post-harvest pathogens in many
+              agricultural products. In the process of storage and
+              transportation after harvest, <i>B. cinerea</i> will accelerate
+              the deterioration of crops, resulting in serious logistics losses.
+            </p>
+            <br />
+          </section>
+
+          <section id="anchor2">
+            <h2>Products and application</h2>
+            <section id="anchor2.1">
+              <h3>PolycoBead</h3>
+              <p>
+                <b>POLYCOBEAD</b> is an efficient composite green biopesticide
+                that employs RNAi technology for gene silencing of <I>B. cinerea</I>,
+                and uses engineered bacteria to induce immune responses
+                in plants. It is designed to treat and prevent various forms of
+                gray mold disease in over 200 crops, including tomatoes,
+                strawberries, grapes, and more. PolycoBead aims to provide your
+                plants with optimal growth and protection.
+              </p>
+              <br />
+      
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/polycobead/polycobead-1.jpg"
+                  alt=""
+                  width="40%"
+                  height="70%"
+                />
+                <small><b>PolycoBead</b></small>
+              </div>
+              <br />
+              <p>
+                <b>Step 1: Preparation</b>
+              </p>
+              <br />
+              <ul>
+                <li class="ps-4">
+                  -Ensure that the plants are growing under suitable conditions
+                  and use during the high-risk period for plant fungal diseases.
+                  It is recommended to use during the flowering and fruiting
+                  stages of the crops.
+                </li>
+                <br />
+                <li class="ps-4">
+                  -Calculate the size of the farmland and crop planting density
+                  using the following formula: Mix 2 <b>PolycoBeads</b> with 10
+                  liters of water to treat approximately 100 square meters of
+                  tomato fields with a density of approximately 100-120 plants
+                  per square meter, each plant having 50-60 fruits. The point
+                  concentration of CPP-shRNAs is approximately 10 μg.
+                </li>
+              </ul>
+              <br />
+              <p>
+                <b>Step 2: Application</b>
+              </p>
+              <br />
+              <ul>
+                <li class="ps-4">
+                  - Mix 2 PolycoBeads with 10 liters of water using a
+                  clean stick until the PVA outer membrane ruptures, and the
+                  contents are released and thoroughly mixed.
+                </li>
+                <br />
+                <li class="ps-4">
+                  - Spray the liquid evenly in the field using a sprayer or a
+                  drone while evenly distributing the calcium alginate beads
+                  near the plant roots.
+                </li>
+              </ul>
+              <br />
+              <p>
+                <b>Step 3: Maintenance</b>
+              </p>
+              <br />
+              <ul>
+                <li class="ps-4">- Monitor the plant's growth over time.</li>
+                <br />
+                <li class="ps-4">
+                  - Based on the plant's growth, apply PolycoBeads every 8-10
+                  days.
+                </li>
+              </ul>
+              <br />
+              <iframe
+                src="https://static.igem.wiki/teams/4653/wiki/polycobead/szu-china-2023-polycobead-user-manual.pdf"
+                style="
+                  height: 90vh;
+                  width: 70%;
+                  margin-left: 15%;
+                  margin-right: 15%;
+                "
+              ></iframe>
+              <br />
+              <br />
+            </section>
+            <section id="anchor2.2">
+              <h3>Cell-free Production</h3>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/ihp/zidonghua.png"
+                  alt=""
+                  width="80%"
+                />
+                <small><b>Automatic Hardware System</b></small>
+              </div>
+              <br />
+              <p>
+                <b
+                  >An Automated Equipment for Large-Scale Production of shRNA
+                  Molecules through a Cell-Free Method:</b
+                >
+                We have designed and built an automated hardware system suitable
+                for the large-scale synthesis of shRNA molecules. By programming
+                a microcontroller, we have established an automated production
+                process for shRNA molecules, allowing for their convenient
+                manufacturing without the need for manual intervention. This
+                system can be operated by non-scientists and can be applied in
+                non-laboratory environments. It aims to enhance the convenience
+                of shRNA production while reducing associated costs and opens up
+                the possibility of further scaling up production.
+              </p>
+              <br />
+              <p>
+                The equipment primarily comprises three peristaltic pumps, a
+                reaction container, and a temperature control module. Our
+                equipment has demonstrated the successful synthesis of shRNA
+                molecules on a significantly larger scale when compared to
+                traditional PCR instruments. This automated equipment presents a
+                cost-effective, user-friendly, and scalable solution for shRNA
+                molecule synthesis, thereby enhancing the accessibility and
+                efficiency of RNA interference technology across diverse
+                applications.
+              </p>
+              <br />
+              <iframe
+                src="https://static.igem.wiki/teams/4653/wiki/hardware/product-user-mannual-for-the-automated-equipment.pdf"
+                style="
+                  height: 90vh;
+                  width: 70%;
+                  margin-left: 15%;
+                  margin-right: 15%;
+                "
+              ></iframe>
+              <br />
+              <br />
+            </section>
+          </section>
+          <section id="anchor3">
+            <h2>Promotion</h2>
+            <section id="anchor3.1">
+              <h3>Legal analysis</h3>
+              <p>
+                New composite RNAi biopesticide are relatively advanced and have
+                not yet formed a considerable scale in today's markets.
+                Therefore we consider that there may not be appropriate laws for
+                this emerging products. Before a large number of new products
+                flood into the market, we read lots of relevant laws in advance
+                to investigate
+                <b
+                  >the applicability of existing laws to newly emerging
+                  products</b
+                >.
+              </p>
+              <br />
+              <p>
+                We have extensively read the relevant laws and regulations that
+                our products need to comply with, especially the classification
+                standards and policy trends involving cutting-edge technologies
+                such as RNAi technology and plant immune agents. We summarized
+                them and wrote an overall review of relevant laws, which may
+                <b
+                  >serve as comprehensive reference and reliable consultant for
+                  this industry.</b
+                >
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/legal-analysis.png"
+                  alt=""
+                  width="60%"
+                />
+              </div>
+              <br />
+              <p>
+                The analysis of laws and regulations will help to ensure that
+                our products can be commercialized more smoothly, and
+                <b>lay a solid legal and regulatory foundation</b> for the
+                future development of our Polycobead.
+              </p>
+              <br />
+            </section>
+
+            <section id="anchor3.2">
+              <h3>The Proposal of Chinese RNA Pesticide Industry Standard  </h3>
+              <p>
+                Through a large number of laws and regulations analysis, we
+                found that the existing laws for new products still have some
+                defects and imperfection. For cutting-edge technologies and
+                emerging products, there is always a certain lag in the current
+                law. Before new products flood into the market, there is an
+                urgent need to
+                <b
+                  >bridge the gap by establishing applicable regulations and
+                  standards</b
+                >
+                to ensure safety and sustainability in this field.
+              </p>
+              <br />
+              <p>
+                Out of a sense of safety and social responsibility, we have
+                drawn up
+                <b><i>The Proposal of Chinese RNA Pesticide Industry Standard</i></b>
+                based on our own experience, expert consultation and the results
+                of field investigations, and have standardized and identified
+                various safety indicators, functions and responsibilities.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/rnaproposal.png"
+                  alt=""
+                  width="60%"
+                />
+              </div>
+              <br />
+              <p>
+                We also presented the draft to Director Li of Shenzhen
+                Agricultural Promotion Center. We discussed the content of the
+                draft, absorbed the teacher's suggestions and put forward our
+                opinions. This attempt has been <b>praised and affirmed by 
+                the government</b>, and it is also of great significance for
+                <b>the future pesticide industry.</b>
+              </p>
+              <br />
+            </section>
+
+            <section id="anchor3.3">
+              <h3>T.O.M.A.T.O.</h3>
+              <p>
+                The laws and regulations together with the industry standards
+                create an orderly market environment for the new composite RNAi
+                biopesticides.
+              </p>
+              <br />
+              <br />
+              <p>
+                We analyze the needs and market background of each units, and
+                put forward a strategic plan <b>FROM UNIT TO UNION.</b> We unit
+                each units to form a union called<b>
+                  the T.O.M.A.T.O Alliance </b
+                >to promote the transformation and upgrading of the pesticide
+                industry.
+              </p>
+              <br />
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/tomato111.png"
+                  alt=""
+                  width="70%"
+                />
+              </div>
+              <br />
+              <p>
+                This alliance will consists of two parts:
+                <b>technical alliance and thought alliance.</b> We are paving
+                the way for the future of RNAi biopesticide from two
+                perspectives: technological transformation and social
+                recognition.
+              </p>
+              <br />
+              <br />
+              <div class="d-flex">
+                <div class="text-center w-50">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union1.png"
+                    alt=""
+                    width="80%"
+                  />
+                </div>
+                <p class="w-50">
+                  We found that the emergence of new products will inevitably
+                  <b
+                    >pose a threat to the traditional chemical pesticide
+                    industry.</b
+                  >
+                  In order to avoid conflicts between new and old products, we
+                  put forward the concept of
+                  <b
+                    >Technology-Oriented Modernization of Agriculture-Targeted
+                    Organizations </b
+                  >(Technology lliance). We call on advanced biotechnology
+                  enterprises to join the biopesticide research, but also
+                  <b>guide traditional enterprises to transform and upgrade.</b>
+                  <br />
+                  <br />
+                  By combining the technical support of biotech companies with
+                  the market foundation of traditional enterprises, we believe
+                  that we can promote the steady progress of the pesticide
+                  industry and accelerate its transformation and upgrading.
+                </p>
+              </div>
+              <br />
+              <div class="d-flex">
+                <p class="w-50">
+                  Besides products markets, we form the concept of
+                  Thought-Oriented Modernization of Agriculture-Targeted
+                  Organizations (Thought Alliance). We hope to gather the power
+                  of different people
+                  <b
+                    >to arouse people's awareness of green agriculture and
+                    ecological protection</b
+                  >, as well as removing obstacles for the landing and promotion
+                  of our products.
+                  <br />
+                  <br />
+                  We hope to rally the power of knowledgeable individuals from
+                  various sectors to promote awareness of using biopesticides.
+                  Besides focusing on product and market aspects, we aim to
+                  raise people's attention towards green agriculture and
+                  ecological protection, forging ahead towards a blueprint for
+                  zero pollution.
+                </p>
+                <div class="text-center w-50">
+                  <img
+                    src="https://static.igem.wiki/teams/4653/wiki/entrepreneurship/union2.png"
+                    alt=""
+                    width="80%"
+                  />
+                </div>
+              </div>
+              <br />
+            </section>
+          </section>
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1]. Lung Cancer Statistics | How Common is Lung Cancer?
+                  (n.d.). Retrieved October 5, 2022, from
+                  https://www.cancer.org/cancer/lung-cancer/about/key-statistics.html<br />
+                  [2]. Poulet, G., Massias, J., & Taly, V. (2019). Liquid
+                  Biopsy: General Concepts. Acta Cytologica, 63(6), 449–455.
+                  https://doi.org/10.1159/000499337<br />
+                  [3]. Strimbu, K., & Tavel, J. A. (2010, November). What are
+                  biomarkers? Current Opinion in HIV and AIDS, 5(6), 463–466.
+                  https://doi.org/10.1097/coh.0b013e32833ed177<br />
+                  [4]. Kristensen, L. S., Andersen, M. S., Stagsted, L. V. W.,
+                  Ebbesen, K. K., Hansen, T. B., & Kjems, J. (2019, August 8).
+                  The biogenesis, biology and characterization of circular RNAs.
+                  Nature Reviews Genetics, 20(11), 675–691.
+                  https://doi.org/10.1038/s41576-019-0158-7<br />
+                  [5]. Chen, L., & Shan, G. (2021, May). CircRNA in cancer:
+                  Fundamental mechanism and clinical potential. Cancer Letters,
+                  505, 49–57. https://doi.org/10.1016/j.canlet.2021.02.004<br />
+                  [6]. Di, X., Jin, X., Li, R., Zhao, M., & Wang, K. (2019,
+                  March). CircRNAs and lung cancer: Biomarkers and master
+                  regulators. Life Sciences, 220, 177–185.
+                  https://doi.org/10.1016/j.lfs.2019.01.055<br />
+                  [7]. Wang, C., Tan, S., Li, J., Liu, W. R., Peng, Y., & Li, W.
+                  (2020, November). CircRNAs in lung cancer - Biogenesis,
+                  function and clinical implication. Cancer Letters, 492,
+                  106–115. https://doi.org/10.1016/j.canlet.2020.08.013<br />
+                  [8]. Wang, S., Zhang, K., Tan, S., Xin, J., Yuan, Q., Xu, H.,
+                  Xu, X., Liang, Q., Christiani, D. C., Wang, M., Liu, L., & Du,
+                  M. (2021, January 11). Circular RNAs in body fluids as cancer
+                  biomarkers: the new frontier of liquid biopsies. Molecular
+                  Cancer, 20(1). https://doi.org/10.1186/s12943-020-01298-z<br />
+                  [9]. DNA Nanotechnology Tools: From Design to Applications.
+                  (2022, April 22). Wyss Institute. Retrieved October 5, 2022,
+                  from
+                  https://wyss.harvard.edu/technology/dna-nanotechnology-tools-from-design-to-applications/<br />
+                  [10]. Jiao, J., Xiang, Y., Duan, C., Liu, Y., Li, C., & Li, G.
+                  (2020, August 24). Lighting Up CircRNA Using a Linear DNA
+                  Nanostructure. Analytical Chemistry, 92(18), 12394–12399.
+                  https://doi.org/10.1021/acs.analchem.0c02146<br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

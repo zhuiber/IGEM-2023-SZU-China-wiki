@@ -1,0 +1,3935 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(3 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item4:checked ~ .menu-content {
+    height: calc(4 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/model-2.png")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Model</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">RNAi-DDEs</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >ODEs</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >δ parameter</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.3" class="scroll-link d-block w-100"
+                      >DDEs</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link"
+                  >DDEs based shRNA dosage optimization</a
+                >
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item4" />
+              <label for="menu-item4">
+                <a href="#anchor4" class="scroll-link"
+                  >Epidemiological models</a
+                >
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor4.1" class="scroll-link d-block w-100"
+                      >Background</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor4.2" class="scroll-link d-block w-100"
+                      >Incidence prediction</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor4.3" class="scroll-link d-block w-100"
+                      >Field simulation</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor4.4" class="scroll-link d-block w-100"
+                      >Dispersal model in soil after biocontrol application</a
+                    ></small
+                  >
+                </span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <label>
+                <span><a href="#refer" class="scroll-link">References</a></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Overview</h2>
+            <p>
+              Cost, environmental protection and convenience are often the
+              problems that traditional pesticides can not be avoided, but also
+              the primary problem affecting the promotion of biological
+              pesticides. We have built multiple models to guide or solve the
+              problems and difficulties faced by our products in these three
+              aspects. First, to further characterize how shRNAs function during
+              RNAi, we built a model of RNAi-DDEs based on previous studies.
+              Then on the basis of this model, we further proposed a model to
+              optimize the application rate of shRNA pesticides at the time of
+              application. We also focused on plant fungal epidemics and
+              developed mechanistic models to help prevent epidemics. Finally,
+              we also guide the application of biocontrol bacteria to ensure the
+              effectiveness and cost performance of the product.
+            </p>
+          </section>
+          <br />
+          <section id="anchor2">
+            <h2>
+              shRNA inhibiting fungal growth -- Delayed Differential Equation
+              Model (DDEs)
+            </h2>
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/model/szu-model-rnai-process-1.png"
+                alt=""
+                width="70%"
+              />
+              <small><b>Figure 1. The process by which shRNA acts</b></small>
+            </div>
+            <section id="anchor2.1">
+              <h3>Ordinary differential equations(ODEs)</h3>
+              <p>
+                First, we apply ordinary differential equations to describe the
+                process by which shRNA acts in vivo.
+              </p>
+              <p>[mRNA]:</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <msub>
+                      <mi>X</mi>
+                      <mi>m</mi>
+                    </msub>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <msub>
+                  <mi>k</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>−</mo>
+                <msub>
+                  <mi>d</mi>
+                  <mi>m</mi>
+                </msub>
+                <msub>
+                  <mi>X</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>−</mo>
+                <mi>δ</mi>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>,</mo>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>s</mi>
+                  </msub>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>K</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>:</mo>
+                <mi>p</mi>
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>m</mi>
+                <mi>o</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+                <mi>r</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>n</mi>
+                <mi>s</mi>
+                <mi>c</mi>
+                <mi>r</mi>
+                <mi>i</mi>
+                <mi>p</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+                <mo>;</mo>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>d</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>:</mo>
+                <mi>b</mi>
+                <mi>a</mi>
+                <mi>s</mi>
+                <mi>a</mi>
+                <mi>l</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>d</mi>
+                <mi>e</mi>
+                <mi>g</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>d</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+                <mo>;</mo>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>δ</mi>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>X</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>,</mo>
+                <msub>
+                  <mi>X</mi>
+                  <mi>s</mi>
+                </msub>
+                <mo stretchy="false">)</mo>
+                <mo>:</mo>
+                <mi>R</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>o</mi>
+                <mi>f</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>d</mi>
+                <mi>e</mi>
+                <mi>g</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>d</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>b</mi>
+                <mi>y</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mi>i</mi>
+              </math>
+              <p>[protein]:</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <msub>
+                      <mi>X</mi>
+                      <mi>p</mi>
+                    </msub>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <msub>
+                  <mi>k</mi>
+                  <mi>p</mi>
+                </msub>
+                <msub>
+                  <mi>X</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>−</mo>
+                <msub>
+                  <mi>d</mi>
+                  <mi>p</mi>
+                </msub>
+                <msub>
+                  <mi>X</mi>
+                  <mi>p</mi>
+                </msub>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>k</mi>
+                  <mi>p</mi>
+                </msub>
+                <mo>:</mo>
+                <mi>p</mi>
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+                <mi>i</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>n</mi>
+                <mi>s</mi>
+                <mi>l</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+                <mo>;</mo>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>d</mi>
+                  <mi>p</mi>
+                </msub>
+                <mo>:</mo>
+                <mi>b</mi>
+                <mi>a</mi>
+                <mi>s</mi>
+                <mi>a</mi>
+                <mi>l</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>p</mi>
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+                <mi>i</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>d</mi>
+                <mi>e</mi>
+                <mi>g</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>d</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+              </math>
+            </section>
+            <section id="anchor2.2">
+              <h3>Determination of the δ parameter</h3>
+              <p><b>Natural mRNA degradation pathways in vivo:</b></p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mrow data-mjx-texclass="REL">
+                  <mover>
+                    <mrow data-mjx-texclass="OP">
+                      <mo stretchy="false">⟶</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>deg</mi>
+                    </mrow>
+                  </mover>
+                </mrow>
+                <mi>deg</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+              </math>
+              <p><b>Binding of mRNA to shRNA complexes:</b></p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mo>+</mo>
+                <mo stretchy="false">[</mo>
+                <mi>sh</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mrow data-mjx-texclass="REL">
+                  <mover>
+                    <mrow data-mjx-texclass="OP">
+                      <mo stretchy="false">⟶</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>λ</mi>
+                    </mrow>
+                  </mover>
+                </mrow>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo>−</mo>
+                <mi>sh</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+              </math>
+              <br />
+              <p><b>Cleavage reaction occurs in the mRNA-shRNA complex:</b></p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo>−</mo>
+                <mi>sh</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mrow data-mjx-texclass="REL">
+                  <mover>
+                    <mrow data-mjx-texclass="OP">
+                      <mo stretchy="false">⟶</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>k</mi>
+                    </mrow>
+                  </mover>
+                </mrow>
+                <mo stretchy="false">[</mo>
+                <mtext> cleavedmRNA] </mtext>
+                <mo>+</mo>
+                <mo stretchy="false">[</mo>
+                <mi>shRNA</mi>
+                <mo stretchy="false">]</mo>
+              </math>
+              <p>Law of mass action:</p>
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mi>degmRNA</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mi>deg</mi>
+                  <mo data-mjx-texclass="NONE">⁡</mo>
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo stretchy="false">]</mo>
+                </math>
+                <small style="margin-left: 0">(1)</small>
+              </div>
+              <br />
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mi>m</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <mi>A</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mo>−</mo>
+                  <mi>deg</mi>
+                  <mo data-mjx-texclass="NONE">⁡</mo>
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo stretchy="false">]</mo>
+                  <mo>−</mo>
+                  <mi>λ</mi>
+                  <mo stretchy="false">[</mo>
+                  <mi>shRNA</mi>
+                  <mo stretchy="false">]</mo>
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo stretchy="false">]</mo>
+                </math>
+                <small style="margin-left: 0">(2)</small>
+              </div>
+              <br />
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mtext> cleavedmRNA </mtext>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mi>k</mi>
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo>−</mo>
+                  <mi>sh</mi>
+                  <mo data-mjx-texclass="NONE">⁡</mo>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo stretchy="false">]</mo>
+                </math>
+                <small style="margin-left: 0">(3)</small>
+              </div>
+              <br />
+              <p>The law of conservation of mass follows:</p>
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mn>0</mn>
+                  <mo>=</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mi>m</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <mi>A</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mtext> cleavedmRNA </mtext>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mi>degmRNA</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>+</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mi>m</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <mi>A</mi>
+                      <mo>−</mo>
+                      <mi>shRNA</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                </math>
+                <small style="margin-left: 0">(4)</small>
+              </div>
+              <br />
+              <p>
+                Since the recycling of shRNA complexes is thought to be
+                extremely rapid, (Filipowicz, 2005; Haley and Zamore, 2004;
+                Holen et al., 2002; Hutvagner and Zamore, 2002; Martinez and
+                Tuschl, 2004; Tang et al., 2003; Tomari and Zamore, 2005), that
+                is :
+              </p>
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <mo stretchy="false">[</mo>
+                      <mi>m</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <mi>A</mi>
+                      <mo>−</mo>
+                      <mi>s</mi>
+                      <mi>h</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <mi>A</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <mn>0</mn>
+                </math>
+                <small style="margin-left: 0">(5)</small>
+              </div>
+              <br />
+              <p>Equation (4) can be rewritten as follows.</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mo>−</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mi>m</mi>
+                    <mi>R</mi>
+                    <mi>N</mi>
+                    <mi>A</mi>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mtext> cleavedmRNA </mtext>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mi>degmRNA</mi>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+              </math>
+              <br />
+              <p>
+                Further deformation from (2) and (3) can be obtained as follows.
+              </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>deg</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mo>+</mo>
+                <mi>λ</mi>
+                <mo stretchy="false">[</mo>
+                <mi>shRNA</mi>
+                <mo stretchy="false">]</mo>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mtext> cleavedmRNA </mtext>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mi>degm</mi>
+                    <mo data-mjx-texclass="NONE">⁡</mo>
+                    <mi>R</mi>
+                    <mi>N</mi>
+                    <mi>A</mi>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+              </math>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>λ</mi>
+                <mo stretchy="false">[</mo>
+                <mi>shRNA</mi>
+                <mo stretchy="false">]</mo>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mtext> cleaved </mtext>
+                    <mi>m</mi>
+                    <mi>R</mi>
+                    <mi>N</mi>
+                    <mi>A</mi>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+              </math>
+              <br />
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mi>λ</mi>
+                  <mo stretchy="false">[</mo>
+                  <mi>shRNA</mi>
+                  <mo stretchy="false">]</mo>
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo stretchy="false">]</mo>
+                  <mo>=</mo>
+                  <mi>k</mi>
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo>−</mo>
+                  <mi>sh</mi>
+                  <mo data-mjx-texclass="NONE">⁡</mo>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo stretchy="false">]</mo>
+                </math>
+                <small style="margin-left: 0">(6)</small>
+              </div>
+              <br />
+              <p>Note that:</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">[</mo>
+                  <mi>sh</mi>
+                  <mo data-mjx-texclass="NONE">⁡</mo>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <msub>
+                    <mi>A</mi>
+                    <mrow>
+                      <mtext>total </mtext>
+                    </mrow>
+                  </msub>
+                  <mo data-mjx-texclass="CLOSE">]</mo>
+                </mrow>
+                <mo>=</mo>
+                <mo stretchy="false">[</mo>
+                <mi>shRNA</mi>
+                <mo stretchy="false">]</mo>
+                <mo>+</mo>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo>−</mo>
+                <mi>sh</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+              </math>
+              <br />
+              <p>That is:</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>λ</mi>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <mrow data-mjx-texclass="INNER">
+                    <mo data-mjx-texclass="OPEN">[</mo>
+                    <mi>shRNA</mi>
+                    <mo data-mjx-texclass="NONE">⁡</mo>
+                    <msub>
+                      <mi>A</mi>
+                      <mrow>
+                        <mtext>total </mtext>
+                      </mrow>
+                    </msub>
+                    <mo data-mjx-texclass="CLOSE">]</mo>
+                  </mrow>
+                  <mo>−</mo>
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo>−</mo>
+                  <mi>s</mi>
+                  <mi>h</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo stretchy="false">]</mo>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+                <mo>=</mo>
+                <mi>k</mi>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo>−</mo>
+                <mi>s</mi>
+                <mi>h</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo stretchy="false">]</mo>
+              </math>
+              <br />
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mo stretchy="false">[</mo>
+                  <mi>m</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                  <mo>−</mo>
+                  <mi>shRNA</mi>
+                  <mo stretchy="false">]</mo>
+                  <mo>=</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>λ</mi>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">[</mo>
+                        <mi>shRNA</mi>
+                        <mo data-mjx-texclass="NONE">⁡</mo>
+                        <msub>
+                          <mi>A</mi>
+                          <mrow>
+                            <mtext>total </mtext>
+                          </mrow>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">]</mo>
+                      </mrow>
+                      <mo stretchy="false">[</mo>
+                      <mi>m</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <mi>A</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>k</mi>
+                      <mo>+</mo>
+                      <mi>λ</mi>
+                      <mo stretchy="false">[</mo>
+                      <mi>m</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <mi>A</mi>
+                      <mo stretchy="false">]</mo>
+                    </mrow>
+                  </mfrac>
+                </math>
+                <small style="margin-left: 0">(7)</small>
+              </div>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>δ</mi>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>s</mi>
+                  </msub>
+                  <mo>,</mo>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mtext> cleavedmRNA </mtext>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mi>k</mi>
+                <mo stretchy="false">[</mo>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mo>−</mo>
+                <mi>shRNA</mi>
+                <mo stretchy="false">]</mo>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>k</mi>
+                    <mi>λ</mi>
+                    <mrow data-mjx-texclass="INNER">
+                      <mo data-mjx-texclass="OPEN">[</mo>
+                      <mi>shRNA</mi>
+                      <mo data-mjx-texclass="NONE">⁡</mo>
+                      <msub>
+                        <mi>A</mi>
+                        <mrow>
+                          <mtext>total </mtext>
+                        </mrow>
+                      </msub>
+                      <mo data-mjx-texclass="CLOSE">]</mo>
+                    </mrow>
+                    <mo stretchy="false">[</mo>
+                    <mi>m</mi>
+                    <mi>R</mi>
+                    <mi>N</mi>
+                    <mi>A</mi>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>k</mi>
+                    <mo>+</mo>
+                    <mi>λ</mi>
+                    <mo stretchy="false">[</mo>
+                    <mi>m</mi>
+                    <mi>R</mi>
+                    <mi>N</mi>
+                    <mi>A</mi>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                </mfrac>
+              </math>
+              <br />
+              <p>Consider the degradation of shRNA, there are:</p>
+              <br />
+              <math
+                xmlns="http://www.w3.org/1998/Math/MathML"
+                display="block"
+                style="margin-right: auto; margin-left: auto"
+              >
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <mo stretchy="false">[</mo>
+                    <mi>s</mi>
+                    <mi>h</mi>
+                    <mi>R</mi>
+                    <mi>N</mi>
+                    <msub>
+                      <mi>A</mi>
+                      <mrow>
+                        <mi>t</mi>
+                        <mi>o</mi>
+                        <mi>t</mi>
+                        <mi>a</mi>
+                        <mi>l</mi>
+                      </mrow>
+                    </msub>
+                    <mo stretchy="false">]</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mo>−</mo>
+                <mi>α</mi>
+                <mo stretchy="false">[</mo>
+                <mi>s</mi>
+                <mi>h</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <msub>
+                  <mi>A</mi>
+                  <mrow>
+                    <mi>t</mi>
+                    <mi>o</mi>
+                    <mi>t</mi>
+                    <mi>a</mi>
+                    <mi>l</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">]</mo>
+                <mo>,</mo>
+                <mo stretchy="false">[</mo>
+                <mi>s</mi>
+                <mi>h</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <msub>
+                  <mi>A</mi>
+                  <mrow>
+                    <mi>t</mi>
+                    <mi>o</mi>
+                    <mi>t</mi>
+                    <mi>a</mi>
+                    <mi>l</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">]</mo>
+                <msub>
+                  <mrow>
+                    <mo stretchy="false">|</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>t</mi>
+                    <mo>=</mo>
+                    <mn>0</mn>
+                  </mrow>
+                </msub>
+                <mo>=</mo>
+                <mo stretchy="false">[</mo>
+                <mi>s</mi>
+                <mi>h</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <msub>
+                  <mi>A</mi>
+                  <mrow>
+                    <mi>u</mi>
+                    <mi>s</mi>
+                    <mi>e</mi>
+                    <mi>d</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">]</mo>
+              </math>
+              <br />
+              <p>That is:</p>
+              <br />
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <msub>
+                    <mi>k</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>d</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <mi>δ</mi>
+                  <mrow data-mjx-texclass="INNER">
+                    <mo data-mjx-texclass="OPEN">(</mo>
+                    <msub>
+                      <mi>X</mi>
+                      <mi>m</mi>
+                    </msub>
+                    <mo>,</mo>
+                    <msub>
+                      <mi>X</mi>
+                      <mi>s</mi>
+                    </msub>
+                    <mo data-mjx-texclass="CLOSE">)</mo>
+                  </mrow>
+                  <mo>=</mo>
+                  <msub>
+                    <mi>k</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>d</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>k</mi>
+                      <mi>λ</mi>
+                      <msup>
+                        <mi>e</mi>
+                        <mrow>
+                          <mo>−</mo>
+                          <mi>α</mi>
+                          <mi>t</mi>
+                        </mrow>
+                      </msup>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">[</mo>
+                        <mi>s</mi>
+                        <mi>h</mi>
+                        <mi>R</mi>
+                        <mi>N</mi>
+                        <msub>
+                          <mi>A</mi>
+                          <mrow>
+                            <mi>u</mi>
+                            <mi>s</mi>
+                            <mi>e</mi>
+                            <mi>d</mi>
+                          </mrow>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">]</mo>
+                      </mrow>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                    </mrow>
+                    <mrow>
+                      <mi>k</mi>
+                      <mo>+</mo>
+                      <mi>λ</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                    </mrow>
+                  </mfrac>
+                </math>
+                <small style="margin-left: 0">(8)</small>
+              </div>
+              <br />
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>p</mi>
+                      </msub>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <msub>
+                    <mi>k</mi>
+                    <mi>p</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>d</mi>
+                    <mi>p</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>p</mi>
+                  </msub>
+                </math>
+                <small style="margin-left: 0">(9)</small>
+              </div>
+              <br />
+            </section>
+            <section id="anchor2.3">
+              <h3>DDEs (Delay Differential Equations) model:</h3>
+              <p>
+                Since eukaryotic mRNA transcription and translation exist in two
+                different locations. Therefore, the time required for mRNA to be
+                transported out of the nucleus and the time required for
+                RnaI-induced mRNA degradation need to be considered. Consider
+                introducing two delay times:
+              </p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>τ</mi>
+                  <mn>1</mn>
+                </msub>
+                <mo>:</mo>
+                <mi>T</mi>
+                <mi>i</mi>
+                <mi>m</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mi>q</mi>
+                <mi>u</mi>
+                <mi>i</mi>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mi>d</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>f</mi>
+                <mi>o</mi>
+                <mi>r</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>R</mi>
+                <mi>n</mi>
+                <mi>a</mi>
+                <mi>I</mi>
+                <mo>−</mo>
+                <mi>i</mi>
+                <mi>n</mi>
+                <mi>d</mi>
+                <mi>u</mi>
+                <mi>c</mi>
+                <mi>e</mi>
+                <mi>d</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>d</mi>
+                <mi>e</mi>
+                <mi>g</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>d</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>τ</mi>
+                  <mn>2</mn>
+                </msub>
+                <mo>:</mo>
+                <mi>T</mi>
+                <mi>h</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>m</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mi>q</mi>
+                <mi>u</mi>
+                <mi>i</mi>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mi>d</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>o</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>n</mi>
+                <mi>s</mi>
+                <mi>p</mi>
+                <mi>o</mi>
+                <mi>r</mi>
+                <mi>t</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>m</mi>
+                <mi>R</mi>
+                <mi>N</mi>
+                <mi>A</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>f</mi>
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>m</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>h</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>n</mi>
+                <mi>u</mi>
+                <mi>c</mi>
+                <mi>l</mi>
+                <mi>e</mi>
+                <mi>u</mi>
+                <mi>s</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>o</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>h</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>c</mi>
+                <mi>y</mi>
+                <mi>t</mi>
+                <mi>o</mi>
+                <mi>p</mi>
+                <mi>l</mi>
+                <mi>a</mi>
+                <mi>s</mi>
+                <mi>m</mi>
+              </math>
+              <br />
+              <p>Then the system of equations is deformed as follows.</p>
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <msub>
+                    <mi>k</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>d</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo stretchy="false">(</mo>
+                  <mi>t</mi>
+                  <mo stretchy="false">)</mo>
+                  <mo>−</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>k</mi>
+                      <mi>λ</mi>
+                      <msup>
+                        <mi>e</mi>
+                        <mrow>
+                          <mo>−</mo>
+                          <mi>α</mi>
+                          <mi>t</mi>
+                        </mrow>
+                      </msup>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">[</mo>
+                        <mi>shRNA</mi>
+                        <mo data-mjx-texclass="NONE">⁡</mo>
+                        <msub>
+                          <mrow>
+                            <mtext>used </mtext>
+                          </mrow>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">]</mo>
+                      </mrow>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">(</mo>
+                        <mi>t</mi>
+                        <mo>−</mo>
+                        <msub>
+                          <mi>τ</mi>
+                          <mn>1</mn>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">)</mo>
+                      </mrow>
+                    </mrow>
+                    <mrow>
+                      <mi>k</mi>
+                      <mo>+</mo>
+                      <mi>λ</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">(</mo>
+                        <mi>t</mi>
+                        <mo>−</mo>
+                        <msub>
+                          <mi>τ</mi>
+                          <mn>1</mn>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">)</mo>
+                      </mrow>
+                    </mrow>
+                  </mfrac>
+                </math>
+                <small style="margin-left: 0">(10)</small>
+              </div>
+              <br />
+              <div class="offcanvas-header">
+                <math
+                  xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block"
+                  style="margin-right: auto; margin-left: auto"
+                >
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>p</mi>
+                      </msub>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo>=</mo>
+                  <msub>
+                    <mi>k</mi>
+                    <mi>p</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mrow data-mjx-texclass="INNER">
+                    <mo data-mjx-texclass="OPEN">(</mo>
+                    <mi>t</mi>
+                    <mo>−</mo>
+                    <msub>
+                      <mi>τ</mi>
+                      <mn>2</mn>
+                    </msub>
+                    <mo data-mjx-texclass="CLOSE">)</mo>
+                  </mrow>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>d</mi>
+                    <mi>p</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>p</mi>
+                  </msub>
+                </math>
+                <small style="margin-left: 0">(11)</small>
+              </div>
+              <br />
+              <p>Simulation results:</p>
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/model/ddenihe-3.png"
+                  alt=""
+                  width="50%"
+                />
+                <small
+                  ><b>Figure 2. Simulation and experimental results</b></small
+                >
+              </div>
+              <p>
+                The prediction results have a good fit with the experimental
+                results, which not only demonstrates the accuracy of the model,
+                but also can further guide our experiment. The mean square error
+                of the model was 13%, and the parameters as well as the codes
+                are in the attachment.
+              </p>
+            </section>
+          </section>
+          <section id="anchor3">
+            <h2>DDEs based shRNA dosage optimization:</h2>
+            <p>
+              Cost is often a primary concern when applying RNA pesticides in
+              agricultural production. If the concentration of RNA applied is
+              too high, the eradication of pathogenic fungi may be effective,
+              but the cost is too high. However, if the concentration is too
+              low, although it reduces the cost, it will not play a role in
+              preventing and treating plant diseases.
+            </p>
+            <p>Define the cost function:</p>
+            <br />
+            <math
+              xmlns="http://www.w3.org/1998/Math/MathML"
+              display="block"
+              style="margin-right: auto; margin-left: auto"
+            >
+              <mi>J</mi>
+              <mo>（</mo>
+              <mo stretchy="false">[</mo>
+              <mi>s</mi>
+              <mi>h</mi>
+              <mi>R</mi>
+              <mi>N</mi>
+              <msub>
+                <mi>A</mi>
+                <mrow>
+                  <mi>t</mi>
+                  <mi>o</mi>
+                  <mi>t</mi>
+                  <mi>a</mi>
+                  <mi>l</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">]</mo>
+              <mo stretchy="false">)</mo>
+              <mo>=</mo>
+              <msub>
+                <mi>P</mi>
+                <mrow>
+                  <mi>s</mi>
+                  <mi>h</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">[</mo>
+              <mi>s</mi>
+              <mi>h</mi>
+              <mi>R</mi>
+              <mi>N</mi>
+              <msub>
+                <mi>A</mi>
+                <mrow>
+                  <mi>t</mi>
+                  <mi>o</mi>
+                  <mi>t</mi>
+                  <mi>a</mi>
+                  <mi>l</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">]</mo>
+              <mi>T</mi>
+              <mo>+</mo>
+              <msubsup>
+                <mo data-mjx-texclass="OP">∫</mo>
+                <mrow>
+                  <mn>0</mn>
+                </mrow>
+                <mrow>
+                  <mi>T</mi>
+                </mrow>
+              </msubsup>
+              <msub>
+                <mi>X</mi>
+                <mi>p</mi>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo stretchy="false">)</mo>
+              <mi>d</mi>
+              <mi>t</mi>
+            </math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <msub>
+                <mi>P</mi>
+                <mrow>
+                  <mi>s</mi>
+                  <mi>h</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <mi>A</mi>
+                </mrow>
+              </msub>
+              <mo>:</mo>
+              <mi>C</mi>
+              <mi>o</mi>
+              <mi>s</mi>
+              <mi>t</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>p</mi>
+              <mi>e</mi>
+              <mi>r</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>u</mi>
+              <mi>n</mi>
+              <mi>i</mi>
+              <mi>t</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>o</mi>
+              <mi>f</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>s</mi>
+              <mi>h</mi>
+              <mi>R</mi>
+              <mi>N</mi>
+              <mi>A</mi>
+              <mstyle scriptlevel="0">
+                <mspace width="1em"></mspace>
+              </mstyle>
+              <mi>T</mi>
+              <mo>:</mo>
+              <mi>T</mi>
+              <mi>i</mi>
+              <mi>m</mi>
+              <mi>e</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>o</mi>
+              <mi>f</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>o</mi>
+              <mi>b</mi>
+              <mi>s</mi>
+              <mi>e</mi>
+              <mi>r</mi>
+              <mi>v</mi>
+              <mi>a</mi>
+              <mi>t</mi>
+              <mi>i</mi>
+              <mi>o</mi>
+              <mi>n</mi>
+              <mstyle scriptlevel="0">
+                <mspace width="1em"></mspace>
+              </mstyle>
+              <mi>P</mi>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo stretchy="false">)</mo>
+              <mo>:</mo>
+              <mi>T</mi>
+              <mi>h</mi>
+              <mi>e</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>c</mi>
+              <mi>u</mi>
+              <mi>r</mi>
+              <mi>r</mi>
+              <mi>e</mi>
+              <mi>n</mi>
+              <mi>t</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>p</mi>
+              <mi>r</mi>
+              <mi>o</mi>
+              <mi>t</mi>
+              <mi>e</mi>
+              <mi>i</mi>
+              <mi>n</mi>
+              <mstyle scriptlevel="0">
+                <mspace width=".5em"></mspace>
+              </mstyle>
+              <mi>c</mi>
+              <mi>o</mi>
+              <mi>n</mi>
+              <mi>c</mi>
+              <mi>e</mi>
+              <mi>n</mi>
+              <mi>t</mi>
+              <mi>r</mi>
+              <mi>a</mi>
+              <mi>t</mi>
+              <mi>i</mi>
+              <mi>o</mi>
+              <mi>n</mi>
+            </math>
+            <p>
+              The first part is the cost of applying the shRNA (terminal
+              indicator), and the second part is the integral of the
+              concentration of the protein (process indicator).
+            </p>
+            <p>Using the Hamiltonian function:</p>
+            <div class="offcanvas-header">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>H</mi>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <mo>=</mo>
+                <mi>P</mi>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <mo>+</mo>
+                <msub>
+                  <mi>λ</mi>
+                  <mn>1</mn>
+                </msub>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <msub>
+                    <mi>k</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>d</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>k</mi>
+                      <mi>λ</mi>
+                      <msup>
+                        <mi>e</mi>
+                        <mrow>
+                          <mo>−</mo>
+                          <mi>α</mi>
+                          <mi>t</mi>
+                        </mrow>
+                      </msup>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">[</mo>
+                        <mi>s</mi>
+                        <mi>h</mi>
+                        <mi>R</mi>
+                        <mi>N</mi>
+                        <msub>
+                          <mi>A</mi>
+                          <mrow>
+                            <mtext>total </mtext>
+                          </mrow>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">]</mo>
+                      </mrow>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">(</mo>
+                        <mi>t</mi>
+                        <mo>−</mo>
+                        <msub>
+                          <mi>τ</mi>
+                          <mn>1</mn>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">)</mo>
+                      </mrow>
+                    </mrow>
+                    <mrow>
+                      <mi>k</mi>
+                      <mo>+</mo>
+                      <mi>λ</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">(</mo>
+                        <mi>t</mi>
+                        <mo>−</mo>
+                        <msub>
+                          <mi>τ</mi>
+                          <mn>1</mn>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">)</mo>
+                      </mrow>
+                    </mrow>
+                  </mfrac>
+                  <mo>−</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                      <mo stretchy="false">(</mo>
+                      <mi>t</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+                <mo>+</mo>
+                <msub>
+                  <mi>λ</mi>
+                  <mn>2</mn>
+                </msub>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <msub>
+                    <mi>k</mi>
+                    <mi>p</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mrow data-mjx-texclass="INNER">
+                    <mo data-mjx-texclass="OPEN">(</mo>
+                    <mi>t</mi>
+                    <mo>−</mo>
+                    <msub>
+                      <mi>τ</mi>
+                      <mn>2</mn>
+                    </msub>
+                    <mo data-mjx-texclass="CLOSE">)</mo>
+                  </mrow>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>d</mi>
+                    <mi>p</mi>
+                  </msub>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>p</mi>
+                  </msub>
+                  <mo>−</mo>
+                  <mfrac>
+                    <mrow>
+                      <mi>d</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>p</mi>
+                      </msub>
+                      <mo stretchy="false">(</mo>
+                      <mi>t</mi>
+                      <mo stretchy="false">)</mo>
+                    </mrow>
+                    <mrow>
+                      <mi>d</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+              </math>
+              <small style="margin-left: 0">(13)</small>
+            </div>
+            <br />
+            <p>Note that in the time delay condition:</p>
+            <br />
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <mi>λ</mi>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo stretchy="false">)</mo>
+              <mrow>
+                <mover>
+                  <mi>M</mi>
+                  <mo>˙</mo>
+                </mover>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo>−</mo>
+              <mi>τ</mi>
+              <mo stretchy="false">)</mo>
+              <mo>=</mo>
+              <mi>λ</mi>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo>+</mo>
+              <mi>τ</mi>
+              <mo stretchy="false">)</mo>
+              <mrow>
+                <mover>
+                  <mi>M</mi>
+                  <mo>˙</mo>
+                </mover>
+              </mrow>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo stretchy="false">)</mo>
+            </math>
+            <br />
+            <p>The costate equation is as follows.</p>
+            <div class="offcanvas-header">
+              <math
+                xmlns="http://www.w3.org/1998/Math/MathML"
+                display="block"
+                style="margin-right: auto; margin-left: auto"
+              >
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <msub>
+                      <mi>λ</mi>
+                      <mn>1</mn>
+                    </msub>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mo>−</mo>
+                <mfrac>
+                  <mrow>
+                    <mi mathvariant="normal">∂</mi>
+                    <mi>H</mi>
+                  </mrow>
+                  <mrow>
+                    <mi mathvariant="normal">∂</mi>
+                    <msub>
+                      <mi>X</mi>
+                      <mi>m</mi>
+                    </msub>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <msub>
+                  <mi>λ</mi>
+                  <mn>1</mn>
+                </msub>
+                <msub>
+                  <mi>d</mi>
+                  <mi>m</mi>
+                </msub>
+                <mo>−</mo>
+                <mfrac>
+                  <mrow>
+                    <msub>
+                      <mi>λ</mi>
+                      <mn>1</mn>
+                    </msub>
+                    <mrow data-mjx-texclass="INNER">
+                      <mo data-mjx-texclass="OPEN">(</mo>
+                      <mi>t</mi>
+                      <mo>+</mo>
+                      <msub>
+                        <mi>τ</mi>
+                        <mn>1</mn>
+                      </msub>
+                      <mo data-mjx-texclass="CLOSE">)</mo>
+                    </mrow>
+                    <mi>λ</mi>
+                    <msup>
+                      <mi>e</mi>
+                      <mrow>
+                        <mo>−</mo>
+                        <mi>α</mi>
+                        <mi>t</mi>
+                      </mrow>
+                    </msup>
+                    <msup>
+                      <mi>k</mi>
+                      <mn>2</mn>
+                    </msup>
+                    <mrow data-mjx-texclass="INNER">
+                      <mo data-mjx-texclass="OPEN">[</mo>
+                      <mi>s</mi>
+                      <mi>h</mi>
+                      <mi>R</mi>
+                      <mi>N</mi>
+                      <msub>
+                        <mi>A</mi>
+                        <mrow>
+                          <mi>t</mi>
+                          <mi>o</mi>
+                          <mi>t</mi>
+                          <mi>a</mi>
+                          <mi>l</mi>
+                        </mrow>
+                      </msub>
+                      <mo data-mjx-texclass="CLOSE">]</mo>
+                    </mrow>
+                  </mrow>
+                  <msup>
+                    <mrow data-mjx-texclass="INNER">
+                      <mo data-mjx-texclass="OPEN">(</mo>
+                      <mi>k</mi>
+                      <mo>+</mo>
+                      <mi>λ</mi>
+                      <msub>
+                        <mi>X</mi>
+                        <mi>m</mi>
+                      </msub>
+                      <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">(</mo>
+                        <mi>t</mi>
+                        <mo>−</mo>
+                        <msub>
+                          <mi>τ</mi>
+                          <mn>1</mn>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">)</mo>
+                      </mrow>
+                      <mo data-mjx-texclass="CLOSE">)</mo>
+                    </mrow>
+                    <mn>2</mn>
+                  </msup>
+                </mfrac>
+                <mo>−</mo>
+                <msub>
+                  <mi>λ</mi>
+                  <mn>2</mn>
+                </msub>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <mi>t</mi>
+                  <mo>+</mo>
+                  <msub>
+                    <mi>τ</mi>
+                    <mn>2</mn>
+                  </msub>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+                <msub>
+                  <mi>k</mi>
+                  <mi>p</mi>
+                </msub>
+              </math>
+              <small style="margin-left: 0">(14)</small>
+            </div>
+            <div class="offcanvas-header">
+              <math
+                xmlns="http://www.w3.org/1998/Math/MathML"
+                display="block"
+                style="margin-right: auto; margin-left: auto"
+              >
+                <mfrac>
+                  <mrow>
+                    <mi>d</mi>
+                    <msub>
+                      <mi>λ</mi>
+                      <mn>2</mn>
+                    </msub>
+                  </mrow>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mo>−</mo>
+                <mfrac>
+                  <mrow>
+                    <mi mathvariant="normal">∂</mi>
+                    <mi>H</mi>
+                  </mrow>
+                  <mrow>
+                    <mi mathvariant="normal">∂</mi>
+                    <msub>
+                      <mi>X</mi>
+                      <mi>p</mi>
+                    </msub>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <msub>
+                  <mi>λ</mi>
+                  <mn>2</mn>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>t</mi>
+                <mo stretchy="false">)</mo>
+                <msub>
+                  <mi>d</mi>
+                  <mi>p</mi>
+                </msub>
+                <mo>−</mo>
+                <mn>1</mn>
+              </math>
+              <small style="margin-left: 0">(15)</small>
+            </div>
+            <p>Setting boundary conditions:</p>
+            <br />
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <msub>
+                <mi>λ</mi>
+                <mn>1</mn>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo stretchy="false">)</mo>
+              <mo>=</mo>
+              <mn>0</mn>
+              <mo>,</mo>
+              <msub>
+                <mi>λ</mi>
+                <mn>2</mn>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>t</mi>
+              <mo stretchy="false">)</mo>
+              <mo>=</mo>
+              <mn>0</mn>
+              <mo>,</mo>
+              <mi>t</mi>
+              <mo>&gt;</mo>
+              <mi>T</mi>
+            </math>
+            <p>The gradient of the cost function for [shRNA_total] is:</p>
+            <br />
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <mfrac>
+                <mrow>
+                  <mi mathvariant="normal">∂</mi>
+                  <mi>J</mi>
+                  <mo stretchy="false">(</mo>
+                  <mo stretchy="false">[</mo>
+                  <mi>s</mi>
+                  <mi>h</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <msub>
+                    <mi>A</mi>
+                    <mrow>
+                      <mi>t</mi>
+                      <mi>o</mi>
+                      <mi>t</mi>
+                      <mi>a</mi>
+                      <mi>l</mi>
+                    </mrow>
+                  </msub>
+                  <mo stretchy="false">]</mo>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+                <mrow>
+                  <mi mathvariant="normal">∂</mi>
+                  <mo stretchy="false">[</mo>
+                  <mi>s</mi>
+                  <mi>h</mi>
+                  <mi>R</mi>
+                  <mi>N</mi>
+                  <msub>
+                    <mi>A</mi>
+                    <mrow>
+                      <mi>t</mi>
+                      <mi>o</mi>
+                      <mi>t</mi>
+                      <mi>a</mi>
+                      <mi>l</mi>
+                    </mrow>
+                  </msub>
+                  <mo stretchy="false">]</mo>
+                </mrow>
+              </mfrac>
+              <mo>=</mo>
+              <msub>
+                <mi>P</mi>
+                <mi>s</mi>
+              </msub>
+              <mi>T</mi>
+              <mo>−</mo>
+              <msubsup>
+                <mo data-mjx-texclass="OP">∫</mo>
+                <mn>0</mn>
+                <mi>T</mi>
+              </msubsup>
+              <mfrac>
+                <mrow>
+                  <msub>
+                    <mi>λ</mi>
+                    <mn>1</mn>
+                  </msub>
+                  <mi>λ</mi>
+                  <mi>k</mi>
+                  <msup>
+                    <mi>e</mi>
+                    <mrow>
+                      <mo>−</mo>
+                      <mi>α</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </msup>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo stretchy="false">(</mo>
+                  <mi>t</mi>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>τ</mi>
+                    <mn>1</mn>
+                  </msub>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+                <mrow>
+                  <mi>k</mi>
+                  <mo>+</mo>
+                  <mi>λ</mi>
+                  <msub>
+                    <mi>X</mi>
+                    <mi>m</mi>
+                  </msub>
+                  <mo stretchy="false">(</mo>
+                  <mi>t</mi>
+                  <mo>−</mo>
+                  <msub>
+                    <mi>τ</mi>
+                    <mn>1</mn>
+                  </msub>
+                  <mo stretchy="false">)</mo>
+                </mrow>
+              </mfrac>
+              <mi>d</mi>
+              <mi>t</mi>
+            </math>
+            <br />
+            <p>
+              matlab optimizer was used to optimize the amount of shRNA applied:
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/model/ddeyouhua.png"
+                alt=""
+                width="60%"
+              />
+              <small
+                ><b
+                  >Figure 3. Comparison of effects before and after
+                  optimization(the cost per unit shRNA was set to 0.1)</b
+                ></small
+              >
+            </div>
+            <br />
+            <p>
+              The optimization results indicated that the optimal shRNA
+              application amount should be 2.6 times the experimental amount
+              under the set cost. In the actual production and application, we
+              can further consider the best application rate under different
+              process costs and transportation costs.
+            </p>
+          </section>
+          <section id="anchor4">
+            <h2>Epidemiological models of plant mycoses</h2>
+            <section id="anchor4.1">
+              <h3>Background on Epidemiology:</h3>
+              <p>
+                Gray mold gets its name from the large number of gray mold layer
+                conidia and hyphae produced in the diseased part. The disease is
+                an airborne multi-cycle disease, which can damage all plant
+                organs. Infected plants initially show watery spots, then decay
+                and soften, accompanied by collapse of the diseased parts. At
+                the same time, under appropriate temperature and humidity
+                conditions, the diseased parts form a layer of gray to brown
+                powdery conidia, which can be spread again by air currents and
+                rain, infecting healthy plant seedlings, stems, leaves, flowers
+                and fruits and causing decay.
+              </p>
+            </section>
+            <section id="anchor4.2">
+              <h3>Incidence prediction model:</h3>
+              <p>
+                The incidence of plant fungal diseases is often related to the
+                season. Furthermore, it is the difference of temperature and
+                humidity in the season that leads to the different possibility
+                and scale of fungal outbreaks in different seasons. A
+                temperature-humidity dependent nonlinear regression model was
+                developed to predict the incidence of mycosis.
+              </p>
+              <p>
+                Decompose the infection rate into multiple multiplicative
+                modules:
+              </p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>β</mi>
+                <mo>=</mo>
+                <msub>
+                  <mi>β</mi>
+                  <mn>0</mn>
+                </msub>
+                <mo>∗</mo>
+                <mi>T</mi>
+                <mo>∗</mo>
+                <mi>H</mi>
+                <mo>+</mo>
+                <mi>ϵ</mi>
+                <mo>,</mo>
+                <mi>T</mi>
+                <mo>∈</mo>
+                <mo stretchy="false">[</mo>
+                <mn>0</mn>
+                <mo>,</mo>
+                <mn>1</mn>
+                <mo stretchy="false">]</mo>
+                <mo>,</mo>
+                <mi>H</mi>
+                <mo>∈</mo>
+                <mo stretchy="false">[</mo>
+                <mn>0</mn>
+                <mo>,</mo>
+                <mn>1</mn>
+                <mo stretchy="false">]</mo>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>β</mi>
+                  <mn>0</mn>
+                </msub>
+                <mo>:</mo>
+                <mi>U</mi>
+                <mi>n</mi>
+                <mi>d</mi>
+                <mi>e</mi>
+                <mi>r</mi>
+                <mi>l</mi>
+                <mi>y</mi>
+                <mi>i</mi>
+                <mi>n</mi>
+                <mi>g</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>i</mi>
+                <mi>n</mi>
+                <mi>f</mi>
+                <mi>e</mi>
+                <mi>c</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>e</mi>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>T</mi>
+                <mo>:</mo>
+                <mi>T</mi>
+                <mi>e</mi>
+                <mi>m</mi>
+                <mi>p</mi>
+                <mi>e</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>u</mi>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>i</mi>
+                <mi>n</mi>
+                <mi>f</mi>
+                <mi>l</mi>
+                <mi>u</mi>
+                <mi>e</mi>
+                <mi>n</mi>
+                <mi>c</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>m</mi>
+                <mi>o</mi>
+                <mi>d</mi>
+                <mi>u</mi>
+                <mi>l</mi>
+                <mi>e</mi>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>H</mi>
+                <mo>:</mo>
+                <mi>H</mi>
+                <mi>u</mi>
+                <mi>m</mi>
+                <mi>i</mi>
+                <mi>d</mi>
+                <mi>i</mi>
+                <mi>t</mi>
+                <mi>y</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>i</mi>
+                <mi>n</mi>
+                <mi>f</mi>
+                <mi>l</mi>
+                <mi>u</mi>
+                <mi>e</mi>
+                <mi>n</mi>
+                <mi>c</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>m</mi>
+                <mi>o</mi>
+                <mi>d</mi>
+                <mi>u</mi>
+                <mi>l</mi>
+                <mi>e</mi>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>ϵ</mi>
+                <mo>:</mo>
+                <mi>C</mi>
+                <mi>o</mi>
+                <mi>e</mi>
+                <mi>f</mi>
+                <mi>f</mi>
+                <mi>i</mi>
+                <mi>c</mi>
+                <mi>i</mi>
+                <mi>e</mi>
+                <mi>n</mi>
+                <mi>t</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>o</mi>
+                <mi>f</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>c</mi>
+                <mi>o</mi>
+                <mi>r</mi>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mi>c</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+              </math>
+              <br />
+              <h4>Temperature module</h4>
+              <p>
+                For the temperature module, the normal distribution is adopted
+                to describe the influence module (This is reasonable, because
+                neither too high nor too low a temperature is suitable for
+                fungal growth.):
+              </p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>T</mi>
+                <mo>=</mo>
+                <mfrac>
+                  <mn>1</mn>
+                  <mrow>
+                    <msqrt>
+                      <mn>2</mn>
+                      <mi>π</mi>
+                    </msqrt>
+                    <mi>δ</mi>
+                  </mrow>
+                </mfrac>
+                <mi>exp</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <mo>−</mo>
+                  <mfrac>
+                    <mrow>
+                      <mo stretchy="false">(</mo>
+                      <mi>T</mi>
+                      <mi>E</mi>
+                      <mi>M</mi>
+                      <mo>−</mo>
+                      <mi>O</mi>
+                      <mi>p</mi>
+                      <mi>t</mi>
+                      <mi>i</mi>
+                      <mi>m</mi>
+                      <mi>u</mi>
+                      <mi>m</mi>
+                      <mi>T</mi>
+                      <mi>E</mi>
+                      <mi>M</mi>
+                      <msup>
+                        <mo stretchy="false">)</mo>
+                        <mn>2</mn>
+                      </msup>
+                    </mrow>
+                    <mrow>
+                      <mn>2</mn>
+                      <msup>
+                        <mi>δ</mi>
+                        <mn>2</mn>
+                      </msup>
+                    </mrow>
+                  </mfrac>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+              </math>
+              <br />
+              <p class="text-center">
+                OptimumTEM: Theoretical optimum temperature
+              </p>
+              <p class="text-center">TEM: Temperature of observation</p>
+              <p>
+                According to the current study, the theoretical optimal
+                temperature was set at 20℃.
+              </p>
+              <h4>Humidity module:</h4>
+              <p>
+                In general, when humidity is high, it is conducive to the
+                reproduction and spread of gray mold, while when humidity is
+                low, it will play a limiting role. So, The influence of humidity
+                factor on rice disease prevalence can be represented by S-shaped
+                curve, and Logistic function is used as the basic form for
+                modeling in H module. For humidity influence module, logistic
+                function is used for simulation:
+              </p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>H</mi>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mfrac>
+                  <mn>1</mn>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mi>exp</mi>
+                    <mo data-mjx-texclass="NONE">⁡</mo>
+                    <mrow data-mjx-texclass="INNER">
+                      <mo data-mjx-texclass="OPEN">(</mo>
+                      <mfrac>
+                        <mrow>
+                          <mi>H</mi>
+                          <mi>U</mi>
+                          <mi>M</mi>
+                          <mo>−</mo>
+                          <mi>O</mi>
+                          <mi>p</mi>
+                          <mi>t</mi>
+                          <mi>i</mi>
+                          <mi>n</mi>
+                          <mi>u</mi>
+                          <mi>m</mi>
+                          <mi>H</mi>
+                          <mi>U</mi>
+                          <mi>M</mi>
+                        </mrow>
+                        <mi>τ</mi>
+                      </mfrac>
+                      <mo data-mjx-texclass="CLOSE">)</mo>
+                    </mrow>
+                  </mrow>
+                </mfrac>
+              </math>
+              <br />
+              <h4>
+                Use the fmincon() optimizer in matlab to solve the problem:
+              </h4>
+              <p>Define the function RMSE (Root Mean Square Error) :</p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>R</mi>
+                <mi>M</mi>
+                <mi>S</mi>
+                <mi>E</mi>
+                <mo>=</mo>
+                <msqrt>
+                  <mfrac>
+                    <mn>1</mn>
+                    <mi>N</mi>
+                  </mfrac>
+                  <munderover>
+                    <mo data-mjx-texclass="OP">∑</mo>
+                    <mrow>
+                      <mi>t</mi>
+                      <mo>=</mo>
+                      <mn>1</mn>
+                    </mrow>
+                    <mi>N</mi>
+                  </munderover>
+                  <msup>
+                    <mrow data-mjx-texclass="INNER">
+                      <mo data-mjx-texclass="OPEN">(</mo>
+                      <msub>
+                        <mtext> observed </mtext>
+                        <mi>t</mi>
+                      </msub>
+                      <mo>−</mo>
+                      <msub>
+                        <mtext> predicted </mtext>
+                        <mi>t</mi>
+                      </msub>
+                      <mo data-mjx-texclass="CLOSE">)</mo>
+                    </mrow>
+                    <mn>2</mn>
+                  </msup>
+                </msqrt>
+              </math>
+              <p>
+                The above problems can be written in the form of mathematical
+                equations:
+              </p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">{</mo>
+                  <mtable
+                    columnalign="left"
+                    columnspacing="1em"
+                    rowspacing="4pt"
+                  >
+                    <mtr>
+                      <mtd>
+                        <mo data-mjx-texclass="OP" movablelimits="true">min</mo>
+                        <mi>R</mi>
+                        <mi>M</mi>
+                        <mi>S</mi>
+                        <mi>E</mi>
+                        <mo stretchy="false">(</mo>
+                        <mi>X</mi>
+                        <mo stretchy="false">)</mo>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>
+                        <mi>X</mi>
+                        <mo>=</mo>
+                        <msup>
+                          <mrow data-mjx-texclass="INNER">
+                            <mo data-mjx-texclass="OPEN">[</mo>
+                            <msub>
+                              <mi>β</mi>
+                              <mn>0</mn>
+                            </msub>
+                            <mo>,</mo>
+                            <mi>δ</mi>
+                            <mo>,</mo>
+                            <mtext> OptinumHUM, </mtext>
+                            <mi>τ</mi>
+                            <mo>,</mo>
+                            <msub>
+                              <mi>k</mi>
+                              <mi>a</mi>
+                            </msub>
+                            <mo data-mjx-texclass="CLOSE">]</mo>
+                          </mrow>
+                          <mi>T</mi>
+                        </msup>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>
+                        <mi>X</mi>
+                        <mo>∈</mo>
+                        <mi>R</mi>
+                      </mtd>
+                    </mtr>
+                  </mtable>
+                  <mo
+                    data-mjx-texclass="CLOSE"
+                    fence="true"
+                    stretchy="true"
+                    symmetric="true"
+                  ></mo>
+                </mrow>
+              </math>
+              <br />
+              <p>
+                The mean square error of the model in the training set was about
+                2.5%. This indicates that our model can better predict the
+                incidence probability at this time, and can help to prevent
+                fungal diseases in agricultural production.The training set,
+                test set and parameters are shown in the attachment.
+              </p>
+            </section>
+            <br />
+            <section id="anchor4.3">
+              <h3>Field simulation of sporo-cellular automata:</h3>
+              <p>
+                The timing of pesticide application is determined, and the
+                important point of variance is the range of pesticide
+                application. If the range is too large, it will not only
+                increase the cost, but also affect the local soil and involve
+                some biosecurity issues. However, the application range is too
+                small to achieve the expected effect of disease prevention and
+                treatment.
+              </p>
+              <p>
+                To determine the extent of pesticide application, we need to use
+                models to simulate the spread of plant mycoses in real fields in
+                relation to the specific location of the plant. According to the
+                epidemiological model of general infectious diseases, in a
+                field, the plants are divided into four types:
+              </p>
+              <br />
+              <p class="text-center">S: Susceptible plant</p>
+              <p class="text-center">E: Exposed plant</p>
+              <p class="text-center">I: Infected plant</p>
+              <p class="text-center">R: The plant is recovered or removed</p>
+              <p>
+                <b>Assumption 1: </b>Hypothesis 1: Since gray mold is a fungal
+                disease with both spore and soil-borne modes of transmission,
+                considering the large range of spore transmission, there is no
+                susceptible plant S and only exposed plant E.
+              </p>
+              <p>
+                <b>Assumption 2: </b>It is believed that every plant at the same
+                time is physiologically identical, so the infection rate is only
+                related to the spore concentration of <i>Botrytis cinerea</i>.
+              </p>
+              <p>
+                <b>Assumption 3: </b>It is assumed that the spores of ash mold
+                are released uniformly in all directions with respect to time.
+              </p>
+              <p>
+                Because the general model of infectious diseases doesn't take
+                into account the relative location of individuals, but not only
+                does that have an impact on the range of pesticides we apply,
+                but it's a very important consideration in plant diseases,
+                because plants don't move like animals do. If this positional
+                relationship can be effectively described, the amount of
+                pesticide used can be reduced and soil pesticide residues can be
+                reduced. A plant epidemic-cell machine model is proposed to
+                solve this problem.
+              </p>
+              <h4>Set the rules of the cell machine:</h4>
+              <p>
+                Infected cells will release spores to the surrounding cell, and
+                spore concentration is related to distance from the infected
+                cell. Infected cells die after D of survival and stop releasing
+                spores. The concentration of spores in each square was
+                superimposed by the concentration of spores released by multiple
+                infected cells. New cells are infected every day, and infection
+                is a random event, depending on the spore concentration here.
+              </p>
+              <br />
+              <h4>Spore transmission function:</h4>
+              <p>
+                Assuming that for every small time δt, the concentration of
+                spores produced is a constant concentration α, the concentra
+                tion of spores will gradually decrease after spreading around.
+                If the limit of air propagation speed is not taken into a
+                ccount, the concentration of spores is only a function of
+                distance:
+              </p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>S</mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo stretchy="false">)</mo>
+                <mo>=</mo>
+                <mfrac>
+                  <mi>α</mi>
+                  <mi>x</mi>
+                </mfrac>
+              </math>
+              <p>
+                Where x is the Euclidean distance with respect to the infected
+                plant.
+              </p>
+              <h4>Infection probability function:</h4>
+              <p>
+                Since the probability of plant infection is in (0, 1) for any
+                spore concentration, it is necessary to map the spore
+                concentration to the interval (0, 1), and consider using the
+                sigmoid curve for simulation:
+              </p>
+              <br />
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>β</mi>
+                <mo stretchy="false">(</mo>
+                <mi>S</mi>
+                <mo stretchy="false">)</mo>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mfrac>
+                  <mn>1</mn>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mi>exp</mi>
+                    <mo data-mjx-texclass="NONE">⁡</mo>
+                    <mrow data-mjx-texclass="INNER">
+                      <mo data-mjx-texclass="OPEN">(</mo>
+                      <mfrac>
+                        <mrow>
+                          <munder>
+                            <mo data-mjx-texclass="OP">∑</mo>
+                            <mi>n</mi>
+                          </munder>
+                          <mi>S</mi>
+                          <mo>−</mo>
+                          <mi>O</mi>
+                          <mi>p</mi>
+                          <mi>t</mi>
+                          <mi>i</mi>
+                          <mi>n</mi>
+                          <mi>u</mi>
+                          <mi>m</mi>
+                          <mi>S</mi>
+                        </mrow>
+                        <mi>τ</mi>
+                      </mfrac>
+                      <mo data-mjx-texclass="CLOSE">)</mo>
+                    </mrow>
+                  </mrow>
+                </mfrac>
+              </math>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <munder>
+                  <mo data-mjx-texclass="OP">∑</mo>
+                  <mi>n</mi>
+                </munder>
+                <mi>S</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>i</mi>
+                <mi>s</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>h</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>s</mi>
+                <mi>u</mi>
+                <mi>m</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>o</mi>
+                <mi>f</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>s</mi>
+                <mi>p</mi>
+                <mi>o</mi>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>c</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mi>c</mi>
+                <mi>e</mi>
+                <mi>n</mi>
+                <mi>t</mi>
+                <mi>r</mi>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+                <mi>s</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>a</mi>
+                <mi>t</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>t</mi>
+                <mi>h</mi>
+                <mi>e</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>c</mi>
+                <mi>u</mi>
+                <mi>r</mi>
+                <mi>r</mi>
+                <mi>e</mi>
+                <mi>n</mi>
+                <mi>t</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>c</mi>
+                <mi>e</mi>
+                <mi>l</mi>
+                <mi>l</mi>
+                <mstyle scriptlevel="0">
+                  <mspace width=".5em"></mspace>
+                </mstyle>
+                <mi>p</mi>
+                <mi>o</mi>
+                <mi>s</mi>
+                <mi>i</mi>
+                <mi>t</mi>
+                <mi>i</mi>
+                <mi>o</mi>
+                <mi>n</mi>
+              </math>
+              <h4>
+                The parameters were estimated using the pattern search algorithm
+                in matlab:
+              </h4>
+              <p>
+                The mean square error of the model was approximately 11%. The
+                parameters as well as the model code are in the attachment.
+              </p>
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/model/liuxing.jpg"
+                  alt=""
+                  width="60%"
+                />
+                <small
+                  ><b
+                    >Figure 4. Model predictions and experimental results</b
+                  ></small
+                >
+              </div>
+              <h4>Calculation of pesticide application radius:</h4>
+              <p>
+                Consider the case where one plant is found to be diseased. If
+                the plant is diseased, should the neighboring plants with a
+                radius of several be sprayed with pesticide? Consider the
+                incidence probability P for each cell under this model:
+              </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>P</mi>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo>,</mo>
+                <mi>d</mi>
+                <mi>a</mi>
+                <mi>y</mi>
+                <mi>s</mi>
+                <mo stretchy="false">)</mo>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mo stretchy="false">(</mo>
+                <mfrac>
+                  <mn>1</mn>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mi>e</mi>
+                    <mi>x</mi>
+                    <mi>p</mi>
+                    <mrow>
+                      <mfrac>
+                        <mrow>
+                          <mfrac>
+                            <mi>α</mi>
+                            <mi>x</mi>
+                          </mfrac>
+                          <mo>−</mo>
+                          <mi>O</mi>
+                          <mi>p</mi>
+                          <mi>t</mi>
+                          <mi>i</mi>
+                          <mi>n</mi>
+                          <mi>u</mi>
+                          <mi>m</mi>
+                          <mi>S</mi>
+                        </mrow>
+                        <mi>τ</mi>
+                      </mfrac>
+                    </mrow>
+                  </mrow>
+                </mfrac>
+                <msup>
+                  <mo stretchy="false">)</mo>
+                  <mrow>
+                    <mi>d</mi>
+                    <mi>a</mi>
+                    <mi>y</mi>
+                    <mi>s</mi>
+                  </mrow>
+                </msup>
+              </math>
+              <div class="text-center">
+                <img
+                  src="https://static.igem.wiki/teams/4653/wiki/model/fanwei.jpg"
+                  alt=""
+                  width="60%"
+                />
+                <small
+                  ><b
+                    >Figure 5. 3D image of probability of morbidity -distance
+                    -days of onset</b
+                  ></small
+                >
+              </div>
+              <p>
+                Based on this model, it is only necessary to determine the
+                agricultically acceptable incidence and onset time to obtain the
+                radius of pesticide application.
+              </p>
+            </section>
+            <section id="anchor4.4">
+              <h3>Dispersal model in soil after biocontrol application</h3>
+              <p>
+                For the same purpose, we need to develop guidance models for the
+                application of biocontrol bacteria
+              </p>
+              <p>
+                <b>Assumption 1:</b> Biocontrol strains will not die due to
+                suicide genes before spreading and colonizing on plant roots.
+              </p>
+              <br />
+              <p>
+                <b>Assumption 2:</b> The individual biocontrol bacteria moved
+                randomly in the diffusion process, and there was no bias in a
+                certain direction. In fact, the movement of bacteria in soil is
+                affected by many factors.
+              </p>
+              <br />
+              <p>
+                Consider the case in two dimensions.Assuming that the biocontrol
+                bacteria move a distance d in time δt, the number of moves in
+                time T is
+              </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>N</mi>
+                <mo>=</mo>
+                <mfrac>
+                  <mi>T</mi>
+                  <mrow>
+                    <mi>δ</mi>
+                    <mi>t</mi>
+                  </mrow>
+                </mfrac>
+              </math>
+              <p>
+                Because the direction of movement is considered random and there
+                are only two directions (which are perpendicular to each
+                other).So that:
+              </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msup>
+                  <mrow data-mjx-texclass="INNER">
+                    <mo data-mjx-texclass="OPEN">{</mo>
+                    <msub>
+                      <mi>X</mi>
+                      <mi>i</mi>
+                    </msub>
+                    <mo>,</mo>
+                    <msub>
+                      <mi>Y</mi>
+                      <mi>i</mi>
+                    </msub>
+                    <mo data-mjx-texclass="CLOSE">}</mo>
+                  </mrow>
+                  <mn>2</mn>
+                </msup>
+              </math>
+              <p>and</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>X</mi>
+                  <mi>i</mi>
+                </msub>
+                <mo>,</mo>
+                <msub>
+                  <mi>Y</mi>
+                  <mi>i</mi>
+                </msub>
+                <mo>∼</mo>
+                <mi>P</mi>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <mfrac>
+                    <mi>N</mi>
+                    <mn>4</mn>
+                  </mfrac>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+              </math>
+              <p>When N is large enough:</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>P</mi>
+                <mo stretchy="false">(</mo>
+                <mfrac>
+                  <mi>N</mi>
+                  <mn>4</mn>
+                </mfrac>
+                <mo stretchy="false">)</mo>
+                <mo>∼</mo>
+                <mi>N</mi>
+                <mo stretchy="false">(</mo>
+                <mfrac>
+                  <mi>N</mi>
+                  <mn>4</mn>
+                </mfrac>
+                <mo>,</mo>
+                <mfrac>
+                  <mi>N</mi>
+                  <mn>4</mn>
+                </mfrac>
+                <mo stretchy="false">)</mo>
+              </math>
+              <p>Define:</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>Z</mi>
+                  <mi>i</mi>
+                </msub>
+                <mo>=</mo>
+                <mi>d</mi>
+                <mo stretchy="false">(</mo>
+                <msub>
+                  <mi>X</mi>
+                  <mi>i</mi>
+                </msub>
+                <mo>−</mo>
+                <msub>
+                  <mi>Y</mi>
+                  <mi>i</mi>
+                </msub>
+                <mo stretchy="false">)</mo>
+              </math>
+              <p>that is</p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub>
+                  <mi>Z</mi>
+                  <mi>i</mi>
+                </msub>
+                <mo>∼</mo>
+                <mi>N</mi>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <mn>0</mn>
+                  <mo>,</mo>
+                  <mfrac>
+                    <mrow>
+                      <msup>
+                        <mi>d</mi>
+                        <mn>2</mn>
+                      </msup>
+                      <mi>N</mi>
+                    </mrow>
+                    <mn>4</mn>
+                  </mfrac>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+              </math>
+              <p>
+                Then, after the diffusion of time T, the average distance of
+                biocontrol bacteria from the application origin is:
+              </p>
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mo fence="false" stretchy="false">⟨</mo>
+                <mi>R</mi>
+                <mo fence="false" stretchy="false">⟩</mo>
+                <mo>=</mo>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">⟨</mo>
+                  <msqrt>
+                    <msubsup>
+                      <mi>Z</mi>
+                      <mn>1</mn>
+                      <mn>2</mn>
+                    </msubsup>
+                    <mo>+</mo>
+                    <msubsup>
+                      <mi>Z</mi>
+                      <mn>2</mn>
+                      <mn>2</mn>
+                    </msubsup>
+                  </msqrt>
+                  <mo data-mjx-texclass="CLOSE">⟩</mo>
+                </mrow>
+                <mo>=</mo>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">⟨</mo>
+                  <mi>d</mi>
+                  <msqrt>
+                    <mfrac>
+                      <mi>N</mi>
+                      <mn>2</mn>
+                    </mfrac>
+                    <msqrt>
+                      <mfrac>
+                        <mrow>
+                          <mi>d</mi>
+                          <msubsup>
+                            <mi>Z</mi>
+                            <mn>1</mn>
+                            <mn>2</mn>
+                          </msubsup>
+                          <mo>+</mo>
+                          <mi>d</mi>
+                          <msubsup>
+                            <mi>Z</mi>
+                            <mn>2</mn>
+                            <mn>2</mn>
+                          </msubsup>
+                        </mrow>
+                        <mrow>
+                          <msup>
+                            <mi>d</mi>
+                            <mn>2</mn>
+                          </msup>
+                          <mi>N</mi>
+                        </mrow>
+                      </mfrac>
+                    </msqrt>
+                  </msqrt>
+                  <mo data-mjx-texclass="CLOSE">⟩</mo>
+                </mrow>
+                <mo>=</mo>
+                <mi>d</mi>
+                <msqrt>
+                  <mn>2</mn>
+                  <mi>N</mi>
+                </msqrt>
+                <mi mathvariant="normal">Γ</mi>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <mfrac>
+                    <mn>3</mn>
+                    <mn>2</mn>
+                  </mfrac>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+                <mo>=</mo>
+                <mi>d</mi>
+                <msqrt>
+                  <mfrac>
+                    <mrow>
+                      <mn>2</mn>
+                      <mi>T</mi>
+                    </mrow>
+                    <mrow>
+                      <mi>δ</mi>
+                      <mi>t</mi>
+                    </mrow>
+                  </mfrac>
+                </msqrt>
+                <mi mathvariant="normal">Γ</mi>
+                <mrow data-mjx-texclass="INNER">
+                  <mo data-mjx-texclass="OPEN">(</mo>
+                  <mfrac>
+                    <mn>3</mn>
+                    <mn>2</mn>
+                  </mfrac>
+                  <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+              </math>
+              <p>
+                Only by determining the time T and step d, we can obtain the
+                approximate diffusion range of biocontrol bacteria, which can
+                guide the application of our bead to save cost and improve
+                efficiency.
+              </p>
+              <br />
+              <p>The parameters in models:</p>
+              <p><b>RNAi-DDEs:</b></p>
+              <table class="table table-striped my-2 text-center">
+                <tr>
+                  <th style="width: 50%" scope="row">Parameters</th>
+                  <th style="width: 50%" scope="row">Value</th>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>k</mi>
+                        <mi>m</mi>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>0.00648</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>d</mi>
+                        <mi>m</mi>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>0.00000648</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>k</mi>
+                        <mi>p</mi>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>0.0064</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>d</mi>
+                        <mi>p</mi>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>0.00548</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>λ</mi>
+                    </math>
+                  </th>
+                  <td>0.0001</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>k</mi>
+                    </math>
+                  </th>
+                  <td>0.0001</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>τ</mi>
+                        <mn>1</mn>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>3.51e-05(estimate)</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>τ</mi>
+                        <mn>2</mn>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>2.34e-05(estimate)</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>S</mi>
+                    </math>
+                  </th>
+                  <td>0.1(estimate)</td>
+                </tr>
+              </table>
+              <p>
+                The parameters in the model (except those estimated) were
+                derived from previous teams and papers
+              </p>
+              <br />
+              <p><b>Epidemiological models:</b></p>
+              <table class="table table-striped my-2 text-center">
+                <tr>
+                  <th style="width: 50%" scope="row">Parameters</th>
+                  <th style="width: 50%" scope="row">Value</th>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>β</mi>
+                        <mn>0</mn>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>27.6284</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>δ</mi>
+                    </math>
+                  </th>
+                  <td>61.58</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>O</mi>
+                      <mi>p</mi>
+                      <mi>t</mi>
+                      <mi>i</mi>
+                      <mi>n</mi>
+                      <mi>u</mi>
+                      <mi>m</mi>
+                      <mi>H</mi>
+                      <mi>U</mi>
+                      <mi>M</mi>
+                    </math>
+                  </th>
+                  <td>12.0052</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>τ</mi>
+                    </math>
+                  </th>
+                  <td>1.6743</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <msub>
+                        <mi>k</mi>
+                        <mi>a</mi>
+                      </msub>
+                    </math>
+                  </th>
+                  <td>9.0711</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mtext> RMSE (Training set) </mtext>
+                    </math>
+                  </th>
+                  <td>6.923%</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mtext> RMSE (test set) </mtext>
+                    </math>
+                  </th>
+                  <td>2.5125%</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>O</mi>
+                      <mi>p</mi>
+                      <mi>t</mi>
+                      <mi>i</mi>
+                      <mi>n</mi>
+                      <mi>u</mi>
+                      <mi>m</mi>
+                      <mi>S</mi>
+                    </math>
+                  </th>
+                  <td>11.61</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mrow>
+                        <mo>τ</mo>
+                      </mrow>
+                      <mo stretchy="false">(</mo>
+                      <mi>C</mi>
+                      <mi>e</mi>
+                      <mi>l</mi>
+                      <mi>l</mi>
+                      <mi>u</mi>
+                      <mi>l</mi>
+                      <mi>a</mi>
+                      <mi>r</mi>
+                      <mi>a</mi>
+                      <mi>u</mi>
+                      <mi>t</mi>
+                      <mi>o</mi>
+                      <mi>m</mi>
+                      <mi>a</mi>
+                      <mi>t</mi>
+                      <mi>a</mi>
+                      <mo stretchy="false">)</mo>
+                    </math>
+                  </th>
+                  <td>1.25</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>α</mi>
+                    </math>
+                  </th>
+                  <td>6.875</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mi>T</mi>
+                    </math>
+                  </th>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <math
+                      xmlns="http://www.w3.org/1998/Math/MathML"
+                      display="block"
+                    >
+                      <mtext> RMSE(Cellular automata) </mtext>
+                    </math>
+                  </th>
+                  <td>11.35%</td>
+                </tr>
+              </table>
+              <p>The parameters of the model are all derived from estimates.</p>
+              <p>All the model application code has been uploaded to gitlab.</p>
+            </section>
+          </section>
+
+          <br />
+          <br />
+          <ul id="refer" class="accordion">
+            <li>
+              <input type="checkbox" name="item" id="item1" />
+              <label for="item1">References</label>
+              <ol>
+                <li>
+                  [1]. Shi Shouding, & MA Zhanhong. (2005). Climate-based
+                  regional classification for overwintering of puccinia
+                  striiformis in china with GIS and geostatistics. Chih Wu Pao
+                  Hu Hsueh Pao, 32(1), Chih Wu Pao Hu Hsueh pao, 2005, Vol.32
+                  (1).<br />
+                  [2]. G. Neofytou, Y.N. Kyrychko, K.B. Blyuss, Mathematical
+                  model of plant-virus interactions mediated by RNA
+                  interference, Journal of Theoretical Biology, Volume 403,
+                  2016, Pages 129-142, ISSN 0022-5193,<br />
+                  [3]. M. Alejandra Guerrero-Rubio, Samanta Hernández-García,
+                  Francisco García-Carmona, Fernando Gandía-Herrero, Extension
+                  of life-span using a RNAi model and in vivo antioxidant effect
+                  of Opuntia fruit extracts and pure betalains in Caenorhabditis
+                  elegans, Food Chemistry, Volume 274, 2019, Pages 840-847, ISSN
+                  0308-8146,<br />
+                  [4]. Bansal Shweta, Grenfell Bryan T and Meyers Lauren Ancel
+                  2007When individual behaviour matters: homogeneous and network
+                  models in epidemiologyJ. R. Soc. Interface.4879–891<br />
+                  [5]. Horn, T., Sandmann, T., Fischer, B. et al. Mapping of
+                  signaling networks through synthetic genetic interaction ana
+                  lysis by RNAi. Nat Methods 8, 341–346 (2011).
+                  https://doi.org/10.1038/nmeth.1581<br />
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

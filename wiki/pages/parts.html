@@ -1,0 +1,934 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  th,
+  td {
+    border: 1px solid black;
+  }
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item3:checked ~ .menu-content {
+    height: calc(2 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/head-picture/part-2.png")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Part Collection</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">RNAi</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item3" />
+              <label for="menu-item3">
+                <a href="#anchor3" class="scroll-link">Plant immunity</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor3.1" class="scroll-link d-block w-100"
+                      >Inducing factor</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor3.2" class="scroll-link d-block w-100"
+                      >Suicide switch</a
+                    ></small
+                  >
+                </span>
+              </div>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9">
+          <section id="anchor1">
+            <h2>Overview</h2>
+            <br />
+            <p>
+              Our project combines two major components to take control measures
+              against gray mold through RNAi biopesticides and plant immunity.
+              During the infection of <i>B. cinerea</i>, virulence factors will
+              be secreted by <i>B. cinerea</i> to help tomato infection, and
+              tomato will secrete immune substances to defend against the attack
+              of <i>B. cinerea</i> under stress. Therefore, RNAi pesticides and
+              plant immune agents could play a role in the interaction between
+              <i>B. cinerea</i> and tomato.
+            </p>
+            <br />
+            <div class="text-center">
+              <img
+                src="https://static.igem.wiki/teams/4653/wiki/design/szu-design-1.gif"
+                alt=""
+                width="90%"
+              />
+            </div>
+            <br />
+            <ul class="ps-4">
+              <li>
+                - <b>Blocking <i>B. cinerea</i> infection</b>: If the tomato has
+                been infected by <i>B. cinerea</i>, the RNAi molecules can
+                silence the virulence factor genes helping to infect and the key
+                genes relating to fungus's own growth.
+              </li>
+              <br />
+              <li>
+                - <b>Enhancing tomato immunity</b>: If the tomato has not been
+                infected, applying a signal to the tomato to stimulate its
+                immunity can improve its anti-fungal ability.
+              </li>
+            </ul>
+            <br />
+            <p>
+              By applying RNAi biopesticides and plant immune preparations, the
+              balance of the interaction between tomato and
+              <i>B. cinerea</i> began to shift in tomato's favor.
+            </p>
+            <br />
+          </section>
+          <section id="anchor2">
+            <h2>RNAi</h2>
+            <br />
+            <p>
+              For RNAi therapy, we have selected two classes of targets for our
+              shRNA.
+            </p>
+            <br />
+            <ul class="ps-4">
+              <li>
+                1. A type of shRNAs targeted genes that played a key role in the
+                infection of tomato by <i>B. cinerea</i>. These include
+                <i>Bcpme1</i> (<a href="http://parts.igem.org/Part:BBa_K4653007"
+                  >BBa_K4653007</a
+                >,
+                <a href="http://parts.igem.org/Part:BBa_K4653008"
+                  >BBa_K4653008</a
+                >), a pectin methylesterase that penetrates plant cell walls,
+                and <i>BcOAH</i> (<a
+                  href="http://parts.igem.org/Part:BBa_K4653005"
+                  >BBa_K4653005</a
+                >,
+                <a href="http://parts.igem.org/Part:BBa_K4653006"
+                  >BBa_K4653006</a
+                >), which helps synthesize oxalate to poison cells.
+                <i>Bcdcl1</i> (<a href="http://parts.igem.org/Part:BBa_K4653009"
+                  >BBa_K4653009</a
+                >,
+                <a href="http://parts.igem.org/Part:BBa_K4653010"
+                  >BBa_K4653010</a
+                >) and <i>Bcdcl2</i>(<a
+                  href="http://parts.igem.org/Part:BBa_K4653011"
+                  >BBa_K4653011</a
+                >,
+                <a href="http://parts.igem.org/Part:BBa_K4653012"
+                  >BBa_K4653012</a
+                >) were synthesized to silence plant immune-related genes.
+              </li>
+              <br />
+              <li>
+                2. Another type of shRNAs targeted genes essential for the
+                survival of <i>B. cinerea</i>. Including <i>BcchsIIIa</i> (<a
+                  href="http://parts.igem.org/Part:BBa_K4653001"
+                  >BBa_K4653001</a
+                >,
+                <a href="http://parts.igem.org/Part:BBa_K4653002"
+                  >BBa_K4653002</a
+                >), a gene that synthetes chitin, a major component of the cell
+                wall of pathogen. And the ergosterol synthesis gene
+                <i>Bccyp51</i> (<a
+                  href="http://parts.igem.org/Part:BBa_K4653003"
+                  >BBa_K4653003</a
+                >,
+                <a href="http://parts.igem.org/Part:BBa_K4653004"
+                  >BBa_K4653004</a
+                >) maintains the cell membrane bioactivity of <i>B. cinerea</i>.
+              </li>
+            </ul>
+            <br />
+            <p>
+              Two shRNAs were designed for each of the above genes, and their
+              effects were verified at the phenotypic and molecular levels in
+              tomato infected by <i>B. cinerea</i>. After the effective shRNA
+              was screened step by step, to improve the delivery efficiency of
+              shRNA, we also combined the cell transmembrane peptide
+              BP100-(KH)<sub>9</sub>(<a
+                href="http://parts.igem.org/Part:BBa_K3224003"
+                >BBa_K3224003</a
+              >) with shRNA and verified the enhancement effect of CPP on shRNA.
+              Then, in order to make shRNA molecules more stable and reduce the
+              cost for large-scale production, two of the effective shRNAs were
+              spliced together to form bi-shRNA(<a
+                href="http://parts.igem.org/Part:BBa_K4653015"
+                >BBa_K4653015</a
+              >), which proved to be more effective when combined with CPP at
+              both phenotypic and molecular levels.
+            </p>
+            <br />
+            <table class="table table-striped my-2">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 17%">Part Numbers</th>
+                  <th scope="col" style="width: 20%">Name</th>
+                  <th scope="col" style="width: 19%">Type</th>
+                  <th scope="col" style="width: 44%">Part Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653907"
+                      >BBa_K4653907</a
+                    >
+                  </th>
+                  <td>
+                    T7 promoter - <br />
+                    shRNA(Pme1)-2 - T7 Terminator
+                  </td>
+                  <td>Composite part</td>
+                  <td>
+                    Producing the shRNA silencing chitin (CHS) of
+                    <i>B. cinerea</i> in <i>E. coli</i> DH5α
+                  </td>
+                </tr>
+                <!-- 分割头 -->
+                <tr>
+                  <td colspan="4"></td>
+                </tr>
+                <!-- 分割尾 -->
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653001"
+                      >BBa_K4653001</a
+                    >
+                  </th>
+                  <td>shRNA(CHSIIIa)-1</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing chitin (CHS) of <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653002"
+                      >BBa_K4653002</a
+                    >
+                  </th>
+                  <td>shRNA(CHSIIIa)-2</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing chitin (CHS) of <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653003"
+                      >BBa_K4653003</a
+                    >
+                  </th>
+                  <td>shRNA(cyp51)-1</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing ergosterol (ERG) of <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <!-- 第6个 -->
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653004"
+                      >BBa_K4653004</a
+                    >
+                  </th>
+                  <td>shRNA(cyp51)-2</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing ergosterol (ERG) of <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653005"
+                      >BBa_K4653005</a
+                    >
+                  </th>
+                  <td>shRNA(OAH)-1</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing oxaloacetate hydrolase (OAH) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653006"
+                      >BBa_K4653006</a
+                    >
+                  </th>
+                  <td>shRNA(OAH)-2</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing oxaloacetate hydrolase (OAH) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653007"
+                      >BBa_K4653007</a
+                    >
+                  </th>
+                  <td>shRNA(Pme1)-1</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing pectin methylesterase (PME) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <!-- 第11个 -->
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653008"
+                      >BBa_K4653008</a
+                    >
+                  </th>
+                  <td>shRNA(Pme1)-2</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing pectin methylesterase (PME) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653009"
+                      >BBa_K4653009</a
+                    >
+                  </th>
+                  <td>shRNA(DCL1)-1</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing Dicer-like proteins (DCL1) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653010"
+                      >BBa_K4653010</a
+                    >
+                  </th>
+                  <td>shRNA(DCL1)-2</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing Dicer-like proteins (DCL1) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653011"
+                      >BBa_K4653011</a
+                    >
+                  </th>
+                  <td>shRNA(DCL2)-1</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing Dicer-like proteins (DCL2) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653012"
+                      >BBa_K4653012</a
+                    >
+                  </th>
+                  <td>shRNA(DCL2)-2</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The shRNA silencing Dicer-like proteins (DCL2) of
+                    <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <!-- 第16个 -->
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653014"
+                      >BBa_K4653014</a
+                    >
+                  </th>
+                  <td>shRNA(Box-infect)</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The tetra-shRNA silencing the genes that play a key role in
+                    the infection of <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K4653015"
+                      >BBa_K4653015</a
+                    >
+                  </th>
+                  <td>shRNA(Box-survival)</td>
+                  <td>RNA<br />(new basic part)</td>
+                  <td>
+                    The bi-shRNA silencing the genes that maintain the survival
+                    of <i>B. cinerea</i>.
+                  </td>
+                </tr>
+                <!-- 分割头 -->
+                <tr>
+                  <td colspan="4"></td>
+                </tr>
+                <!-- 分割尾 -->
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_K3224003"
+                      >BBa_K3224003</a
+                    >
+                  </th>
+                  <td>BP100-(KH)<sub>9</sub></td>
+                  <td>Protein coding sequences</td>
+                  <td>
+                    The short peptides that can penetrate the cell membrane and
+                    deliver a wide range of cargoes into the cell.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_R0187">BBa_R0187</a>
+                  </th>
+                  <td>T7 promoter (lacI repressible)</td>
+                  <td>Regulatory</td>
+                  <td>A lac repressible T7 promoter.</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <a href="http://parts.igem.org/Part:BBa_M50060"
+                      >BBa_M50060</a
+                    >
+                  </th>
+                  <td>T7 Terminator</td>
+                  <td>Terminator</td>
+                  <td>Terminator for bacterial expression.</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <p>
+              Thus, we have completed the iteration of shRNA - CPP+shRNA -
+              CPP+bi-shRNA. More information can be found in
+              <a href="{{ url_for('pages', page='engineering') }}"
+                >Engineering</a
+              >.
+            </p>
+            <br />
+          </section>
+          <section id="anchor3">
+            <h2>Plant immunity</h2>
+            <br />
+            <section id="anchor3.1">
+              <h3>I.Inducing factor</h3>
+              <br />
+              <p>
+                To trigger the immune system in tomato, we selected the
+                following elements as immune inducers:
+              </p>
+              <br />
+              <ul class="ps-4">
+                <li>
+                  1.
+                  <a href="http://parts.igem.org/Part:BBa_K4653101"
+                    >BBa_K4653101</a
+                  >
+                  encodes a pectin enzyme PehA, which can digest pectin and
+                  produce oligo-galacturonic acid that can activate downstream
+                  immune pathways in plants.
+                </li>
+                <br />
+                <li>
+                  2.
+                  <a href="http://parts.igem.org/Part:BBa_K4653102"
+                    >BBa_K4653102</a
+                  >
+                  encodes a 22-amino acid N-terminal peptide of flagellin from
+                  Pseudomonas aeruginosa (Flg22), which can activate downstream
+                  immune pathways after binding to plant cell surface receptors.
+                  <a href="http://parts.igem.org/Part:BBa_K4653103"
+                    >BBa_K4653103</a
+                  >
+                  encodes three Flg22 repeat peptides in tandem to verify its
+                  better immune triggering effect. In addition, we also used the
+                  full-length flagellin sequence (<a
+                    href="http://parts.igem.org/Part:BBa_K4653104"
+                    >BBa_K4653104</a
+                  >) in our experiments. The effective immune-inducing factors
+                  were screened out among the three parts.
+                </li>
+                <br />
+                <li>
+                  3.
+                  <a href="http://parts.igem.org/Part:BBa_K4653105"
+                    >BBa_K4653105</a
+                  >
+                  encodes a protein phosphatase BvEP from
+                  <i>Bacillus velezensis</i>, which has been shown to induce PTI
+                  and ETI immune responses in tomato to activate a more durable
+                  and effective defense in tomato.
+                </li>
+              </ul>
+              <br />
+              <table class="table table-striped my-2">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 17%">Part Numbers</th>
+                    <th scope="col" style="width: 20%">Name</th>
+                    <th scope="col" style="width: 19%">Type</th>
+                    <th scope="col" style="width: 44%">Part Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653113"
+                        >BBa_K4653113</a
+                      >
+                    </th>
+                    <td>pET28a - BvEP - 6x His tag</td>
+                    <td>Composite part</td>
+                    <td>
+                      Overexpressing BvEP, in <i>E. coli</i> BL21 (DE3). The
+                      gene circuit of BVEP is constructed on the pET-28a plasmid
+                      vector, including T7 promoter, BvEP gene, 6x His affinity
+                      tag, and T7 terminator.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653114"
+                        >BBa_K4653114</a
+                      >
+                    </th>
+                    <td>pMA5 - Veg promoter - Epr - BvEP - 2x fd Terminator</td>
+                    <td>Composite part</td>
+                    <td>
+                      Expressing BvEP in <i>B. subtilis</i>WB800. Using pMA5 as
+                      a plasmid carrier, strong promoter Veg promoter, Epr
+                      signal peptide, BvEP expression gene, and T7TE terminator.
+                    </td>
+                  </tr>
+                  <!-- 分割头 -->
+                  <tr>
+                    <td colspan="4"></td>
+                  </tr>
+                  <!-- 分割尾 -->
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653101"
+                        >BBa_K4653101</a
+                      >
+                    </th>
+                    <td>PehA</td>
+                    <td>Protein coding sequences<br />(new part)</td>
+                    <td>
+                      A polygalacturonase from <i>R. solanacearum</i>, can
+                      hydrolyze pectin and produce Oligogalacturonides as DAMP
+                      to induce plant immunity.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653102"
+                        >BBa_K4653102</a
+                      >
+                    </th>
+                    <td>1x Flg22</td>
+                    <td>Protein coding sequences<br />(new part)</td>
+                    <td>
+                      A conserved 22-amino acid sequence from the N-terminal of
+                      <i>P. aeruginosa</i> flagellin, is a PAMP to induce plant
+                      immunity.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653103"
+                        >BBa_K4653103</a
+                      >
+                    </th>
+                    <td>3x Flg22</td>
+                    <td>Protein coding sequences<br />(new part)</td>
+                    <td>
+                      Repeating the sequence of Flg22 three times to increase
+                      the probability of the PAMP reaching the plant pattern
+                      recognition receptor to enhance the plant immune response.
+                    </td>
+                  </tr>
+                  <!-- 第6个 -->
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653104"
+                        >BBa_K4653104</a
+                      >
+                    </th>
+                    <td>Flagellin [<i>Pseudomonas aeruginosa</i>]</td>
+                    <td>Protein coding sequences<br />(new part)</td>
+                    <td>
+                      Flagellin from <i>P. aeruginos</i>a has 161 amino acids.
+                      The N-terminal sequence can be recognized by the pattern
+                      recognition receptors in plant cells.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653105"
+                        >BBa_K4653105</a
+                      >
+                    </th>
+                    <td>BvEP</td>
+                    <td>Protein coding sequences<br />(new part)</td>
+                    <td>
+                      BvEP is an elicitor protein phosphopentomutase from
+                      <i>Bacillus velezensis</i> LJ02 which can improve the
+                      tomato resistance to <i>B. cinerea</i>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_R0187"
+                        >BBa_R0187</a
+                      >
+                    </th>
+                    <td>T7 promoter (lacI repressile)</td>
+                    <td>Regulatory</td>
+                    <td>A lac repressible T7 promoter.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K157011"
+                        >BBa_K157011</a
+                      >
+                    </th>
+                    <td>6x His Tag</td>
+                    <td>Tag</td>
+                    <td>
+                      C-term His tag for purification and identification of
+                      protein of interest.
+                    </td>
+                  </tr>
+                  <!-- 第11个 -->
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K316001"
+                        >BBa_K316001</a
+                      >
+                    </th>
+                    <td>Veg Promoter</td>
+                    <td>promoter</td>
+                    <td>
+                      pVeg Constitutive promoter for Veg locus from
+                      <i>B. Subtilis</i>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_B0034"
+                        >BBa_B0034</a
+                      >
+                    </th>
+                    <td>RBS</td>
+                    <td>RBS</td>
+                    <td>
+                      Efficient ribosome binding site from bacteriophage T7 gene
+                      10.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K143021"
+                        >BBa_K143021</a
+                      >
+                    </th>
+                    <td>SpoVG RBS</td>
+                    <td>RBS</td>
+                    <td>
+                      SpoVG ribosome binding site (RBS) for
+                      <i>B. subtilis</i> for MoClo Level 0 with 6bp scar/spacer.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4317100"
+                        >BBa_K4317100</a
+                      >
+                    </th>
+                    <td>Epr signal peptide</td>
+                    <td>Protein coding sequences</td>
+                    <td>
+                      Epr signal peptide of <i>B. subtili</i>s minor
+                      extracellular serine protease.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_M50060"
+                        >BBa_M50060</a
+                      >
+                    </th>
+                    <td>T7 Terminator</td>
+                    <td>Terminator</td>
+                    <td>Terminator for bacterial expression.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653107"
+                        >BBa_K4653107</a
+                      >
+                    </th>
+                    <td>Fd Terminator</td>
+                    <td>Terminator</td>
+                    <td>Central terminator from bacteriophage fd.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653108"
+                        >BBa_K4653108</a
+                      >
+                    </th>
+                    <td>2xFd Terminator</td>
+                    <td>Terminator</td>
+                    <td>
+                      Double terminator consisting of central terminator from
+                      bacteriophage fd.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <br />
+            <section id="anchor3.2">
+              <h3>II. Sucrose-induced suicide switch</h3>
+              <br />
+              <p>
+                Considering safety, we designed a sucrose-induced suicide
+                switch, which prevents engineered <i>B. subtilis</i> from
+                escaping and bringing negative effects to the field ecological
+                environment.
+              </p>
+              <br />
+              <ul class="ps-4">
+                <li>
+                  1.The circuit of our condition-triggered suicide switch (
+                  <a href="http://parts.igem.org/Part:BBa_K4653121"
+                    >BBa_K4653121</a
+                  >
+                  ) is based on sacB biobricks and MazEF system.
+                </li>
+                <br />
+                <li>
+                  2.SacB promoter (<a
+                    href="http://parts.igem.org/Part:BBa_K4043004"
+                    >BBa_K4043004</a
+                  >) is one of the strongest inducible promoters in the fungal
+                  kingdom.
+                </li>
+                <br />
+                <li>
+                  3.MazEF (<a href="http://parts.igem.org/Part:BBa_K2292002"
+                    >BBa_K2292002</a
+                  >) is a common toxin-antitoxin system.
+                </li>
+                <br />
+              </ul>
+
+              <table class="table table-striped my-2">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 17%">Part Numbers</th>
+                    <th scope="col" style="width: 20%">Name</th>
+                    <th scope="col" style="width: 19%">Type</th>
+                    <th scope="col" style="width: 44%">Part Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653121"
+                        >BBa_K4653121</a
+                      >
+                    </th>
+                    <td>SacB promoter-SpoVG RBS-MazE-MazF-Fd Terminator</td>
+                    <td>Composite part</td>
+                    <td>
+                      A suicide switch applied based on sucrose-dependent mazEF
+                      toxin-based antitoxin system in <i>B subtilis</i>.
+                    </td>
+                  </tr>
+                  <!-- 分割头 -->
+                  <tr>
+                    <td colspan="4"></td>
+                  </tr>
+                  <!-- 分割尾 -->
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K2292002"
+                        >BBa_K2292002</a
+                      >
+                    </th>
+                    <td>MazEF kill switch</td>
+                    <td>Protein coding sequences</td>
+                    <td>
+                      MazF causes cell death by cleaving mRNA at a specific
+                      site. On the other hand, MazE plays a role of antitoxin
+                      which can antagonize the toxin MazF.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4202001"
+                        >BBa_K4202001</a
+                      >
+                    </th>
+                    <td>MazF</td>
+                    <td>Protein coding sequences</td>
+                    <td>
+                      MazF causes cell death by cleaving mRNA at a specific
+                      site.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4202046"
+                        >BBa_K4202046</a
+                      >
+                    </th>
+                    <td>MazE</td>
+                    <td>Protein coding sequences</td>
+                    <td>
+                      MazE plays a role of antitoxin which can antagonize the
+                      toxin MazF.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4043004"
+                        >BBa_K4043004</a
+                      >
+                    </th>
+                    <td>SacB promoter</td>
+                    <td>promoter</td>
+                    <td>
+                      The transcription of the PsacB promoter is not strictly
+                      regulated by sucrose, and can be transcribed without an
+                      inducer, but the intensity is 100 times lower than that of
+                      sucrose induction.
+                    </td>
+                  </tr>
+                  <!-- 第6个 -->
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K143021"
+                        >BBa_K143021</a
+                      >
+                    </th>
+                    <td>SpoVG RBS</td>
+                    <td>RBS</td>
+                    <td>
+                      SpoVG ribosome binding site (RBS) for
+                      <i>B. subtilis</i> for MoClo Level 0 with 6bp scar/spacer
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653107"
+                        >BBa_K4653107</a
+                      >
+                    </th>
+                    <td>Fd Terminator</td>
+                    <td>Terminator</td>
+                    <td>Central terminator from bacteriophage fd.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <a href="http://parts.igem.org/Part:BBa_K4653108"
+                        >BBa_K4653108</a
+                      >
+                    </th>
+                    <td>2xFd Terminator</td>
+                    <td>
+                      Terminator<br />
+                      new part
+                    </td>
+                    <td>
+                      Double terminator consisting of central terminator from
+                      bacteriophage fd.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}

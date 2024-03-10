@@ -1,0 +1,1036 @@
+{% extends "layout.html" %} {% block page_content %}
+<style>
+  /* 选项，若 n 项，就 n * 40px */
+  .menu-item > input#menu-item1:checked ~ .menu-content {
+    height: calc(0 * 40px);
+  }
+
+  .menu-item > input#menu-item2:checked ~ .menu-content {
+    height: calc(9 * 40px);
+  }
+  header.description {
+    background: url("https://static.igem.wiki/teams/4653/wiki/results/head-picture/head-picture/notebook.jpeg")
+      no-repeat bottom center/cover;
+  }
+</style>
+<section class="showcase description">
+  <header class="description">
+    <h2 class="bigTitle">Notebook</h2>
+  </header>
+  <!-- 侧边栏开始 -->
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="menu-box sidebar col-md-3 col-1">
+          <!-- 展示与隐藏侧边栏 开始-->
+          <input type="checkbox" id="menu-btn" />
+          <label id="menu-btn-1" for="menu-btn"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+              />
+            </svg>
+          </label>
+          <!-- 展示与隐藏侧边栏 结束-->
+          <div class="menu">
+            <!-- 侧边栏的标题 开始-->
+            <div class="menu-title">
+              <h1>Menu</h1>
+            </div>
+            <!-- 侧边栏的标题 结束-->
+
+            <!-- 每一项导航 -->
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item1" />
+              <label for="menu-item1">
+                <a href="#anchor1" class="scroll-link">Overview</a>
+              </label>
+            </div>
+
+            <div class="menu-item">
+              <input type="checkbox" id="menu-item2" />
+              <label for="menu-item2">
+                <a href="#anchor2" class="scroll-link">Team log</a>
+              </label>
+              <div class="menu-content">
+                <span>
+                  <small>
+                    <a href="#anchor2.1" class="scroll-link d-block w-100"
+                      >Brain stroming</a
+                    ></small
+                  >
+                </span>
+                <span>
+                  <small>
+                    <a href="#anchor2.2" class="scroll-link d-block w-100"
+                      >Wet lab</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.3" class="scroll-link d-block w-100"
+                      >Products</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.4" class="scroll-link d-block w-100"
+                      >Dry lab</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.5" class="scroll-link d-block w-100"
+                      >Hardware</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.6" class="scroll-link d-block w-100"
+                      >Human practice</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.7" class="scroll-link d-block w-100"
+                      >Art desigining</a
+                    >
+                  </small></span
+                >
+                <span
+                  ><small>
+                    <a href="#anchor2.8" class="scroll-link d-block w-100"
+                      >Wiki Develop</a
+                    >
+                  </small></span
+                >
+              </div>
+            </div>
+
+            <div class="set-line"></div>
+          </div>
+        </div>
+        <!-- 侧边栏结束 -->
+        <div class="col-md-9 col-11">
+          <section id="anchor1">
+            <h2>Overview</h2>
+            <h4>2022.12.3<br />Set up a team</h4>
+            <p>We set up a team with 13 members.</p>
+            <br />
+            <h4>
+              2022.12.16-2023.2.6<br />Experimental skills training and
+              literature reading training
+            </h4>
+            <br />
+            <h4>2023.1.16-3.19<br />Brain storming</h4>
+            <p>
+              Brain storming was carried out in groups. Each group had its own
+              project.
+            </p>
+            <br />
+            <h4>2023.3.20<br />Determined our project</h4>
+            <p>
+              The investigation in Haijixing Market triggered our interest in
+              <i>Botrytis cinerea</i>.
+            </p>
+            <br />
+            <h4>
+              2023.3.20-2023.5.12<br />Background research and preliminary
+              experiments
+            </h4>
+            <p>
+              The preliminary design of the complete project system and a large
+              number of background research and literature research were
+              completed. Some experiments were started.
+            </p>
+            <br />
+            <h4>
+              2023.8.14-2023.10.2<br />Middle period of experiments and product
+              iteration
+            </h4>
+            <br />
+            <h4>
+              2023.10.12<br />Finished all experiments and uploaded our wiki
+            </h4>
+            <br />
+            <h4>2023.11.2<br />iGEM jamboree</h4>
+            <br />
+          </section>
+          <section id="anchor2">
+            <h2>Team log</h2>
+            <section id="anchor2.1">
+              <br />
+              <br />
+              <h3>2023.1.16-3.19<br />Brain stroming</h3>
+              <br />
+              <h4>2023.1.16<br />Start our brain storming</h4>
+              <p>
+                1. Discuss and determine the complete process of team
+                brainstorming and establish the "three-step" strategy:
+                <br />
+                Step 1. Release your thoughts and record them.
+                <br />
+                Step 2. Search and organize a lot of data.
+                <br />
+                Step 3. Initially select the project with the most development
+                potential for further advancement, and finally select the most
+                suitable one as our project after reviewing each pre-project
+                from multiple perspectives.
+                <br />
+                2. Created a brainstorming summary sheet to record our
+                interesting ideas.
+                <br />
+              </p>
+              <br />
+              <h4>2023.1.16-2023.3.20<br />Built some brain storming</h4>
+              <br />
+              <h4>Therapeutics</h4>
+              <p>
+                Yutong Chen——Phages control plant wilt.
+                <br />
+                Xinxu Long——Treatment of gluten sensitivity.
+                <br />
+                Tangkun Zhu——Body fluids detection for breast cancer.
+                <br />
+              </p>
+              <br />
+              <h4>Environment</h4>
+              <p>Yutong Chen——Prevention and control of Fushou snails.</p>
+              <br />
+              <h4>Manufacturing</h4>
+              <p>
+                Yutong Chen——Produce chitosan to preserve fresh fruits and
+                vegetables.
+                <br />
+                Zuxin Chen——A damage-free bleaching system.
+                <br />
+                Jun Huang——Flavors are produced with human metabolites.
+              </p>
+              <br />
+              <h4>Food and Nutrition</h4>
+              <p>
+                Xiaocheng Feng,Yutong Chen——Remove nitrite from leftovers.
+                <br />
+              </p>
+              <h4>Energy</h4>
+              <p>Yutong Chen——Monitoring of soil moisture.</p>
+              <br />
+              <h4>2023.3.20<br />Change of brain storming</h4>
+              <p>
+                The investigation in Haijixing Market triggered our interest in
+                Botrytis cinerea.
+              </p>
+              <br />
+              <h4>2023.4.13<br />Determined our project</h4>
+              <p>
+                Listened to our PI's opinions and two control measures, RNAi and
+                plant immunity were formed.
+              </p>
+              <br />
+            </section>
+            <section id="anchor2.2">
+              <h3>2023.4.13-2023.10<br />Work implementation</h3>
+              <br />
+              <h3>Wet lab</h3>
+              <div>
+                <h4>RNAi</h4>
+                <br />
+                <h4>
+                  Period one,transformation, colony PCR, plasmid extraction,
+                  plasmid PCR, and infection experiments attempted
+                </h4>
+                <br />
+                <br />
+                <h4>5.22-5.23</h4>
+                Xinxu Long,Ruoyu Chen——Transformation of RNAi plasmids;
+                Inoculation of gray mold fungus onto PDA agar plates. <br />
+                <br />
+                <h4>5.24-5.27</h4>
+                Xinxu Long,Ruoyu Chen——Plasmid extraction; Colony PCR of
+                <i>HT115(DE3)</i> and subsequent gel electrophoresis analysis.
+                <br />
+                <br />
+                <h4>5.28-5.29</h4>
+                Xinxu Long,Xiaocheng Feng——Gray mold fungus infection on tomato
+                fruits (inoculation with fungal agar plugs, inoculation with
+                fungal spore suspension); Inoculation of gray mold fungus.
+                <br />
+                <br />
+                <h4>5.30</h4>
+                Xinxu Long——Plasmid extraction; Plasmid PCR and gel
+                electrophoresis analysis of <i>HT115(DE3)</i>. <br />
+                <br />
+                <h4>6.1</h4>
+                Xinxu Long,Xiaocheng Feng——Gray mold fungus infection on tomato
+                fruits (inoculation with circular filter paper soaked with
+                fungal spore suspension); Scratch inoculation of gray mold
+                fungus on agar plates for sporulation induction. <br />
+                <br />
+                <h4>6.5-6.7</h4>
+                Xinxu Long,Xiaocheng Feng——Transformation of RNAi plasmids;
+                Plasmid extraction; Colony PCR and gel electrophoresis analysis
+                of
+                <i>HT115(DE3)</i>; Plasmid PCR and gel electrophoresis analysis
+                of <i>HT115(DE3)</i>.
+                <br />
+                <br />
+                <h4>7.5</h4>
+                Xinxu Long,Xiaocheng Feng——Gray mold fungus infection on tomato
+                fruits and detached leaves, with four different infection
+                methods attempted: agar plug inoculation, glass paper with gray
+                mold, fungal spore suspension, circular filter paper soaked with
+                fungal spore suspension. <br />
+                <br />
+                <br />
+                <h4>
+                  Period two,shRNA extraction, infection experiment attempts
+                </h4>
+                <br />
+                <br />
+                <h4>7.11-7.18</h4>
+                Ruoyu Chen,Xinxu Long,Xiaocheng Feng——Inoculation of gray mold
+                fungus onto PDA agar plates; Shake culture, induction of
+                Escherichia coli with IPTG, extraction of various shRNAs using
+                Trizol method and completion of nucleic acid gel
+                electrophoresis.
+                <br />
+                <br />
+                <h4>7.19-7.20</h4>
+                Xinxu Long,Xiaocheng Feng——Inoculation of gray mold fungus onto
+                PDA agar plates; Shake culture, induction of Escherichia coli
+                with IPTG, extraction of various shRNAs using Trizol method and
+                completion of nucleic acid gel electrophoresis. <br />
+                <br />
+                <h4>7.21</h4>
+                Xinxu Long,Xiaocheng Feng——Bulk extraction of shRNA and
+                completion of nucleic acid gel electrophoresis; Gray mold fungus
+                infection on tomato fruits and detached leaves (inoculation with
+                agar plugs); Inoculation of gray mold fungus onto PDA agar
+                plates. <br />
+                <br />
+                <h4>7.22-7.24</h4>
+                Xinxu Long,Xiaocheng Feng——Bulk extraction of shRNA and
+                completion of nucleic acid gel electrophoresis.
+                <br />
+                <br />
+                <h4>7.25</h4>
+                Xinxu Long,Xiaocheng Feng——After spraying with naked shRNA or
+                CPP-coated shRNA, tomato fruits were inoculated with gray mold
+                fungus using agar plugs; Transformation of GFP plasmid;
+                Inoculation of gray mold fungus onto PDA agar plates. <br />
+                <br />
+                <h4>7.26-7.28</h4>
+                Xinxu Long,Xiaocheng Feng——Bulk extraction of shRNA and
+                completion of nucleic acid gel electrophoresis; Scratch
+                inoculation of gray mold fungus on agar plates for sporulation
+                induction; Inoculation of gray mold fungus onto PDA agar plates.
+                <br />
+                <br />
+                <h4>7.29</h4>
+                Xinxu Long,Xiaocheng Feng——Gray mold fungus infection on tomato
+                fruits (inoculation with fungal spore suspension); Inoculation
+                of gray mold fungus onto PDA agar plates. <br />
+                <br />
+                <h4>7.30</h4>
+                Xinxu Long,Xiaocheng Feng——Bulk extraction of shRNA and
+                completion of nucleic acid gel electrophoresis.
+                <br />
+                <br />
+                <h4>8.1</h4>
+                Xinxu Long,Xiaocheng Feng——Attempted to obtain gray mold spores
+                and prepare spore suspension; Observed spore morphology under a
+                microscope; Tried rapid sporulation method; Simulated natural
+                gray mold infection on tomato fruits using a 5x4 egg carton.
+                <br />
+                <br />
+                <h4>8.2</h4>
+                Xinxu Long,Xiaocheng Feng——Gray mold fungus infection on tomato
+                fruits (inoculation with fungal spore suspension and mycelial
+                suspension); Bulk extraction of shRNA and completion of nucleic
+                acid gel electrophoresis. <br />
+                <br />
+                <h4>8.3</h4>
+                Xinxu Long,Xiaocheng Feng——Gray mold fungus infection on tomato
+                fruits (inoculation with fungal spore suspension); Bulk
+                extraction of shRNA and completion of nucleic acid gel
+                electrophoresis.
+                <br />
+                <br />
+                <h4>8.4</h4>
+                Xinxu Long,Xiaocheng Feng——Inoculation of gray mold fungus onto
+                PDA agar plates; Bulk extraction of shRNA and completion of
+                nucleic acid gel electrophoresis. <br />
+                <br />
+                <h4>8.5</h4>
+                Xinxu Long,Xiaocheng Feng——Gray mold fungus infection on tomato
+                fruits (inoculation with fungal spore suspension); Bulk
+                extraction of shRNA and completion of nucleic acid gel
+                electrophoresis.
+                <br />
+                <br />
+                <h4>8.8</h4>
+                Xiaocheng Feng——Inoculation of gray mold fungus onto PDA agar
+                plates; Bulk extraction of shRNA and completion of nucleic acid
+                gel electrophoresis. <br />
+                <br />
+                <br />
+                <h4>Period three,application of naked shRNA</h4>
+                <br />
+                <br />
+                <h4>8.10-8.11</h4>
+                Xiaocheng Feng,Jun Huang,Yutong Chen——After spraying with naked
+                shRNA, tomato fruits were inoculated with small agar plugs of
+                gray mold fungus.
+                <br />
+                <br />
+                <h4>8.12-8.14</h4>
+                Xiaocheng Feng,Jun Huang——Processing of lesion area data;
+                Inoculation of gray mold fungus onto PDA agar plates.
+                <br />
+                <br />
+                <h4>8.15-8.16</h4>
+                Xiaocheng Feng,Jun Huang——After spraying naked shRNA, tomato
+                fruits were inoculated with small agar plugs of gray mold
+                fungus.
+                <br />
+                Xiaocheng Feng——Bulk extraction of shRNA and completion of
+                nucleic acid gel electrophoresis.
+                <br />
+                <br />
+                <h4>8.17</h4>
+                Xiaocheng Feng——Bulk extraction of shRNA and completion of
+                nucleic acid gel electrophoresis.
+                <br />
+                Yutong Chen——Inoculation of gray mold fungus onto PDA agar
+                plates.
+                <br />
+                <br />
+                <h4>8.18</h4>
+                Xiaocheng Feng,Jun Huang——qPCR tomato sample collection.
+                <br />
+                <br />
+                <h4>8.19</h4>
+                Jun Huang——Inoculation of gray mold fungus onto PDA agar plates.
+                <br />
+                Xiaocheng Feng,Jun Huang,Yutong Chen——qPCR tomato sample
+                collection; Bulk extraction of shRNA and completion of nucleic
+                acid gel electrophoresis.
+                <br />
+                Xiaocheng Feng——Scratch inoculation of gray mold fungus on agar
+                plates for sporulation induction; Microscopic observation of
+                spore morphology.
+                <br />
+                <br />
+                <h4>
+                  Period four,application of shRNA coated with CPP (Cell
+                  Penetrating Peptide)
+                </h4>
+
+                <br />
+                <h4>8.23</h4>
+                Xiaocheng Feng,Jun Huang——After spraying with shRNA coated with
+                CPP (Cell Penetrating Peptide), tomato fruits were inoculated
+                with small agar plugs of gray mold fungus.
+                <br />
+                Ruoyu Chen——Bulk extraction of shRNA. <br />
+                <br />
+                <h4>8.24</h4>
+                Xiaocheng Feng,Jun Huang——After spraying with shRNA coated with
+                CPP (Cell Penetrating Peptide), tomato fruits were inoculated
+                with small agar plugs of gray mold fungus.
+                <br />
+                Yutong Chen——Inoculation of gray mold fungus onto PDA agar
+                plates; Bulk extraction of shRNA. <br />
+                <br />
+                <h4>8.26-8.27</h4>
+                Jiayi Huang——qPCR tomato sample collection.
+                <br />
+                Jun Huang——Inoculation of gray mold fungus onto PDA agar plates.
+                <br />
+                <br />
+                <h4>8.28</h4>
+                Xiaocheng Feng,Jun Huang,Xinxu Long——After spraying with shRNA
+                coated with Cell Penetrating Peptide (CPP), tomato fruits were
+                inoculated with small agar plugs of gray mold fungus.
+                <br />
+                Yutong Chen——Inoculation of gray mold fungus onto PDA agar
+                plates.
+                <br />
+                <br />
+                <h4>8.29-9.2</h4>
+                Xiaocheng Feng,Xinxu Long——Sample collection of tomato samples
+                treated with naked RNA; RNA extraction from tomato samples;
+                Reverse transcription of RNA into cDNA; Primer selection;
+                qRT-PCR (quantitative reverse transcription PCR). <br />
+                <br />
+                <h4>9.4</h4>
+                Xiaocheng Feng,Xinxu Long——qRT-PCR (naked RNA treatment). <br />
+                <br />
+                <h4>9.5</h4>
+                Xiaocheng Feng,Xinxu Long——Bulk extraction of shRNA. <br />
+                <br />
+                <h4>9.6-9.14</h4>
+                Xiaocheng Feng,Xinxu Long——RNA extraction from tomato samples
+                (RNA treatment with CPP coating); Reverse transcription of RNA
+                into cDNA; qRT-PCR. <br />
+                <br />
+                <h4>9.15-9.16</h4>
+                Xiaocheng Feng,Xinxu Long——After spraying with shRNA coated with
+                CPP (Cell Penetrating Peptide), tomato fruits were inoculated
+                with small agar plugs of gray mold fungus. <br />
+                <br />
+                <br />
+                <h4>Period five,Validation of concatenated shRNA.</h4>
+                <p>
+                  <br />
+                </p>
+
+                <h4>9.17</h4>
+                Xiaocheng Feng,Xinxu Long——RNA extraction from tomato samples
+                (treated with concatenated RNA coated with CPP); Reverse
+                transcription of RNA into cDNA; qRT-PCR; Repeat experiment -
+                Spraying with naked shRNA followed by inoculation of tomato
+                fruits with small agar plugs of gray mold fungus.
+                <br />
+                <h4>9.18-9.19</h4>
+                Xiaocheng Feng,Xinxu Long——qPCR of concatenated RNA.<br />
+                <br />
+                <h4>9.20-9.28</h4>
+                Xiaocheng Feng,Xinxu Long——For continuous qPCR (shRNA stability
+                test) infection experiments; Sample RNA, cDNA reverse
+                transcription and qPT-PCR for continuous qPCR and bare shRNA
+                were extracted.<br />
+                <br />
+              </div>
+              <br />
+              <h4>Plant Immunity</h4>
+              <div>
+                <h4>5.18-5.27</h4>
+                Yutong Chen——Construction of PehA Plasmid <br />
+                <br />
+                <h4>5.31-6.4</h4>
+                Ruoyu Chen,Tangkun Zhu——Transformation of PehA plasmid and
+                inoculation of transformed <i>BL21 (DE3)</i> onto agar plates.
+                <br />
+                <br />
+                <h4>6.5-7.15</h4>
+                Yutong Chen,Tangkun Zhu——Plasmid extraction for PCR and enzyme
+                digestion, followed by gel electrophoresis verification. <br />
+                <br />
+                <h4>7.16-7.30</h4>
+                Yutong Chen,Tangkun Zhu——IPTG induction, extraction of PehA
+                protein, protein concentration determination using the BCA
+                method, protein electrophoresis using SDS-PAGE, and Western blot
+                verification of PehA expression. <br />
+                <br />
+                <h4>7.24-7.31</h4>
+                Yutong Chen,Tangkun Zhu,Yang Yang——Two methods, protoplast
+                accumulation and extracellular alkalinization, were used to
+                identify the immune response induced in leaves after flg22
+                application.
+                <br />
+                Ruoyu Chen——Construction of BvEP plasmid. <br />
+                <br />
+                <h4>7.31-8.1</h4>
+                Ruoyu Chen,Tangkun Zhu——Activation of
+                <i>BL21 (DE3)</i> containing the flg22 plasmid and inoculation
+                onto agar plates. <br />
+                <br />
+                <h4>8.2</h4>
+                Yutong Chen——Extraction of flg22 plasmid for PCR and enzyme
+                digestion, followed by gel electrophoresis verification. <br />
+                <br />
+                <h4>8.3-8.20</h4>
+                Yutong Chen,Tangkun Zhu——IPTG induction, extraction of flg22
+                protein, protein concentration determination using the BCA
+                method, protein electrophoresis using SDS-PAGE, and Western blot
+                validation of flg22 expression. <br />
+                <br />
+                <h4>8.4-9.24</h4>
+                Yutong Chen,Tangkun Zhu,Yang Yang——DAB staining method for
+                identifying the ROS burst in leaves induced by flg22
+                application.
+                <br />
+                <br />
+                <h4>8.9</h4>
+                Ruoyu Chen,Tangkun Zhu——Transformation of BvEP plasmid and
+                inoculation of the transformed <i>BL21 (DE3)</i> onto agar
+                plates.
+                <br />
+                <br />
+                <h4>8.10-8.20</h4>
+                Yutong Chen,Tangkun Zhu——IPTG induction, extraction of BvEP
+                protein, protein concentration determination using the BCA
+                method, protein electrophoresis using SDS-PAGE, and Western blot
+                validation of BvEP expression.
+                <br />
+                <br />
+                <h4>8.21</h4>
+                Yutong Chen——Optimization of IPTG induction conditions for the
+                expression of flg22 and BvEP.
+                <br />
+                <br />
+                <h4>8.22-9.24</h4>
+                Yutong Chen,Yang Yang——New IPTG induction, extraction of flg22
+                and BvEP proteins, protein concentration determination using the
+                BCA method, protein electrophoresis using SDS-PAGE, and Western
+                blot validation of flg22 and BVEP expression.
+                <br />
+                <br />
+                <h4>9.21</h4>
+                Yutong Chen,Tangkun Zhu,Yang Yang——Identification of ROS burst
+                in leaves after application of PehA, flg22, and BvEP using
+                luminescent staining method.
+                <br />
+                <br />
+                <h4>10.2</h4>
+                All experiments have concluded.
+                <br />
+              </div>
+            </section>
+
+            <section id="anchor2.3">
+              <br />
+              <h3>Products</h3>
+              <div>
+                <h4>8.15</h4>
+                Tangkun Zhu, Ruoyu Chen——Summarize the current situation of
+                pesticide use, including pesticide abuse and the use of RNAi
+                biopesticides. Gets the inspiration of making the product into a
+                laundry detergent beads from our PI. We our initial idea is to
+                make our product into a bead.
+                <br />
+                <br />
+                <h4>8.25</h4>
+                Tangkun Zhu——Learns how the laundry detergent beads produce,
+                finding the raw material for bead production.
+                <br />
+                <br />
+                <h4>9.10</h4>
+                Xinxu Long, Tangkun Zhu, Ruoyu Chen——We interview Mr. Xiang and
+                Mr. Zhang from the Testing Center of Shenzhen University to
+                discuss what kind of electron microscopy can be used to observe
+                our biological samples.
+                <br />
+                <br />
+                <h4>9.13</h4>
+                Tangkun Zhu——Designs our product shapes, content and
+                accessories. We decided to use PVA (polyvinyl alcohol) film as
+                the material for our packaging.
+                <br />
+                <br />
+                <h4>9.14</h4>
+                Xinxu Long, Tangkun Zhu, Ruoyu Chen——After learning and
+                comparing the use rules and observation objects of different
+                electron microscopy, we decide to use scanning electron
+                microscopy (SEM) to observe our RNA-CPP complex at the
+                microscopic scale. We designed CPP, RNA and RNA-CPP complexes
+                with different concentrations and observed them under SEM.
+                <br />
+                <br />
+                <h4>9.21</h4>
+                Xinxu Long, Tangkun Zhu, Ruoyu Chen——Use scanning electron
+                microscopy (SEM) to observe our RNA-CPP complex at the
+                microscopic scale. We use SEM for further observation and
+                determine the structure of our sample under SEM.
+                <br />
+                <br />
+                <h4>9.24</h4>
+                Tangkun Zhu——Finds the most suitable solvent contained in our
+                complex biopesticide products.
+                <br />
+                <br />
+                <h4>9.26-10.5</h4>
+                Tangkun Zhu——Designs the experiment of product verification and
+                carry out the related test, and carry out the product
+                production.
+                <br />
+              </div>
+            </section>
+            <section id="anchor2.4">
+              <div>
+                <br />
+                <h3>Dry lab</h3>
+                <br />
+                <h4>7.11-8.5</h4>
+                <p>Jun Huang——Building an RNA interference model.</p>
+
+                <p>
+                  Jun Huang——Building an epidemiological model. The model guides
+                  how the product is applied. <br />
+                </p>
+                <br />
+                <h4>8.5-9.3</h4>
+                <p>
+                  Jun Huang——Helped with tomato infestation tests in the lab.
+                </p>
+                <p>
+                  Jun Huang——Analyzing the data from the experiment.Data were
+                  analyzed to advance the experiment. <br />
+                </p>
+                <br />
+                <h4>9.10-9.20</h4>
+                Jun Huang——validating the model against the data produced by the
+                experiment.
+              </div>
+            </section>
+            <section id="anchor2.5">
+              <div>
+                <br />
+                <h3>Hardware</h3>
+                <br />
+                <h4>5.1-6.31</h4>
+                <p>
+                  Zhonghao Sun——Conception of shRNA production by in vitro
+                  transcription.
+                  <br />
+                  Zhonghao Sun—— Preliminary design of hardware functions and
+                  structure.
+                </p>
+                <br />
+                <h4>7.1-7.20</h4>
+                <p>
+                  Zhonghao Sun——Model selection of hardware components and
+                  microcontrollers.
+                  <br />
+                  Zhonghao Sun——3D Modeling of the mini reaction container with
+                  3ds MAX.
+                </p>
+                <br />
+                <h4>7.21-8.31</h4>
+                <p>
+                  Zhonghao Sun ——3D Printing of the mini reaction container.
+                  <br />
+                  Zhonghao Sun ——Assembly of various components.
+                  <br />
+                  Zhonghao Sun ——Writing and debugging of microcontroller
+                  programs.
+                </p>
+                <br />
+                <h4>9.1-10.2</h4>
+                <p>
+                  Zhonghao Sun ——Attempt of producing shRNA using the built
+                  hardware. <br />
+                  Zhonghao Sun ——Verify the shRNA produced by the hardware.
+                </p>
+              </div>
+            </section>
+            <section id="anchor2.6">
+              <div>
+                <br />
+                <h3>Human practice</h3>
+                <br />
+                <h4>March</h4>
+                <br />
+                <h4>3.11</h4>
+                <p>
+                  All members——Shenzhen University Affiliated Experimental High
+                  School visited the iGEM lab for learning and exploration,
+                  where we introduced synthetic biology to them. <br />
+                </p>
+                <br />
+                <h4>3.20</h4>
+                <p>
+                  Zuxin Chen,Xinyi Hao——Haijixing Agricultural Market Research:
+                  After learning about the threat of gray mold disease to
+                  tomatoes, we initiated a brainstorming session to develop a
+                  preliminary plan.
+                </p>
+                <br />
+                <h4>April</h4>
+                <br />
+                <h4>4.2</h4>
+                <p>
+                  All members——Online exchange meeting with China Agricultural
+                  University to share our respective project brainstorms and
+                  provide suggestions to each other. <br />
+                </p>
+                <br />
+                <h4>4.22</h4>
+                <p>
+                  All members——Participated in the Deep Blue Charity Sale, where
+                  iGEM teams not only raised funds for public welfare projects
+                  but also contributed to the dissemination and promotion of
+                  synthetic biology knowledge. This helped promote innovation,
+                  education, and the spirit of public service. <br />
+                </p>
+                <br />
+                <h4>4.23</h4>
+                <p>
+                  All members——Innovation and Entrepreneurship Carnival, where
+                  entrepreneurs shared their startup stories and experiences,
+                  providing valuable advice for our future entrepreneurial
+                  plans.
+                  <br />
+                </p>
+                <br />
+                <h4>May</h4>
+                <br />
+                <h4>5.13</h4>
+                <p>
+                  Zuxin Chen,Xinyi Hao——Interview with Mr. Li Xiaojie, Deputy
+                  Director of the Technology Department at the Genomics
+                  Institute. He emphasized the importance of adopting a
+                  "prevention is better than cure" plant protection philosophy
+                  and highlighted the significance of focusing on product
+                  stability, delivery efficiency, and effectiveness.
+                </p>
+                <br />
+                <h4>5.21</h4>
+                <p>
+                  All members——South China Exchange Conference, which brought
+                  together teams from the South China region to build a bridge
+                  for interactive displays, collaborative exchanges, and mutual
+                  learning, creating a conducive atmosphere for exploring
+                  synthetic biology together.
+                </p>
+                <br />
+                <h4>5.31</h4>
+                <p>
+                  Zuxin Chen,Xinyi Hao——Interview with Professor Zhang Yongmin
+                  from Shenzhen University, who believes that plant vaccines
+                  play a crucial role in sustainable agriculture by effectively
+                  reducing the use of pesticides on plants.
+                </p>
+
+                <br />
+                <h4>July</h4>
+                <br />
+                <h4>7.11</h4>
+
+                <p>
+                  All members——CCIC Conference, which brought together teams
+                  from different regions to facilitate interactive displays,
+                  collaborative exchanges, and mutual learning.
+                </p>
+                <br />
+                <h4>7.11</h4>
+                <p>
+                  All members——We had a discussion with the team from Zhejiang
+                  University, exchanging ideas and discussing the project, while
+                  providing each other with suggestions.
+                </p>
+
+                <br />
+                <h4>7.16</h4>
+                <p>
+                  All members——High school teams visited our lab for tours and
+                  exchanges, followed by project presentations and discussions.
+                </p>
+                <br />
+                <h4>7.16</h4>
+                <p>
+                  All members——iGEM team from Macau University exchanged ideas,
+                  discussing projects and planning the first iGEM Greater Bay
+                  Area Synthetic Biology Industry-Academia-Research Forum.
+                </p>
+                <br />
+                <h4>7.20</h4>
+                <p>
+                  Zuxin Chen,Xinyi Hao——The Shenzhen Agricultural Technology
+                  Promotion Center conducted an interview and exchange with Dr.
+                  Li Yonghong, Chief Researcher at the Shenzhen Agricultural
+                  Promotion Center, and Dr. Jin Man from the Chinese Academy of
+                  Sciences. They provided us with a broader perspective and
+                  targeted solutions. <br />
+                  <br />
+                </p>
+
+                <h4>7.22</h4>
+                <p>
+                  Zuxin Chen,Xinyi Hao——We conducted interviews with
+                  agricultural markets and supermarkets, which will help us
+                  better meet market demands and consumer expectations with our
+                  products. <br />
+                </p>
+
+                <br />
+                <h4>August</h4>
+                <br />
+                <h4>8.10</h4>
+                <p>
+                  Zuxin Chen,Xinyi Hao,Ruoyu Chen,Tangkun Zhu,Jiayi Huang——We
+                  visited the Huizhou Boluo County Agricultural Technology
+                  Demonstration Farm to understand the usage of pesticides, the
+                  promotion methods for new products, and the promotional
+                  responsibilities undertaken by the department. <br />
+                </p>
+
+                <br />
+                <h4>8.11</h4>
+                <p>
+                  Zuxin Chen,Xinyi Hao,Ruoyu Chen,Tangkun Zhu,Jiayi
+                  Huang——Director Yin from the Pesticide Residue Testing Center
+                  of Boluo County Agricultural Bureau highly praised our
+                  biopesticides, emphasizing the importance of gaining
+                  recognition from farmers and ensuring effective pesticide
+                  performance.
+                  <br />
+                </p>
+
+                <h4>8.11</h4>
+                Zuxin Chen,Xinyi Hao,Ruoyu Chen,Tangkun Zhu,Jiayi
+                Huang——Interviewed Senior Engineer Wang Rifang and Teacher Li Li
+                from the Agricultural Comprehensive Service Center of Boluo
+                County Agricultural and Rural Service Center, discussing major
+                tomato diseases and related issues.<br />
+                <br />
+                <h4>8.12</h4>
+                Zuxin Chen,Xinyi Hao,Ruoyu Chen,Tangkun Zhu,Jiayi Huang——Visited
+                Guangdong Hongke Testing Technology Co., Ltd., consulting them
+                on specific pesticide residue testing procedures and touring
+                their laboratory. <br />
+                <br />
+                <h4>8.15</h4>
+                Zuxin Chen,Xinyi Hao,Ruoyu Chen,Tangkun Zhu,Jiayi Huang——We
+                conducted an interview with Technician Hong at Huizhou
+                BoshangJiaonong Ecological Agriculture Development Co., Ltd.
+                Here, we gained insights into tomato cultivation and his unique
+                approach to farming. <br />
+                <br />
+                <h4>8.19</h4>
+                Zuxin Chen,Xinyi Hao,Honglin Wei,Yang Yang,Jiayi Huang——First
+                iGEM Greater Bay Area Synthetic Biology
+                Industry-Academia-Research Forum, exploring new ways of
+                collaboration among iGEM teams and emphasizing the collaboration
+                between academia and industry.
+                <br />
+                <br />
+                <h4>8.20</h4>
+                Zuxin Chen,Xinyi Hao,Ruoyu Chen,Erhuan Guan——University City
+                Parent-Child Summer Camp, organizing a series of carefully
+                planned activities to ensure meaningful experiences for the
+                participants.
+                <br />
+                <h4>September</h4>
+                <br />
+                <h4>9.3</h4>
+                All members——2023 iGEM Intercollegiate Synthetic Biology Science
+                Popularization Conference, we provided detailed explanations of
+                our project to participating students and conducted science
+                popularization on the safety of biopesticides. <br />
+                <br />
+                <h4>9.10</h4>
+                All members——A series of Shenzhen University lectures aimed at
+                gradually guiding college students to deepen their understanding
+                of this field. <br />
+                <br />
+                <h4>9.23</h4>
+                Zuxin Chen,Xinyi Hao,Yang Yang,Jiayi Huang——We visited the
+                Dacheng Xin Qianxi Tomato Industry Base for an interview and to
+                conduct trials using our products. <br />
+                <br />
+              </div>
+            </section>
+            <section id="anchor2.7">
+              <div>
+                <h3>Art desigining</h3>
+                <br />
+                <h4>3.4-3.9</h4>
+                <p>
+                  Jiayi Huang,Erhuan Guan——Making original gifts and designing
+                  game cards related to synthetic biology for students from
+                  Affiliated High School of Shenzhen University. <br />
+                </p>
+                <br />
+                <h4>4.8-4.22</h4>
+                <p>
+                  Jiayi Huang,Erhuan Guan——Designing materials for Shenlan
+                  Campus Sales and annual exposition for
+                  students'entrepreneuring and businessing. <br />
+                </p>
+
+                <br />
+                <h4>4.23-5.1</h4>
+                <p>Erhuan Guan——Designing team uniforms. <br /></p>
+
+                <br />
+                <h4>5.3-5.21</h4>
+                <p>
+                  Jiayi Huang,Erhuan Guan——Designing the 7th Southern China
+                  Regional Meeting related materials. <br />
+                </p>
+                <br />
+                <h4>7.5-7.7</h4>
+                <p>
+                  Jiayi Huang,Erhuan Guan——Designing poster of our project for
+                  CCiC(Conference of China iGEMer Community). <br />
+                </p>
+                <br />
+                <h4>7.10-7.20</h4>
+                <p>Jiayi Huang—— Drawing emoji pics. <br /></p>
+                <br />
+                <h4>8.1-8.9</h4>
+                <p>
+                  Jiayi Huang,Erhuan Guan——designing painting albums for
+                  education. <br />
+                </p>
+                <br />
+                <h4>8.10-8.16</h4>
+                <p>
+                  Jiayi Huang——Recording the human practice in huizhou . <br />
+                </p>
+                <br />
+                <h4>8.28-9.14</h4>
+                <p>Jiayi Huang——Completing promotion video. <br /></p>
+                <br />
+                <h4>9.15-10.12</h4>
+                <p>
+                  Jiayi Huang,Erhuan Guan——Shooting the presentation video and
+                  designing the wiki. <br />
+                </p>
+                <br />
+              </div>
+            </section>
+            <section id="anchor2.8">
+              <div>
+                <h3>Wiki Develop</h3>
+                <br />
+                <h4>6.20-7.15</h4>
+                Honglin Wei——Familiarize with the official iGEM wiki editing
+                operations. <br />
+                <br />
+                <h4>7.15-8.20</h4>
+                Honglin Wei—— learning HTML, CSS, and JavaScript. <br />
+                <br />
+                <h4>8.20-9.15</h4>
+                Honglin Wei——Build the wiki framework for our SZU iGEM 2023.
+                <br />
+                <br />
+                <h4>9.15-10.12</h4>
+                Honglin Wei——Complete the home page and gradually complete other
+                necessary pages. <br />
+                <br />
+                Thanks
+                <br />
+                A big thank you to Ling Rongsong, Wu Yingfeng, Shen Yunfeng from
+                Zhejiang University, and others for their help. I am extremely
+                grateful to the other members of SZU 2023 iGEM team and our
+                close collaboration, which allowed us to successfully complete
+                the creation of this wiki!
+                <br />
+              </div>
+              <br />
+              <br />
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+{% endblock %}
